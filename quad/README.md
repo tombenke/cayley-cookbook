@@ -9,6 +9,6 @@ TODO
 
 TODO
 
-![people exported to DOT](people_dot.png)
+![people exported to DOT](writer/people_dot.png)
 
-![people exported to GraphML](people_graphml.png)
+![people exported to GraphML](writer/people_graphml.png)
