@@ -8,10 +8,10 @@ import (
 	"github.com/tombenke/cayley-cookbook/voc/foaf"
 )
 
-func makeData() []quad.Quad {
+func makeQuads() []quad.Quad {
     // Generate Blank Nodes to represent the people internally
     luke := quad.RandomBlankNode()
-    leia := quad.RandomBlankNode()
+    leia := quad.IRI("starwars:leia_organa") //quad.RandomBlankNode()
 
     // Create Quads about to export
     label := "people"
