@@ -1,0 +1,5 @@
+baseURL = "https://tombenke.github.io/cayley-cookbook"
+languageCode = "en-us"
+title = "Cayley-CookBook"
+theme = "book"
+publishdir = "../public/"
