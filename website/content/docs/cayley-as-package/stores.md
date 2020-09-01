@@ -30,6 +30,6 @@ The results:
 
 ## The internal representation of nodes and quads
 
-{{< figure src="/cayley-cookbook/internal-representation.png" title="Cayley Components" >}}
+{{< figure src="/cayley-cookbook/internal-representation.png" title="Internal Representation" >}}
 
 
