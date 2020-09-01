@@ -1,0 +1,28 @@
+# https://taskfile.dev
+
+version: '2'
+
+vars:
+  APPNAME: cayley-cookbook
+
+tasks:
+  default:
+    desc: Executes all the tests then build the binary.
+    cmds:
+      - task: copy_src
+      - task: build_website
+
+  copy_src:
+    desc: Copies all source files into the static folder of the website
+    cmds:
+      - cp -r namespaces/ website/static/src/
+      - cp -r quad/ website/static/src/
+      - cp -r store/ website/static/src/
+      - cp -r voc/ website/static/src/
+
+  build_website:
+    desc: Build the static website content
+    cmds:
+      - cd website
+      - hugo -D
+
