@@ -1,41 +1,17 @@
 ---
-title: Introduction
+title: Cayley CookBook
 type: docs
 ---
 
-# Acerbo datus maxime
+## Cayley CookBook
 
-{{< columns >}}
-## Astris ipse furtiva
+[Cayley](https://github.com/cayleygraph/cayley) is an open-source database for Linked Data. It is inspired by the graph database behind Google's [Knowledge Graph](https://en.wikipedia.org/wiki/Knowledge_Graph).
 
-Est in vagis et Pittheus tu arge accipiter regia iram vocatur nurus. Omnes ut
-olivae sensit **arma sorori** deducit, inesset **crudus**, ego vetuere aliis,
-modo arsit? Utinam rapta fiducia valuere litora _adicit cursu_, ad facies
+This website is a collection of code fragments, that use the 
+[Cayley Knowledge Graph](https://github.com/cayleygraph/cayley) as a Golang library.
 
-<--->
+The subfolders hold basic implementations of the most typical use-cases.
+The main purpose of this collection to make it easier to get started with using Caleygraph.
 
-## Suis quot vota
+[![Run on Repl.it](https://repl.it/badge/github/tombenke/cayley-cokbook)](https://repl.it/github/tombenke/cayley-cookbook)
 
-Ea _furtique_ risere fratres edidit terrae magis. Colla tam mihi tenebat:
-miseram excita suadent es pecudes iam. Concilio _quam_ velatus posset ait quod
-nunc! Fragosis suae dextra geruntur functus vulgata.
-{{< /columns >}}
-
-
-## Tempora nisi nunc
-
-Lorem **markdownum** emicat gestu. Cannis sol pressit ducta. **Est** Idaei,
-tremens ausim se tutaeque, illi ulnis hausit, sed, lumina cutem. Quae avis
-sequens!
-
-    var panel = ram_design;
-    if (backup + system) {
-        file.readPoint = network_native;
-        sidebar_engine_device(cell_tftp_raster,
-                dual_login_paper.adf_vci.application_reader_design(
-                graphicsNvramCdma, lpi_footer_snmp, integer_model));
-    }
-
-## Locis suis novi cum suoque decidit eadem
-
-Idmoniae ripis, at aves, ali missa adest, ut _et autem_, et ab?
