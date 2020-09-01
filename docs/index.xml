@@ -1,22 +1,131 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cayley-CookBook</title>
+    <title>Introduction on Cayley-CookBook</title>
     <link>https://tombenke.github.io/cayley-cookbook/</link>
-    <description>Recent content on Cayley-CookBook</description>
+    <description>Recent content in Introduction on Cayley-CookBook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Tue, 01 Sep 2020 14:04:49 +0200</lastBuildDate>
     
 	<atom:link href="https://tombenke.github.io/cayley-cookbook/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Intro</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/intro/</link>
+      <title>About</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/about/</link>
+      <pubDate>Tue, 01 Sep 2020 14:04:49 +0200</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/about/</guid>
+      <description>About #  TODO</description>
+    </item>
+    
+    <item>
+      <title>Graph Based Data Model</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/graph-based-data-model/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/intro/</guid>
-      <description>Introduction #  TBD.</description>
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/graph-based-data-model/</guid>
+      <description>Graph Based Data Model #  </description>
+    </item>
+    
+    <item>
+      <title>Vocabularies</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/vocabularies/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/vocabularies/</guid>
+      <description>Vocabularies #  </description>
+    </item>
+    
+    <item>
+      <title>Quads</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/quads/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/quads/</guid>
+      <description>Quads #  package main import ( &amp;#34;fmt&amp;#34; &amp;#34;reflect&amp;#34; &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook/voc/foaf&amp;#34; ) func main() { // Create Quads about some people using Blank Nodes as references  quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads  printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references  quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads  printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad.</description>
+    </item>
+    
+    <item>
+      <title>Resources</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/resources/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/resources/</guid>
+      <description>Resources #  </description>
+    </item>
+    
+    <item>
+      <title>Statements</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/statements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/statements/</guid>
+      <description>Statements #  </description>
+    </item>
+    
+    <item>
+      <title>Stores</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/stores/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/stores/</guid>
+      <description>Stores #    Cayley Components   </description>
+    </item>
+    
+    <item>
+      <title>Crud Operations</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/crud-operations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/crud-operations/</guid>
+      <description>Crud Operations #  </description>
+    </item>
+    
+    <item>
+      <title>Vocabularies</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/vocabularies/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/vocabularies/</guid>
+      <description>Vocabularies #  </description>
+    </item>
+    
+    <item>
+      <title>Rdf Graphs</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/rdf-graphs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/rdf-graphs/</guid>
+      <description>Rdf Graphs #  </description>
+    </item>
+    
+    <item>
+      <title>Transactions</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/transactions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/transactions/</guid>
+      <description>Transactions #  </description>
+    </item>
+    
+    <item>
+      <title>Queries</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/</guid>
+      <description>Queries #  </description>
+    </item>
+    
+    <item>
+      <title>Schemas</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/schemas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/schemas/</guid>
+      <description>Schemas #  </description>
     </item>
     
   </channel>

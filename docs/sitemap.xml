@@ -3,19 +3,82 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/docs/intro/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/about/</loc>
+    <lastmod>2020-09-01T14:04:49+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/categories/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/</loc>
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/graph-based-data-model/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/vocabularies/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/quads/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/resources/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/statements/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/stores/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/crud-operations/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/vocabularies/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/rdf-graphs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/transactions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/schemas/</loc>
   </url>
   
   <url>
     <loc>https://tombenke.github.io/cayley-cookbook/docs/</loc>
+    <lastmod>2020-09-01T14:04:49+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/</loc>
+    <lastmod>2020-09-01T14:04:49+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/categories/</loc>
   </url>
   
   <url>

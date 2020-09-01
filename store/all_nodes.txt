@@ -1,0 +1,57 @@
+MemStoreAll *memstore.AllIterator
+Ref: 1 memstore.bnode
+Key: 1 memstore.bnode
+Value: _:n242152451495997854 quad.BNode
+
+Ref: 2 memstore.bnode
+Key: 2 memstore.bnode
+Value: <rdf:type> quad.IRI
+
+Ref: 3 memstore.bnode
+Key: 3 memstore.bnode
+Value: <foaf:Person> quad.IRI
+
+Ref: 4 memstore.bnode
+Key: 4 memstore.bnode
+Value: "people" quad.String
+
+Ref: 6 memstore.bnode
+Key: 6 memstore.bnode
+Value: <foaf:givenName> quad.IRI
+
+Ref: 7 memstore.bnode
+Key: 7 memstore.bnode
+Value: "Luke" quad.String
+
+Ref: 9 memstore.bnode
+Key: 9 memstore.bnode
+Value: <foaf:familyName> quad.IRI
+
+Ref: 10 memstore.bnode
+Key: 10 memstore.bnode
+Value: "Skywalker" quad.String
+
+Ref: 12 memstore.bnode
+Key: 12 memstore.bnode
+Value: <foaf:age> quad.IRI
+
+Ref: 13 memstore.bnode
+Key: 13 memstore.bnode
+Value: "23"^^<xsd:integer> quad.Int
+
+Ref: 15 memstore.bnode
+Key: 15 memstore.bnode
+Value: <starwars:leia_organa> quad.IRI
+
+Ref: 17 memstore.bnode
+Key: 17 memstore.bnode
+Value: <foaf:knows> quad.IRI
+
+Ref: 19 memstore.bnode
+Key: 19 memstore.bnode
+Value: "Leia" quad.String
+
+Ref: 21 memstore.bnode
+Key: 21 memstore.bnode
+Value: "Organa" quad.String
+
