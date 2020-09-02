@@ -4,9 +4,15 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Gráf alapú adatmodellezés #  ">
+<meta name="description" content="Gráf alapú adatmodellezés #  Amikor tudásgráfot építünk, akkor a világ egy részéről építünk fel egy koncepcionális modellt.
+Egy koncepcionális modell jellemzően egy meghatározott szakterületet fed le, ezért ezt a modellt domain-nek, tudás-tartománynak is nevezzük.
+Egy domain a következőket képviseli:
+ az elsődleges entitásokat (a dolgokat, amelyek a domain-be beletartoznak). Az entitásokra használni fogjuk a resource kifejezést is; az entitások között fennálló kapcsolatokat; az entitások és kapcsolatok tulajdonságait, másszóval attributumait. Ezeket property-knek is nevezzzük; esetleg a szabályokat, amelyek az entitások és attributumaik kapcsolatára, azok belső tulajdonságaira vonatkoznak.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Gráf alapú adatmodellezés" />
-<meta property="og:description" content="Gráf alapú adatmodellezés #  " />
+<meta property="og:description" content="Gráf alapú adatmodellezés #  Amikor tudásgráfot építünk, akkor a világ egy részéről építünk fel egy koncepcionális modellt.
+Egy koncepcionális modell jellemzően egy meghatározott szakterületet fed le, ezért ezt a modellt domain-nek, tudás-tartománynak is nevezzük.
+Egy domain a következőket képviseli:
+ az elsődleges entitásokat (a dolgokat, amelyek a domain-be beletartoznak). Az entitásokra használni fogjuk a resource kifejezést is; az entitások között fennálló kapcsolatokat; az entitások és kapcsolatok tulajdonságait, másszóval attributumait. Ezeket property-knek is nevezzzük; esetleg a szabályokat, amelyek az entitások és attributumaik kapcsolatára, azok belső tulajdonságaira vonatkoznak." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/graph-based-data-model/" />
 
@@ -16,7 +22,7 @@
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/graph-based-data-model/" title="Graph Based Data Model">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.091ee99b5a12a1d7f1c51bc5d1015189dd0edf701ec65b7cd91def7c39f05b3b.js" integrity="sha256-CR7pm1oSodfxxRvF0QFRid0O33Aexlt82R3vfDnwWzs="></script>
+<script defer src="/cayley-cookbook/hu.search.min.c176b53f73512c13ec8a2bcb38e2aea35bec7271a03d0322c653e68983233974.js" integrity="sha256-wXa1P3NRLBPsiivLOOKuo1vscnGgPQMixlPmiYMjOXQ="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -50,7 +56,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="" aria-label="" maxlength="64" data-hotkeys="s/" />
+  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -259,6 +265,52 @@ https://github.com/alex-shpak/hugo-book
   Gráf alapú adatmodellezés
   <a class="anchor" href="#gr%c3%a1f-alap%c3%ba-adatmodellez%c3%a9s">#</a>
 </h1>
+<p>Amikor tudásgráfot építünk, akkor a világ egy részéről építünk fel egy koncepcionális modellt.</p>
+<p>Egy koncepcionális modell jellemzően egy meghatározott szakterületet fed le, ezért ezt a modellt domain-nek, tudás-tartománynak is nevezzük.</p>
+<p>Egy domain a következőket képviseli:</p>
+<ul>
+<li>az elsődleges entitásokat (a dolgokat, amelyek a domain-be beletartoznak). Az entitásokra használni fogjuk a resource kifejezést is;</li>
+<li>az entitások között fennálló kapcsolatokat;</li>
+<li>az entitások és kapcsolatok tulajdonságait, másszóval attributumait. Ezeket property-knek is nevezzzük;</li>
+<li>esetleg a szabályokat, amelyek az entitások és attributumaik kapcsolatára, azok belső tulajdonságaira vonatkoznak.</li>
+</ul>
+<p>A gráf alapú adatbáziskezelők, és a szemantikus technológiák hatékonyan alkalmazhatók olyan esetben, ahol rugalmas, gyakran változó, nem struktúrált adamodellel kell dolgozni, és sokféle keresési szempont alapján kell lekérdezéseket végrehajtanunk. Ebből adódóan jók a koncepcionális modellek leírására.</p>
+<p>A <a href="https://hu.wikipedia.org/wiki/Gr%C3%A1f">gráfok</a> két fontos alkotóelemből állnak:</p>
+<ul>
+<li>csomópontok, másnével csúcsok, angolul <strong>node</strong>, vagy <strong>vertex</strong>.</li>
+<li>élek, amelyek a csomópontokat összekötik, angolul <strong>edge</strong>.</li>
+</ul>
+<p>A tudásreprezentációnál a node-okat jellemzően fogalmak, dolgok ábrázolására használjuk, az edge-eket pedig a köztük fennáló kapcsolatok, asszociációk jelölésére.</p>
+<p>Az élek irányítottak, és mind a node-oknak, mind az edge-eknek lehetnek cimkéi, angolul <strong>label</strong>.</p>
+<p>Az 1. ábra egy egyszerű gráfot ábrázol, amin két csomópont (node) található a &ldquo;Luke&rdquo; és &ldquo;Leia&rdquo; cimkékkel, továbbá köztük egy él (edge) a &ldquo;knows&rdquo; cimkével.</p>
+<figure>
+    <img src="/cayley-cookbook/simple-graph.png"/> <figcaption>
+            <h4>1. ábra: Egyszerű Gráf</h4>
+        </figcaption>
+</figure>
+
+<p>Bizonyos gráf adatbáziskezelők megengedik, hogy a node-ok és edge-ek több tulajdonságot is hordozzanak, a <a href="https://cayley.io/" target="_blank">Cayley</a>
+ esetében számunkra ezek egyetlen értéket fognak jelenteni.</p>
+<p>
+
+
+
+  
+
+<a  href="/cayley-cookbook/docs/basic-concepts/"   class="book-btn">
+  &#9669; Alapfogalmak
+</a>
+
+
+
+
+
+  
+
+<a  href="/cayley-cookbook/docs/basic-concepts/resources/"   class="book-btn">
+  Erőforrások &#9659;
+</a>
+</p>
 </article>
  
       

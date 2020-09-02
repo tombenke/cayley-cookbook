@@ -8,5 +8,12 @@ weight: 3
 # bookComments: true
 ---
 
-# Statements
+# Kifejezések
+
+
+## Üres node-ok
+
+
+{{< button relref="resources" >}}&#9669; Erőforrások{{< /button >}}
+{{< button relref="vocabularies" >}}Szótárak &#9659;{{< /button >}}
 
