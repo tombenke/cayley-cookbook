@@ -66,21 +66,25 @@ A teljes kódlista megtekintése package main import ( &amp;#34;fmt&amp;#34; &am
     </item>
     
     <item>
-      <title>Statements</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/statements/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/statements/</guid>
-      <description>Kifejezések #  Üres node-ok #   &amp;#9669; Erőforrások  Szótárak &amp;#9659;  </description>
-    </item>
-    
-    <item>
       <title>Store-ok</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/stores/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/stores/</guid>
       <description>Store-ok #  Teszt adatok előállítása #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally  luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export  label := &amp;#34;people&amp;#34; quads := []quad.Quad{} quads = append(quads, quad.Make(luke, quad.IRI(rdf.Type), quad.IRI(foaf.Person), label)) quads = append(quads, quad.Make(luke, quad.IRI(foaf.GivenName), &amp;#34;Luke&amp;#34;, label)) quads = append(quads, quad.</description>
+    </item>
+    
+    <item>
+      <title>Állítások</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/statements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/statements/</guid>
+      <description>Állítások #  Alany, Állítmány, Tárgy #  A tudást tény-állításokként rögzítjük. A tényeket kijelentő mondatokként megfogalmazott állítások formájában írtuk le. Például:
+Luke Skywalker életkora kora 23 év. angolul:
+Luke Skywalker has age 23. A mondatokat át lehet alakítani olyan formába, hogy azok az alany-állítmány-tárgy szerkezetet tükrözzék. Ezeket a szerkezeti elemeket angolul subject-predicate-object névvel azonosítjuk.
+Luke-Skywalker has-age 23. A mondat elemei:
+ subject (alany): Luke-Skywalker, predicate (állítmány): has-age, object (tárgy): 23.</description>
     </item>
     
     <item>

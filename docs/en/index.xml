@@ -64,12 +64,12 @@ See the full list of source code package main import ( &amp;#34;fmt&amp;#34; &am
     </item>
     
     <item>
-      <title>Kifejezések</title>
+      <title>Statements</title>
       <link>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/statements/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/statements/</guid>
-      <description>Kifejezések #  </description>
+      <description>Stattements #  Statements or assertions</description>
     </item>
     
     <item>

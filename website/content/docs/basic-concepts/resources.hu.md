@@ -67,11 +67,20 @@ Az erőforrást, amire az IRI hivatkozik, és amit azonosít az azonosítás tá
 
 Példák IRI-kre:
 
-```nquads
+```txt
 <star-wars-universe:luke_skywalker>
 <star-wars-universe:han_solo>
 <35345322-543555-534534532>
 <https://en.wikipedia.org/wiki/Millennium_Falcon>
+```
+
+Az IRI-k absztrakt dolgokat, fogalmakat is kifejezhetnek, mint például dolgok tulajdonságainak azonosítását, vagy a entitások közötti viszony kifejezését. Erre példa az alábbi néhány IRI:
+
+```txt
+<has>
+<is>
+<nameOf>
+<foaf:knows>
 ```
 
 ## Literál értékek
@@ -104,5 +113,5 @@ Példák nyelvi azonosításra:
 A nyelv azonosítása mellett az írás irányát is lehet, jelezni, és még sok finom részletet tárgyalnak a specifikációk, de ezek ismerete nem szükséges az itt leírtak megértéséhez és a {{< cayley >}} használatához.
 
 {{< button relref="graph-based-data-model" >}}&#9669; Gráf alapú adat modell{{< /button >}}
-{{< button relref="statements" >}}Kifejezések &#9659;{{< /button >}}
+{{< button relref="statements" >}}Állítások &#9659;{{< /button >}}
 

@@ -1,5 +1,5 @@
 ---
-title: "Kifejezések"
+title: "Statements"
 weight: 3
 # bookFlatSection: false
 # bookToc: true
@@ -8,5 +8,6 @@ weight: 3
 # bookComments: true
 ---
 
-# Kifejezések
+# Stattements
 
+Statements or assertions
