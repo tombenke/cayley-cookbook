@@ -1,6 +1,6 @@
 ---
-title: "Crud Operations"
-weight: 4
+title: "Rdf Gráfok"
+weight: 5
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false
@@ -8,4 +8,4 @@ weight: 4
 # bookComments: true
 ---
 
-# Crud Operations
+# Rdf Gráfok

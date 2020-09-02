@@ -7,4 +7,15 @@ title = "Cayley-CookBook"
 theme = "book"
 publishDir = "../docs/"
 BookMenuBundle = "/menu"
+DefaultContentLanguage = "hu"
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    languageNameShort = "en"
+    weight = 1
+  [languages.hu]
+    languageName = "Magyar"
+    languageNameShort = "hu"
+    weight = 2
 

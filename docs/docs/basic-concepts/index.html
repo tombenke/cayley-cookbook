@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" dir=>
+<html lang="hu" dir=>
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Basic Concepts #  This Chapter introduces some fundamental concepts required to work with Knowledge Graphs and especially with Cayley.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Basic Concepts" />
+<meta name="description" content="Alapfogalmak #  Ez a fejezet azokat az alapfogalmakat ismerteti, amelyek szükségesek ahhoz, hogy tudásgráfokkal dolgozzunk, és hogy a Cayley-t használni tudjuk.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Alapfogalmak" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/" />
 
-<title>Basic Concepts | Cayley-CookBook</title>
+<title>Alapfogalmak | Cayley-CookBook</title>
 <link rel="manifest" href="/cayley-cookbook/manifest.json">
 <link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/" title="Basic Concepts">
+
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/en.search.min.ab45e160e11c1c60610d356ab010a91151ec67b765bfcb336ea953c996c0bf47.js" integrity="sha256-q0XhYOEcHGBhDTVqsBCpEVHsZ7dlv8szbqlTyZbAv0c="></script>
+<script defer src="/cayley-cookbook/hu.search.min.091ee99b5a12a1d7f1c51bc5d1015189dd0edf701ec65b7cd91def7c39f05b3b.js" integrity="sha256-CR7pm1oSodfxxRvF0QFRid0O33Aexlt82R3vfDnwWzs="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -49,7 +51,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <input type="text" id="book-search-input" placeholder="" aria-label="" maxlength="64" data-hotkeys="s/" />
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -80,7 +82,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/about/" class="">About</a>
+    <a href="/cayley-cookbook/docs/about/" class="">Bevezetés</a>
   
 
         </li>
@@ -90,7 +92,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed active">Basic Concepts</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed active">Alapfogalmak</a>
   
 
           
@@ -105,7 +107,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/graph-based-data-model/" class="">Graph Based Data Model</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/graph-based-data-model/" class="">Gráf alapú adatmodellezés</a>
   
 
         </li>
@@ -115,7 +117,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/resources/" class="">Resources</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/resources/" class="">Erőforrások</a>
   
 
         </li>
@@ -135,7 +137,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/vocabularies/" class="">Vocabularies</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/vocabularies/" class="">Szótárak</a>
   
 
         </li>
@@ -145,7 +147,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/rdf-graphs/" class="">Rdf Graphs</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/rdf-graphs/" class="">Rdf Gráfok</a>
   
 
         </li>
@@ -161,7 +163,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/cayley-overview/" class="">Cayley Overview</a>
+    <a href="/cayley-cookbook/docs/cayley-overview/" class="">A Cayley rendszer áttekintése</a>
   
 
           
@@ -182,7 +184,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/cayley-as-package/" class="collapsed ">Cayley as Package</a>
+    <a href="/cayley-cookbook/docs/cayley-as-package/" class="collapsed ">Cayley mint Package</a>
   
 
           
@@ -231,7 +233,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Basic Concepts</strong>
+  <strong>Alapfogalmak</strong>
 
   <label for="toc-control">
     
@@ -254,11 +256,11 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="basic-concepts">
-  Basic Concepts
-  <a class="anchor" href="#basic-concepts">#</a>
+  <article class="markdown"><h1 id="alapfogalmak">
+  Alapfogalmak
+  <a class="anchor" href="#alapfogalmak">#</a>
 </h1>
-<p>This Chapter introduces some fundamental concepts required to work with Knowledge Graphs and especially with Cayley.</p>
+<p>Ez a fejezet azokat az alapfogalmakat ismerteti, amelyek szükségesek ahhoz, hogy tudásgráfokkal dolgozzunk, és hogy a Cayley-t használni tudjuk.</p>
 </article>
  
       
@@ -266,6 +268,45 @@ https://github.com/alex-shpak/hugo-book
       <footer class="book-footer">
         
   <div class="flex flex-wrap justify-between">
+
+  
+
+
+  
+
+  
+
+
+  
+
+
+<div class="book-languages" tabindex="0" aria-haspopup="true">
+  <ul>
+    <li class="flex align-center">
+      <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+      Magyar
+    </li> 
+  </ul>
+
+  <ul class="book-languages-list">
+    
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </li>
+    
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        Magyar
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
 
 
 

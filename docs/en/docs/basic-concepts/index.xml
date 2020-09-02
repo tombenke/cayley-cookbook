@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Basic Concepts on Cayley-CookBook</title>
+    <link>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/</link>
+    <description>Recent content in Basic Concepts on Cayley-CookBook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Graph Based Data Model</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/graph-based-data-model/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/graph-based-data-model/</guid>
+      <description>Graph Based Data Model #  </description>
+    </item>
+    
+    <item>
+      <title>Resources</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/resources/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/resources/</guid>
+      <description>Resources #  </description>
+    </item>
+    
+    <item>
+      <title>Kifejezések</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/statements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/statements/</guid>
+      <description>Kifejezések #  </description>
+    </item>
+    
+    <item>
+      <title>Vocabularies</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/vocabularies/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/vocabularies/</guid>
+      <description>Vocabularies #  </description>
+    </item>
+    
+    <item>
+      <title>Rdf Graphs</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/rdf-graphs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/rdf-graphs/</guid>
+      <description>Rdf Graphs #  </description>
+    </item>
+    
+  </channel>
+</rss>

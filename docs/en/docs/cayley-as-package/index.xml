@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cayley as Package on Cayley-CookBook</title>
+    <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/</link>
+    <description>Recent content in Cayley as Package on Cayley-CookBook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vocabularies</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/vocabularies/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/vocabularies/</guid>
+      <description>Namespaces and Vocabularies #  Namespaces #  The following code fragment lists all the namespaces currently registered:
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add some predefined vocabularies 	_ &amp;#34;github.com/cayleygraph/quad/voc/schema&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/xsd&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; ) func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;); for _, v := range voc.List() { fmt.Printf(&amp;#34; %s =&amp;gt; %s\n&amp;#34;, v.Prefix, v.Full); } } 
+cd namespaces go run list_namespaces.go` The results:
+Registered namespaces: schema: =&amp;gt; http://schema.</description>
+    </item>
+    
+    <item>
+      <title>Quads</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/quads/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/quads/</guid>
+      <description>Quads #  This code creates a set of quads, then exports them into several formats:
+See the full list of source code package main import ( &amp;#34;fmt&amp;#34; &amp;#34;reflect&amp;#34; &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook/voc/foaf&amp;#34; ) func main() { // Create Quads about some people using Blank Nodes as references  quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads  printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references  quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads  printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad.</description>
+    </item>
+    
+    <item>
+      <title>Stores</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/stores/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/stores/</guid>
+      <description>Stores #  Test data #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally  luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export  label := &amp;#34;people&amp;#34; quads := []quad.Quad{} quads = append(quads, quad.Make(luke, quad.IRI(rdf.Type), quad.IRI(foaf.Person), label)) quads = append(quads, quad.Make(luke, quad.IRI(foaf.GivenName), &amp;#34;Luke&amp;#34;, label)) quads = append(quads, quad.</description>
+    </item>
+    
+    <item>
+      <title>CRUD Operations</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/crud-operations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/crud-operations/</guid>
+      <description>CRUD Operations #  </description>
+    </item>
+    
+    <item>
+      <title>Transactions</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/transactions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/transactions/</guid>
+      <description>Transactions #  </description>
+    </item>
+    
+    <item>
+      <title>Queries</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/</guid>
+      <description>Queries #  </description>
+    </item>
+    
+    <item>
+      <title>Schemas</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/schemas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/schemas/</guid>
+      <description>Schemas #  </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -12,52 +12,53 @@
     
     
     <item>
-      <title>About</title>
+      <title>Bevezetés</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/about/</link>
       <pubDate>Tue, 01 Sep 2020 14:04:49 +0200</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/about/</guid>
-      <description>About #  TODO</description>
+      <description>Bevezetés #  A tartalom három fő fejezetre tagolódik.
+ Az &amp;ldquo;Alapfogalmak&amp;rdquo; c. fejezet ismerteti azokat a tudnivalókat, amelyek szükségesek ahhoz, hogy a Cayley-t használni tudjuk. &amp;ldquo;A Cayley rendszer áttekintése&amp;rdquo; c. fejezet segít eligazodni abban, hogy milyen elemekből áll a Cayley &amp;ldquo;ökoszisztéma&amp;rdquo;, és az egyes elemeit milyen módon lehet használni, hol találunk hozzá dokumentációt. A &amp;ldquo;Cayley mint Go package&amp;rdquo; c. fejezet alkotja a szakácskönyv fő tartalmát. Ebben találhatjuk az egyes használati eseteket, kezdve az egyszerűbbekkel, majd haladva a bonyolultabbak irányában.</description>
     </item>
     
     <item>
-      <title>Graph Based Data Model</title>
+      <title>Gráf alapú adatmodellezés</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/graph-based-data-model/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/graph-based-data-model/</guid>
-      <description>Graph Based Data Model #  </description>
+      <description>Gráf alapú adatmodellezés #  </description>
     </item>
     
     <item>
-      <title>Vocabularies</title>
+      <title>Namespace-ek és szótárak</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/vocabularies/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/vocabularies/</guid>
-      <description>Namespaces and Vocabularies #  Namespaces #  The following code fragment lists all the namespaces currently registered:
+      <description>Namespace-ek és szótárak #  Namespace-ek #  Az alábbi kód kilistázza az összes, jelenleg regisztrált namespace-t:
 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add some predefined vocabularies 	_ &amp;#34;github.com/cayleygraph/quad/voc/schema&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/xsd&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; ) func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;); for _, v := range voc.List() { fmt.Printf(&amp;#34; %s =&amp;gt; %s\n&amp;#34;, v.Prefix, v.Full); } } 
-cd namespaces go run list_namespaces.go` The results:
+cd namespaces go run list_namespaces.go` a program kimenete:
 Registered namespaces: schema: =&amp;gt; http://schema.</description>
     </item>
     
     <item>
-      <title>Quads</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/quads/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/quads/</guid>
-      <description>Quads #  This code creates a set of quads, then exports them into several formats:
-See the full list of source code package main import ( &amp;#34;fmt&amp;#34; &amp;#34;reflect&amp;#34; &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook/voc/foaf&amp;#34; ) func main() { // Create Quads about some people using Blank Nodes as references  quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads  printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references  quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads  printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad.</description>
-    </item>
-    
-    <item>
-      <title>Resources</title>
+      <title>Erőforrások</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/resources/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/resources/</guid>
-      <description>Resources #  </description>
+      <description>Erőforrások #  </description>
+    </item>
+    
+    <item>
+      <title>Quad-ok</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/quads/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/quads/</guid>
+      <description>Quad-ok #  Az alábbi példa létrehoz egy quad halmazt, majd kiexportálja többféle formátumban:
+A teljes kódlista megtekintése package main import ( &amp;#34;fmt&amp;#34; &amp;#34;reflect&amp;#34; &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook/voc/foaf&amp;#34; ) func main() { // Create Quads about some people using Blank Nodes as references  quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads  printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references  quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads  printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad.</description>
     </item>
     
     <item>
@@ -70,66 +71,66 @@ See the full list of source code package main import ( &amp;#34;fmt&amp;#34; &am
     </item>
     
     <item>
-      <title>Stores</title>
+      <title>Store-ok</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/stores/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/stores/</guid>
-      <description>Stores #  Test data #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally  luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export  label := &amp;#34;people&amp;#34; quads := []quad.Quad{} quads = append(quads, quad.Make(luke, quad.IRI(rdf.Type), quad.IRI(foaf.Person), label)) quads = append(quads, quad.Make(luke, quad.IRI(foaf.GivenName), &amp;#34;Luke&amp;#34;, label)) quads = append(quads, quad.</description>
+      <description>Store-ok #  Teszt adatok előállítása #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally  luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export  label := &amp;#34;people&amp;#34; quads := []quad.Quad{} quads = append(quads, quad.Make(luke, quad.IRI(rdf.Type), quad.IRI(foaf.Person), label)) quads = append(quads, quad.Make(luke, quad.IRI(foaf.GivenName), &amp;#34;Luke&amp;#34;, label)) quads = append(quads, quad.</description>
     </item>
     
     <item>
-      <title>Crud Operations</title>
+      <title>CRUD Műveletek</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/crud-operations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/crud-operations/</guid>
-      <description>Crud Operations #  </description>
+      <description>CRUD Műveletek #  </description>
     </item>
     
     <item>
-      <title>Vocabularies</title>
+      <title>Szótárak</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/vocabularies/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/vocabularies/</guid>
-      <description>Vocabularies #  </description>
+      <description>Szótárak #  </description>
     </item>
     
     <item>
-      <title>Rdf Graphs</title>
+      <title>Rdf Gráfok</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/rdf-graphs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/rdf-graphs/</guid>
-      <description>Rdf Graphs #  </description>
+      <description>Rdf Gráfok #  </description>
     </item>
     
     <item>
-      <title>Transactions</title>
+      <title>Tranzakciók</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/transactions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/transactions/</guid>
-      <description>Transactions #  </description>
+      <description>Tranzakciók #  </description>
     </item>
     
     <item>
-      <title>Queries</title>
+      <title>Lekérdezések</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/</guid>
-      <description>Queries #  </description>
+      <description>Lekérdezések #  </description>
     </item>
     
     <item>
-      <title>Schemas</title>
+      <title>Sémák</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/schemas/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/schemas/</guid>
-      <description>Schemas #  </description>
+      <description>Sémák #  </description>
     </item>
     
   </channel>
