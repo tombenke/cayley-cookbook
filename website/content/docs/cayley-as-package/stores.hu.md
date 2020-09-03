@@ -19,14 +19,14 @@ weight: 3
 
 A program kimenete:
 
-{{% code file="/static/src/store/all_nodes.txt" language="txt" %}}
+{{% code file="/static/src/store/all_nodes.out" language="txt" %}}
 
 ## Quad-ok a Store-ban
 {{% code file="/static/src/store/print_all_quads.go" language="go" %}}
 
 A program kimenete:
 
-{{% code file="/static/src/store/all_quads.txt" language="txt" %}}
+{{% code file="/static/src/store/all_quads.out" language="txt" %}}
 
 ## A node-ok és quad-ok belső reprezentációja
 

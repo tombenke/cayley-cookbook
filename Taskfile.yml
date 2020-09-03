@@ -9,8 +9,35 @@ tasks:
   default:
     desc: Executes all the tests then build the binary.
     cmds:
+      - task: execute_samples
       - task: copy_src
       - task: build_website
+
+  execute_samples:
+    desc: Executes the sample programs to generate outputs
+    cmds:
+      - task: execute_namespaces
+      - task: execute_schema
+      - task: execute_store
+
+  execute_namespaces:
+      - cd namespaces && go run list_namespaces.go > list_namespaces.out
+      - cd namespaces && go run register_namespace.go > register_namespace.out
+
+  execute_quad:
+      - cd quad && go run make_quads.go > make_quads.out
+      # NOTE: The quad/writer samples are not run automatically,
+      # because manual customization of the output graphs is required
+
+  execute_schema:
+      - cd schema && go run import_bookmarks_with_schema.go yamlImpex.go store.go bookmarks.go > import_bookmarks_with_schema.out
+      - cd schema && go run impex_bookmarks_with_schema.go yamlImpex.go store.go bookmarks.go > impex_bookmarks_with_schema.out
+      - cd schema && go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go > find_bookmarks_by_tags.out
+
+  execute_store:
+      - cd store && go run print_all_nodes.go data.go > all_nodes.out
+      - cd store && go run print_all_quads.go data.go > all_quads.out
+      - cd store && go run query_all.go data.go > all.out
 
   copy_src:
     desc: Copies all source files into the static folder of the website

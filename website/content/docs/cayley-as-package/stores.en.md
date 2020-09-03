@@ -19,14 +19,14 @@ weight: 3
 
 The results:
 
-{{% code file="/static/src/store/all_nodes.txt" language="txt" %}}
+{{% code file="/static/src/store/all_nodes.out" language="txt" %}}
 
 ## Quads in the Store
 {{% code file="/static/src/store/print_all_quads.go" language="go" %}}
 
 The results:
 
-{{% code file="/static/src/store/all_quads.txt" language="txt" %}}
+{{% code file="/static/src/store/all_quads.out" language="txt" %}}
 
 ## The internal representation of nodes and quads
 
