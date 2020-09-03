@@ -26,6 +26,7 @@ func main() {
 }
 
 func ImportBookmarksWithSchema() {
+	// Create an in-memory store
 	store := initStore()
 
 	// Load Bookmarks from YAML and upload into the mem-store
@@ -33,6 +34,9 @@ func ImportBookmarksWithSchema() {
 
 	// Check if Bookmarks have been uploaded
 	stats, err := store.Stats(context.Background(), true)
-	fmt.Printf("err: %v\n", err)
-	fmt.Printf("stats: %v\n", stats)
+	if err != nil {
+		panic(err)
+	} else {
+		fmt.Printf("Successfully imported bookmarks into the mem-store as %d nodes and %d quads.\n", stats.Nodes.Size, stats.Quads.Size)
+	}
 }

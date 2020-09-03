@@ -67,13 +67,11 @@ func GetAllShortBookmarks(store *cayley.Handle) (Bookmarks, error) {
 
 func GetAllBookmarks(store *cayley.Handle) (Bookmarks, error) {
 	var bms Bookmarks
-	//p := cayley.StartPath(store).Has(quad.IRI("rdf:type"), quad.IRI("Bookmark"))
 	p := cayley.StartPath(store, quad.IRI("Bookmark")).In(quad.IRI("rdf:type"))
 	schemaConfig := schema.NewConfig()
 	err := p.Iterate(context.Background()).EachValuePair(nil, func(ref graph.Ref, value quad.Value) {
 		var b Bookmark
 		schemaConfig.LoadTo(context.Background(), store, &b, value)
-		//log.Printf("%v, %v, %v\n", reflect.TypeOf(ref), ref.Key(), b)
 		bms = append(bms, b)
 	})
 

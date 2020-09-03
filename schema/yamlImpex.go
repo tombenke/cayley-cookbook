@@ -1,14 +1,14 @@
 package main
 
 import (
-	"bufio"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
-	"os"
 	path "path/filepath"
 )
 
+// Read YAML file and unmarshal its content into the `dst` data structure,
+// using the `yaml` annotation of the structs.
 func ReadFromYaml(yamlPath string, dst interface{}) error {
 
 	absPath, err := path.Abs(yamlPath)
@@ -31,28 +31,8 @@ func ReadFromYaml(yamlPath string, dst interface{}) error {
 	return nil
 }
 
-func ReadFromYamlStream(yamlPath string, dst interface{}) error {
-
-	absPath, err := path.Abs(yamlPath)
-	if err != nil {
-		log.Printf("%s", err)
-		return err
-	}
-
-	f, err := os.Open(absPath)
-	if err != nil {
-		log.Printf("%s", err)
-		return err
-	}
-
-	defer f.Close()
-
-	yamlReader := bufio.NewReader(f)
-
-	dec := yaml.NewDecoder(yamlReader)
-	return dec.Decode(dst)
-}
-
+// Marshal the content from the `dst` data structure, and savel into a YAML file
+// using the `yaml` annotation of the structs.
 func SaveToYaml(yamlPath string, src interface{}) error {
 	buf, err := yaml.Marshal(src)
 	if err != nil {
