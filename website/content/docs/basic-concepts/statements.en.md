@@ -1,6 +1,7 @@
 ---
 title: "Statements"
 weight: 3
+keywords: ["triplet","subject","predicate","object"]
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false
@@ -8,6 +9,9 @@ weight: 3
 # bookComments: true
 ---
 
-# Stattements
+# Statements
 
 Statements or assertions
+
+{{< seealso >}}
+

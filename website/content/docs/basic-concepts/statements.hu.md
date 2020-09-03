@@ -1,6 +1,7 @@
 ---
 title: "Állítások"
 weight: 3
+keywords: ["triplet","subject","predicate","object","IRI","literal","statement"]
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false
@@ -55,6 +56,7 @@ Láthatjuk az 1. ábrán, hogy a `subject-predicate-object` hármas felrajzolhat
 
 {{< figure src="/cayley-cookbook/subject-predicate-object-graph.png" title="1. ábra: Subject-Predicate-Object Gráf" >}}
 
+Az ilyen formában felírt kijelentést __triplet__-nek is nevezik.
 
 Példaképpen vizsgáljuk meg, hogyan tudnánk reprezentálni a számítógép számára az alábbi tényeket:
 
@@ -123,6 +125,8 @@ A 3. ábra hasonló a 2. ábrán látható gráfhoz, azzal a különbséggel, ho
 {{< figure src="/cayley-cookbook/blank-node-example.png" title="3. ábra: Predikátumok gráfként ábrázolva, Blank node-okkal" >}}
 
 A Blank Node-okat szürke színnel jelöljük.
+
+{{< seealso >}}
 
 {{< button relref="resources" >}}&#9669; Erőforrások{{< /button >}}
 {{< button relref="vocabularies" >}}Szótárak &#9659;{{< /button >}}

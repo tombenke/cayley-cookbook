@@ -1,0 +1,15 @@
+{{ $related := .Site.RegularPages.RelatedTo ( keyVals "keywords" "subject") }}
+{{ $thisPageTitle := .Page.Title }}
+<hr />
+<p>
+{{ i18n "seeAlso" }}:
+{{ range $related }}
+<ul>
+    {{ if not (eq $thisPageTitle .Title) }}
+    <li>
+            <a href="{{.Permalink}}"> {{.Title}}</a>
+    </li>
+    {{end}}
+</ul>
+{{ end }}
+</p>

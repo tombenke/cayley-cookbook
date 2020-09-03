@@ -8,6 +8,7 @@ theme = "book"
 publishDir = "../docs/"
 BookMenuBundle = "/menu"
 DefaultContentLanguage = "hu"
+enableInlineShortcodes = true
 
 [languages]
   [languages.en]
@@ -18,4 +19,13 @@ DefaultContentLanguage = "hu"
     languageName = "Magyar"
     languageNameShort = "hu"
     weight = 2
+
+[related]
+  includeNewer = false
+  threshold = 10
+  toLower = false
+
+  [[related.indices]]
+    name = "keywords"
+    weight = 10
 

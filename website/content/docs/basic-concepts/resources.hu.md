@@ -1,6 +1,7 @@
 ---
 title: "Erőforrások"
 weight: 2
+keywords: ["entity","resource","literal","property","IRI"]
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false

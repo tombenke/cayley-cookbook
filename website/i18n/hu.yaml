@@ -12,3 +12,6 @@
 
 - id: bookSearchConfig
   translation: '{ cache: true }'
+
+- id: seeAlso
+  translation: Kapcsolódó oldalak
