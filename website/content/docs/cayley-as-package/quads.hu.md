@@ -17,13 +17,13 @@ Az alábbi példa létrehoz egy quad halmazt, majd kiexportálja többféle form
 {{% code file="/static/src/quad/make_quads.go" language="go" %}}
 {{< /details >}}
 
+Futtassuk a programot:
 [![Run this code on Repl.it](https://repl.it/badge/github/tombenke/cayley-cokbook)](https://repl.it/@tombenke/cayley-cookbook-1#quad/writer/export_nquads_to_stdout.go)
 
 ```bash
     cd quad/writer
     go run export_nquads_to_stdout.go data
 ```
-
 
 A program kimenete:
 
