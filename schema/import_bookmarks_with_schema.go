@@ -22,10 +22,10 @@ func init() {
 }
 
 func main() {
-	ImportBookmarks()
+	ImportBookmarksWithSchema()
 }
 
-func ImportBookmarks() {
+func ImportBookmarksWithSchema() {
 	store := initStore()
 
 	// Load Bookmarks from YAML and upload into the mem-store

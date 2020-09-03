@@ -92,6 +92,7 @@
   published: ""
   tags: [octavian, machine-learning, open-source, research, graph, knowledge-graph,
     macgraph, brainputer]
+  urls: ['https://www.octavian.ai/']
 - id: 955d0202-d259-46c7-b71b-eb2434da2058
   title: Build your own Knowledge Graph From unstructured dark data to valuable business
     insights
@@ -156,12 +157,14 @@
   published: ""
   tags: [dictionary, gellish.net, gellish, nlp, cognitive-computing, electronic-dictionary,
     open-source, semantic-web, brainputer, robotics]
+  urls: ['https://www.gellish.net/']
 - id: bdd898dc-76de-4a41-86b1-8757aff5fe6c
   title: Semantic Web and Model-Driven Engineering
   content: Too theoretical
   author: ""
   published: ""
   tags: [architecture, system-design, ddd, domain-driven-design, soo-poc, semantic-web]
+  urls: ['http://www.allitebooks.org/semantic-web-and-model-driven-engineering/']
 - id: 1deb716d-4ca8-4834-a771-7c68e8844067
   title: MRD, Machine Readable dictionary
   content: ""

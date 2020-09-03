@@ -21,8 +21,15 @@ type Bookmark struct {
 	Urls      []string `yaml:"urls,flow" quad:"urls"`
 }
 
+type BookmarkShort struct {
+	ID    quad.IRI `yaml:"id" quad:"id"`
+	Title string   `yaml:"title" quad:"title"`
+	Urls  []string `yaml:"urls,flow" quad:"urls"`
+}
+
 func init() {
 	schema.RegisterType("Bookmark", Bookmark{})
+	schema.RegisterType("BookmarkShort", BookmarkShort{})
 }
 
 func Import(store *cayley.Handle, dbPath string) {
@@ -36,6 +43,26 @@ func Import(store *cayley.Handle, dbPath string) {
 			log.Fatalf("%v", err)
 		}
 	}
+}
+
+func GetAllShortBookmarks(store *cayley.Handle) (Bookmarks, error) {
+	var bms Bookmarks
+	//p := cayley.StartPath(store).Has(quad.IRI("rdf:type"), quad.IRI("Bookmark"))
+	p := cayley.StartPath(store, quad.IRI("Bookmark")).In(quad.IRI("rdf:type"))
+	schemaConfig := schema.NewConfig()
+	err := p.Iterate(context.Background()).EachValuePair(nil, func(ref graph.Ref, value quad.Value) {
+		var b Bookmark
+		schemaConfig.LoadTo(context.Background(), store, &b, value)
+		//log.Printf("%v, %v, %v\n", reflect.TypeOf(ref), ref.Key(), b)
+		bms = append(bms, b)
+	})
+
+	if err != nil {
+		log.Printf("%v", err)
+		return nil, err
+	}
+
+	return bms, nil
 }
 
 func GetAllBookmarks(store *cayley.Handle) (Bookmarks, error) {
