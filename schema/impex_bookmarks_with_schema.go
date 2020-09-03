@@ -44,9 +44,12 @@ func ImportBookmarksWithSchema(store *cayley.Handle) {
 	Import(store, bookmarksFixtures)
 
 	// Check if Bookmarks have been uploaded
-	stats, err := store.Stats(context.Background(), true)
-	fmt.Printf("err: %v\n", err)
-	fmt.Printf("stats: %v\n", stats)
+	_, err := store.Stats(context.Background(), true)
+	if err != nil {
+		panic(err)
+	} else {
+		fmt.Printf("Successfully imported bookmarks into the mem-store.\n")
+	}
 }
 
 func printBookmarks(bookmarks Bookmarks) {
