@@ -1,6 +1,10 @@
 ---
 title: "Sémák"
 weight: 7
+keywords:
+  - schema
+  - import
+  - export
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false
@@ -9,3 +13,5 @@ weight: 7
 ---
 
 # Sémák
+
+{{< seealso >}}

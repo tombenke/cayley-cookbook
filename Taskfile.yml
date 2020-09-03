@@ -17,6 +17,7 @@ tasks:
     cmds:
       - cp -r namespaces/ website/static/src/
       - cp -r quad/ website/static/src/
+      - cp -r schema/ website/static/src/
       - cp -r store/ website/static/src/
       - cp -r voc/ website/static/src/
 
