@@ -1,7 +1,7 @@
 ---
 title: "Transactions"
 weight: 5
-keywords: ["triplet","subject","predicate","object"]
+keywords: ["transaction"]
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false

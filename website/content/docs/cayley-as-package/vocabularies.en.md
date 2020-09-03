@@ -1,6 +1,7 @@
 ---
-title: "Vocabularies"
+title: "Namespaces and Vocabularies"
 weight: 1
+keywords: ["vocabulary", "prefix", "namespace", "foaf"]
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false
@@ -51,3 +52,6 @@ The `foaf.go` package defines the most frequently used terms of the [FOAF Vocabu
 This package is used by several other examples of the cookbook as a vocabulary to use some terms as predicates.
 
 {{% code file="/static/src/voc/foaf/foaf.go" language="go" %}}
+
+{{< seealso >}}
+

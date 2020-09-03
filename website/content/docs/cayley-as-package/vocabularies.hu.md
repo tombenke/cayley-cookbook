@@ -1,6 +1,7 @@
 ---
 title: "Namespace-ek és szótárak"
 weight: 1
+keywords: ["vocabulary", "prefix", "namespace", "foaf"]
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false
@@ -52,4 +53,6 @@ A `foaf.go` package [FOAF Vocabulary Specification](http://xmlns.com/foaf/spec/)
 Ezt a package-et több példában is használjuk. A szótárban definiált szavakat predikátumként alkalmazzuk.
 
 {{% code file="/static/src/voc/foaf/foaf.go" language="go" %}}
+
+{{< seealso >}}
 

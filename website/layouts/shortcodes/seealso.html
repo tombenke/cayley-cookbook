@@ -1,7 +1,7 @@
-{{ $related := .Site.RegularPages.RelatedTo ( keyVals "keywords" "subject") }}
-{{ $thisPageTitle := .Page.Title }}
 <hr />
 <p>
+{{ $related := .Site.RegularPages.Related .Page }}
+{{ $thisPageTitle := .Page.Title }}
 {{ i18n "seeAlso" }}:
 {{ range $related }}
 <ul>

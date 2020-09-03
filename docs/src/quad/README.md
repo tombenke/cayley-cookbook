@@ -1,14 +1,9 @@
 Quads
 =====
+Run examples:
 
-## Make Quads
+```bash
+    cd quad
+    go run make_quads.go
+```
 
-TODO
-
-## Export Quads
-
-TODO
-
-![people exported to DOT](./writer/people_dot.png)
-
-![people exported to GraphML](./writer/people_graphml.png)

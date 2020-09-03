@@ -1,6 +1,7 @@
 ---
 title: "Vocabularies"
 weight: 4
+keywords: ["vocabulary", "prefix", "namespace", "foaf"]
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false
@@ -9,3 +10,6 @@ weight: 4
 ---
 
 # Vocabularies
+
+{{< seealso >}}
+
