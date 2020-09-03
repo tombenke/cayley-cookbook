@@ -69,7 +69,7 @@ Az adatokat először beolvassuk egy `[]Bookmarks` típusú változóba, majd ab
 {{< /details >}}
 
 Futtassuk a programot:
-[![Run this code on Repl.it](https://repl.it/badge/github/tombenke/cayley-cokbook)](https://repl.it/@tombenke/cayley-cookbook-1#schema/import_bookmarks_with_schema.go)
+[![Run this code on Repl.it](https://repl.it/badge/github/tombenke/cayley-cokbook)](https://repl.it/@tombenke/cayley-cookbook#schema/import_bookmarks_with_schema.go)
 
 ```bash
     cd schema
@@ -95,7 +95,7 @@ Mindkét funkció a `bookmarks.go` file-ban van implementálva, és a `schemaCon
 {{< /details >}}
 
 Futtassuk a programot:
-[![Run this code on Repl.it](https://repl.it/badge/github/tombenke/cayley-cokbook)](https://repl.it/@tombenke/cayley-cookbook-1#schema/impex_bookmarks_with_schema.go)
+[![Run this code on Repl.it](https://repl.it/badge/github/tombenke/cayley-cokbook)](https://repl.it/@tombenke/cayley-cookbook#schema/impex_bookmarks_with_schema.go)
 
 ```bash
     cd schema
