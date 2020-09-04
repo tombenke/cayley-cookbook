@@ -41,7 +41,7 @@ It represents:
       <description>Namespaces and Vocabularies #  Namespaces #  The following code fragment lists all the namespaces currently registered:
 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add some predefined vocabularies 	_ &amp;#34;github.com/cayleygraph/quad/voc/schema&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/xsd&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; ) func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;); for _, v := range voc.List() { fmt.Printf(&amp;#34; %s =&amp;gt; %s\n&amp;#34;, v.Prefix, v.Full); } } 
 cd namespaces go run list_namespaces.go` The results:
-Registered namespaces: schema: =&amp;gt; http://schema.</description>
+Registered namespaces: rdfs: =&amp;gt; http://www.</description>
     </item>
     
     <item>

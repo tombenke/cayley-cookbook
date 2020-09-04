@@ -42,7 +42,7 @@ Egy domain a következőket képviseli:
       <description>Namespace-ek és szótárak #  Namespace-ek #  Az alábbi kód kilistázza az összes, jelenleg regisztrált namespace-t:
 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add some predefined vocabularies 	_ &amp;#34;github.com/cayleygraph/quad/voc/schema&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/xsd&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; ) func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;); for _, v := range voc.List() { fmt.Printf(&amp;#34; %s =&amp;gt; %s\n&amp;#34;, v.Prefix, v.Full); } } 
 cd namespaces go run list_namespaces.go` a program kimenete:
-Registered namespaces: schema: =&amp;gt; http://schema.</description>
+Registered namespaces: rdfs: =&amp;gt; http://www.</description>
     </item>
     
     <item>
@@ -102,7 +102,8 @@ Luke-Skywalker has-age 23. A mondat elemei:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/vocabularies/</guid>
-      <description>Szótárak #   Kapcsolódó oldalak:   Namespace-ek és szótárak   </description>
+      <description>Szótárak #  Szótár #  A tudásgráfok alkalmazásának egyik fő előnye, hogy a segítségükkel leírt tudás-területek ismeretanyagát a szimbólkus térben tárgyalja, vagyis olyan kódolási, és reprezentációs formákat alkalmaz, ami az emberek számára is érthetővé teszi a fogalmak, dolgok egyértelmű azonosítását.
+Amikor egy entitást megnevezünk, vagy állításokat teszünk, predikátumok alkalmazásával, a gépnek és az embernek ugyanazt a jelentéstartalmat kell értenie a kifejezések mögött. Ahhoz, hogy a kifejezések jelentése is egyértelmű legyen, szótárakat hozunk létre.</description>
     </item>
     
     <item>

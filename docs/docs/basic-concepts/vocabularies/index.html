@@ -4,9 +4,11 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Szótárak #   Kapcsolódó oldalak:   Namespace-ek és szótárak   ">
+<meta name="description" content="Szótárak #  Szótár #  A tudásgráfok alkalmazásának egyik fő előnye, hogy a segítségükkel leírt tudás-területek ismeretanyagát a szimbólkus térben tárgyalja, vagyis olyan kódolási, és reprezentációs formákat alkalmaz, ami az emberek számára is érthetővé teszi a fogalmak, dolgok egyértelmű azonosítását.
+Amikor egy entitást megnevezünk, vagy állításokat teszünk, predikátumok alkalmazásával, a gépnek és az embernek ugyanazt a jelentéstartalmat kell értenie a kifejezések mögött. Ahhoz, hogy a kifejezések jelentése is egyértelmű legyen, szótárakat hozunk létre.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Szótárak" />
-<meta property="og:description" content="Szótárak #   Kapcsolódó oldalak:   Namespace-ek és szótárak   " />
+<meta property="og:description" content="Szótárak #  Szótár #  A tudásgráfok alkalmazásának egyik fő előnye, hogy a segítségükkel leírt tudás-területek ismeretanyagát a szimbólkus térben tárgyalja, vagyis olyan kódolási, és reprezentációs formákat alkalmaz, ami az emberek számára is érthetővé teszi a fogalmak, dolgok egyértelmű azonosítását.
+Amikor egy entitást megnevezünk, vagy állításokat teszünk, predikátumok alkalmazásával, a gépnek és az embernek ugyanazt a jelentéstartalmat kell értenie a kifejezések mögött. Ahhoz, hogy a kifejezések jelentése is egyértelmű legyen, szótárakat hozunk létre." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/vocabularies/" />
 
@@ -16,7 +18,7 @@
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/vocabularies/" title="Vocabularies">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.f7b57576e3332da0b99caf946fe601a9433bacfb84e63f0c7eafb4582dbc1d9c.js" integrity="sha256-97V1duMzLaC5nK&#43;Ub&#43;YBqUM7rPuE5j8Mfq&#43;0WC28HZw="></script>
+<script defer src="/cayley-cookbook/hu.search.min.1b9f218ef08253545fa8bcc37394db8628663ed44834f360de6156e898f174e7.js" integrity="sha256-G58hjvCCU1RfqLzDc5TbhihmPtRINPNg3mFW6JjxdOc="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -245,7 +247,13 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#szótár">Szótár</a></li>
+    <li><a href="#névtartományok">Névtartományok</a></li>
+    <li><a href="#ontológiák">Ontológiák</a></li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -259,7 +267,97 @@ https://github.com/alex-shpak/hugo-book
   Szótárak
   <a class="anchor" href="#sz%c3%b3t%c3%a1rak">#</a>
 </h1>
-<hr />
+<h2 id="szótár">
+  Szótár
+  <a class="anchor" href="#sz%c3%b3t%c3%a1r">#</a>
+</h2>
+<p>A tudásgráfok alkalmazásának egyik fő előnye, hogy a segítségükkel leírt tudás-területek ismeretanyagát a szimbólkus térben tárgyalja, vagyis olyan kódolási, és reprezentációs formákat alkalmaz, ami az emberek számára is érthetővé teszi a fogalmak, dolgok egyértelmű azonosítását.</p>
+<p>Amikor egy entitást megnevezünk, vagy állításokat teszünk, predikátumok alkalmazásával, a gépnek és az embernek ugyanazt a jelentéstartalmat kell értenie a kifejezések mögött. Ahhoz, hogy a kifejezések jelentése is egyértelmű legyen, szótárakat hozunk létre. A szótárak definiálják mindazokat a azonosítókat és predikátumokat, amelyek a szótár hatáskörébe tartoznak. A szótárak a legtöbb esetben IRI-ket sorolnak fel, azok jelentésével és alkalmazási lehetőségeivel, szabályaival.</p>
+<p>A szótárakban szereplő IRI-k általában angol szavak, vagy rövidítések. Ugyanaz a szó akár egy entitás azonosítására használjuk, akár predikátumként egy viszony vagy tulajdonság kifejezésére, különböző szövegkörnyezetekben mást és mást jelenthet. Pl. az a szó, hogy robot egy autó-összeszerelő ipari üzemben szerelő robotot fog jelenteni, de egy sci-fi novellában már egy intelligens droidot.</p>
+<p>Az eddig bemutatott predikátumaink, mint <code>&lt;knows&gt;</code>, <code>&lt;Person&gt;</code>, tehát nem eléggé precízek, és egyértelműek.</p>
+<p>Azért, hogy az IRI-k globális érvényessége ne sérüljön, és, hogy a jelentés egyértelmű legyen, az egyes szakterületekre külön-külön szótárakat hoznak létre. Ezek a szótárak lehetnek általános fogalmakat (<code>ember</code>, <code>barát</code>, <code>ismer</code>, <code>szülő</code>, <code>gyerek</code>, stb.) leíró szótárak, és fókuszálhatnak egy szűk területre, pl. gyógyszerkutatás. Az is lehetséges, hogy ugyanaz a szó több szótárban is szerepel, hasonló, vagy némileg eltérő jelentéssel.</p>
+<p>Jó példa egy szótárra a <a href="http://xmlns.com/foaf/spec/">FOAF</a>, ami jól használható emberek és szervezetek profiljának leírására.</p>
+<p>Amikor használjuk az IRI-ket, akkor azt is jelezzük, hogy melyik szótár értelmezésében értjük azt. Ezt úgy tehetjük meg, hogy megadjuk a szótár azonosítóját, ami egy egyedi string, többnyire egy URL. Ezt a szótár azonosítót az IRI elejére illesztjük.</p>
+<p>Ha most átalakítjuk a predicate-ként használt IRI-jeinket, úgy, hogy azok megfeleljenek a FOAF szótárnak, akkor az alábbi formát fogják ölteni:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;http://xmlns.com/foaf/0.1/#age&gt;
+&lt;http://xmlns.com/foaf/0.1/#familyName&gt;
+&lt;http://xmlns.com/foaf/0.1/#givenName&gt;
+&lt;http://xmlns.com/foaf/0.1/#Person&gt;
+</code></pre></div><h2 id="névtartományok">
+  Névtartományok
+  <a class="anchor" href="#n%c3%a9vtartom%c3%a1nyok">#</a>
+</h2>
+<p>Az előző fejezetben bevezetett szótár azonosító string (pl.: <code>http://xmlns.com/foaf/0.1/#</code>) egyértelműen meghatároz egy név-tartományt, angolul <strong>namespace</strong>-t, amiben pontosan definiáltuk a szó azonosságát, és jelentését. Az IRI-k ebben a hosszú formában nem túl kényelmesen olvashatóak ember számára, ezért azokban a reprezentációkban, amiket szerkeszteni, vagy olvasni akarunk, és nem csak a gépek olvasnak, lehet egy rövidebb változatot is alkalmazni, amit <strong>prefix</strong>-nek nevezünk. A FOAF szótár esetében jellemzően a <code>foaf:</code> prefixet használjuk, tehát:</p>
+<ul>
+<li>namespace: <code>http://xmlns.com/foaf/0.1/</code></li>
+<li>prefix: <code>foaf</code></li>
+</ul>
+<p>A prefix-es változtatban a predikátumaink a következőképpen festenek:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;foaf:age&gt;
+&lt;foaf:familyName&gt;
+&lt;foaf:givenName&gt;
+&lt;foaf:Person&gt;
+</code></pre></div><p>A prefixes és a teljes namespace-szel leírt formák azonosak egymással. A különbség az, hogy a teljes változatot bárhol használhatjuk, mert az a teljes információt és azonosságot magában hordozza. A prefix-es változatnál minden esetben jeleznünk kell az adott reprezentációban (forrás file), a prefix definícióját. Erre minden reprezentációs formátumnak (RDF, Turtle, stb.) ami megengedi a prefix-ek alkalmazását meghatározott nyelvi elemei vannak.</p>
+<p>Fontos szótárak, amelyek alapértelmezésben a <a href="https://cayley.io/" target="_blank">Cayley</a>
+-ben is definiálva vannak:</p>
+<table>
+<thead>
+<tr>
+<th>prefix</th>
+<th>namespace</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>owl</code></td>
+<td><code>http://www.w3.org/2002/07/owl#</code></td>
+</tr>
+<tr>
+<td><code>rdf</code></td>
+<td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></td>
+</tr>
+<tr>
+<td><code>rdfs</code></td>
+<td><code>http://www.w3.org/2000/01/rdf-schema#</code></td>
+</tr>
+<tr>
+<td><code>schema</code></td>
+<td><code>http://schema.org/</code></td>
+</tr>
+<tr>
+<td><code>xsd</code></td>
+<td><code>http://www.w3.org/2001/XMLSchema#</code></td>
+</tr>
+</tbody>
+</table>
+<p>Mi magunk is létre tudunk hozni namespace-eket és prefix-eket. Például a StarWars univerzum számára bevezethetjük a következő párost:</p>
+<ul>
+<li>namespace: <code>http://starwars.universe/#</code></li>
+<li>prefix: <code>starwars</code></li>
+</ul>
+<p>és ezen túl, ebben tudjuk értelmezni a resource-ainkat:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;starwars:Luke-Skywalker&gt;
+&lt;starwars:Leia-Organa&gt;
+</code></pre></div><p>A szótárakat egy adott tudásreprezentációs file-on, ill. adatbázison belül kombináltan használhatjuk egymással, a kijelentésekben. A prefixekkel kiegészített kijelentéseink az alábbiak lesznek:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;starwars:Luke-Skywalker&gt; &lt;rdf:type&gt; &lt;Person&gt; .
+&lt;starwars:Luke-Skywalker&gt; &lt;foaf:givenName&gt; &#34;Luke&#34; .
+&lt;starwars:Luke-Skywalker&gt; &lt;foaf:familyName&gt; &#34;Skywalker&#34; .
+&lt;starwars:Luke-Skywalker&gt; &lt;foaf:age&gt; 23 .
+&lt;starwars:Leia-Organa&gt; &lt;rdf:type&gt; &lt;Person&gt; .
+&lt;starwars:Leia-Organa&gt; &lt;foaf:givenName&gt; &#34;Leia&#34; .
+&lt;starwars:Leia-Organa&gt; &lt;foaf:familyName&gt; &#34;Organa&#34; .
+&lt;starwars:Leia-Organa&gt; &lt;knows&gt; &lt;starwars:Luke-Skywalker&gt; .
+</code></pre></div><h2 id="ontológiák">
+  Ontológiák
+  <a class="anchor" href="#ontol%c3%b3gi%c3%a1k">#</a>
+</h2>
+<p>A teljesség kedvéért fontos megemlíteni, hogy a szótárak az esetek jelentős részében jóval több mindent tartalmaznak, mint a nevek listáját, és szöveges értelmezését.</p>
+<p>A szementikus web technológiájával olyan erőforrásokat és predikátumokat is használunk, amelyek meta információt tartalmaznak más erőforrásokról, és predikátumokról. Pl. a predikátumoknak, mint relációknak leírhatóak a tulajdonságai (reflexív, tranzitív, stb.). Ezek olyan tudás-leírások, amelyek a következtetés végrehajtásához szükséges meta információkat is tartalmazzák, és megfelelő eszköz, pl. következtető gép segítségével olyan adatok is kinyerhetőek ezekből a gráfokból, amelyek explicit módon nincsenek leírva, de implicit módon ki lehet következtetni őket. Az ilyen leírásokat ontológiáknak nevezzük.</p>
+<p>Például ha a <code>&lt;foaf:knows&gt;</code> kapcsolatról tudjuk, hogy az reflexív, akkor elegendő azt kijelenteni, hogy</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;starwars:Luke_Skywalker&gt; &lt;foaf:knows&gt; &lt;starwars:Leia_Organa&gt; .
+</code></pre></div><p>Megfelelő séma alkalmazása esetén, ebből a kijelentésből, a logika szabályai alapján, kikövetkeztethető, hogy az alábbi állítás is igaz:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;starwars:Leia_Organa&gt; &lt;foaf:knows&gt; &lt;starwars:Luke_Skywalker&gt; .
+</code></pre></div><hr />
 <p>
 
 
@@ -346,7 +444,13 @@ Kapcsolódó oldalak:
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#szótár">Szótár</a></li>
+    <li><a href="#névtartományok">Névtartományok</a></li>
+    <li><a href="#ontológiák">Ontológiák</a></li>
+  </ul>
+</nav>
 
  
     </aside>
