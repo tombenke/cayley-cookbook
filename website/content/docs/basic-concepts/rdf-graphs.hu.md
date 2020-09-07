@@ -19,7 +19,7 @@ Létezik tehát a tudásgráfnak egy olyan reprezentációja, ami a számítóg�
 
 Az erőforrások (resource-ok) formális ábrázolását definiáló keretrendszert RDF-nek nevezzük. Az RDF a [Resource Description Framework](https://en.wikipedia.org/wiki/Resource_Description_Framework) kifejezés rövidítése.
 
-Az RDF többféle file-serializációs formátumot is definiál. A leggyakoribb formátumok általában szöveg alapúak (text, XML), amiknek szabványos mime azonosítójuk is van.
+Az RDF többféle file-szerializációs formátumot is definiál. A leggyakoribb formátumok általában szöveg alapúak (text, XML), amiknek szabványos mime azonosítójuk is van.
 
 Az alábbi táblázat összefoglalja a leggyakrabban használatos formátumokat.
 
@@ -31,8 +31,8 @@ A táblázat csak a teljesség kedvéért sorolja fel a formátumokat. Számunkr
 
 | formátum | kiterjesztés | mime-type | mikor használjuk? |
 | --- | --- | --- | --- |
-| [n-triples](https://www.w3.org/TR/n-triples/) | `.nt` | `application/n-triples` | Ha elfogadható performanciát, és magasszintű kompatibilitást akarunk biztosítani. |
-| [n-quads](https://www.w3.org/TR/n-quads/) | `.nq` | `application/n-quads` | u.a. mint n-triples |
+| [n-triples](https://www.w3.org/TR/n-triples/) | `.nt` | `application/n-triples` | Ha elfogadható performanciát, és magas szintű kompatibilitást akarunk biztosítani. |
+| [n-quads](https://www.w3.org/TR/n-quads/) | `.nq` | `application/n-quads` | ua. mint n-triples |
 | [Turtle](https://www.w3.org/TR/turtle/) | `.ttl` | `application/x-turtle` | Ha manuálisan kell szerkeszteni, olvasni. |
 | [N3](https://www.w3.org/TeamSubmission/n3/) | `.n3` | `text/n3` | Ha szükségünk van RDF szabályok alkalmazására. |
 | [RDF/XML](https://www.w3.org/TR/rdf-syntax-grammar/) | `.xml` | `application/rdf+xml` | Ha XML-t kell használnunk. |
@@ -40,7 +40,7 @@ A táblázat csak a teljesség kedvéért sorolja fel a formátumokat. Számunkr
 
 ## n-triples, n-quads
 
-Ez a két formátum szinte azonos. Az `n-triple` lényegében nem más, mint amit korábban a kijelentések c. fejezetben bemutattunk. Minden kijelentés `subject predicate object` formában, külön sorban szerepel, amit egy `.` karakter zár le. Például:
+Ez a két formátum szinte azonos. Az `n-triples` lényegében nem más, mint amit korábban a kijelentések c. fejezetben bemutattunk. Minden kijelentés `subject predicate object` formában, külön sorban szerepel, amit egy `.` karakter zár le. Például:
 
 ```txt
 <Luke-Skywalker-from-StarWars> <is-a> <Person> .
@@ -49,7 +49,7 @@ Ez a két formátum szinte azonos. Az `n-triple` lényegében nem más, mint ami
 <Luke-Skywalker-from-StarWars> <has-age> 23 .
 ```
 
-az `n-quads` formátum ettől annyiban tér el, hogy az `object` és a záró `.` közé még elhelyezünk egy opcionális `label` stringet. Ez a `label` (címke), arra jó, hogy az egy csoportba (gráfba) tartozó kijelentéseket megjelölhessük vele. Ezzel az adatbáziskezelő performanciáját javíthatjuk, ha a keresést csak meghatározott gráfokra szűkítjük, az összes feltöltött gráf helyett.
+az `n-quads` formátum ettől annyiban tér el, hogy az `object` és a záró `.` közé még elhelyezünk egy opcionális `label` stringet. Ez a `label` (címke), arra jó, hogy az egy csoportba (gráfba) tartozó kijelentéseket megjelölhessük vele. Ezzel az adatbázis-kezelő performanciáját javíthatjuk, ha a keresést csak meghatározott gráfokra szűkítjük, az összes feltöltött gráf helyett.
 
 Például az alábbi kódrészlet `n-quads` kijelentéseket tartalmaz, a `"a-new-hope"` címkével kiegészítve:
 
@@ -80,7 +80,7 @@ A következő kódrészlet a Dantooine bolygót írja le `n-triples` formátumba
 
 ## Turtle
 
-A Turle egy nagyon népszerű formátum. Nagyon hasonlít az `n-quads`-ra, de sokkal tömörebb. A file elején definiálhatjuk a prefixeket és namespace-eket, és a kijelentéseinkben a subject-et elegendő csak egyszer megadni, majd ezt követhetik a predicate-object párosok, amelyeket a `;` karater zárja le, majd a teljes kijelentéshalmazt a `.` zárja le.
+A Turle egy nagyon népszerű formátum. Nagyon hasonlít az `n-quads`-ra, de sokkal tömörebb. A file elején definiálhatjuk a prefixeket és namespace-eket, és a kijelentéseinkben a subject-et elegendő csak egyszer megadni, majd ezt követhetik a predicate-object párosok, amelyeket a `;` karakter zárja le, majd a teljes kijelentéshalmazt a `.` zárja le.
 
 A Turtle formátum további könnyítéseket is tartalmaz, amiből adódóan kiválóan alkalmazható olyan esetben, ahol olvasnunk, vagy kézzel kell írnunk a tartalmat.
 
@@ -109,7 +109,7 @@ A Dantooine bolygó leírása Turtle formátumban:
 
 ## N3
 
-Az N3-at, másnéven Notation3 formátumot Tim-Berners Lee dolgozta ki, az eredeti RDF/XML formátum helyettesítésére. Az N3 a szemantikus információ teljeskörű leírására alkalmas. Egyenértékű az RDF/XML formátummal, de annál sokkal jobban olvasható, átlátható emberi szem számára. Az N3 nagyon hasonlít a Turtle-re, a Turtle valójában az N3 egy részhalmaza.
+Az N3-at, más néven Notation3 formátumot Tim-Berners Lee dolgozta ki, az eredeti RDF/XML formátum helyettesítésére. Az N3 a szemantikus információ teljes körű leírására alkalmas. Egyenértékű az RDF/XML formátummal, de annál sokkal jobban olvasható, átlátható emberi szem számára. Az N3 nagyon hasonlít a Turtle-re, a Turtle valójában az N3 egy részhalmaza.
 
 A Dantooine bolygó leírása N3 formátumban:
 
@@ -135,9 +135,9 @@ A Dantooine bolygó leírása N3 formátumban:
 
 ## RDF/XML
 
-Az RDF/XML az a serializációs formátum, amit legelőször hoztak létre, és ami teljeskörűen lefedi a szemantikus web tudás-reprezentációval szemben támasztott igényeit.
+Az RDF/XML az a szerializációs formátum, amit legelőször hoztak létre, és ami teljes körűen lefedi a szemantikus web tudás-reprezentációval szemben támasztott igényeit.
 
-Sajnos ar RDF/XML meglehetősen bőbeszédő, ember számára nem túj jól olvasható. Leginkább akkor használjuk, ha az XML formátum alkalmazása szükséges.
+Sajnos az RDF/XML meglehetősen bőbeszédű, ember számára nem túl jól olvasható. Leginkább akkor használjuk, ha az XML formátum alkalmazása szükséges.
 
 A Dantooine bolygó leírása XML/RDF formátumban:
 

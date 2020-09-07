@@ -18,7 +18,7 @@ Bevezettük az IRI fogalmát, ami alkalmas arra, hogy a tényállításokat form
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/rdf-graphs/" title="Rdf Graphs">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.42b2064b44295c80d659f2ce59757d59c02bc217505d727053bb514e613a1751.js" integrity="sha256-QrIGS0QpXIDWWfLOWXV9WcArwhdQXXJwU7tRTmE6F1E="></script>
+<script defer src="/cayley-cookbook/hu.search.min.82b7e38f52a1f6225c94151a8ba6a9f82f7ac28863156cd47406eb8c111130d8.js" integrity="sha256-grfjj1Kh9iJclBUai6ap&#43;C96wohjFWzUdAbrjBERMNg="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -274,7 +274,7 @@ https://github.com/alex-shpak/hugo-book
 <p>Létezik tehát a tudásgráfnak egy olyan reprezentációja, ami a számítógép memóriájában helyezkedik el, és olyan is, ami valamilyen szabványosított formátumú file-ban kerül tárolásra. Ezekből a file formátumokból számos létezik. Az alábbiakban azokat a formátumokat soroljuk fel, amelyekkel a <a href="https://cayley.io/" target="_blank">Cayley</a>
  használata során találkozni fogunk.</p>
 <p>Az erőforrások (resource-ok) formális ábrázolását definiáló keretrendszert RDF-nek nevezzük. Az RDF a <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">Resource Description Framework</a> kifejezés rövidítése.</p>
-<p>Az RDF többféle file-serializációs formátumot is definiál. A leggyakoribb formátumok általában szöveg alapúak (text, XML), amiknek szabványos mime azonosítójuk is van.</p>
+<p>Az RDF többféle file-szerializációs formátumot is definiál. A leggyakoribb formátumok általában szöveg alapúak (text, XML), amiknek szabványos mime azonosítójuk is van.</p>
 <p>Az alábbi táblázat összefoglalja a leggyakrabban használatos formátumokat.</p>
 <blockquote class="book-hint info">
   <p><strong>Megjegyzés:</strong></p>
@@ -297,13 +297,13 @@ https://github.com/alex-shpak/hugo-book
 <td><a href="https://www.w3.org/TR/n-triples/">n-triples</a></td>
 <td><code>.nt</code></td>
 <td><code>application/n-triples</code></td>
-<td>Ha elfogadható performanciát, és magasszintű kompatibilitást akarunk biztosítani.</td>
+<td>Ha elfogadható performanciát, és magas szintű kompatibilitást akarunk biztosítani.</td>
 </tr>
 <tr>
 <td><a href="https://www.w3.org/TR/n-quads/">n-quads</a></td>
 <td><code>.nq</code></td>
 <td><code>application/n-quads</code></td>
-<td>u.a. mint n-triples</td>
+<td>ua. mint n-triples</td>
 </tr>
 <tr>
 <td><a href="https://www.w3.org/TR/turtle/">Turtle</a></td>
@@ -335,12 +335,12 @@ https://github.com/alex-shpak/hugo-book
   n-triples, n-quads
   <a class="anchor" href="#n-triples-n-quads">#</a>
 </h2>
-<p>Ez a két formátum szinte azonos. Az <code>n-triple</code> lényegében nem más, mint amit korábban a kijelentések c. fejezetben bemutattunk. Minden kijelentés <code>subject predicate object</code> formában, külön sorban szerepel, amit egy <code>.</code> karakter zár le. Például:</p>
+<p>Ez a két formátum szinte azonos. Az <code>n-triples</code> lényegében nem más, mint amit korábban a kijelentések c. fejezetben bemutattunk. Minden kijelentés <code>subject predicate object</code> formában, külön sorban szerepel, amit egy <code>.</code> karakter zár le. Például:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;Luke-Skywalker-from-StarWars&gt; &lt;is-a&gt; &lt;Person&gt; .
 &lt;Luke-Skywalker-from-StarWars&gt; &lt;has-given-name&gt; &#34;Luke&#34; .
 &lt;Luke-Skywalker-from-StarWars&gt; &lt;has-family-name&gt; &#34;Skywalker&#34; .
 &lt;Luke-Skywalker-from-StarWars&gt; &lt;has-age&gt; 23 .
-</code></pre></div><p>az <code>n-quads</code> formátum ettől annyiban tér el, hogy az <code>object</code> és a záró <code>.</code> közé még elhelyezünk egy opcionális <code>label</code> stringet. Ez a <code>label</code> (címke), arra jó, hogy az egy csoportba (gráfba) tartozó kijelentéseket megjelölhessük vele. Ezzel az adatbáziskezelő performanciáját javíthatjuk, ha a keresést csak meghatározott gráfokra szűkítjük, az összes feltöltött gráf helyett.</p>
+</code></pre></div><p>az <code>n-quads</code> formátum ettől annyiban tér el, hogy az <code>object</code> és a záró <code>.</code> közé még elhelyezünk egy opcionális <code>label</code> stringet. Ez a <code>label</code> (címke), arra jó, hogy az egy csoportba (gráfba) tartozó kijelentéseket megjelölhessük vele. Ezzel az adatbázis-kezelő performanciáját javíthatjuk, ha a keresést csak meghatározott gráfokra szűkítjük, az összes feltöltött gráf helyett.</p>
 <p>Például az alábbi kódrészlet <code>n-quads</code> kijelentéseket tartalmaz, a <code>&quot;a-new-hope&quot;</code> címkével kiegészítve:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;Luke-Skywalker-from-StarWars&gt; &lt;is-a&gt; &lt;Person&gt; &#34;a-new-hope&#34; .
 &lt;Luke-Skywalker-from-StarWars&gt; &lt;has-given-name&gt; &#34;Luke&#34; &#34;a-new-hope&#34; .
@@ -363,7 +363,7 @@ https://github.com/alex-shpak/hugo-book
   Turtle
   <a class="anchor" href="#turtle">#</a>
 </h2>
-<p>A Turle egy nagyon népszerű formátum. Nagyon hasonlít az <code>n-quads</code>-ra, de sokkal tömörebb. A file elején definiálhatjuk a prefixeket és namespace-eket, és a kijelentéseinkben a subject-et elegendő csak egyszer megadni, majd ezt követhetik a predicate-object párosok, amelyeket a <code>;</code> karater zárja le, majd a teljes kijelentéshalmazt a <code>.</code> zárja le.</p>
+<p>A Turle egy nagyon népszerű formátum. Nagyon hasonlít az <code>n-quads</code>-ra, de sokkal tömörebb. A file elején definiálhatjuk a prefixeket és namespace-eket, és a kijelentéseinkben a subject-et elegendő csak egyszer megadni, majd ezt követhetik a predicate-object párosok, amelyeket a <code>;</code> karakter zárja le, majd a teljes kijelentéshalmazt a <code>.</code> zárja le.</p>
 <p>A Turtle formátum további könnyítéseket is tartalmaz, amiből adódóan kiválóan alkalmazható olyan esetben, ahol olvasnunk, vagy kézzel kell írnunk a tartalmat.</p>
 <p>A Dantooine bolygó leírása Turtle formátumban:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">@prefix bo: &lt;http://www.ontotext.com/business-object/&gt; .
@@ -388,7 +388,7 @@ https://github.com/alex-shpak/hugo-book
   N3
   <a class="anchor" href="#n3">#</a>
 </h2>
-<p>Az N3-at, másnéven Notation3 formátumot Tim-Berners Lee dolgozta ki, az eredeti RDF/XML formátum helyettesítésére. Az N3 a szemantikus információ teljeskörű leírására alkalmas. Egyenértékű az RDF/XML formátummal, de annál sokkal jobban olvasható, átlátható emberi szem számára. Az N3 nagyon hasonlít a Turtle-re, a Turtle valójában az N3 egy részhalmaza.</p>
+<p>Az N3-at, más néven Notation3 formátumot Tim-Berners Lee dolgozta ki, az eredeti RDF/XML formátum helyettesítésére. Az N3 a szemantikus információ teljes körű leírására alkalmas. Egyenértékű az RDF/XML formátummal, de annál sokkal jobban olvasható, átlátható emberi szem számára. Az N3 nagyon hasonlít a Turtle-re, a Turtle valójában az N3 egy részhalmaza.</p>
 <p>A Dantooine bolygó leírása N3 formátumban:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
@@ -411,8 +411,8 @@ https://github.com/alex-shpak/hugo-book
   RDF/XML
   <a class="anchor" href="#rdfxml">#</a>
 </h2>
-<p>Az RDF/XML az a serializációs formátum, amit legelőször hoztak létre, és ami teljeskörűen lefedi a szemantikus web tudás-reprezentációval szemben támasztott igényeit.</p>
-<p>Sajnos ar RDF/XML meglehetősen bőbeszédő, ember számára nem túj jól olvasható. Leginkább akkor használjuk, ha az XML formátum alkalmazása szükséges.</p>
+<p>Az RDF/XML az a szerializációs formátum, amit legelőször hoztak létre, és ami teljes körűen lefedi a szemantikus web tudás-reprezentációval szemben támasztott igényeit.</p>
+<p>Sajnos az RDF/XML meglehetősen bőbeszédű, ember számára nem túl jól olvasható. Leginkább akkor használjuk, ha az XML formátum alkalmazása szükséges.</p>
 <p>A Dantooine bolygó leírása XML/RDF formátumban:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34; ?&gt;</span>
 <span style="color:#f92672">&lt;rdf:RDF</span> <span style="color:#a6e22e">xmlns:rdf=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/02/22-rdf-syntax-ns#&#34;</span>
