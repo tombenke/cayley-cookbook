@@ -17,7 +17,7 @@ Az erőforrás egy általános fogalom, amelyet a web-en, és a szemantikus web-
 - van egyedi azonossága, identitása (identity),
 - ábrázolható valamilyen módon (representation).
 
-Tekintetbe véve a fenti két jellemzőt, a resource megfeleltethető a Domain Driven Design entity (entitás) és aggregate fogalmainak. A mi vizsgálatunk szempontjából a két dolgot azonosnak tekinthetjük, a lényeg, hogy egy adott dologot egyértelműen tudjunk azonosítani, akág glóbálisan, akár egy szükebb értelmezési tartományban, vagyis rendelkezzen legalább egy egyedi azonosítóval, valamint le tudjuk írni valamilyen formában.
+Tekintetbe véve a fenti két jellemzőt, a resource megfeleltethető a Domain Driven Design entity (entitás) és aggregate fogalmainak. A mi vizsgálatunk szempontjából a két dolgot azonosnak tekinthetjük, a lényeg, hogy egy adott dolgot egyértelműen tudjunk azonosítani, akár globálisan, akár egy szűkebb értelmezési tartományban, vagyis rendelkezzen legalább egy egyedi azonosítóval, valamint le tudjuk írni valamilyen formában.
 
 A leírásnak sokféle formája lehet: szöveges, képi, számítógépes program kód, memóriabeli állapot, stb. Mi a szabványos reprezentációs formátumokra fogunk fókuszálni. Ezek közül is azokra, amelyek a tudás szimbolikus leírására lettek kidolgozva, mint például a szemantikus web számára.
 
@@ -49,7 +49,7 @@ age: 23
 
 Két különböző reprezentáció, de ugyanaz a személy.
 
-Tipikusan a resource-ok alkotják a tudásgráf csomópontjait, de gyakran előfordul olyan eset, hogy az entitások között fennáló kapcsolat, gráf él szerepel mint resource, amennyiben rá vonatkozóa akarunk további megállapításokat, szabályokat leírni.
+Tipikusan a resource-ok alkotják a tudásgráf csomópontjait, de gyakran előfordul olyan eset, hogy az entitások között fennálló kapcsolat, gráf él szerepel mint resource, amennyiben rá vonatkozóan akarunk további megállapításokat, szabályokat leírni.
 
 
 ## IRI-k
@@ -61,9 +61,9 @@ Az IRI egy Unicode string, amelynek a formátumát az [RFC 3987](https://www.iet
 
 Az IRI-k az URI-k általánosított változatának tekinthetők, Csak abszolút formában léteznek. Minden abszolút URI és URL IRI-ként tekintendő, viszont nem minden IRI számít URI-nek.
 
-Az IRI-k alapértelmezés szerint globális hatáskörrel rendelkeznek. Ennek megfelelően egy IRI két különbőző környezetben történő megjelenése ugyanazt az entitást jelenti.
+Az IRI-k alapértelmezés szerint globális hatáskörrel rendelkeznek. Ennek megfelelően egy IRI két különböző környezetben történő megjelenése ugyanazt az entitást jelenti.
 
-Minden IRI egy jól meghatározott dolgot, erőforrrást azonosít a tárgyalás körét jelentő világban.
+Minden IRI egy jól meghatározott dolgot, erőforrást azonosít a tárgyalás körét jelentő világban.
 Az erőforrást, amire az IRI hivatkozik, és amit azonosít az azonosítás tárgyának (referent) nevezzük.
 
 Példák IRI-kre:
@@ -94,7 +94,7 @@ Ezeket a tulajdonság értékeket literál értékeknek, vagy csak egyszerűen l
 
 A literál értékeknek megadhatjuk a típusát, pl.: string, egész szám, dátum, stb..
 
-A típusokat postfix formában adjuk meg, az értékhez hozzáragasztva a `^^` jelőléssel.
+A típusokat postfix formában adjuk meg, az értékhez hozzáragasztva a `^^` jelöléssel
 
 Példák típusokra:
 ```rdf

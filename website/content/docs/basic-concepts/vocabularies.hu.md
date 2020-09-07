@@ -12,7 +12,7 @@ keywords: ["vocabulary", "prefix", "namespace", "foaf"]
 # Szótárak
 
 ## Szótár
-A tudásgráfok alkalmazásának egyik fő előnye, hogy a segítségükkel leírt tudás-területek ismeretanyagát a szimbólkus térben tárgyalja, vagyis olyan kódolási, és reprezentációs formákat alkalmaz, ami az emberek számára is érthetővé teszi a fogalmak, dolgok egyértelmű azonosítását.
+A tudásgráfok alkalmazásának egyik fő előnye, hogy a segítségükkel leírt tudás-területek ismeretanyagát a szimbolikus térben tárgyalja, vagyis olyan kódolási, és reprezentációs formákat alkalmaz, ami az emberek számára is érthetővé teszi a fogalmak, dolgok egyértelmű azonosítását.
 
 Amikor egy entitást megnevezünk, vagy állításokat teszünk, predikátumok alkalmazásával, a gépnek és az embernek ugyanazt a jelentéstartalmat kell értenie a kifejezések mögött. Ahhoz, hogy a kifejezések jelentése is egyértelmű legyen, szótárakat hozunk létre. A szótárak definiálják mindazokat a azonosítókat és predikátumokat, amelyek a szótár hatáskörébe tartoznak. A szótárak a legtöbb esetben IRI-ket sorolnak fel, azok jelentésével és alkalmazási lehetőségeivel, szabályaival.
 
@@ -41,7 +41,7 @@ Az előző fejezetben bevezetett szótár azonosító string (pl.: `http://xmlns
 - namespace: `http://xmlns.com/foaf/0.1/`
 - prefix: `foaf`
 
-A prefix-es változtatban a predikátumaink a következőképpen festenek:
+A prefix-es változatban a predikátumaink a következőképpen festenek:
 
 ```txt
 <foaf:age>
@@ -90,7 +90,7 @@ A szótárakat egy adott tudásreprezentációs file-on, ill. adatbázison belü
 
 A teljesség kedvéért fontos megemlíteni, hogy a szótárak az esetek jelentős részében jóval több mindent tartalmaznak, mint a nevek listáját, és szöveges értelmezését.
 
-A szementikus web technológiájával olyan erőforrásokat és predikátumokat is használunk, amelyek meta információt tartalmaznak más erőforrásokról, és predikátumokról. Pl. a predikátumoknak, mint relációknak leírhatóak a tulajdonságai (reflexív, tranzitív, stb.). Ezek olyan tudás-leírások, amelyek a következtetés végrehajtásához szükséges meta információkat is tartalmazzák, és megfelelő eszköz, pl. következtető gép segítségével olyan adatok is kinyerhetőek ezekből a gráfokból, amelyek explicit módon nincsenek leírva, de implicit módon ki lehet következtetni őket. Az ilyen leírásokat ontológiáknak nevezzük.
+A szemantikus web technológiájával olyan erőforrásokat és predikátumokat is használunk, amelyek meta információt tartalmaznak más erőforrásokról, és predikátumokról. Pl. a predikátumoknak, mint relációknak leírhatóak a tulajdonságai (reflexív, tranzitív, stb.). Ezek olyan tudás-leírások, amelyek a következtetés végrehajtásához szükséges meta információkat is tartalmazzák, és megfelelő eszköz, pl. következtető gép segítségével olyan adatok is kinyerhetőek ezekből a gráfokból, amelyek explicit módon nincsenek leírva, de implicit módon ki lehet következtetni őket. Az ilyen leírásokat ontológiáknak nevezzük.
 
 Például ha a `<foaf:knows>` kapcsolatról tudjuk, hogy az reflexív, akkor elegendő azt kijelenteni, hogy
 

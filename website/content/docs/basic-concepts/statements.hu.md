@@ -44,7 +44,7 @@ Mivel szabványosított formátumú, univerzális azonosítót akarunk használn
 
 Luke egyértelműen egy resource, vagy más néven entitás, akit egy IRI-vel egyértelműen azonosítunk.
 Van egy tulajdonsága, az életkor, amit a `<has-age>` IRI-vel tudunk kifejezni, mivel ez egy általános fogalom.
-Ezen felül szükségünk vagy egy literál-ra, aminek az értéke `23` és a típusa egész szám. Ezt az értéket veszi fel Luke esetében a `has-age` tulajdonság.
+Ezen felül szükségünk vagy egy literálra, aminek az értéke `23` és a típusa egész szám. Ezt az értéket veszi fel Luke esetében a `has-age` tulajdonság.
 Végleges formában tehát a kijelentés az alábbi lesz:
 
 ```txt
@@ -113,14 +113,14 @@ Az entitások sárga színnel, a literálok pedig zöld színnel vannak megjelen
 
 ## Üres node-ok
 
-Előfordul olyan eset, amikor az állításokat úgy akarjuk hozzákapcsolni egy entitáshoz, hogy ahhoz nem akarunk globális azonosítót, IRI-t rendelni, mivel az entitásra csak az adott gráfon berül van szükségünk, és annak a kapcsolatai a lényegesek, nem pedig az, hogy a külvilág felé egyértelmű legyen az azonossága.
+Előfordul olyan eset, amikor az állításokat úgy akarjuk hozzákapcsolni egy entitáshoz, hogy ahhoz nem akarunk globális azonosítót, IRI-t rendelni, mivel az entitásra csak az adott gráfon belül van szükségünk, és annak a kapcsolatai a lényegesek, nem pedig az, hogy a külvilág felé egyértelmű legyen az azonossága.
 Ebben az esetben úgynevezett üres csomópontokat, angolul Blank Node-okat alkalmazunk.
 
 A Blank Node-oknak is van saját azonosítója, ami egy adott gráfon belül egyedi ameddig a program fut.
 
 A Blank Node-ok a `_:` prefix-szel kezdődnek, és többnyire valamilyen véletlenszerűen generált számmal, vagy stringgel folytatódnak.
 
-A 3. ábra hasonló a 2. ábrán látható gráfhoz, azzal a különbséggel, hogy azon a két személyt nem azonosítjuk, gobális hatáskörű IRI-kkel, hanem csak lokális hatáskörű Blank node-okkal.
+A 3. ábra hasonló a 2. ábrán látható gráfhoz, azzal a különbséggel, hogy azon a két személyt nem azonosítjuk, globális hatáskörű IRI-kkel, hanem csak lokális hatáskörű Blank node-okkal.
 
 {{< figure src="/cayley-cookbook/blank-node-example.png" title="3. ábra: Predikátumok gráfként ábrázolva, Blank node-okkal" >}}
 

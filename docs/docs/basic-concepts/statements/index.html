@@ -24,7 +24,7 @@ Luke-Skywalker has-age 23. A mondat elemei:
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/statements/" title="Statements">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.1b9f218ef08253545fa8bcc37394db8628663ed44834f360de6156e898f174e7.js" integrity="sha256-G58hjvCCU1RfqLzDc5TbhihmPtRINPNg3mFW6JjxdOc="></script>
+<script defer src="/cayley-cookbook/hu.search.min.dc43374eb4fba99616ebad39ff70e68482679064400ab48c5bdcc168366d3c12.js" integrity="sha256-3EM3TrT7qZYW6605/3DmhIJnkGRACrSMW9zBaDZtPBI="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -154,7 +154,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/rdf-graphs/" class="">Rdf Gráfok</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/rdf-graphs/" class="">Tudás Gráf reprezentációk</a>
   
 
         </li>
@@ -295,7 +295,7 @@ Ezeket a szerkezeti elemeket angolul <code>subject-predicate-object</code> névv
 Mivel szabványosított formátumú, univerzális azonosítót akarunk használni, ezért Luke azonosítója a következő IRI lesz: <code>&lt;Luke-Skywalker-from-StarWars&gt;</code>.</p>
 <p>Luke egyértelműen egy resource, vagy más néven entitás, akit egy IRI-vel egyértelműen azonosítunk.
 Van egy tulajdonsága, az életkor, amit a <code>&lt;has-age&gt;</code> IRI-vel tudunk kifejezni, mivel ez egy általános fogalom.
-Ezen felül szükségünk vagy egy literál-ra, aminek az értéke <code>23</code> és a típusa egész szám. Ezt az értéket veszi fel Luke esetében a <code>has-age</code> tulajdonság.
+Ezen felül szükségünk vagy egy literálra, aminek az értéke <code>23</code> és a típusa egész szám. Ezt az értéket veszi fel Luke esetében a <code>has-age</code> tulajdonság.
 Végleges formában tehát a kijelentés az alábbi lesz:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">    &lt;Luke-Skywalker-from-StarWars&gt; &lt;has-age&gt; 23^^integer .
 </code></pre></div><p>Láthatjuk az 1. ábrán, hogy a <code>subject-predicate-object</code> hármas felrajzolható gráfként, ahol a subject és az object node-okként jelenik meg, és a predicate lesz a két node-ot összekötő, irányított él.</p>
@@ -358,11 +358,11 @@ A subject-eket és predicate-eket rögtön IRI formátumba alakítottuk.</p>
   Üres node-ok
   <a class="anchor" href="#%c3%bcres-node-ok">#</a>
 </h2>
-<p>Előfordul olyan eset, amikor az állításokat úgy akarjuk hozzákapcsolni egy entitáshoz, hogy ahhoz nem akarunk globális azonosítót, IRI-t rendelni, mivel az entitásra csak az adott gráfon berül van szükségünk, és annak a kapcsolatai a lényegesek, nem pedig az, hogy a külvilág felé egyértelmű legyen az azonossága.
+<p>Előfordul olyan eset, amikor az állításokat úgy akarjuk hozzákapcsolni egy entitáshoz, hogy ahhoz nem akarunk globális azonosítót, IRI-t rendelni, mivel az entitásra csak az adott gráfon belül van szükségünk, és annak a kapcsolatai a lényegesek, nem pedig az, hogy a külvilág felé egyértelmű legyen az azonossága.
 Ebben az esetben úgynevezett üres csomópontokat, angolul Blank Node-okat alkalmazunk.</p>
 <p>A Blank Node-oknak is van saját azonosítója, ami egy adott gráfon belül egyedi ameddig a program fut.</p>
 <p>A Blank Node-ok a <code>_:</code> prefix-szel kezdődnek, és többnyire valamilyen véletlenszerűen generált számmal, vagy stringgel folytatódnak.</p>
-<p>A 3. ábra hasonló a 2. ábrán látható gráfhoz, azzal a különbséggel, hogy azon a két személyt nem azonosítjuk, gobális hatáskörű IRI-kkel, hanem csak lokális hatáskörű Blank node-okkal.</p>
+<p>A 3. ábra hasonló a 2. ábrán látható gráfhoz, azzal a különbséggel, hogy azon a két személyt nem azonosítjuk, globális hatáskörű IRI-kkel, hanem csak lokális hatáskörű Blank node-okkal.</p>
 <figure>
     <img src="/cayley-cookbook/blank-node-example.png"/> <figcaption>
             <h4>3. ábra: Predikátumok gráfként ábrázolva, Blank node-okkal</h4>

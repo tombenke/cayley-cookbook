@@ -4,19 +4,21 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Rdf Gráfok #  ">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Rdf Gráfok" />
-<meta property="og:description" content="Rdf Gráfok #  " />
+<meta name="description" content="Tudás Gráf reprezentációk #  Az előző fejezetekben bemutattuk, hogyan lehet tényállításokat kifejezni resource-ok, predikátumok, és literál értékek alkalmazásával. Ezeket a tényállítás hármasokat tripleteknek is nevezzük.
+Bevezettük az IRI fogalmát, ami alkalmas arra, hogy a tényállításokat formalizáltan, általános érvénnyel írjuk le. Rendelkezésünkre áll tehát egy egyszerű módszer arra, hogy a tudásgráf csomópontjait és éleit, valamint azok címkéit szövegszerkesztővel szerkeszthető, egyszerű text formátumba alakítsuk, file-okban tároljuk, és ezen file-ok tartalmát betöltsük a tudásgráfot megvalósító adatbázisba, a számítógép memóriájába, továbbá, hogy onnan kinyerjük, és visszatároljuk file-ba.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Tudás Gráf reprezentációk" />
+<meta property="og:description" content="Tudás Gráf reprezentációk #  Az előző fejezetekben bemutattuk, hogyan lehet tényállításokat kifejezni resource-ok, predikátumok, és literál értékek alkalmazásával. Ezeket a tényállítás hármasokat tripleteknek is nevezzük.
+Bevezettük az IRI fogalmát, ami alkalmas arra, hogy a tényállításokat formalizáltan, általános érvénnyel írjuk le. Rendelkezésünkre áll tehát egy egyszerű módszer arra, hogy a tudásgráf csomópontjait és éleit, valamint azok címkéit szövegszerkesztővel szerkeszthető, egyszerű text formátumba alakítsuk, file-okban tároljuk, és ezen file-ok tartalmát betöltsük a tudásgráfot megvalósító adatbázisba, a számítógép memóriájába, továbbá, hogy onnan kinyerjük, és visszatároljuk file-ba." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/rdf-graphs/" />
 
-<title>Rdf Gráfok | Cayley-CookBook</title>
+<title>Tudás Gráf reprezentációk | Cayley-CookBook</title>
 <link rel="manifest" href="/cayley-cookbook/manifest.json">
 <link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/rdf-graphs/" title="Rdf Graphs">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.1b9f218ef08253545fa8bcc37394db8628663ed44834f360de6156e898f174e7.js" integrity="sha256-G58hjvCCU1RfqLzDc5TbhihmPtRINPNg3mFW6JjxdOc="></script>
+<script defer src="/cayley-cookbook/hu.search.min.dc43374eb4fba99616ebad39ff70e68482679064400ab48c5bdcc168366d3c12.js" integrity="sha256-3EM3TrT7qZYW6605/3DmhIJnkGRACrSMW9zBaDZtPBI="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -146,7 +148,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/rdf-graphs/" class="active">Rdf Gráfok</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/rdf-graphs/" class="active">Tudás Gráf reprezentációk</a>
   
 
         </li>
@@ -232,7 +234,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Rdf Gráfok</strong>
+  <strong>Tudás Gráf reprezentációk</strong>
 
   <label for="toc-control">
     
@@ -245,7 +247,11 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#n-quads">n-quads</a></li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -255,10 +261,37 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="rdf-gráfok">
-  Rdf Gráfok
-  <a class="anchor" href="#rdf-gr%c3%a1fok">#</a>
+  <article class="markdown"><h1 id="tudás-gráf-reprezentációk">
+  Tudás Gráf reprezentációk
+  <a class="anchor" href="#tud%c3%a1s-gr%c3%a1f-reprezent%c3%a1ci%c3%b3k">#</a>
 </h1>
+<p>Az előző fejezetekben bemutattuk, hogyan lehet tényállításokat kifejezni resource-ok, predikátumok, és literál értékek alkalmazásával. Ezeket a tényállítás hármasokat tripleteknek is nevezzük.</p>
+<p>Bevezettük az IRI fogalmát, ami alkalmas arra, hogy a tényállításokat formalizáltan, általános érvénnyel írjuk le. Rendelkezésünkre áll tehát egy egyszerű módszer arra, hogy a tudásgráf csomópontjait és éleit, valamint azok címkéit szövegszerkesztővel szerkeszthető, egyszerű text formátumba alakítsuk, file-okban tároljuk, és ezen file-ok tartalmát betöltsük a tudásgráfot megvalósító adatbázisba, a számítógép memóriájába, továbbá, hogy onnan kinyerjük, és visszatároljuk file-ba.</p>
+<p>Létezik tehát a tudásgráfnak egy olyan reprezentációja, ami a számítógép memóriájában helyezkedik el, és olyan is, ami valamilyen szabványosított formátumú file-ban. Ezekből a formátumokból számos létezik. Az alábbiakban azokat a formátumokat soroljuk fel, amelyekkel a <a href="https://cayley.io/" target="_blank">Cayley</a>
+ használata során találkozni fogunk.</p>
+<p>A leggyakoribb formátumok általában valamilyen szöveg alapú (text, XML) formátumok, amiknek szabványos mime azonosítójuk is van.</p>
+<table>
+<thead>
+<tr>
+<th>formátum</th>
+<th>kiterjesztés</th>
+<th>mime-type</th>
+<th>használata</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n-quads</td>
+<td><code>nq</code>, <code>nt</code></td>
+<td><code>TBD</code></td>
+<td>tbd.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="n-quads">
+  n-quads
+  <a class="anchor" href="#n-quads">#</a>
+</h2>
 </article>
  
       
@@ -330,7 +363,11 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#n-quads">n-quads</a></li>
+  </ul>
+</nav>
 
  
     </aside>
