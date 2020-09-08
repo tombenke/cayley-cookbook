@@ -1,0 +1,31 @@
+# (Optional) Set Google Analytics if you use it to track your website.
+# Always put it on the top of the configuration file, otherwise it won't work
+googleAnalytics = "UA-XXXXXXXXX-X"
+baseURL = "https://tombenke.github.io/cayley-cookbook"
+languageCode = "en-us"
+title = "Cayley-CookBook"
+theme = "book"
+publishDir = "../docs/"
+BookMenuBundle = "/menu"
+DefaultContentLanguage = "hu"
+enableInlineShortcodes = true
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    languageNameShort = "en"
+    weight = 1
+  [languages.hu]
+    languageName = "Magyar"
+    languageNameShort = "hu"
+    weight = 2
+
+[related]
+  includeNewer = false
+  threshold = 10
+  toLower = false
+
+  [[related.indices]]
+    name = "keywords"
+    weight = 10
+

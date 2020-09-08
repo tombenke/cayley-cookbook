@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cayley mint Package on Cayley-CookBook</title>
+    <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/</link>
+    <description>Recent content in Cayley mint Package on Cayley-CookBook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Namespace-ek és szótárak</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/vocabularies/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/vocabularies/</guid>
+      <description>Namespace-ek és szótárak #  Namespace-ek #  Az alábbi kód kilistázza az összes, jelenleg regisztrált namespace-t:
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add some predefined vocabularies 	_ &amp;#34;github.com/cayleygraph/quad/voc/schema&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/xsd&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; ) func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;); for _, v := range voc.List() { fmt.Printf(&amp;#34; %s =&amp;gt; %s\n&amp;#34;, v.Prefix, v.Full); } } 
+cd namespaces go run list_namespaces.go` a program kimenete:
+Registered namespaces: rdfs: =&amp;gt; http://www.</description>
+    </item>
+    
+    <item>
+      <title>Quad-ok</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/quads/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/quads/</guid>
+      <description>Quad-ok #  Az alábbi példa létrehoz egy quad halmazt, majd kiexportálja többféle formátumban:
+A teljes kódlista megtekintése package main import ( &amp;#34;fmt&amp;#34; &amp;#34;reflect&amp;#34; &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook/voc/foaf&amp;#34; ) func main() { // Create Quads about some people using Blank Nodes as references  quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads  printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references  quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads  printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad.</description>
+    </item>
+    
+    <item>
+      <title>Store-ok</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/stores/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/stores/</guid>
+      <description>Store-ok #  Teszt adatok előállítása #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally  luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export  label := &amp;#34;people&amp;#34; quads := []quad.Quad{} quads = append(quads, quad.Make(luke, quad.IRI(rdf.Type), quad.IRI(foaf.Person), label)) quads = append(quads, quad.Make(luke, quad.IRI(foaf.GivenName), &amp;#34;Luke&amp;#34;, label)) quads = append(quads, quad.</description>
+    </item>
+    
+    <item>
+      <title>CRUD Műveletek</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/crud-operations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/crud-operations/</guid>
+      <description>CRUD Műveletek #  </description>
+    </item>
+    
+    <item>
+      <title>Tranzakciók</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/transactions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/transactions/</guid>
+      <description>Tranzakciók #   Kapcsolódó oldalak: </description>
+    </item>
+    
+    <item>
+      <title>Lekérdezések</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/</guid>
+      <description>Lekérdezések #  Futtassuk a programot: 
+cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go A program kimenete:
+Az eredmények megjelenítése Results of finding any of `nosql` or `gremlin` tags: - &amp;#34;Ontotext GraphDB&amp;#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.</description>
+    </item>
+    
+    <item>
+      <title>Sémák</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/schemas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/schemas/</guid>
+      <description>Sémák #  Ez a fejezet arra mutat példát, hogyan lehet egyszerű vagy összetett objektumokat, azok tulajdonságait quad-okká alakítani, és feltölteni a store-ba, az adatstruktúra deklarációjában elhelyezett annotációk segítségével. Továbbá hogyan lehet a store-ból, az eredmény listákból egyszerűen összeszedni az objektumok property-jeit, és objektumként visszakapni az eredményeket.
+Ezzel a módszerrel jelentősen egyszerűbb az összetett adatoszerkezetek store-ba való feltöltése és lekérdezése, nem kell saját implementációt készíteni arra például, hogy egy adott Blank Node-dal, vagy IRI-vel azonosított objektum minden egyes tulajdonság-értékét egyenként szedegessük össze.</description>
+    </item>
+    
+  </channel>
+</rss>

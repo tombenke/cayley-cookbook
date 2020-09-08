@@ -1,0 +1,17 @@
+- id: Search
+  translation: Keresés
+
+- id: Edit this page
+  translation: Oldal szerkesztése
+
+- id: Last modified by
+  translation: Utolsó módosítás
+
+- id: Expand
+  translation: Kiterjeszt
+
+- id: bookSearchConfig
+  translation: '{ cache: true }'
+
+- id: seeAlso
+  translation: Kapcsolódó oldalak

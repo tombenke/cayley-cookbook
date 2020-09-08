@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on Cayley-CookBook</title>
+    <link>https://tombenke.github.io/cayley-cookbook/docs/</link>
+    <description>Recent content in Docs on Cayley-CookBook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Sep 2020 14:04:49 +0200</lastBuildDate>
+    
+	<atom:link href="https://tombenke.github.io/cayley-cookbook/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bevezetés</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/about/</link>
+      <pubDate>Tue, 01 Sep 2020 14:04:49 +0200</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/about/</guid>
+      <description>Bevezetés #  Amikor manapság Mesterséges Intelligenciáról beszélünk, többnyire a Gépi Tanulásra gondolunk, amit Statisztikus Tanulásnak is neveznek. A Gépi Tanulás módszereivel nagyon látványos eredményeket lehet elérni, ugyanakkor komoly hátránya, hogy a tanulás során keletkezett eredmények elemzése, magyarázata ember számára szinte egyáltalán nem, vagy csak nehezen értelmezhető.
+A Gépi Tanulás azonban csak az egyik lehetséges megközelítés. Korábban, az MI kutatások kezdetén, az 50-es 60-as években a fő csapásirány a szimbolikus megközelítés volt.</description>
+    </item>
+    
+  </channel>
+</rss>

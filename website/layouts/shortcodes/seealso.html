@@ -1,0 +1,15 @@
+<hr />
+<p>
+{{ $related := .Site.RegularPages.Related .Page }}
+{{ $thisPageTitle := .Page.Title }}
+{{ i18n "seeAlso" }}:
+{{ range $related }}
+<ul>
+    {{ if not (eq $thisPageTitle .Title) }}
+    <li>
+            <a href="{{.Permalink}}"> {{.Title}}</a>
+    </li>
+    {{end}}
+</ul>
+{{ end }}
+</p>

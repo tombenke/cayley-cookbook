@@ -1,0 +1,10 @@
+digraph cayley_graph {
+	"_:n6340084149380325359" -> "<foaf:Person>" [ label = "<rdf:type>" ];
+	"_:n6340084149380325359" -> "\"Luke\"" [ label = "<foaf:givenName>" ];
+	"_:n6340084149380325359" -> "\"Skywalker\"" [ label = "<foaf:familyName>" ];
+	"_:n6340084149380325359" -> "\"23\"^^<xsd:integer>" [ label = "<foaf:age>" ];
+	"_:n3716355040095307863" -> "<foaf:Person>" [ label = "<rdf:type>" ];
+	"_:n3716355040095307863" -> "_:n6340084149380325359" [ label = "<foaf:knows>" ];
+	"_:n3716355040095307863" -> "\"Leia\"" [ label = "<foaf:givenName>" ];
+	"_:n3716355040095307863" -> "\"Organa\"" [ label = "<foaf:familyName>" ];
+}

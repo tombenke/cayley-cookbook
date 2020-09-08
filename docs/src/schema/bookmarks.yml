@@ -1,0 +1,181 @@
+- id: 9493efb9-be9a-4435-9b5d-f605fc9cddaa
+  title: Gremlin's Graph Traversal Machinery
+  content: ""
+  author: ""
+  published: ""
+  tags: [gremlin, cayley, tinkerprop, gizmo, presentation, graph-db, query-language]
+  urls: ['https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery']
+- id: d6481271-d42d-487c-bec9-733ff383e029
+  title: Ontotext GraphDB
+  content: ""
+  author: ""
+  published: ""
+  tags: [graphdb, nosql, knowledge-graph, linked-data, semantic-web, rdf]
+  urls: ['https://ontotext.com/products/graphdb/']
+- id: 058d41d5-6830-432b-8ebb-5733f8a2575b
+  title: 'Graphs and neural networks: Reading node properties'
+  content: ""
+  author: David Mack
+  published: ""
+  tags: [octavian-ai, graphs, neural-network, nlu, digital-assistant, dbms, brainputer,
+    knowledge-graphs, graph-databases]
+  urls: ['https://medium.com/octavian-ai/graphs-and-neural-networks-reading-node-properties-2c91625980eb']
+- id: 324bacb5-8709-42b9-b38b-93755c48ef19
+  title: Towards building the next generation database query engine
+  content: ""
+  author: David Mack
+  published: Nov 12, 2018
+  tags: [octavian-ai, graphs, neural-network, nlu, digital-assistant, dbms, brainputer,
+    knowledge-graphs, graph-databases]
+  urls: ['https://medium.com/octavian-ai/towards-building-the-next-generation-database-query-engine-a1beca1e07a3']
+- id: e0af0cdc-1795-482d-986e-96b08cc530f9
+  title: extracting-knowledge-from-knowledge-graphs
+  content: ""
+  author: ""
+  published: ""
+  tags: [brainputer, pythorch, knowlendge-graph]
+  urls: ['https://towardsdatascience.com/extracting-knowledge-from-knowledge-graphs-e5521e4861a0']
+- id: 2e75fc6a-148f-4016-a178-2a53a67e06c8
+  title: Platypus
+  content: ""
+  author: ""
+  published: ""
+  tags: [knowledge-graph, wikidata, cognition, cui, platypus]
+  urls: ['https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service/A_gentle_introduction_to_the_Wikidata_Query_Service',
+    'https://www.wikidata.org/wiki/Wikidata:Main_Page', 'https://hal.archives-ouvertes.fr/hal-01730479/document']
+- id: 46721a5a-0eda-48f4-b190-b1c2544146a4
+  title: Grakn.AI - learn
+  content: ""
+  author: ""
+  published: ""
+  tags: [grakn.ai, tutorials, blog, ai, inference-engine, knowledge-graph]
+  urls: ['https://blog.grakn.ai/learn/home']
+- id: 418b7162-fc1e-4dda-a6a5-80b9d4558f47
+  title: 'KagNet: Knowledge-Aware Graph Networks for Commonsense Reasoning'
+  content: ""
+  author: ""
+  published: ""
+  tags: [kagnet, cognitive-computating, python, graphs, networks, knowledge-graph,
+    tools, commonsense, reasoning]
+  urls: ['https://github.com/INK-USC/KagNet']
+- id: a0b1b538-56e8-4fa9-a10b-be7c21ea2f90
+  title: Knowledge extraction from unstructured texts
+  content: ""
+  author: Heuritech
+  published: ""
+  tags: [lstm, knowledge-graph, text-extraction, konwledge-extraction, heuritech,
+    semantics, universal-schema, triplet-extraction, word2vec]
+  urls: ['https://medium.com/heuritech/knowledge-extraction-from-unstructured-texts-c279e3b8f92f']
+- id: 0b82f944-3f8c-4206-953e-a0d2d256dd60
+  title: Deep Learning with Knowledge Graphs
+  content: ""
+  author: Andrew Jefferson
+  published: ""
+  tags: [octavian, deep-neural-network, knowledge-graph, machine-learning, macgraph,
+    brainputer]
+  urls: ['https://medium.com/octavian-ai/deep-learning-with-knowledge-graphs-3df0b469a61a']
+- id: e0d790fd-03de-4522-9ebc-3b931db52288
+  title: MacGraph
+  content: ""
+  author: ""
+  published: ""
+  tags: [octavian, deep-neural-network, knowledge-graph, machine-learning, macgraph,
+    brainputer, github, repository]
+  urls: ['https://github.com/Octavian-ai/mac-graph']
+- id: 17217149-1274-4ea4-a5f2-9bd48e6003c5
+  title: octavian.ai
+  content: |
+    We research new approaches to machine reasoning and graph-based learning.
+    We're working to build machines that can answer useful questions, using neural reasoning and knowledge graphs. We write articles, give talks and host workshops about our work.
+    We're an open-source research organization and welcome you to join us and contribute.
+  author: ""
+  published: ""
+  tags: [octavian, machine-learning, open-source, research, graph, knowledge-graph,
+    macgraph, brainputer]
+  urls: ['https://www.octavian.ai/']
+- id: 955d0202-d259-46c7-b71b-eb2434da2058
+  title: Build your own Knowledge Graph From unstructured dark data to valuable business
+    insights
+  content: ""
+  author: Ignaz Wanders
+  published: ""
+  tags: [knowledge-graph, ai, machine-learning, ml, neo4j]
+  urls: ['https://medium.com/vectrconsulting/build-your-own-knowledge-graph-975cf6dde67f']
+- id: b34b66d4-81d2-4449-a049-4cb29fdc8f75
+  title: Extracting knowledge from knowledge graphs using Facebook Pytorch BigGraph.
+  content: ""
+  author: ""
+  published: ""
+  tags: [knowledge-graph, kg, ai, graphs, facebook, pytorch, biggraph]
+  urls: ['https://towardsdatascience.com/extracting-knowledge-from-knowledge-graphs-e5521e4861a0']
+- id: af631947-2a60-4ce6-a1a9-0b7ab88b9cfb
+  title: Deep Learning with Knowledge Graphs
+  content: ""
+  author: ""
+  published: ""
+  tags: [deep-learning, ml, machine-learning, knowledge-graph, ai]
+  urls: ['https://medium.com/octavian-ai/deep-learning-with-knowledge-graphs-3df0b469a61a']
+- id: f020ade1-4824-4c47-95c4-527c49fe2406
+  title: Knowledge Graphs in Natural Language Processing @ ACL 2020
+  content: State of the Art Mid 2020
+  author: Michael Galkin
+  published: Jul 10, 2020
+  tags: [ai, kg, knowledge-graphs, nlp, acl]
+  urls: ['https://towardsdatascience.com/knowledge-graphs-in-natural-language-processing-acl-2020-ebb1f0a6e0b1']
+- id: a45c3713-89a4-44eb-947b-d0720d8ff9f4
+  title: Blog-Rolling-with-BrightstarDB-Express-and-Node-js
+  content: ""
+  author: ""
+  published: ""
+  tags: [brightstardb, rdf, triple-store, nodejs, .net, database]
+  urls: ['https://www.codeproject.com/Articles/419181/Blog-Rolling-with-BrightstarDB-Express-and-Node-js',
+    'http://brightstardb.com/']
+- id: fba5c188-4c20-4cc3-aa99-720662d58ab8
+  title: FOAF Vocabulary Specification 0.99
+  content: ""
+  author: ""
+  published: ""
+  tags: [foaf, vocabulary, rdf]
+  urls: ['http://xmlns.com/foaf/spec/']
+- id: 8193a8a4-ae32-4867-924b-ecc9b856cad3
+  title: SuperMemo Website
+  content: |
+    SuperMemo is a program that keeps track of discrete bits of information you've learned and want to retain.
+    SuperMemo tracks this so-called forgetting curve and reminds you to rehearse your knowledge when your chance of recalling it has dropped to, say, 90 percent.
+    When you first learn a new vocabulary word, your chance of recalling it will drop quickly. But after SuperMemo reminds you of the word, the rate of forgetting levels out. The program tracks this new decline and waits longer to quiz you the next time.
+  author: ""
+  published: ""
+  tags: [memory, learning, wozniak, brainputer, supermemo]
+  urls: ['https://www.supermemo.com/en/archives1990-2015/articles/devour']
+- id: 1d96dd4d-c30e-45a7-8f44-38dfb9a697f2
+  title: Gellish.net
+  content: Gellish is a standard language, methodology and tools for expressing information
+    in a computer interpretable and system independent way. It enables exchange and
+    integration of data among systems of multiple parties without the need for data
+    conversions.
+  author: ""
+  published: ""
+  tags: [dictionary, gellish.net, gellish, nlp, cognitive-computing, electronic-dictionary,
+    open-source, semantic-web, brainputer, robotics]
+  urls: ['https://www.gellish.net/']
+- id: bdd898dc-76de-4a41-86b1-8757aff5fe6c
+  title: Semantic Web and Model-Driven Engineering
+  content: Too theoretical
+  author: ""
+  published: ""
+  tags: [architecture, system-design, ddd, domain-driven-design, soo-poc, semantic-web]
+  urls: ['http://www.allitebooks.org/semantic-web-and-model-driven-engineering/']
+- id: 1deb716d-4ca8-4834-a771-7c68e8844067
+  title: MRD, Machine Readable dictionary
+  content: ""
+  author: ""
+  published: ""
+  tags: [mrd, dictionary, nlp, cognitive-computing]
+  urls: ['https://en.wikipedia.org/wiki/Machine-readable_dictionary']
+- id: 9493efb9-be9a-4435-9b5d-f605fc9cddaa
+  title: Gremlin's Graph Traversal Machinery
+  content: ""
+  author: ""
+  published: ""
+  tags: [gremlin, cayley, tinkerprop, gizmo, presentation, graph-db, query-language]
+  urls: ['https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery']

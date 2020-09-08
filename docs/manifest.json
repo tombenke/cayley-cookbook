@@ -1,0 +1,15 @@
+{
+  "name": "Cayley-CookBook",
+  "short_name": "Cayley-CookBook",
+  "start_url": "/cayley-cookbook/",
+  "scope": "/cayley-cookbook/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/cayley-cookbook/favicon.svg",
+      "sizes": "512x512"
+    }
+  ]
+}

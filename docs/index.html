@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="hu" dir=>
+
+<head>
+	<meta name="generator" content="Hugo 0.74.3" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cayley Szakácskönyv #  A Cayley egy open-source Linked Data adatbáziskezelő. Léthrehozását a Google Knowledge Graph gráf adatbázisa inspirálta.
+Ez a weboldal kódrészletek gyűjteménye, melyek azt mutatják be, működő példákon keresztül, hogyan lehet a Cayley Knowledge Graph Golang könyvtárként alkalmazni.
+A github.com/tombenke/cayley-cookbook repository tartalmazza a forráskódot. A repository-ban az egyes használati esetek directory-kba vannak szervezve. A gyűjtemény létrehozásának célja az, hogy megkönnyítse a Cayleygraph tanulását, használatát.
+A példákat kétféle módon használhatjuk:">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Cayley CookBook" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/" />
+<meta property="og:updated_time" content="2020-09-01T14:04:49+02:00" />
+<title>Cayley CookBook | Cayley-CookBook</title>
+<link rel="manifest" href="/cayley-cookbook/manifest.json">
+<link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/" title="Cayley CookBook">
+
+<link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
+<script defer src="/cayley-cookbook/hu.search.min.82b7e38f52a1f6225c94151a8ba6a9f82f7ac28863156cd47406eb8c111130d8.js" integrity="sha256-grfjj1Kh9iJclBUai6ap&#43;C96wohjFWzUdAbrjBERMNg="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-XXXXXXXXX-X', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<link rel="alternate" type="application/rss+xml" href="https://tombenke.github.io/cayley-cookbook/index.xml" title="Cayley-CookBook" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cayley-cookbook"><span>Cayley-CookBook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/about/" class="">Bevezetés</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Alapfogalmak</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/cayley-overview/" class="">A Cayley rendszer áttekintése</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/cayley-as-package/" class="collapsed ">Cayley mint Package</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Cayley CookBook</strong>
+
+  <label for="toc-control">
+    
+    <img src="/cayley-cookbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#cayley-szakácskönyv">Cayley Szakácskönyv</a></li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="cayley-szakácskönyv">
+  Cayley Szakácskönyv
+  <a class="anchor" href="#cayley-szak%c3%a1csk%c3%b6nyv">#</a>
+</h2>
+<p>A <a href="https://github.com/cayleygraph/cayley">Cayley</a> egy open-source Linked Data adatbáziskezelő.
+Léthrehozását a Google <a href="https://en.wikipedia.org/wiki/Knowledge_Graph">Knowledge Graph</a> gráf adatbázisa inspirálta.</p>
+<p>Ez a weboldal kódrészletek gyűjteménye, melyek azt mutatják be, működő példákon keresztül, hogyan lehet a
+<a href="https://github.com/cayleygraph/cayley">Cayley Knowledge Graph</a> Golang könyvtárként alkalmazni.</p>
+<p>A <a href="https://github.com/tombenke/cayley-cookbook/tree/master">github.com/tombenke/cayley-cookbook</a>
+repository tartalmazza a forráskódot. A repository-ban az egyes használati esetek directory-kba vannak szervezve.
+A gyűjtemény létrehozásának célja az, hogy megkönnyítse a Cayleygraph tanulását, használatát.</p>
+<p>A példákat kétféle módon használhatjuk:</p>
+<ol>
+<li>Közvetlenül végrehajthatjuk őket a felhőben.
+<a href="https://repl.it/github/tombenke/cayley-cookbook"><img src="https://repl.it/badge/github/tombenke/cayley-cokbook" alt="Run on Repl.it" /></a></li>
+<li>Klónozzuk a <a href="https://github.com/tombenke/cayley-cookbook/tree/master">repository</a>-t a saját gépünkre, és ott futtatjuk.</li>
+</ol>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+  
+
+
+  
+
+  
+
+
+  
+
+
+<div class="book-languages" tabindex="0" aria-haspopup="true">
+  <ul>
+    <li class="flex align-center">
+      <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+      Magyar
+    </li> 
+  </ul>
+
+  <ul class="book-languages-list">
+    
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/en/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </li>
+    
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        Magyar
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#cayley-szakácskönyv">Cayley Szakácskönyv</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

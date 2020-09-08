@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="hu" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gráf alapú adatmodellezés #  Amikor tudásgráfot építünk, akkor a világ egy részéről építünk fel egy koncepcionális modellt.
+Egy koncepcionális modell jellemzően egy meghatározott szakterületet fed le, ezért ezt a modellt domain-nek, tudás-tartománynak is nevezzük.
+Egy domain a következőket képviseli:
+ az elsődleges entitásokat (a dolgokat, amelyek a domain-be beletartoznak). Az entitásokra használni fogjuk a resource kifejezést is; az entitások között fennálló kapcsolatokat; az entitások és kapcsolatok tulajdonságait, más szóval attribútumait Ezeket property-knek is nevezzük esetleg a szabályokat, amelyek az entitások és attribútumaik kapcsolatára, azok belső tulajdonságaira vonatkoznak.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Gráf alapú adatmodellezés" />
+<meta property="og:description" content="Gráf alapú adatmodellezés #  Amikor tudásgráfot építünk, akkor a világ egy részéről építünk fel egy koncepcionális modellt.
+Egy koncepcionális modell jellemzően egy meghatározott szakterületet fed le, ezért ezt a modellt domain-nek, tudás-tartománynak is nevezzük.
+Egy domain a következőket képviseli:
+ az elsődleges entitásokat (a dolgokat, amelyek a domain-be beletartoznak). Az entitásokra használni fogjuk a resource kifejezést is; az entitások között fennálló kapcsolatokat; az entitások és kapcsolatok tulajdonságait, más szóval attribútumait Ezeket property-knek is nevezzük esetleg a szabályokat, amelyek az entitások és attribútumaik kapcsolatára, azok belső tulajdonságaira vonatkoznak." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/graph-based-data-model/" />
+
+<title>Gráf alapú adatmodellezés | Cayley-CookBook</title>
+<link rel="manifest" href="/cayley-cookbook/manifest.json">
+<link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/graph-based-data-model/" title="Graph Based Data Model">
+
+<link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
+<script defer src="/cayley-cookbook/hu.search.min.82b7e38f52a1f6225c94151a8ba6a9f82f7ac28863156cd47406eb8c111130d8.js" integrity="sha256-grfjj1Kh9iJclBUai6ap&#43;C96wohjFWzUdAbrjBERMNg="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-XXXXXXXXX-X', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cayley-cookbook"><span>Cayley-CookBook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/about/" class="">Bevezetés</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Alapfogalmak</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/basic-concepts/graph-based-data-model/" class="active">Gráf alapú adatmodellezés</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/basic-concepts/resources/" class="">Erőforrások</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/basic-concepts/statements/" class="">Állítások</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/basic-concepts/vocabularies/" class="">Szótárak</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/basic-concepts/rdf-graphs/" class="">Tudás Gráf reprezentációk</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/cayley-overview/" class="">A Cayley rendszer áttekintése</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/cayley-as-package/" class="collapsed ">Cayley mint Package</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Gráf alapú adatmodellezés</strong>
+
+  <label for="toc-control">
+    
+    <img src="/cayley-cookbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents"></nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="gráf-alapú-adatmodellezés">
+  Gráf alapú adatmodellezés
+  <a class="anchor" href="#gr%c3%a1f-alap%c3%ba-adatmodellez%c3%a9s">#</a>
+</h1>
+<p>Amikor tudásgráfot építünk, akkor a világ egy részéről építünk fel egy koncepcionális modellt.</p>
+<p>Egy koncepcionális modell jellemzően egy meghatározott szakterületet fed le, ezért ezt a modellt domain-nek, tudás-tartománynak is nevezzük.</p>
+<p>Egy domain a következőket képviseli:</p>
+<ul>
+<li>az elsődleges entitásokat (a dolgokat, amelyek a domain-be beletartoznak). Az entitásokra használni fogjuk a resource kifejezést is;</li>
+<li>az entitások között fennálló kapcsolatokat;</li>
+<li>az entitások és kapcsolatok tulajdonságait, más szóval attribútumait Ezeket property-knek is nevezzük</li>
+<li>esetleg a szabályokat, amelyek az entitások és attribútumaik kapcsolatára, azok belső tulajdonságaira vonatkoznak.</li>
+</ul>
+<p>A gráf alapú adatbázis-kezelők, és a szemantikus technológiák hatékonyan alkalmazhatók olyan esetben, ahol rugalmas, gyakran változó, nem strukturált adatmodellel kell dolgozni, és sokféle keresési szempont alapján kell lekérdezéseket végrehajtanunk. Ebből adódóan jók a koncepcionális modellek leírására.</p>
+<p>A <a href="https://hu.wikipedia.org/wiki/Gr%C3%A1f">gráfok</a> két fontos alkotóelemből állnak:</p>
+<ul>
+<li>csomópontok, más néven csúcsok, angolul <strong>node</strong>, vagy <strong>vertex</strong>.</li>
+<li>élek, amelyek a csomópontokat összekötik, angolul <strong>edge</strong>.</li>
+</ul>
+<p>A tudásreprezentációnál a node-okat jellemzően fogalmak, dolgok ábrázolására használjuk, az edge-eket pedig a köztük fennálló kapcsolatok, asszociációk jelölésére.</p>
+<p>Az élek irányítottak, és mind a node-oknak, mind az edge-eknek lehetnek címkéi, angolul <strong>label</strong>.</p>
+<p>Az 1. ábra egy egyszerű gráfot ábrázol, amin két csomópont (node) található a &ldquo;Luke&rdquo; és &ldquo;Leia&rdquo; címkékkel, továbbá köztük egy él (edge) a &ldquo;knows&rdquo; címkével</p>
+<figure>
+    <img src="/cayley-cookbook/simple-graph.png"/> <figcaption>
+            <h4>1. ábra: Egyszerű Gráf</h4>
+        </figcaption>
+</figure>
+
+<p>Bizonyos gráf adatbázis-kezelők megengedik, hogy a node-ok és edge-ek több tulajdonságot is hordozzanak, a <a href="https://cayley.io/" target="_blank">Cayley</a>
+ esetében számunkra ezek egyetlen értéket fognak jelenteni.</p>
+<p>
+
+
+
+  
+
+<a  href="/cayley-cookbook/docs/basic-concepts/"   class="book-btn">
+  &#9669; Alapfogalmak
+</a>
+
+
+
+
+
+  
+
+<a  href="/cayley-cookbook/docs/basic-concepts/resources/"   class="book-btn">
+  Erőforrások &#9659;
+</a>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+  
+
+
+  
+
+  
+
+
+  
+
+
+<div class="book-languages" tabindex="0" aria-haspopup="true">
+  <ul>
+    <li class="flex align-center">
+      <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+      Magyar
+    </li> 
+  </ul>
+
+  <ul class="book-languages-list">
+    
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/graph-based-data-model/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </li>
+    
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        Magyar
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents"></nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

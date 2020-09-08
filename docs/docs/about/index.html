@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="hu" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bevezetés #  Amikor manapság Mesterséges Intelligenciáról beszélünk, többnyire a Gépi Tanulásra gondolunk, amit Statisztikus Tanulásnak is neveznek. A Gépi Tanulás módszereivel nagyon látványos eredményeket lehet elérni, ugyanakkor komoly hátránya, hogy a tanulás során keletkezett eredmények elemzése, magyarázata ember számára szinte egyáltalán nem, vagy csak nehezen értelmezhető.
+A Gépi Tanulás azonban csak az egyik lehetséges megközelítés. Korábban, az MI kutatások kezdetén, az 50-es 60-as években a fő csapásirány a szimbolikus megközelítés volt.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Bevezetés" />
+<meta property="og:description" content="Bevezetés #  Amikor manapság Mesterséges Intelligenciáról beszélünk, többnyire a Gépi Tanulásra gondolunk, amit Statisztikus Tanulásnak is neveznek. A Gépi Tanulás módszereivel nagyon látványos eredményeket lehet elérni, ugyanakkor komoly hátránya, hogy a tanulás során keletkezett eredmények elemzése, magyarázata ember számára szinte egyáltalán nem, vagy csak nehezen értelmezhető.
+A Gépi Tanulás azonban csak az egyik lehetséges megközelítés. Korábban, az MI kutatások kezdetén, az 50-es 60-as években a fő csapásirány a szimbolikus megközelítés volt." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/about/" />
+<meta property="article:published_time" content="2020-09-01T14:04:49+02:00" />
+<meta property="article:modified_time" content="2020-09-01T14:04:49+02:00" />
+<title>Bevezetés | Cayley-CookBook</title>
+<link rel="manifest" href="/cayley-cookbook/manifest.json">
+<link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/about/" title="About">
+
+<link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
+<script defer src="/cayley-cookbook/hu.search.min.82b7e38f52a1f6225c94151a8ba6a9f82f7ac28863156cd47406eb8c111130d8.js" integrity="sha256-grfjj1Kh9iJclBUai6ap&#43;C96wohjFWzUdAbrjBERMNg="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-XXXXXXXXX-X', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cayley-cookbook"><span>Cayley-CookBook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/about/" class="active">Bevezetés</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Alapfogalmak</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/cayley-overview/" class="">A Cayley rendszer áttekintése</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/cayley-as-package/" class="collapsed ">Cayley mint Package</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Bevezetés</strong>
+
+  <label for="toc-control">
+    
+    <img src="/cayley-cookbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents"></nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="bevezetés">
+  Bevezetés
+  <a class="anchor" href="#bevezet%c3%a9s">#</a>
+</h1>
+<p>Amikor manapság Mesterséges Intelligenciáról beszélünk, többnyire a Gépi Tanulásra gondolunk, amit Statisztikus Tanulásnak is neveznek. A Gépi Tanulás módszereivel nagyon látványos eredményeket lehet elérni, ugyanakkor komoly hátránya, hogy a tanulás során keletkezett eredmények elemzése, magyarázata ember számára szinte egyáltalán nem, vagy csak nehezen értelmezhető.</p>
+<p>A Gépi Tanulás azonban csak az egyik lehetséges megközelítés. Korábban, az MI kutatások kezdetén, az 50-es 60-as években a fő csapásirány a szimbolikus megközelítés volt. Előnye, a Gépi Tanulással szemben, hogy ember számára is átlátható a tanulás eredménye, a tudás, és a következtetési folyamat egésze jól leírható, a klasszikus programozáshoz hasonló eszközökkel. Ebbe a kategóriába sorolhatóak a szemantikus web technológiák A szimbolikus módszerek nagy hátránya, hogy az emberi intelligenciával összemérhető tudás, olyan méretű adatbázisokat igényel, ami az eddig kifejlesztett szimbolikus technológiákkal nem működtethető hatékonyan, a következtetés számításigénye és ezáltal a futási idő túlságosan nagy.</p>
+<p>Ahhoz, hogy az emberi intelligenciához közelítő, valóban intelligens rendszereket hozzunk létre, elengedhetetlenül szükséges két összetevő:</p>
+<ol>
+<li>A rendszer képessége az irányított és önálló tanulásra,</li>
+<li>A tudás konverziójára a rendszer &ldquo;agyában&rdquo; lévő, belső reprezentáció és a szimbolikus térbeli (ember által is érthető és szerkeszthető) reprezentáció között.</li>
+</ol>
+<p>A tudás szimbolikus reprezentációjára, és az így leírt tudás kezelésére jó alapot nyújtanak a szemantikus web számára kidolgozott technológiák, és az újabb gráf alapú adatbázisok és kereső motorok. Ide sorolható a Google Tudásgráfja is, amely az inspirációt adta a <a href="https://cayley.io/" target="_blank">Cayley</a>
+ kifejlesztéséhez.</p>
+<p>Ez a szakácskönyv alapvetően praktikus oldalról közelíti meg a problémát.
+Nem kíván szabatos, kimerítő áttekintést adni a fent felsorolt technológiákról, és elméletekről. Kizárólag azokat a fogalmakat próbálja közérthető, egyszerű, tömör formában leírni, amelyekre a <a href="https://cayley.io/" target="_blank">Cayley</a>
+ épít.</p>
+<p>A tartalom három fő fejezetre tagolódik.</p>
+<ol>
+<li>Az <a href="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/">&ldquo;Alapfogalmak&rdquo;</a> c. fejezet ismerteti azokat a tudnivalókat, amelyek szükségesek ahhoz, hogy a <a href="https://cayley.io/" target="_blank">Cayley</a>
+-t használni tudjuk.</li>
+<li><a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/">&ldquo;A Cayley rendszer áttekintése&rdquo;</a> c. fejezet segít eligazodni abban, hogy milyen elemekből áll a <a href="https://cayley.io/" target="_blank">Cayley</a>
+ &ldquo;ökoszisztéma&rdquo;, és az egyes elemeit milyen módon lehet használni, hol találunk hozzá dokumentációt.</li>
+<li>A <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/">&ldquo;Cayley mint Go package&rdquo;</a> c. fejezet alkotja a szakácskönyv fő tartalmát. Ebben találhatjuk az egyes használati eseteket, kezdve az egyszerűbbekkel, majd haladva a bonyolultabbak irányában.</li>
+</ol>
+
+
+
+
+  
+
+<a  href="/cayley-cookbook/docs/basic-concepts/"   class="book-btn">
+  Alapfogalmak &#9659;
+</a>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+  
+
+
+  
+
+  
+
+
+  
+
+
+<div class="book-languages" tabindex="0" aria-haspopup="true">
+  <ul>
+    <li class="flex align-center">
+      <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+      Magyar
+    </li> 
+  </ul>
+
+  <ul class="book-languages-list">
+    
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/en/docs/about/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </li>
+    
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        Magyar
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents"></nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

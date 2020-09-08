@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="hu" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Állítások #  Alany, Állítmány, Tárgy #  A tudást tény-állításokként rögzítjük. A tényeket kijelentő mondatokként megfogalmazott állítások formájában írtuk le. Például:
+Luke Skywalker életkora kora 23 év. angolul:
+Luke Skywalker has age 23. A mondatokat át lehet alakítani olyan formába, hogy azok az alany-állítmány-tárgy szerkezetet tükrözzék. Ezeket a szerkezeti elemeket angolul subject-predicate-object névvel azonosítjuk.
+Luke-Skywalker has-age 23. A mondat elemei:
+ subject (alany): Luke-Skywalker, predicate (állítmány): has-age, object (tárgy): 23.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Állítások" />
+<meta property="og:description" content="Állítások #  Alany, Állítmány, Tárgy #  A tudást tény-állításokként rögzítjük. A tényeket kijelentő mondatokként megfogalmazott állítások formájában írtuk le. Például:
+Luke Skywalker életkora kora 23 év. angolul:
+Luke Skywalker has age 23. A mondatokat át lehet alakítani olyan formába, hogy azok az alany-állítmány-tárgy szerkezetet tükrözzék. Ezeket a szerkezeti elemeket angolul subject-predicate-object névvel azonosítjuk.
+Luke-Skywalker has-age 23. A mondat elemei:
+ subject (alany): Luke-Skywalker, predicate (állítmány): has-age, object (tárgy): 23." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/statements/" />
+
+<title>Állítások | Cayley-CookBook</title>
+<link rel="manifest" href="/cayley-cookbook/manifest.json">
+<link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/statements/" title="Statements">
+
+<link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
+<script defer src="/cayley-cookbook/hu.search.min.82b7e38f52a1f6225c94151a8ba6a9f82f7ac28863156cd47406eb8c111130d8.js" integrity="sha256-grfjj1Kh9iJclBUai6ap&#43;C96wohjFWzUdAbrjBERMNg="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-XXXXXXXXX-X', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cayley-cookbook"><span>Cayley-CookBook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/about/" class="">Bevezetés</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Alapfogalmak</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/basic-concepts/graph-based-data-model/" class="">Gráf alapú adatmodellezés</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/basic-concepts/resources/" class="">Erőforrások</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/basic-concepts/statements/" class="active">Állítások</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/basic-concepts/vocabularies/" class="">Szótárak</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/basic-concepts/rdf-graphs/" class="">Tudás Gráf reprezentációk</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/cayley-overview/" class="">A Cayley rendszer áttekintése</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/cayley-as-package/" class="collapsed ">Cayley mint Package</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Állítások</strong>
+
+  <label for="toc-control">
+    
+    <img src="/cayley-cookbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#alany-állítmány-tárgy">Alany, Állítmány, Tárgy</a></li>
+    <li><a href="#üres-node-ok">Üres node-ok</a></li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="állítások">
+  Állítások
+  <a class="anchor" href="#%c3%a1ll%c3%adt%c3%a1sok">#</a>
+</h1>
+<h2 id="alany-állítmány-tárgy">
+  Alany, Állítmány, Tárgy
+  <a class="anchor" href="#alany-%c3%a1ll%c3%adtm%c3%a1ny-t%c3%a1rgy">#</a>
+</h2>
+<p>A tudást tény-állításokként rögzítjük.
+A tényeket kijelentő mondatokként megfogalmazott állítások formájában írtuk le.
+Például:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">Luke Skywalker életkora kora 23 év.
+</code></pre></div><p>angolul:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">Luke Skywalker has age 23.
+</code></pre></div><p>A mondatokat át lehet alakítani olyan formába, hogy azok az <code>alany-állítmány-tárgy</code> szerkezetet tükrözzék.
+Ezeket a szerkezeti elemeket angolul <code>subject-predicate-object</code> névvel azonosítjuk.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">Luke-Skywalker has-age 23.
+</code></pre></div><p>A mondat elemei:</p>
+<ul>
+<li>subject (alany): <code>Luke-Skywalker</code>,</li>
+<li>predicate (állítmány): <code>has-age</code>,</li>
+<li>object (tárgy): <code>23</code>.</li>
+</ul>
+<p>Mivel sok Luke Skywalker létezhet, ezért az egyértelműség kedvéért a konkrét személyre a <code>Luke-Skywalker-from-StarWars</code> azonosítóval fogunk hivatkozni.
+Mivel szabványosított formátumú, univerzális azonosítót akarunk használni, ezért Luke azonosítója a következő IRI lesz: <code>&lt;Luke-Skywalker-from-StarWars&gt;</code>.</p>
+<p>Luke egyértelműen egy resource, vagy más néven entitás, akit egy IRI-vel egyértelműen azonosítunk.
+Van egy tulajdonsága, az életkor, amit a <code>&lt;has-age&gt;</code> IRI-vel tudunk kifejezni, mivel ez egy általános fogalom.
+Ezen felül szükségünk vagy egy literálra, aminek az értéke <code>23</code> és a típusa egész szám. Ezt az értéket veszi fel Luke esetében a <code>has-age</code> tulajdonság.
+Végleges formában tehát a kijelentés az alábbi lesz:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">    &lt;Luke-Skywalker-from-StarWars&gt; &lt;has-age&gt; 23^^integer .
+</code></pre></div><p>Láthatjuk az 1. ábrán, hogy a <code>subject-predicate-object</code> hármas felrajzolható gráfként, ahol a subject és az object node-okként jelenik meg, és a predicate lesz a két node-ot összekötő, irányított él.</p>
+<figure>
+    <img src="/cayley-cookbook/subject-predicate-object-graph.png"/> <figcaption>
+            <h4>1. ábra: Subject-Predicate-Object Gráf</h4>
+        </figcaption>
+</figure>
+
+<p>Az ilyen formában felírt kijelentést <strong>triplet</strong>-nek is nevezik.</p>
+<p>Példaképpen vizsgáljuk meg, hogyan tudnánk reprezentálni a számítógép számára az alábbi tényeket:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">Luke Skywalker egy személy a StarWars világban. Családi neve Skywalker, keresztneve Luke.
+Luke Skywalker jelenleg 23 éves.
+Leia Organa egy személy a StarWars világban. Családi neve Organa, keresztneve Leia.
+Leia ismeri Luke-ot.
+</code></pre></div><p>Alakítsuk át a fenti mondatokat <code>subject-predicat-object</code> szerkezetűvé.</p>
+<p>Nézzük hogyan néz ki átfogalmazva a fenti néhány mondat.
+Az átrendezett mondatokat angolul fogjuk leírni, mert ezzel egyszerűbb lesz követni a gráffá alakítás során a jelölésmódot.
+A subject-eket és predicate-eket rögtön IRI formátumba alakítottuk.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;Luke-Skywalker-from-StarWars&gt; &lt;is-a&gt; &lt;Person&gt; .
+&lt;Luke-Skywalker-from-StarWars&gt; &lt;has-given-name&gt; &#34;Luke&#34; .
+&lt;Luke-Skywalker-from-StarWars&gt; &lt;has-family-name&gt; &#34;Skywalker&#34; .
+&lt;Luke-Skywalker-from-StarWars&gt; &lt;has-age&gt; 23 .
+&lt;Leia-Organa-from-StarWars&gt; &lt;is-a&gt; &lt;Person&gt; .
+&lt;Leia-Organa-from-StarWars&gt; &lt;has-given-name&gt; &#34;Leia&#34; .
+&lt;Leia-Organa-from-StarWars&gt; &lt;has-family-name&gt; &#34;Organa&#34; .
+&lt;Leia-Organa-from-StarWars&gt; &lt;knows&gt; &lt;Luke-Skywalker-from-StarWars&gt; .
+</code></pre></div><p>Gráfként fogjuk ábrázolni a tényeket, azokkal az elemekkel, amit az előző fejezetben bevezettünk, resource-okkal, IRI-kkel, és literál értékekkel.</p>
+<p>A resource-ok (subject-ek és object-ek):</p>
+<ul>
+<li>Luke Skywalker a StarWars világban: <code>&lt;Luke-Skywalker-from-StarWars&gt;</code>,</li>
+<li>Leia Organa a StarWars világban: <code>&lt;Leia-Organa-from-StarWars&gt;</code>,</li>
+<li>Személy (mint fogalom): <code>&lt;Person&gt;</code>.</li>
+</ul>
+<p>A predikátumok:</p>
+<ul>
+<li><code>&lt;is-a&gt;</code>,</li>
+<li><code>&lt;has-given-name&gt;</code>,</li>
+<li><code>&lt;has-family-name&gt;</code>,</li>
+<li><code>&lt;has-age&gt;</code>,</li>
+<li><code>&lt;knows&gt;</code>.</li>
+</ul>
+<p>A literálok:</p>
+<ul>
+<li><code>&quot;Luke&quot;</code>,</li>
+<li><code>&quot;Skywalker&quot;</code>,</li>
+<li><code>&quot;Leia&quot;</code>,</li>
+<li><code>&quot;Organa&quot;</code>,</li>
+<li><code>23</code>.</li>
+</ul>
+<p>A 2. ábra azt szemléltei, hogy a fenti állítások hogyan jelennek meg gráfként:</p>
+<figure>
+    <img src="/cayley-cookbook/statements-example.png"/> <figcaption>
+            <h4>2. ábra: Predikátumok gráfként ábrázolva</h4>
+        </figcaption>
+</figure>
+
+<p>Az entitások sárga színnel, a literálok pedig zöld színnel vannak megjelenítve.</p>
+<h2 id="üres-node-ok">
+  Üres node-ok
+  <a class="anchor" href="#%c3%bcres-node-ok">#</a>
+</h2>
+<p>Előfordul olyan eset, amikor az állításokat úgy akarjuk hozzákapcsolni egy entitáshoz, hogy ahhoz nem akarunk globális azonosítót, IRI-t rendelni, mivel az entitásra csak az adott gráfon belül van szükségünk, és annak a kapcsolatai a lényegesek, nem pedig az, hogy a külvilág felé egyértelmű legyen az azonossága.
+Ebben az esetben úgynevezett üres csomópontokat, angolul Blank Node-okat alkalmazunk.</p>
+<p>A Blank Node-oknak is van saját azonosítója, ami egy adott gráfon belül egyedi ameddig a program fut.</p>
+<p>A Blank Node-ok a <code>_:</code> prefix-szel kezdődnek, és többnyire valamilyen véletlenszerűen generált számmal, vagy stringgel folytatódnak.</p>
+<p>A 3. ábra hasonló a 2. ábrán látható gráfhoz, azzal a különbséggel, hogy azon a két személyt nem azonosítjuk, globális hatáskörű IRI-kkel, hanem csak lokális hatáskörű Blank node-okkal.</p>
+<figure>
+    <img src="/cayley-cookbook/blank-node-example.png"/> <figcaption>
+            <h4>3. ábra: Predikátumok gráfként ábrázolva, Blank node-okkal</h4>
+        </figcaption>
+</figure>
+
+<p>A Blank Node-okat szürke színnel jelöljük.</p>
+<hr />
+<p>
+
+
+Kapcsolódó oldalak:
+
+<ul>
+    
+    <li>
+            <a href="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/resources/"> Erőforrások</a>
+    </li>
+    
+</ul>
+
+<ul>
+    
+    <li>
+            <a href="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/rdf-graphs/"> Tudás Gráf reprezentációk</a>
+    </li>
+    
+</ul>
+
+</p>
+
+<p>
+
+
+
+  
+
+<a  href="/cayley-cookbook/docs/basic-concepts/resources/"   class="book-btn">
+  &#9669; Erőforrások
+</a>
+
+
+
+
+
+  
+
+<a  href="/cayley-cookbook/docs/basic-concepts/vocabularies/"   class="book-btn">
+  Szótárak &#9659;
+</a>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+  
+
+
+  
+
+  
+
+
+  
+
+
+<div class="book-languages" tabindex="0" aria-haspopup="true">
+  <ul>
+    <li class="flex align-center">
+      <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+      Magyar
+    </li> 
+  </ul>
+
+  <ul class="book-languages-list">
+    
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/statements/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </li>
+    
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        Magyar
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#alany-állítmány-tárgy">Alany, Állítmány, Tárgy</a></li>
+    <li><a href="#üres-node-ok">Üres node-ok</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Namespaces and Vocabularies #  Namespaces #  The following code fragment lists all the namespaces currently registered:
+package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad/voc&#34; // Add some predefined vocabularies 	_ &#34;github.com/cayleygraph/quad/voc/schema&#34; _ &#34;github.com/cayleygraph/quad/voc/xsd&#34; _ &#34;github.com/cayleygraph/quad/voc/rdf&#34; _ &#34;github.com/cayleygraph/quad/voc/rdfs&#34; ) func main() { fmt.Println(&#34;Registered namespaces:&#34;); for _, v := range voc.List() { fmt.Printf(&#34; %s =&gt; %s\n&#34;, v.Prefix, v.Full); } } 
+cd namespaces go run list_namespaces.go` The results:
+Registered namespaces: rdfs: =&gt; http://www.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Namespaces and Vocabularies" />
+<meta property="og:description" content="Namespaces and Vocabularies #  Namespaces #  The following code fragment lists all the namespaces currently registered:
+package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad/voc&#34; // Add some predefined vocabularies 	_ &#34;github.com/cayleygraph/quad/voc/schema&#34; _ &#34;github.com/cayleygraph/quad/voc/xsd&#34; _ &#34;github.com/cayleygraph/quad/voc/rdf&#34; _ &#34;github.com/cayleygraph/quad/voc/rdfs&#34; ) func main() { fmt.Println(&#34;Registered namespaces:&#34;); for _, v := range voc.List() { fmt.Printf(&#34; %s =&gt; %s\n&#34;, v.Prefix, v.Full); } } 
+cd namespaces go run list_namespaces.go` The results:
+Registered namespaces: rdfs: =&gt; http://www." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/vocabularies/" />
+
+<title>Namespaces and Vocabularies | Cayley-CookBook</title>
+<link rel="manifest" href="/cayley-cookbook/manifest.json">
+<link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/vocabularies/" title="Namespace-ek és szótárak">
+
+<link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
+<script defer src="/cayley-cookbook/en.search.min.5b66e2a2826f1eeb3cf0d79df6d4a69611c7e35401d9d8f6777774b2c71f2de3.js" integrity="sha256-W2biooJvHus88Ned9tSmlhHH41QB2dj2d3d0sscfLeM="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-XXXXXXXXX-X', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cayley-cookbook/en"><span>Cayley-CookBook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/about/" class="">About</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/basic-concepts/" class="collapsed ">Basic Concepts</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-overview/" class="">Cayley Overview</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/" class="collapsed ">Cayley as Package</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/vocabularies/" class="active">Namespaces and Vocabularies</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/quads/" class="">Quads</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/stores/" class="">Stores</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/crud-operations/" class="">CRUD Operations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/transactions/" class="">Transactions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/queries/" class="">Queries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/schemas/" class="">Schemas</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Namespaces and Vocabularies</strong>
+
+  <label for="toc-control">
+    
+    <img src="/cayley-cookbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#namespaces">Namespaces</a></li>
+    <li><a href="#vocabularies">Vocabularies</a></li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="namespaces-and-vocabularies">
+  Namespaces and Vocabularies
+  <a class="anchor" href="#namespaces-and-vocabularies">#</a>
+</h1>
+<h2 id="namespaces">
+  Namespaces
+  <a class="anchor" href="#namespaces">#</a>
+</h2>
+<p>The following code fragment lists all the namespaces currently registered:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/cayleygraph/quad/voc&#34;</span>
+
+    <span style="color:#75715e">// Add some predefined vocabularies
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;github.com/cayleygraph/quad/voc/schema&#34;</span>
+	<span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;github.com/cayleygraph/quad/voc/xsd&#34;</span>
+	<span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;github.com/cayleygraph/quad/voc/rdf&#34;</span>
+	<span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;github.com/cayleygraph/quad/voc/rdfs&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Registered namespaces:&#34;</span>);
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">voc</span>.<span style="color:#a6e22e">List</span>() {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;  %s =&gt; %s\n&#34;</span>, <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Prefix</span>, <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Full</span>);
+    }
+}
+
+</code></pre></div><p><a href="https://repl.it/@tombenke/cayley-cookbook-1#namespaces/list_namespaces.go"><img src="https://repl.it/badge/github/tombenke/cayley-cokbook" alt="Run this code on Repl.it" /></a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    cd namespaces
+    go run list_namespaces.go<span style="color:#e6db74">`</span>
+</code></pre></div><p>The results:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">Registered</span> <span style="color:#a6e22e">namespaces</span>:
+  <span style="color:#a6e22e">rdfs</span>: =&gt; <span style="color:#a6e22e">http</span>:<span style="color:#75715e">//www.w3.org/2000/01/rdf-schema#
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">schema</span>: =&gt; <span style="color:#a6e22e">http</span>:<span style="color:#75715e">//schema.org/
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">xsd</span>: =&gt; <span style="color:#a6e22e">http</span>:<span style="color:#75715e">//www.w3.org/2001/XMLSchema#
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">rdf</span>: =&gt; <span style="color:#a6e22e">http</span>:<span style="color:#75715e">//www.w3.org/1999/02/22-rdf-syntax-ns#
+</span><span style="color:#75715e"></span>
+</code></pre></div><p>The next code registers a new namespace:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/cayleygraph/quad/voc&#34;</span>
+
+    <span style="color:#75715e">// Add built-in vocabulary
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;github.com/cayleygraph/quad/voc/rdfs&#34;</span>
+
+    <span style="color:#75715e">// Add own vocabulary
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;github.com/tombenke/cayley-cookbook/voc/foaf&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
+    <span style="color:#75715e">// Register a new namespace with prefix
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">voc</span>.<span style="color:#a6e22e">RegisterPrefix</span>(<span style="color:#e6db74">`acc:`</span>, <span style="color:#e6db74">`http://mycompany.com/voc/accounting#`</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Registered namespaces:&#34;</span>);
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">voc</span>.<span style="color:#a6e22e">List</span>() {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;  %s =&gt; %s\n&#34;</span>, <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Prefix</span>, <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Full</span>);
+    }
+}
+
+</code></pre></div><p><a href="https://repl.it/@tombenke/cayley-cookbook-1#namespaces/register_namespace.go"><img src="https://repl.it/badge/github/tombenke/cayley-cokbook" alt="Run this code on Repl.it" /></a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    cd namespaces
+    go run register_namespace.go
+</code></pre></div><p>The results:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">Registered</span> <span style="color:#a6e22e">namespaces</span>:
+  <span style="color:#a6e22e">rdfs</span>: =&gt; <span style="color:#a6e22e">http</span>:<span style="color:#75715e">//www.w3.org/2000/01/rdf-schema#
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">foaf</span>: =&gt; <span style="color:#a6e22e">http</span>:<span style="color:#75715e">//xmlns.com/foaf/0.1/#
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">acc</span>: =&gt; <span style="color:#a6e22e">http</span>:<span style="color:#75715e">//mycompany.com/voc/accounting#
+</span><span style="color:#75715e"></span>
+</code></pre></div><h2 id="vocabularies">
+  Vocabularies
+  <a class="anchor" href="#vocabularies">#</a>
+</h2>
+<p>The following code demonstrates how can a new vocabulary be defined.
+The <code>foaf.go</code> package defines the most frequently used terms of the <a href="http://xmlns.com/foaf/spec/">FOAF Vocabulary Specification</a>.
+This package is used by several other examples of the cookbook as a vocabulary to use some terms as predicates.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// Package foaf contains constants of the FOAF Concepts Vocabulary (RDF)
+</span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">foaf</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;github.com/cayleygraph/quad/voc&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
+	<span style="color:#a6e22e">voc</span>.<span style="color:#a6e22e">RegisterPrefix</span>(<span style="color:#a6e22e">Prefix</span>, <span style="color:#a6e22e">NS</span>)
+}
+
+<span style="color:#66d9ef">const</span> (
+	<span style="color:#a6e22e">NS</span>     = <span style="color:#e6db74">`http://xmlns.com/foaf/0.1/#`</span>
+	<span style="color:#a6e22e">Prefix</span> = <span style="color:#e6db74">`foaf:`</span>
+)
+
+<span style="color:#66d9ef">const</span> (
+	<span style="color:#75715e">// Core
+</span><span style="color:#75715e"></span>
+    <span style="color:#75715e">//  An agent (eg. person, group, software or physical artifact).
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Agent</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`Agent`</span>
+
+    <span style="color:#75715e">// A person.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Person</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`Person`</span>
+
+    <span style="color:#75715e">// A name for some thing.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Name</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`name`</span>
+
+    <span style="color:#75715e">// Title (Mr, Mrs, Ms, Dr. etc)
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Title</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`title`</span>
+
+    <span style="color:#75715e">// An image that can be used to represent some thing (ie. those depictions which are particularly representative of something, eg. one&#39;s photo on a homepage).
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Img</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`img`</span>
+
+    <span style="color:#75715e">// A thing depicted in this representation.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Depiction</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`depiction`</span>
+    <span style="color:#a6e22e">Depicts</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`depicts`</span>
+
+    <span style="color:#75715e">// The family name of some person.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">FamilyName</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`familyName`</span>
+
+    <span style="color:#75715e">// The first name of some person.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">GivenName</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`givenName`</span>
+
+    <span style="color:#75715e">// The gender of this Agent (typically but not necessarily &#39;male&#39; or &#39;female&#39;).
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Gender</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`gender`</span>
+
+    <span style="color:#75715e">// A person known by this person (indicating some level of reciprocated interaction between the parties).
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Knows</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`knows`</span>
+
+    <span style="color:#75715e">//  A location that something is based near, for some broadly human notion of near.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">BasedNear</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`based_near`</span>
+
+    <span style="color:#75715e">// The age in years of some agent.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Age</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`age`</span>
+
+    <span style="color:#75715e">// The birthday of this Agent, represented in mm-dd string form, eg. &#39;12-31&#39;.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Birthday</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`birthday`</span>
+
+    <span style="color:#75715e">// Something that was made by this agent.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Made</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`made`</span>
+
+    <span style="color:#a6e22e">PrimaryTopic</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`primaryTopic (primaryTopicOf)`</span>
+
+    <span style="color:#75715e">// A project (a collective endeavour of some kind).
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Project</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`Project`</span>
+
+    <span style="color:#75715e">// An organization.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Organization</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`Organization`</span>
+
+    <span style="color:#75715e">// A class of Agents.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Group</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`Group`</span>
+
+    <span style="color:#75715e">// A string expressing what the user is happy for the general public (normally) to know about their current activity.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Status</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`status`</span>
+
+    <span style="color:#75715e">// Indicates a member of a Group
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Member</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`member`</span>
+
+    <span style="color:#75715e">// A document.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Document</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`Document`</span>
+
+    <span style="color:#75715e">// An image.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Image</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`Image`</span>
+
+    <span style="color:#75715e">// SocialWeb
+</span><span style="color:#75715e"></span>
+    <span style="color:#75715e">// A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames).
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Nick</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`nick`</span>
+
+    <span style="color:#75715e">// A personal mailbox, ie. an Internet mailbox associated with exactly one owner, the first owner of this mailbox. 
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Mbox</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`mbox`</span>
+
+    <span style="color:#75715e">// A homepage for some thing.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Homepage</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`homepage`</span>
+
+    <span style="color:#75715e">// A weblog of some thing (whether person, group, company etc.).
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Weblog</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`weblog`</span>
+
+    <span style="color:#75715e">// An OpenID for an Agent.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Openid</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`openid`</span>
+
+    <span style="color:#75715e">// A jabber ID for something.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">JabberID</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`jabberID`</span>
+
+    <span style="color:#75715e">// sha1sum of a personal mailbox URI name - The sha1sum of the URI of an Internet mailbox associated with exactly one owner, the first owner of the mailbox.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">MboxSha1sum</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`mbox_sha1sum`</span>
+
+    <span style="color:#75715e">// A page about a topic of interest to this person.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Interest</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`interest`</span>
+
+    <span style="color:#75715e">// A thing of interest to this person.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">TopicInterest</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`topic_interest`</span>
+
+    <span style="color:#75715e">// A topic of some page or document.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Topic</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`topic`</span>
+
+    <span style="color:#75715e">// A workplace homepage of some person; the homepage of an organization they work for.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">WorkplaceHomepage</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`workplaceHomepage`</span>
+
+    <span style="color:#75715e">// A work info homepage of some person; a page about their work for some organization.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">WorkInfoHomepage</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`workInfoHomepage`</span>
+
+    <span style="color:#75715e">// A homepage of a school attended by the person.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">SchoolHomepage</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`schoolHomepage`</span>
+
+    <span style="color:#75715e">// A link to the publications of this person.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Publications</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`publications`</span>
+
+    <span style="color:#75715e">// A current project this person works on.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">CurrentProject</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`currentProject`</span>
+
+    <span style="color:#75715e">// A project this person has previously worked on.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">PastProject</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`pastProject`</span>
+
+    <span style="color:#75715e">// Indicates an account held by this agent.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Account</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`account`</span>
+
+    <span style="color:#75715e">// An online account
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">OnlineAccount</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`OnlineAccount`</span>
+
+    <span style="color:#75715e">// Indicates the name (identifier) associated with this online account.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">AccountName</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`accountName`</span>
+
+    <span style="color:#75715e">// Indicates a homepage of the service provide for this online account.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">AccountServiceHomepage</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`accountServiceHomepage`</span>
+
+    <span style="color:#75715e">// A personal profile RDF document
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">PersonalProfileDocument</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`PersonalProfileDocument`</span>
+
+    <span style="color:#75715e">// A tipjar document for this agent, describing means for payment and reward.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Tipjar</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`tipjar`</span>
+
+    <span style="color:#75715e">// A sha1sum hash, in hex.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Sha1</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`sha1`</span>
+
+    <span style="color:#75715e">// A derived thumbnail image.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Thumbnail</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`thumbnail`</span>
+
+    <span style="color:#75715e">// A logo representing some thing.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Logo</span> = <span style="color:#a6e22e">Prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">`logo`</span>
+)
+
+</code></pre></div><hr />
+<p>
+
+
+Related pages:
+
+<ul>
+    
+    <li>
+            <a href="https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/vocabularies/"> Vocabularies</a>
+    </li>
+    
+</ul>
+
+</p>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+  
+
+
+  
+
+  
+
+
+  
+
+
+<div class="book-languages" tabindex="0" aria-haspopup="true">
+  <ul>
+    <li class="flex align-center">
+      <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+      English
+    </li> 
+  </ul>
+
+  <ul class="book-languages-list">
+    
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/en/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </li>
+    
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/vocabularies/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        Magyar
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#namespaces">Namespaces</a></li>
+    <li><a href="#vocabularies">Vocabularies</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
