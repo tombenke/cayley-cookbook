@@ -13,7 +13,7 @@ Ez a weboldal kódrészletek gyűjteménye, melyek azt mutatják be, működő p
 
 A [github.com/tombenke/cayley-cookbook](https://github.com/tombenke/cayley-cookbook/tree/master)
 repository tartalmazza a forráskódot. A repository-ban az egyes használati esetek directory-kba vannak szervezve.
-A gyűjtemény létrehozásának célja az, hogy megkönnyítse a Cayleygraph tanulását, használatát.
+A gyűjtemény létrehozásának célja az, hogy megkönnyítse a {{< cayley >}} tanulását, használatát.
 
 A példákat kétféle módon használhatjuk:
 1. Közvetlenül végrehajthatjuk őket a felhőben.
