@@ -97,7 +97,7 @@ A literál értékeknek megadhatjuk a típusát, pl.: string, egész szám, dát
 A típusokat postfix formában adjuk meg, az értékhez hozzáragasztva a `^^` jelöléssel
 
 Példák típusokra:
-```rdf
+```txt
 "Dantooine"^^xsd:string
 "23"^^<xsd:integer>
 ```
@@ -106,7 +106,7 @@ Azt is megadhatjuk, hogy milyen nyelven kell értelmezni az adott literál ért�
 
 Példák nyelvi azonosításra:
 
-```rdf
+```txt
 "people"@en
 "emberek"@hu
 ```

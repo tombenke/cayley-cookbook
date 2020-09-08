@@ -17,7 +17,7 @@ Az alábbi kód kilistázza az összes, jelenleg regisztrált namespace-t:
 
 {{% code file="/static/src/namespaces/list_namespaces.go" language="go" %}}
 
-[![Run this code on Repl.it](https://repl.it/badge/github/tombenke/cayley-cokbook)](https://repl.it/@tombenke/cayley-cookbook-1#namespaces/list_namespaces.go)
+[![Run this code on Repl.it](https://repl.it/badge/github/tombenke/cayley-cookbook-src)](https://repl.it/@tombenke/cayley-cookbook-src#namespaces/list_namespaces.go)
 
 ```bash
     cd namespaces
@@ -33,7 +33,7 @@ Az alábbi kód regisztrál egy új namespace-t:
 
 {{% code file="/static/src/namespaces/register_namespace.go" language="go" %}}
 
-[![Run this code on Repl.it](https://repl.it/badge/github/tombenke/cayley-cokbook)](https://repl.it/@tombenke/cayley-cookbook-1#namespaces/register_namespace.go)
+[![Run this code on Repl.it](https://repl.it/badge/github/tombenke/cayley-cookbook-src)](https://repl.it/@tombenke/cayley-cookbook-src#namespaces/register_namespace.go)
 
 ```bash
     cd namespaces
@@ -52,7 +52,7 @@ A következő kódrészlet bemutatja, hogyan lehet egy új szótárat definiáln
 A `foaf.go` package [FOAF Vocabulary Specification](http://xmlns.com/foaf/spec/) leggyakrabban használt kifejezéseit definiálja.
 Ezt a package-et több példában is használjuk. A szótárban definiált szavakat predikátumként alkalmazzuk.
 
-{{% code file="/static/src/voc/foaf/foaf.go" language="go" %}}
+{{% code file="/static/src/kbase/voc/foaf/foaf.go" language="go" %}}
 
 {{< seealso >}}
 

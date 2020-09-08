@@ -6,6 +6,7 @@ import (
 	"github.com/cayleygraph/cayley/graph"
 	"github.com/cayleygraph/cayley/schema"
 	"github.com/cayleygraph/quad"
+	"github.com/tombenke/cayley-cookbook-src/kbase/impex"
 	"log"
 )
 
@@ -34,7 +35,7 @@ func init() {
 
 func Import(store *cayley.Handle, dbPath string) {
 	var bm Bookmarks
-	ReadFromYaml(dbPath, &bm)
+	impex.ReadFromYaml(dbPath, &bm)
 	qw := graph.NewWriter(store)
 	defer qw.Close() // don't forget to close a writer; it has some internal buffering
 	for _, b := range bm {

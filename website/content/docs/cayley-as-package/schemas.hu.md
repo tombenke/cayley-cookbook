@@ -20,10 +20,10 @@ Ezzel a módszerrel jelentősen egyszerűbb az összetett adatoszerkezetek store
 
 ## Store létrehozása
 
-A példákban egyszerű, in-memory store-t fogunk használni, aminek a megnyitását a `store.go` file-banimplementált `initStore()` funkció végzi el.
+A példákban egyszerű, in-memory store-t fogunk használni, aminek a megnyitását a `store.go` file-banimplementált `InitStore()` funkció végzi el.
 
 {{< details title="A store.go megjelenítése" open=false >}}
-{{% code file="/static/src/schema/store.go" language="go" %}}
+{{% code file="/static/src/kbase/store.go" language="go" %}}
 {{< /details >}}
 
 ## Teszt adatok
@@ -36,14 +36,14 @@ Ezeket a könyvjelzőket fogjuk feltölteni, és lekérdezni a séma annotáció
 {{% code file="/static/src/schema/bookmarks.yml" language="yaml" %}}
 {{< /details >}}
 
-Az adatok file-ból történő beolvasására a `yamlImpex.go`-ban található `ReadFromYaml()` funkciót használjuk.
+Az adatok file-ból történő beolvasására a `yaml.go`-ban található `ReadFromYaml()` funkciót használjuk.
 
-A `yamlImpex.go` két függvény tartalmaz:
+A `yaml.go` két függvény tartalmaz:
 - A `ReadFromYaml()` az adatok YAML file-ból történő beolvasását végzi el,
 - a `SaveToYaml()` a YAML formátumba történő kiírását teszi lehetővé.
 
-{{< details title="A yamlImpex.go megjelenítése" open=false >}}
-{{% code file="/static/src/schema/yamlImpex.go" language="go" %}}
+{{< details title="A yaml.go megjelenítése" open=false >}}
+{{% code file="/static/src/kbase/impex/yaml.go" language="go" %}}
 {{< /details >}}
 
 ## Sémák definiálása
@@ -69,7 +69,7 @@ Az adatokat először beolvassuk egy `[]Bookmarks` típusú változóba, majd ab
 {{< /details >}}
 
 Futtassuk a programot:
-[![Run this code on Repl.it](https://repl.it/badge/github/tombenke/cayley-cokbook)](https://repl.it/@tombenke/cayley-cookbook#schema/import_bookmarks_with_schema.go)
+[![Run this code on Repl.it](https://repl.it/badge/github/tombenke/cayley-cookbook-src)](https://repl.it/@tombenke/cayley-cookbook-src#schema/import_bookmarks_with_schema.go)
 
 ```bash
     cd schema
@@ -95,7 +95,7 @@ Mindkét funkció a `bookmarks.go` file-ban van implementálva, és a `schemaCon
 {{< /details >}}
 
 Futtassuk a programot:
-[![Run this code on Repl.it](https://repl.it/badge/github/tombenke/cayley-cokbook)](https://repl.it/@tombenke/cayley-cookbook#schema/impex_bookmarks_with_schema.go)
+[![Run this code on Repl.it](https://repl.it/badge/github/tombenke/cayley-cookbook-src)](https://repl.it/@tombenke/cayley-cookbook-src#schema/impex_bookmarks_with_schema.go)
 
 ```bash
     cd schema

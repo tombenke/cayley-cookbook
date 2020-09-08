@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Quad-ok #  Az alábbi példa létrehoz egy quad halmazt, majd kiexportálja többféle formátumban:
-A teljes kódlista megtekintése package main import ( &#34;fmt&#34; &#34;reflect&#34; &#34;github.com/cayleygraph/quad&#34; // Add some predefined vocabularies 	&#34;github.com/cayleygraph/quad/voc/rdf&#34; &#34;github.com/tombenke/cayley-cookbook/voc/foaf&#34; ) func main() { // Create Quads about some people using Blank Nodes as references  quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads  printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references  quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads  printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad.">
+A teljes kódlista megtekintése package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad&#34; &#34;reflect&#34; // Add some predefined vocabularies 	&#34;github.com/cayleygraph/quad/voc/rdf&#34; &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func main() { // Create Quads about some people using Blank Nodes as references 	quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads 	printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references 	quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads 	printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Quad-ok" />
 <meta property="og:description" content="Quad-ok #  Az alábbi példa létrehoz egy quad halmazt, majd kiexportálja többféle formátumban:
-A teljes kódlista megtekintése package main import ( &#34;fmt&#34; &#34;reflect&#34; &#34;github.com/cayleygraph/quad&#34; // Add some predefined vocabularies 	&#34;github.com/cayleygraph/quad/voc/rdf&#34; &#34;github.com/tombenke/cayley-cookbook/voc/foaf&#34; ) func main() { // Create Quads about some people using Blank Nodes as references  quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads  printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references  quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads  printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad." />
+A teljes kódlista megtekintése package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad&#34; &#34;reflect&#34; // Add some predefined vocabularies 	&#34;github.com/cayleygraph/quad/voc/rdf&#34; &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func main() { // Create Quads about some people using Blank Nodes as references 	quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads 	printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references 	quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads 	printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/quads/" />
 
@@ -18,7 +18,7 @@ A teljes kódlista megtekintése package main import ( &#34;fmt&#34; &#34;reflec
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/quads/" title="Quads">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.82b7e38f52a1f6225c94151a8ba6a9f82f7ac28863156cd47406eb8c111130d8.js" integrity="sha256-grfjj1Kh9iJclBUai6ap&#43;C96wohjFWzUdAbrjBERMNg="></script>
+<script defer src="/cayley-cookbook/hu.search.min.b620cbf4c3791f006579f6e7d22fde7c7169ea7bb778f3720f98d28b20dc48bb.js" integrity="sha256-tiDL9MN5HwBlefbn0i/efHFp6nu3ePNyD5jSiyDcSLs="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -288,106 +288,105 @@ https://github.com/alex-shpak/hugo-book
     <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
 <span style="color:#f92672">import</span> (
-    <span style="color:#e6db74">&#34;fmt&#34;</span>
-    <span style="color:#e6db74">&#34;reflect&#34;</span>
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
 	<span style="color:#e6db74">&#34;github.com/cayleygraph/quad&#34;</span>
+	<span style="color:#e6db74">&#34;reflect&#34;</span>
 
-    <span style="color:#75715e">// Add some predefined vocabularies
+	<span style="color:#75715e">// Add some predefined vocabularies
 </span><span style="color:#75715e"></span>	<span style="color:#e6db74">&#34;github.com/cayleygraph/quad/voc/rdf&#34;</span>
-	<span style="color:#e6db74">&#34;github.com/tombenke/cayley-cookbook/voc/foaf&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34;</span>
 )
 
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
 
-    <span style="color:#75715e">// Create Quads about some people using Blank Nodes as references
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">quadsWithBNodes</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">makeQuadsWithBNodes</span>()
+	<span style="color:#75715e">// Create Quads about some people using Blank Nodes as references
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">quadsWithBNodes</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">makeQuadsWithBNodes</span>()
 
-    <span style="color:#75715e">// Take a look at the resulted quads
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">printQuads</span>(<span style="color:#a6e22e">quadsWithBNodes</span>)
+	<span style="color:#75715e">// Take a look at the resulted quads
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">printQuads</span>(<span style="color:#a6e22e">quadsWithBNodes</span>)
 
-    <span style="color:#75715e">// Create Quads about some people using IRIs as references
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">quadsWithIRIs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">makeQuadsWithIRIs</span>()
+	<span style="color:#75715e">// Create Quads about some people using IRIs as references
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">quadsWithIRIs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">makeQuadsWithIRIs</span>()
 
-    <span style="color:#75715e">// Take a look at the resulted quads
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">printQuads</span>(<span style="color:#a6e22e">quadsWithIRIs</span>)
+	<span style="color:#75715e">// Take a look at the resulted quads
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">printQuads</span>(<span style="color:#a6e22e">quadsWithIRIs</span>)
 }
 
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">makeQuadsWithBNodes</span>() []<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Quad</span> {
-    <span style="color:#a6e22e">label</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;people&#34;</span>
-    <span style="color:#a6e22e">quads</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Quad</span>{}
+	<span style="color:#a6e22e">label</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;people&#34;</span>
+	<span style="color:#a6e22e">quads</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Quad</span>{}
 
-    <span style="color:#75715e">// Generate a Blank Node to represent the person internally
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// You can create a sequence of internal IDs for the Blank Nodes
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">seq</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Sequence</span>
-    <span style="color:#a6e22e">luke</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">seq</span>.<span style="color:#a6e22e">Next</span>()
+	<span style="color:#75715e">// Generate a Blank Node to represent the person internally
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// You can create a sequence of internal IDs for the Blank Nodes
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">seq</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Sequence</span>
+	<span style="color:#a6e22e">luke</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">seq</span>.<span style="color:#a6e22e">Next</span>()
 
-    <span style="color:#75715e">// Alternatively create a Blank Node with a random internal ID
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// luke := quad.RandomBlankNode()
+	<span style="color:#75715e">// Alternatively create a Blank Node with a random internal ID
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// luke := quad.RandomBlankNode()
 </span><span style="color:#75715e"></span>
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">rdf</span>.<span style="color:#a6e22e">Type</span>), <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Person</span>), <span style="color:#a6e22e">label</span>))
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">FamilyName</span>), <span style="color:#e6db74">&#34;Luke&#34;</span>, <span style="color:#a6e22e">label</span>))
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">GivenName</span>), <span style="color:#e6db74">&#34;Skywalker&#34;</span>, <span style="color:#a6e22e">label</span>))
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Age</span>), <span style="color:#ae81ff">23</span>, <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">rdf</span>.<span style="color:#a6e22e">Type</span>), <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Person</span>), <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">FamilyName</span>), <span style="color:#e6db74">&#34;Luke&#34;</span>, <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">GivenName</span>), <span style="color:#e6db74">&#34;Skywalker&#34;</span>, <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Age</span>), <span style="color:#ae81ff">23</span>, <span style="color:#a6e22e">label</span>))
 
-    <span style="color:#a6e22e">leia</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">seq</span>.<span style="color:#a6e22e">Next</span>()
+	<span style="color:#a6e22e">leia</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">seq</span>.<span style="color:#a6e22e">Next</span>()
 
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">rdf</span>.<span style="color:#a6e22e">Type</span>), <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Person</span>), <span style="color:#a6e22e">label</span>))
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">FamilyName</span>), <span style="color:#e6db74">&#34;Leia&#34;</span>, <span style="color:#a6e22e">label</span>))
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">GivenName</span>), <span style="color:#e6db74">&#34;Organa&#34;</span>, <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">rdf</span>.<span style="color:#a6e22e">Type</span>), <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Person</span>), <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">FamilyName</span>), <span style="color:#e6db74">&#34;Leia&#34;</span>, <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">GivenName</span>), <span style="color:#e6db74">&#34;Organa&#34;</span>, <span style="color:#a6e22e">label</span>))
 
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Knows</span>), <span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Knows</span>), <span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">label</span>))
 
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">quads</span>
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">quads</span>
 }
 
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">makeQuadsWithIRIs</span>() []<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Quad</span> {
-    <span style="color:#a6e22e">label</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;people&#34;</span>
-    <span style="color:#a6e22e">quads</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Quad</span>{}
+	<span style="color:#a6e22e">label</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;people&#34;</span>
+	<span style="color:#a6e22e">quads</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Quad</span>{}
 
-    <span style="color:#75715e">// Create IRIs to represent the person globally, and universally
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">luke</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#e6db74">&#34;https://swapi.co/resource/human/luke_skywalker&#34;</span>)
+	<span style="color:#75715e">// Create IRIs to represent the person globally, and universally
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">luke</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#e6db74">&#34;https://swapi.co/resource/human/luke_skywalker&#34;</span>)
 
-    <span style="color:#75715e">// Alternatively create a Blank Node with a random internal ID
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// luke := quad.RandomBlankNode()
+	<span style="color:#75715e">// Alternatively create a Blank Node with a random internal ID
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// luke := quad.RandomBlankNode()
 </span><span style="color:#75715e"></span>
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">rdf</span>.<span style="color:#a6e22e">Type</span>), <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Person</span>), <span style="color:#a6e22e">label</span>))
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">FamilyName</span>), <span style="color:#e6db74">&#34;Luke&#34;</span>, <span style="color:#a6e22e">label</span>))
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">GivenName</span>), <span style="color:#e6db74">&#34;Skywalker&#34;</span>, <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">rdf</span>.<span style="color:#a6e22e">Type</span>), <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Person</span>), <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">FamilyName</span>), <span style="color:#e6db74">&#34;Luke&#34;</span>, <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">GivenName</span>), <span style="color:#e6db74">&#34;Skywalker&#34;</span>, <span style="color:#a6e22e">label</span>))
 
-    <span style="color:#a6e22e">leia</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#e6db74">&#34;https://swapi.co/resource/human/leia_organa&#34;</span>)
+	<span style="color:#a6e22e">leia</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#e6db74">&#34;https://swapi.co/resource/human/leia_organa&#34;</span>)
 
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">rdf</span>.<span style="color:#a6e22e">Type</span>), <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Person</span>), <span style="color:#a6e22e">label</span>))
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">FamilyName</span>), <span style="color:#e6db74">&#34;Leia&#34;</span>, <span style="color:#a6e22e">label</span>))
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">GivenName</span>), <span style="color:#e6db74">&#34;Organa&#34;</span>, <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">rdf</span>.<span style="color:#a6e22e">Type</span>), <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Person</span>), <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">FamilyName</span>), <span style="color:#e6db74">&#34;Leia&#34;</span>, <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">GivenName</span>), <span style="color:#e6db74">&#34;Organa&#34;</span>, <span style="color:#a6e22e">label</span>))
 
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Knows</span>), <span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Knows</span>), <span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">label</span>))
 
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">quads</span>
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">quads</span>
 }
 
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">printQuads</span>(<span style="color:#a6e22e">quads</span> []<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Quad</span>) {
-    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;The details of the quads created:&#34;</span>)
-    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">q</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">quads</span> {
-        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;quads[%d]:\n&#34;</span>, <span style="color:#a6e22e">i</span>)
-        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;  subject: %s %v\n&#34;</span>, <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Subject</span>), <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">TypeOf</span>(<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Subject</span>)))
-        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;  predicate: %s %v\n&#34;</span>, <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Predicate</span>), <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">TypeOf</span>(<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Predicate</span>)))
-        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;  object: %s %v\n&#34;</span>, <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Object</span>), <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">TypeOf</span>(<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Object</span>)))
-        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;  label: %s %v\n\n&#34;</span>, <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Label</span>), <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">TypeOf</span>(<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Label</span>)))
-    }
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;The details of the quads created:&#34;</span>)
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">q</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">quads</span> {
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;quads[%d]:\n&#34;</span>, <span style="color:#a6e22e">i</span>)
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;  subject: %s %v\n&#34;</span>, <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Subject</span>), <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">TypeOf</span>(<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Subject</span>)))
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;  predicate: %s %v\n&#34;</span>, <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Predicate</span>), <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">TypeOf</span>(<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Predicate</span>)))
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;  object: %s %v\n&#34;</span>, <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Object</span>), <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">TypeOf</span>(<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Object</span>)))
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;  label: %s %v\n\n&#34;</span>, <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Label</span>), <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">TypeOf</span>(<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Label</span>)))
+	}
 
-    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;The quads in NQuad representation:&#34;</span>)
-    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">q</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">quads</span> {
-        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%s\n&#34;</span>, <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">NQuad</span>())
-    }
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;The quads in NQuad representation:&#34;</span>)
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">q</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">quads</span> {
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%s\n&#34;</span>, <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">NQuad</span>())
+	}
 }
-
 
 </code></pre></div>
   </div>
 </details>
 
 <p>Futtassuk a programot:
-<a href="https://repl.it/@tombenke/cayley-cookbook-1#quad/writer/export_nquads_to_stdout.go"><img src="https://repl.it/badge/github/tombenke/cayley-cokbook" alt="Run this code on Repl.it" /></a></p>
+<a href="https://repl.it/@tombenke/cayley-cookbook-src#quad/writer/export_nquads_to_stdout.go"><img src="https://repl.it/badge/github/tombenke/cayley-cookbook-src" alt="Run this code on Repl.it" /></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    cd quad/writer
     go run export_nquads_to_stdout.go data
 </code></pre></div><p>A program kimenete:</p>
@@ -397,22 +396,22 @@ https://github.com/alex-shpak/hugo-book
 
 <div class="book-tabs"><input type="radio" class="toggle" name="tabs-results-of-make-quads" id="tabs-results-of-make-quads-0" checked="checked" />
   <label for="tabs-results-of-make-quads-0">Graphviz</label>
-  <div class="book-tabs-content markdown-inner"><pre><code class="language-graphviz" data-lang="graphviz">digraph cayley_graph {
-	&quot;_:n6340084149380325359&quot; -&gt; &quot;&lt;foaf:Person&gt;&quot; [ label = &quot;&lt;rdf:type&gt;&quot; ];
-	&quot;_:n6340084149380325359&quot; -&gt; &quot;\&quot;Luke\&quot;&quot; [ label = &quot;&lt;foaf:givenName&gt;&quot; ];
-	&quot;_:n6340084149380325359&quot; -&gt; &quot;\&quot;Skywalker\&quot;&quot; [ label = &quot;&lt;foaf:familyName&gt;&quot; ];
-	&quot;_:n6340084149380325359&quot; -&gt; &quot;\&quot;23\&quot;^^&lt;xsd:integer&gt;&quot; [ label = &quot;&lt;foaf:age&gt;&quot; ];
-	&quot;_:n3716355040095307863&quot; -&gt; &quot;&lt;foaf:Person&gt;&quot; [ label = &quot;&lt;rdf:type&gt;&quot; ];
-	&quot;_:n3716355040095307863&quot; -&gt; &quot;_:n6340084149380325359&quot; [ label = &quot;&lt;foaf:knows&gt;&quot; ];
-	&quot;_:n3716355040095307863&quot; -&gt; &quot;\&quot;Leia\&quot;&quot; [ label = &quot;&lt;foaf:givenName&gt;&quot; ];
-	&quot;_:n3716355040095307863&quot; -&gt; &quot;\&quot;Organa\&quot;&quot; [ label = &quot;&lt;foaf:familyName&gt;&quot; ];
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">digraph cayley_graph {
+	&#34;_:n4802747492093317592&#34; -&gt; &#34;&lt;foaf:Person&gt;&#34; [ label = &#34;&lt;rdf:type&gt;&#34; ];
+	&#34;_:n4802747492093317592&#34; -&gt; &#34;\&#34;Luke\&#34;&#34; [ label = &#34;&lt;foaf:givenName&gt;&#34; ];
+	&#34;_:n4802747492093317592&#34; -&gt; &#34;\&#34;Skywalker\&#34;&#34; [ label = &#34;&lt;foaf:familyName&gt;&#34; ];
+	&#34;_:n4802747492093317592&#34; -&gt; &#34;\&#34;23\&#34;^^&lt;xsd:integer&gt;&#34; [ label = &#34;&lt;foaf:age&gt;&#34; ];
+	&#34;_:n128097891529655623&#34; -&gt; &#34;&lt;foaf:Person&gt;&#34; [ label = &#34;&lt;rdf:type&gt;&#34; ];
+	&#34;_:n128097891529655623&#34; -&gt; &#34;_:n4802747492093317592&#34; [ label = &#34;&lt;foaf:knows&gt;&#34; ];
+	&#34;_:n128097891529655623&#34; -&gt; &#34;\&#34;Leia\&#34;&#34; [ label = &#34;&lt;foaf:givenName&gt;&#34; ];
+	&#34;_:n128097891529655623&#34; -&gt; &#34;\&#34;Organa\&#34;&#34; [ label = &#34;&lt;foaf:familyName&gt;&#34; ];
 }
 
-</code></pre></div><input type="radio" class="toggle" name="tabs-results-of-make-quads" id="tabs-results-of-make-quads-1"  />
+</code></pre></div></div><input type="radio" class="toggle" name="tabs-results-of-make-quads" id="tabs-results-of-make-quads-1"  />
   <label for="tabs-results-of-make-quads-1">GML</label>
   <div class="book-tabs-content markdown-inner"><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">Creator &#34;Cayley&#34;
 graph [ directed 1
-	node [ id 0 label &#34;_:n6340084149380325359&#34; ]
+	node [ id 0 label &#34;_:n4802747492093317592&#34; ]
 	node [ id 1 label &#34;<span style="color:#f92672">&lt;foaf:Person&gt;</span>&#34; ]
 	edge [ source 0 target 1 label &#34;<span style="color:#f92672">&lt;rdf:type&gt;</span>&#34; ]
 	node [ id 2 label &#34;&amp;quot;Luke&amp;quot;&#34; ]
@@ -421,7 +420,7 @@ graph [ directed 1
 	edge [ source 0 target 3 label &#34;<span style="color:#f92672">&lt;foaf:familyName&gt;</span>&#34; ]
 	node [ id 4 label &#34;&amp;quot;23&amp;quot;^^<span style="color:#f92672">&lt;xsd:integer&gt;</span>&#34; ]
 	edge [ source 0 target 4 label &#34;<span style="color:#f92672">&lt;foaf:age&gt;</span>&#34; ]
-	node [ id 5 label &#34;_:n3716355040095307863&#34; ]
+	node [ id 5 label &#34;_:n128097891529655623&#34; ]
 	edge [ source 5 target 1 label &#34;<span style="color:#f92672">&lt;rdf:type&gt;</span>&#34; ]
 	edge [ source 5 target 0 label &#34;<span style="color:#f92672">&lt;foaf:knows&gt;</span>&#34; ]
 	node [ id 6 label &#34;&amp;quot;Leia&amp;quot;&#34; ]
@@ -447,7 +446,7 @@ graph [ directed 1
               <span style="color:#f92672">&lt;y:Geometry</span> <span style="color:#a6e22e">x=</span><span style="color:#e6db74">&#34;170.5&#34;</span> <span style="color:#a6e22e">y=</span><span style="color:#e6db74">&#34;-15.0&#34;</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;220.0&#34;</span> <span style="color:#a6e22e">height=</span><span style="color:#e6db74">&#34;30.0&#34;</span><span style="color:#f92672">/&gt;</span>  
               <span style="color:#f92672">&lt;y:Fill</span> <span style="color:#a6e22e">color=</span><span style="color:#e6db74">&#34;#E1E1E1&#34;</span> <span style="color:#a6e22e">transparent=</span><span style="color:#e6db74">&#34;false&#34;</span><span style="color:#f92672">/&gt;</span>  
               <span style="color:#f92672">&lt;y:BorderStyle</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;line&#34;</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;1.0&#34;</span> <span style="color:#a6e22e">color=</span><span style="color:#e6db74">&#34;#000000&#34;</span><span style="color:#f92672">/&gt;</span>  
-              <span style="color:#f92672">&lt;y:NodeLabel&gt;</span>_:n6340084149380325359<span style="color:#f92672">&lt;/y:NodeLabel&gt;</span>
+              <span style="color:#f92672">&lt;y:NodeLabel&gt;</span>_:n4802747492093317592<span style="color:#f92672">&lt;/y:NodeLabel&gt;</span>
               <span style="color:#f92672">&lt;y:Shape</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;ellipse&#34;</span><span style="color:#f92672">/&gt;</span>  
             <span style="color:#f92672">&lt;/y:ShapeNode&gt;</span>  
     <span style="color:#f92672">&lt;/data&gt;&lt;/node&gt;</span>
@@ -533,10 +532,10 @@ graph [ directed 1
  <span style="color:#f92672">&lt;/data&gt;&lt;/edge&gt;</span>
 		<span style="color:#f92672">&lt;node</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;n5&#34;</span><span style="color:#f92672">&gt;&lt;data</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;d0&#34;</span><span style="color:#f92672">&gt;</span>
             <span style="color:#f92672">&lt;y:ShapeNode&gt;</span>  
-              <span style="color:#f92672">&lt;y:Geometry</span> <span style="color:#a6e22e">x=</span><span style="color:#e6db74">&#34;170.5&#34;</span> <span style="color:#a6e22e">y=</span><span style="color:#e6db74">&#34;-15.0&#34;</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;220.0&#34;</span> <span style="color:#a6e22e">height=</span><span style="color:#e6db74">&#34;30.0&#34;</span><span style="color:#f92672">/&gt;</span>  
+              <span style="color:#f92672">&lt;y:Geometry</span> <span style="color:#a6e22e">x=</span><span style="color:#e6db74">&#34;170.5&#34;</span> <span style="color:#a6e22e">y=</span><span style="color:#e6db74">&#34;-15.0&#34;</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;210.0&#34;</span> <span style="color:#a6e22e">height=</span><span style="color:#e6db74">&#34;30.0&#34;</span><span style="color:#f92672">/&gt;</span>  
               <span style="color:#f92672">&lt;y:Fill</span> <span style="color:#a6e22e">color=</span><span style="color:#e6db74">&#34;#E1E1E1&#34;</span> <span style="color:#a6e22e">transparent=</span><span style="color:#e6db74">&#34;false&#34;</span><span style="color:#f92672">/&gt;</span>  
               <span style="color:#f92672">&lt;y:BorderStyle</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;line&#34;</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;1.0&#34;</span> <span style="color:#a6e22e">color=</span><span style="color:#e6db74">&#34;#000000&#34;</span><span style="color:#f92672">/&gt;</span>  
-              <span style="color:#f92672">&lt;y:NodeLabel&gt;</span>_:n3716355040095307863<span style="color:#f92672">&lt;/y:NodeLabel&gt;</span>
+              <span style="color:#f92672">&lt;y:NodeLabel&gt;</span>_:n128097891529655623<span style="color:#f92672">&lt;/y:NodeLabel&gt;</span>
               <span style="color:#f92672">&lt;y:Shape</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;ellipse&#34;</span><span style="color:#f92672">/&gt;</span>  
             <span style="color:#f92672">&lt;/y:ShapeNode&gt;</span>  
     <span style="color:#f92672">&lt;/data&gt;&lt;/node&gt;</span>
@@ -608,28 +607,28 @@ graph [ directed 1
 </code></pre></div></div><input type="radio" class="toggle" name="tabs-results-of-make-quads" id="tabs-results-of-make-quads-3"  />
   <label for="tabs-results-of-make-quads-3">JSON</label>
   <div class="book-tabs-content markdown-inner"><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n6340084149380325359&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003crdf:type\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:Person\u003e&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
-	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n6340084149380325359&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:givenName\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;Luke&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
-	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n6340084149380325359&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:familyName\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;Skywalker&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
-	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n6340084149380325359&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:age\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;\&#34;23\&#34;^^\u003cxsd:integer\u003e&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
-	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n3716355040095307863&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003crdf:type\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:Person\u003e&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
-	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n3716355040095307863&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:knows\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;_:n6340084149380325359&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
-	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n3716355040095307863&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:givenName\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;Leia&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
-	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n3716355040095307863&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:familyName\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;Organa&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>}
+	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n4802747492093317592&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003crdf:type\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:Person\u003e&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
+	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n4802747492093317592&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:givenName\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;Luke&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
+	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n4802747492093317592&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:familyName\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;Skywalker&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
+	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n4802747492093317592&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:age\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;\&#34;23\&#34;^^\u003cxsd:integer\u003e&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
+	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n128097891529655623&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003crdf:type\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:Person\u003e&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
+	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n128097891529655623&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:knows\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;_:n4802747492093317592&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
+	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n128097891529655623&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:givenName\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;Leia&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
+	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n128097891529655623&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:familyName\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;Organa&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>}
 ]
 
 </code></pre></div></div><input type="radio" class="toggle" name="tabs-results-of-make-quads" id="tabs-results-of-make-quads-4"  />
   <label for="tabs-results-of-make-quads-4">n-quads</label>
-  <div class="book-tabs-content markdown-inner"><pre><code class="language-nquads" data-lang="nquads">_:n6340084149380325359 &lt;rdf:type&gt; &lt;foaf:Person&gt; &quot;people&quot; .
-_:n6340084149380325359 &lt;foaf:givenName&gt; &quot;Luke&quot; &quot;people&quot; .
-_:n6340084149380325359 &lt;foaf:familyName&gt; &quot;Skywalker&quot; &quot;people&quot; .
-_:n6340084149380325359 &lt;foaf:age&gt; &quot;23&quot;^^&lt;xsd:integer&gt; &quot;people&quot; .
-_:n3716355040095307863 &lt;rdf:type&gt; &lt;foaf:Person&gt; &quot;people&quot; .
-_:n3716355040095307863 &lt;foaf:knows&gt; _:n6340084149380325359 &quot;people&quot; .
-_:n3716355040095307863 &lt;foaf:givenName&gt; &quot;Leia&quot; &quot;people&quot; .
-_:n3716355040095307863 &lt;foaf:familyName&gt; &quot;Organa&quot; &quot;people&quot; .
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">_:n4802747492093317592 &lt;rdf:type&gt; &lt;foaf:Person&gt; &#34;people&#34; .
+_:n4802747492093317592 &lt;foaf:givenName&gt; &#34;Luke&#34; &#34;people&#34; .
+_:n4802747492093317592 &lt;foaf:familyName&gt; &#34;Skywalker&#34; &#34;people&#34; .
+_:n4802747492093317592 &lt;foaf:age&gt; &#34;23&#34;^^&lt;xsd:integer&gt; &#34;people&#34; .
+_:n128097891529655623 &lt;rdf:type&gt; &lt;foaf:Person&gt; &#34;people&#34; .
+_:n128097891529655623 &lt;foaf:knows&gt; _:n4802747492093317592 &#34;people&#34; .
+_:n128097891529655623 &lt;foaf:givenName&gt; &#34;Leia&#34; &#34;people&#34; .
+_:n128097891529655623 &lt;foaf:familyName&gt; &#34;Organa&#34; &#34;people&#34; .
 
-</code></pre></div></div>
+</code></pre></div></div></div>
 
 <figure>
     <img src="/cayley-cookbook/src/quad/writer/people_dot.png"/> <figcaption>

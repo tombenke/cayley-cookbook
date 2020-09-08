@@ -17,7 +17,7 @@ This code creates a set of quads, then exports them into several formats:
 {{% code file="/static/src/quad/make_quads.go" language="go" %}}
 {{< /details >}}
 
-[![Run this code on Repl.it](https://repl.it/badge/github/tombenke/cayley-cokbook)](https://repl.it/@tombenke/cayley-cookbook-1#quad/writer/export_nquads_to_stdout.go)
+[![Run this code on Repl.it](https://repl.it/badge/github/tombenke/cayley-cookbook-src)](https://repl.it/@tombenke/cayley-cookbook-src#quad/writer/export_nquads_to_stdout.go)
 
 ```bash
     cd quad/writer

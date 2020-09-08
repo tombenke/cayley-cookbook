@@ -5,7 +5,7 @@ Run examples:
 
 ```bash
     cd quad/writer
-    go run export_nquads_to_stdout.go data.go yed_graphml.go
+    go run export_nquads_to_stdout.go data.go
 ```
 
 Convert the dot file to png, using Graphviz:

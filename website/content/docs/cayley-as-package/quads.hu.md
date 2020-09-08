@@ -18,7 +18,7 @@ Az alábbi példa létrehoz egy quad halmazt, majd kiexportálja többféle form
 {{< /details >}}
 
 Futtassuk a programot:
-[![Run this code on Repl.it](https://repl.it/badge/github/tombenke/cayley-cokbook)](https://repl.it/@tombenke/cayley-cookbook-1#quad/writer/export_nquads_to_stdout.go)
+[![Run this code on Repl.it](https://repl.it/badge/github/tombenke/cayley-cookbook-src)](https://repl.it/@tombenke/cayley-cookbook-src#quad/writer/export_nquads_to_stdout.go)
 
 ```bash
     cd quad/writer
@@ -31,7 +31,7 @@ A program kimenete:
 
 {{< tab "Graphviz" >}}
 
-{{% code file="/static/src/quad/writer/people.dot" language="graphviz" %}}
+{{% code file="/static/src/quad/writer/people.dot" language="txt" %}}
 
 {{< /tab >}}
 
@@ -48,7 +48,7 @@ A program kimenete:
 {{< /tab >}}
 
 {{< tab "n-quads" >}}
-{{% code file="/static/src/quad/writer/people.nq" language="nquads" %}}
+{{% code file="/static/src/quad/writer/people.nq" language="txt" %}}
 {{< /tab >}}
 
 {{< /tabs >}}

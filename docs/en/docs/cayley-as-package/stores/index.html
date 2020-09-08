@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Stores #  Test data #  package main import ( &#34;github.com/cayleygraph/quad&#34; // Add some predefined vocabularies 	&#34;github.com/cayleygraph/quad/voc/rdf&#34; &#34;github.com/tombenke/cayley-cookbook/voc/foaf&#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally  luke := quad.RandomBlankNode() leia := quad.IRI(&#34;starwars:leia_organa&#34;) //quad.RandomBlankNode()  // Create Quads about to export  label := &#34;people&#34; quads := []quad.Quad{} quads = append(quads, quad.Make(luke, quad.IRI(rdf.Type), quad.IRI(foaf.Person), label)) quads = append(quads, quad.Make(luke, quad.IRI(foaf.GivenName), &#34;Luke&#34;, label)) quads = append(quads, quad.">
+<meta name="description" content="Stores #  Test data #  package main import ( &#34;github.com/cayleygraph/quad&#34; // Add some predefined vocabularies 	&#34;github.com/cayleygraph/quad/voc/rdf&#34; &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&#34;starwars:leia_organa&#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &#34;people&#34; quads := []quad.Quad{} quads = append(quads, quad.Make(luke, quad.IRI(rdf.Type), quad.IRI(foaf.Person), label)) quads = append(quads, quad.Make(luke, quad.IRI(foaf.GivenName), &#34;Luke&#34;, label)) quads = append(quads, quad.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Stores" />
-<meta property="og:description" content="Stores #  Test data #  package main import ( &#34;github.com/cayleygraph/quad&#34; // Add some predefined vocabularies 	&#34;github.com/cayleygraph/quad/voc/rdf&#34; &#34;github.com/tombenke/cayley-cookbook/voc/foaf&#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally  luke := quad.RandomBlankNode() leia := quad.IRI(&#34;starwars:leia_organa&#34;) //quad.RandomBlankNode()  // Create Quads about to export  label := &#34;people&#34; quads := []quad.Quad{} quads = append(quads, quad.Make(luke, quad.IRI(rdf.Type), quad.IRI(foaf.Person), label)) quads = append(quads, quad.Make(luke, quad.IRI(foaf.GivenName), &#34;Luke&#34;, label)) quads = append(quads, quad." />
+<meta property="og:description" content="Stores #  Test data #  package main import ( &#34;github.com/cayleygraph/quad&#34; // Add some predefined vocabularies 	&#34;github.com/cayleygraph/quad/voc/rdf&#34; &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&#34;starwars:leia_organa&#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &#34;people&#34; quads := []quad.Quad{} quads = append(quads, quad.Make(luke, quad.IRI(rdf.Type), quad.IRI(foaf.Person), label)) quads = append(quads, quad.Make(luke, quad.IRI(foaf.GivenName), &#34;Luke&#34;, label)) quads = append(quads, quad." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/stores/" />
 
@@ -16,7 +16,7 @@
 <link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/stores/" title="Store-ok">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/en.search.min.5b66e2a2826f1eeb3cf0d79df6d4a69611c7e35401d9d8f6777774b2c71f2de3.js" integrity="sha256-W2biooJvHus88Ned9tSmlhHH41QB2dj2d3d0sscfLeM="></script>
+<script defer src="/cayley-cookbook/en.search.min.42da6406e75465755f6d66fb1bba91d03ef270a7d205993cce8e8fe32c37ed06.js" integrity="sha256-QtpkBudUZXVfbWb7G7qR0D7ycKfSBZk8zo6P4yw37QY="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -295,30 +295,30 @@ https://github.com/alex-shpak/hugo-book
 <span style="color:#f92672">import</span> (
 	<span style="color:#e6db74">&#34;github.com/cayleygraph/quad&#34;</span>
 
-    <span style="color:#75715e">// Add some predefined vocabularies
+	<span style="color:#75715e">// Add some predefined vocabularies
 </span><span style="color:#75715e"></span>	<span style="color:#e6db74">&#34;github.com/cayleygraph/quad/voc/rdf&#34;</span>
-	<span style="color:#e6db74">&#34;github.com/tombenke/cayley-cookbook/voc/foaf&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34;</span>
 )
 
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">makeQuads</span>() []<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Quad</span> {
-    <span style="color:#75715e">// Generate Blank Nodes to represent the people internally
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">luke</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">RandomBlankNode</span>()
-    <span style="color:#a6e22e">leia</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#e6db74">&#34;starwars:leia_organa&#34;</span>) <span style="color:#75715e">//quad.RandomBlankNode()
+	<span style="color:#75715e">// Generate Blank Nodes to represent the people internally
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">luke</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">RandomBlankNode</span>()
+	<span style="color:#a6e22e">leia</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#e6db74">&#34;starwars:leia_organa&#34;</span>) <span style="color:#75715e">//quad.RandomBlankNode()
 </span><span style="color:#75715e"></span>
-    <span style="color:#75715e">// Create Quads about to export
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">label</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;people&#34;</span>
-    <span style="color:#a6e22e">quads</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Quad</span>{}
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">rdf</span>.<span style="color:#a6e22e">Type</span>), <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Person</span>), <span style="color:#a6e22e">label</span>))
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">GivenName</span>), <span style="color:#e6db74">&#34;Luke&#34;</span>, <span style="color:#a6e22e">label</span>))
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">FamilyName</span>), <span style="color:#e6db74">&#34;Skywalker&#34;</span>, <span style="color:#a6e22e">label</span>))
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Age</span>), <span style="color:#ae81ff">23</span>, <span style="color:#a6e22e">label</span>))
+	<span style="color:#75715e">// Create Quads about to export
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">label</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;people&#34;</span>
+	<span style="color:#a6e22e">quads</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Quad</span>{}
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">rdf</span>.<span style="color:#a6e22e">Type</span>), <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Person</span>), <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">GivenName</span>), <span style="color:#e6db74">&#34;Luke&#34;</span>, <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">FamilyName</span>), <span style="color:#e6db74">&#34;Skywalker&#34;</span>, <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Age</span>), <span style="color:#ae81ff">23</span>, <span style="color:#a6e22e">label</span>))
 
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">rdf</span>.<span style="color:#a6e22e">Type</span>), <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Person</span>), <span style="color:#a6e22e">label</span>))
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Knows</span>), <span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">label</span>))
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">GivenName</span>), <span style="color:#e6db74">&#34;Leia&#34;</span>, <span style="color:#a6e22e">label</span>))
-    <span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">FamilyName</span>), <span style="color:#e6db74">&#34;Organa&#34;</span>, <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">rdf</span>.<span style="color:#a6e22e">Type</span>), <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Person</span>), <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">Knows</span>), <span style="color:#a6e22e">luke</span>, <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">GivenName</span>), <span style="color:#e6db74">&#34;Leia&#34;</span>, <span style="color:#a6e22e">label</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#a6e22e">leia</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">foaf</span>.<span style="color:#a6e22e">FamilyName</span>), <span style="color:#e6db74">&#34;Organa&#34;</span>, <span style="color:#a6e22e">label</span>))
 
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">quads</span>
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">quads</span>
 }
 
 </code></pre></div><h2 id="nodes-in-the-store">
@@ -374,7 +374,7 @@ https://github.com/alex-shpak/hugo-book
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">MemStoreAll *memstore.AllIterator
 Ref: 1 memstore.bnode
 Key: 1 memstore.bnode
-Value: _:n8179238725398674346 quad.BNode
+Value: _:n277861751382619633 quad.BNode
 
 Ref: 2 memstore.bnode
 Key: 2 memstore.bnode
@@ -492,42 +492,42 @@ Value: &#34;Organa&#34; quad.String
 }
 
 </code></pre></div><p>The results:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">Ref: {0xc00007a1c0} memstore.qprim
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">Ref: {0xc0000be1c0} memstore.qprim
 Key: 5 int64
 Value: _:memnode5 quad.BNode
-Quad: _:n2570521104147429163 -- &lt;rdf:type&gt; -&gt; &lt;foaf:Person&gt; quad.Quad
+Quad: _:n7435929425156310564 -- &lt;rdf:type&gt; -&gt; &lt;foaf:Person&gt; quad.Quad
 
-Ref: {0xc00007a3c0} memstore.qprim
+Ref: {0xc0000be3c0} memstore.qprim
 Key: 8 int64
 Value: _:memnode8 quad.BNode
-Quad: _:n2570521104147429163 -- &lt;foaf:givenName&gt; -&gt; &#34;Luke&#34; quad.Quad
+Quad: _:n7435929425156310564 -- &lt;foaf:givenName&gt; -&gt; &#34;Luke&#34; quad.Quad
 
-Ref: {0xc00007a500} memstore.qprim
+Ref: {0xc0000be500} memstore.qprim
 Key: 11 int64
 Value: _:memnode11 quad.BNode
-Quad: _:n2570521104147429163 -- &lt;foaf:familyName&gt; -&gt; &#34;Skywalker&#34; quad.Quad
+Quad: _:n7435929425156310564 -- &lt;foaf:familyName&gt; -&gt; &#34;Skywalker&#34; quad.Quad
 
-Ref: {0xc00007a640} memstore.qprim
+Ref: {0xc0000be640} memstore.qprim
 Key: 14 int64
 Value: _:memnode14 quad.BNode
-Quad: _:n2570521104147429163 -- &lt;foaf:age&gt; -&gt; &#34;23&#34;^^&lt;xsd:integer&gt; quad.Quad
+Quad: _:n7435929425156310564 -- &lt;foaf:age&gt; -&gt; &#34;23&#34;^^&lt;xsd:integer&gt; quad.Quad
 
-Ref: {0xc00007a740} memstore.qprim
+Ref: {0xc0000be740} memstore.qprim
 Key: 16 int64
 Value: _:memnode16 quad.BNode
 Quad: &lt;starwars:leia_organa&gt; -- &lt;rdf:type&gt; -&gt; &lt;foaf:Person&gt; quad.Quad
 
-Ref: {0xc00007a800} memstore.qprim
+Ref: {0xc0000be800} memstore.qprim
 Key: 18 int64
 Value: _:memnode18 quad.BNode
-Quad: &lt;starwars:leia_organa&gt; -- &lt;foaf:knows&gt; -&gt; _:n2570521104147429163 quad.Quad
+Quad: &lt;starwars:leia_organa&gt; -- &lt;foaf:knows&gt; -&gt; _:n7435929425156310564 quad.Quad
 
-Ref: {0xc00007a900} memstore.qprim
+Ref: {0xc0000be900} memstore.qprim
 Key: 20 int64
 Value: _:memnode20 quad.BNode
 Quad: &lt;starwars:leia_organa&gt; -- &lt;foaf:givenName&gt; -&gt; &#34;Leia&#34; quad.Quad
 
-Ref: {0xc00007a9c0} memstore.qprim
+Ref: {0xc0000be9c0} memstore.qprim
 Key: 22 int64
 Value: _:memnode22 quad.BNode
 Quad: &lt;starwars:leia_organa&gt; -- &lt;foaf:familyName&gt; -&gt; &#34;Organa&#34; quad.Quad

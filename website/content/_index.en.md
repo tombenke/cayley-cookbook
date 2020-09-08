@@ -17,5 +17,5 @@ The main purpose of this collection to make it easier to get started with using 
 
 There are two options to use examples:
 1. The code examples can be immediately executed in the cloud.
-[![Run on Repl.it](https://repl.it/badge/github/tombenke/cayley-cokbook)](https://repl.it/github/tombenke/cayley-cookbook)
-2. Clone the [repository](https://github.com/tombenke/cayley-cookbook/tree/master) to your local machine, and execute there.
+[![Run on Repl.it](https://repl.it/badge/github/tombenke/cayley-cookbook-src)](https://repl.it/github/tombenke/cayley-cookbook-src)
+2. Clone the [repository](https://github.com/tombenke/cayley-cookbook-src/tree/master) to your local machine, and execute there.

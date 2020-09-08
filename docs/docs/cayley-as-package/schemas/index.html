@@ -18,7 +18,7 @@ Ezzel a módszerrel jelentősen egyszerűbb az összetett adatoszerkezetek store
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/schemas/" title="Schemas">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.82b7e38f52a1f6225c94151a8ba6a9f82f7ac28863156cd47406eb8c111130d8.js" integrity="sha256-grfjj1Kh9iJclBUai6ap&#43;C96wohjFWzUdAbrjBERMNg="></script>
+<script defer src="/cayley-cookbook/hu.search.min.b620cbf4c3791f006579f6e7d22fde7c7169ea7bb778f3720f98d28b20dc48bb.js" integrity="sha256-tiDL9MN5HwBlefbn0i/efHFp6nu3ePNyD5jSiyDcSLs="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -295,11 +295,11 @@ https://github.com/alex-shpak/hugo-book
   Store létrehozása
   <a class="anchor" href="#store-l%c3%a9trehoz%c3%a1sa">#</a>
 </h2>
-<p>A példákban egyszerű, in-memory store-t fogunk használni, aminek a megnyitását a <code>store.go</code> file-banimplementált <code>initStore()</code> funkció végzi el.</p>
+<p>A példákban egyszerű, in-memory store-t fogunk használni, aminek a megnyitását a <code>store.go</code> file-banimplementált <code>InitStore()</code> funkció végzi el.</p>
 <details >
   <summary>A store.go megjelenítése</summary>
   <div class="markdown-inner">
-    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">kbase</span>
 
 <span style="color:#f92672">import</span> (
 	<span style="color:#e6db74">&#34;github.com/cayleygraph/cayley&#34;</span>
@@ -307,7 +307,7 @@ https://github.com/alex-shpak/hugo-book
 )
 
 <span style="color:#75715e">// Create a mem-store for testing
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">initStore</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">Handle</span> {
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">InitStore</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">Handle</span> {
 	<span style="color:#a6e22e">store</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">NewMemoryGraph</span>()
 	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
 		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalln</span>(<span style="color:#a6e22e">err</span>)
@@ -515,16 +515,16 @@ https://github.com/alex-shpak/hugo-book
   </div>
 </details>
 
-<p>Az adatok file-ból történő beolvasására a <code>yamlImpex.go</code>-ban található <code>ReadFromYaml()</code> funkciót használjuk.</p>
-<p>A <code>yamlImpex.go</code> két függvény tartalmaz:</p>
+<p>Az adatok file-ból történő beolvasására a <code>yaml.go</code>-ban található <code>ReadFromYaml()</code> funkciót használjuk.</p>
+<p>A <code>yaml.go</code> két függvény tartalmaz:</p>
 <ul>
 <li>A <code>ReadFromYaml()</code> az adatok YAML file-ból történő beolvasását végzi el,</li>
 <li>a <code>SaveToYaml()</code> a YAML formátumba történő kiírását teszi lehetővé.</li>
 </ul>
 <details >
-  <summary>A yamlImpex.go megjelenítése</summary>
+  <summary>A yaml.go megjelenítése</summary>
   <div class="markdown-inner">
-    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">impex</span>
 
 <span style="color:#f92672">import</span> (
 	<span style="color:#e6db74">&#34;gopkg.in/yaml.v2&#34;</span>
@@ -595,6 +595,7 @@ https://github.com/alex-shpak/hugo-book
 	<span style="color:#e6db74">&#34;github.com/cayleygraph/cayley/graph&#34;</span>
 	<span style="color:#e6db74">&#34;github.com/cayleygraph/cayley/schema&#34;</span>
 	<span style="color:#e6db74">&#34;github.com/cayleygraph/quad&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/tombenke/cayley-cookbook-src/kbase/impex&#34;</span>
 	<span style="color:#e6db74">&#34;log&#34;</span>
 )
 
@@ -623,7 +624,7 @@ https://github.com/alex-shpak/hugo-book
 
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Import</span>(<span style="color:#a6e22e">store</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">Handle</span>, <span style="color:#a6e22e">dbPath</span> <span style="color:#66d9ef">string</span>) {
 	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">bm</span> <span style="color:#a6e22e">Bookmarks</span>
-	<span style="color:#a6e22e">ReadFromYaml</span>(<span style="color:#a6e22e">dbPath</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">bm</span>)
+	<span style="color:#a6e22e">impex</span>.<span style="color:#a6e22e">ReadFromYaml</span>(<span style="color:#a6e22e">dbPath</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">bm</span>)
 	<span style="color:#a6e22e">qw</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">graph</span>.<span style="color:#a6e22e">NewWriter</span>(<span style="color:#a6e22e">store</span>)
 	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">qw</span>.<span style="color:#a6e22e">Close</span>() <span style="color:#75715e">// don&#39;t forget to close a writer; it has some internal buffering
 </span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">bm</span> {
@@ -726,6 +727,7 @@ https://github.com/alex-shpak/hugo-book
 	<span style="color:#e6db74">&#34;github.com/cayleygraph/cayley/schema&#34;</span>
 	<span style="color:#e6db74">&#34;github.com/cayleygraph/quad&#34;</span>
 	<span style="color:#a6e22e">uuid</span> <span style="color:#e6db74">&#34;github.com/satori/go.uuid&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/tombenke/cayley-cookbook-src/kbase&#34;</span>
 )
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">bookmarksFixtures</span> = <span style="color:#e6db74">&#34;./bookmarks.yml&#34;</span>
@@ -747,7 +749,7 @@ https://github.com/alex-shpak/hugo-book
 
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">ImportBookmarksWithSchema</span>() {
 	<span style="color:#75715e">// Create an in-memory store
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">store</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">initStore</span>()
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">store</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">kbase</span>.<span style="color:#a6e22e">InitStore</span>()
 
 	<span style="color:#75715e">// Load Bookmarks from YAML and upload into the mem-store
 </span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Import</span>(<span style="color:#a6e22e">store</span>, <span style="color:#a6e22e">bookmarksFixtures</span>)
@@ -766,7 +768,7 @@ https://github.com/alex-shpak/hugo-book
 </details>
 
 <p>Futtassuk a programot:
-<a href="https://repl.it/@tombenke/cayley-cookbook#schema/import_bookmarks_with_schema.go"><img src="https://repl.it/badge/github/tombenke/cayley-cokbook" alt="Run this code on Repl.it" /></a></p>
+<a href="https://repl.it/@tombenke/cayley-cookbook-src#schema/import_bookmarks_with_schema.go"><img src="https://repl.it/badge/github/tombenke/cayley-cookbook-src" alt="Run this code on Repl.it" /></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    cd schema
     go run impex_bookmarks_with_schema.go yamlImpex.go store.go bookmarks.go
 </code></pre></div><p>A program kimenete:</p>
@@ -795,6 +797,7 @@ https://github.com/alex-shpak/hugo-book
 	<span style="color:#e6db74">&#34;github.com/cayleygraph/cayley/schema&#34;</span>
 	<span style="color:#e6db74">&#34;github.com/cayleygraph/quad&#34;</span>
 	<span style="color:#a6e22e">uuid</span> <span style="color:#e6db74">&#34;github.com/satori/go.uuid&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/tombenke/cayley-cookbook-src/kbase&#34;</span>
 )
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">bookmarksFixtures</span> = <span style="color:#e6db74">&#34;./bookmarks.yml&#34;</span>
@@ -812,7 +815,7 @@ https://github.com/alex-shpak/hugo-book
 
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
 	<span style="color:#75715e">// Create an in-memory store
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">store</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">initStore</span>()
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">store</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">kbase</span>.<span style="color:#a6e22e">InitStore</span>()
 
 	<span style="color:#75715e">// Import bookmarks data from yaml using the `Bookmark` schema
 </span><span style="color:#75715e"></span>	<span style="color:#a6e22e">ImportBookmarksWithSchema</span>(<span style="color:#a6e22e">store</span>)
@@ -865,7 +868,7 @@ https://github.com/alex-shpak/hugo-book
 </details>
 
 <p>Futtassuk a programot:
-<a href="https://repl.it/@tombenke/cayley-cookbook#schema/impex_bookmarks_with_schema.go"><img src="https://repl.it/badge/github/tombenke/cayley-cokbook" alt="Run this code on Repl.it" /></a></p>
+<a href="https://repl.it/@tombenke/cayley-cookbook-src#schema/impex_bookmarks_with_schema.go"><img src="https://repl.it/badge/github/tombenke/cayley-cookbook-src" alt="Run this code on Repl.it" /></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    cd schema
     go run impex_bookmarks_with_schema.go yamlImpex.go store.go bookmarks.go
 </code></pre></div><p>A lekérdezésekeket követően a program kiírja az eredményeket.</p>

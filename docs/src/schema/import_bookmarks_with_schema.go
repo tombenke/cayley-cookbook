@@ -6,6 +6,7 @@ import (
 	"github.com/cayleygraph/cayley/schema"
 	"github.com/cayleygraph/quad"
 	uuid "github.com/satori/go.uuid"
+	"github.com/tombenke/cayley-cookbook-src/kbase"
 )
 
 const bookmarksFixtures = "./bookmarks.yml"
@@ -27,7 +28,7 @@ func main() {
 
 func ImportBookmarksWithSchema() {
 	// Create an in-memory store
-	store := initStore()
+	store := kbase.InitStore()
 
 	// Load Bookmarks from YAML and upload into the mem-store
 	Import(store, bookmarksFixtures)

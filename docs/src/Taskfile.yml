@@ -1,0 +1,40 @@
+# https://taskfile.dev
+
+version: '2'
+
+vars:
+  APPNAME: cayley-cookbook
+
+tasks:
+  default:
+    desc: Executes all the tests then build the binary.
+    cmds:
+      - task: execute_samples
+
+  execute_samples:
+    desc: Executes the sample programs to generate outputs
+    cmds:
+      - task: execute_namespaces
+      - task: execute_schema
+      - task: execute_store
+      - task: execute_quad
+
+  execute_namespaces:
+      - cd namespaces && go run list_namespaces.go > list_namespaces.out
+      - cd namespaces && go run register_namespace.go > register_namespace.out
+
+  execute_quad:
+      - cd quad && go run make_quads.go > make_quads.out
+      - cd quad/writer && go run export_nquads_to_stdout.go data.go > export_nquads_to_stdout.out
+      - cd quad/writer && dot -Tpng people.dot > people_dot.png
+      # NOTE: Manual customization of the output graphs is required in case of graphml export.
+
+  execute_schema:
+      - cd schema && go run import_bookmarks_with_schema.go bookmarks.go > import_bookmarks_with_schema.out
+      - cd schema && go run impex_bookmarks_with_schema.go bookmarks.go > impex_bookmarks_with_schema.out
+      - cd schema && go run find_bookmarks_by_tags.go bookmarks.go > find_bookmarks_by_tags.out
+
+  execute_store:
+      - cd store && go run print_all_nodes.go data.go > all_nodes.out
+      - cd store && go run print_all_quads.go data.go > all_quads.out
+      - cd store && go run query_all.go data.go > all.out
