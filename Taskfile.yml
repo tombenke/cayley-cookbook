@@ -9,7 +9,14 @@ tasks:
   default:
     desc: Executes all the tests then build the binary.
     cmds:
+      - task: update_submodules
       - task: build_website
+
+
+  update_submodules:
+    desc: Update the source code and the themes
+    cmds:
+      - git submodule update --remote
 
   build_website:
     desc: Build the static website content
