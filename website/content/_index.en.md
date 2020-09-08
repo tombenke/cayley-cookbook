@@ -10,7 +10,7 @@ type: docs
 This website is a collection of code fragments, that use the 
 [Cayley Knowledge Graph](https://github.com/cayleygraph/cayley) as a Golang library.
 
-The [github.com/tombenke/cayley-cookbook](https://github.com/tombenke/cayley-cookbook/tree/master) repository holds the basic implementations of the most typical use-cases.about how to use Cayley as a Go library.
+The [github.com/tombenke/cayley-cookbook-src](https://github.com/tombenke/cayley-cookbook-src/tree/master) repository holds the basic implementations of the most typical use-cases.about how to use Cayley as a Go library.
 The individual use-cases are organized into subfolders.
 
 The main purpose of this collection to make it easier to get started with using Caleygraph.
