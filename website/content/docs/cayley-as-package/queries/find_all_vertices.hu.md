@@ -1,6 +1,7 @@
 ---
 title: "Összes node kiírása"
 weight: 1
+api: ["graph.V()", "graph.Vertex()", "path.All()"]
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false
@@ -10,14 +11,18 @@ weight: 1
 
 # Összes node kiírása
 
-Kiinduló adatok:
+## Probléma
+
+Hogyan tudom gráf összes elemét (subject-eket, object-eket, predicate-eket) kiíratni? 
+
+## Teszt adatok
 {{< figure src="/cayley-cookbook/src/data/testdata.png" title="1. ábra: Teszt adatok Gráf diagramja" >}}
 
 {{< details title="Kiinduló adatok megtekintése nquads formában" open=false >}}
 {{% code file="/static/src/data/testdata.nq" language="txt" %}}
 {{< /details >}}
 
-Gizmo query:
+## Gizmo query
 {{% code file="/static/src/query/find_all_vertices/query.gizmo" language="javascript" %}}
 
 Eredmények:

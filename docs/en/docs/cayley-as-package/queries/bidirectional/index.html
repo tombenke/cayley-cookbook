@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bi-directional Relations #  Problem #  If I have a graph: A &lt;-1-&gt; B &lt;-2-&gt; C where A, B, C are subjects and objects linked with predicates 1, 2 (bidirectional). How can I get C using a path?
+Test data #    Fig 1.: Graph diagram of test data   Show the test data in nquads format &lt;A&gt; &lt;predicate-1&gt; &lt;B&gt; . &lt;B&gt; &lt;predicate-1&gt; &lt;A&gt; . &lt;B&gt; &lt;predicate-2&gt; &lt;C&gt; .">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Bi-directional Relations" />
+<meta property="og:description" content="Bi-directional Relations #  Problem #  If I have a graph: A &lt;-1-&gt; B &lt;-2-&gt; C where A, B, C are subjects and objects linked with predicates 1, 2 (bidirectional). How can I get C using a path?
+Test data #    Fig 1.: Graph diagram of test data   Show the test data in nquads format &lt;A&gt; &lt;predicate-1&gt; &lt;B&gt; . &lt;B&gt; &lt;predicate-1&gt; &lt;A&gt; . &lt;B&gt; &lt;predicate-2&gt; &lt;C&gt; ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/bidirectional/" />
+
+<title>Bi-directional Relations | Cayley-CookBook</title>
+<link rel="manifest" href="/cayley-cookbook/manifest.json">
+<link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/bidirectional/" title="Kétirányú relációk">
+
+<link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
+<script defer src="/cayley-cookbook/en.search.min.aadcd9c12de57bf0503559a4ee29311ce7911b639f769d698fd67e8e9ccac377.js" integrity="sha256-qtzZwS3le/BQNVmk7ikxHOeRG2Ofdp1pj9Z&#43;jpzKw3c="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-XXXXXXXXX-X', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cayley-cookbook/en"><span>Cayley-CookBook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/about/" class="">About</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/basic-concepts/" class="collapsed ">Basic Concepts</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-overview/" class="">Cayley Overview</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/" class="collapsed ">Cayley as Package</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/vocabularies/" class="">Namespaces and Vocabularies</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/quads/" class="">Quads</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/queries/" class="">Queries</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_vertices/" class="">Find All Vertices</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_predicates/" class="">Find All Predicates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/queries/bidirectional/" class="active">Bi-directional Relations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/queries/bookmarks/" class="">Bookmarks</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/stores/" class="">Stores</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/crud-operations/" class="">CRUD Operations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/transactions/" class="">Transactions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/schemas/" class="">Schemas</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Bi-directional Relations</strong>
+
+  <label for="toc-control">
+    
+    <img src="/cayley-cookbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#test-data">Test data</a></li>
+    <li><a href="#gizmo-query">Gizmo Query</a></li>
+    <li><a href="#golang-implementation">Golang Implementation</a></li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="bi-directional-relations">
+  Bi-directional Relations
+  <a class="anchor" href="#bi-directional-relations">#</a>
+</h1>
+<h2 id="problem">
+  Problem
+  <a class="anchor" href="#problem">#</a>
+</h2>
+<p>If I have a graph: <code>A &lt;-1-&gt; B &lt;-2-&gt; C</code> where <code>A</code>, <code>B</code>, <code>C</code> are subjects and objects linked with predicates <code>1</code>, <code>2</code> (bidirectional).
+How  can I get <code>C</code> using a path?</p>
+<h2 id="test-data">
+  Test data
+  <a class="anchor" href="#test-data">#</a>
+</h2>
+<figure>
+    <img src="/cayley-cookbook/src/query/bidirectional/data.png"/> <figcaption>
+            <h4>Fig 1.: Graph diagram of test data</h4>
+        </figcaption>
+</figure>
+
+<details >
+  <summary>Show the test data in nquads format</summary>
+  <div class="markdown-inner">
+    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;A&gt; &lt;predicate-1&gt; &lt;B&gt; .
+&lt;B&gt; &lt;predicate-1&gt; &lt;A&gt; .
+&lt;B&gt; &lt;predicate-2&gt; &lt;C&gt; .
+&lt;C&gt; &lt;predicate-2&gt; &lt;B&gt; .
+
+&lt;A1&gt; &lt;predicate-1&gt; &lt;B1&gt; .
+&lt;B1&gt; &lt;predicate-1&gt; &lt;A1&gt; .
+&lt;B1&gt; &lt;predicate-2&gt; &lt;C1&gt; .
+&lt;C1&gt; &lt;predicate-2&gt; &lt;B1&gt; .
+
+&lt;A2&gt; &lt;predicate-1&gt; &lt;B2&gt; .
+&lt;B2&gt; &lt;predicate-1&gt; &lt;A2&gt; .
+&lt;B2&gt; &lt;predicate-2&gt; &lt;C2&gt; .
+&lt;C2&gt; &lt;predicate-2&gt; &lt;B2&gt; .
+
+</code></pre></div>
+  </div>
+</details>
+
+<h2 id="gizmo-query">
+  Gizmo Query
+  <a class="anchor" href="#gizmo-query">#</a>
+</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">V</span>().<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-1&gt;&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-2&gt;&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-2&gt;&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-1&gt;&#34;</span>).<span style="color:#a6e22e">All</span>()
+
+</code></pre></div><p>Results:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">{&#34;id&#34;:&#34;A&#34;}
+{&#34;id&#34;:&#34;A1&#34;}
+{&#34;id&#34;:&#34;A2&#34;}
+
+</code></pre></div><h2 id="golang-implementation">
+  Golang Implementation
+  <a class="anchor" href="#golang-implementation">#</a>
+</h2>
+<details >
+  <summary>Show the source code</summary>
+  <div class="markdown-inner">
+    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;context&#34;</span>
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/cayleygraph/cayley&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/cayleygraph/quad&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#75715e">// Create an in-memory store
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">store</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">InitStore</span>()
+	<span style="color:#75715e">// Create Quads and uploads to the store
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">quads</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">makeQuads</span>()
+	<span style="color:#a6e22e">AddQuadsToStore</span>(<span style="color:#a6e22e">store</span>, <span style="color:#a6e22e">quads</span>)
+
+	<span style="color:#75715e">// Execute the query
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">doQuery</span>(<span style="color:#a6e22e">store</span>)
+}
+
+<span style="color:#75715e">// Create a mem-store for testing
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">InitStore</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">Handle</span> {
+	<span style="color:#a6e22e">store</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">NewMemoryGraph</span>()
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		panic(<span style="color:#a6e22e">err</span>)
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">store</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">makeQuads</span>() []<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Quad</span> {
+	<span style="color:#a6e22e">quads</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Quad</span>{}
+
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#e6db74">&#34;A&#34;</span>, <span style="color:#e6db74">&#34;1&#34;</span>, <span style="color:#e6db74">&#34;B&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#e6db74">&#34;B&#34;</span>, <span style="color:#e6db74">&#34;1&#34;</span>, <span style="color:#e6db74">&#34;A&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#e6db74">&#34;B&#34;</span>, <span style="color:#e6db74">&#34;2&#34;</span>, <span style="color:#e6db74">&#34;C&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#e6db74">&#34;C&#34;</span>, <span style="color:#e6db74">&#34;2&#34;</span>, <span style="color:#e6db74">&#34;B&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>))
+
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#e6db74">&#34;A1&#34;</span>, <span style="color:#e6db74">&#34;1&#34;</span>, <span style="color:#e6db74">&#34;B1&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#e6db74">&#34;B1&#34;</span>, <span style="color:#e6db74">&#34;1&#34;</span>, <span style="color:#e6db74">&#34;A1&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#e6db74">&#34;B1&#34;</span>, <span style="color:#e6db74">&#34;2&#34;</span>, <span style="color:#e6db74">&#34;C1&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#e6db74">&#34;C1&#34;</span>, <span style="color:#e6db74">&#34;2&#34;</span>, <span style="color:#e6db74">&#34;B1&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>))
+
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#e6db74">&#34;A2&#34;</span>, <span style="color:#e6db74">&#34;1&#34;</span>, <span style="color:#e6db74">&#34;B2&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#e6db74">&#34;B2&#34;</span>, <span style="color:#e6db74">&#34;1&#34;</span>, <span style="color:#e6db74">&#34;A2&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#e6db74">&#34;B2&#34;</span>, <span style="color:#e6db74">&#34;2&#34;</span>, <span style="color:#e6db74">&#34;C2&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>))
+	<span style="color:#a6e22e">quads</span> = append(<span style="color:#a6e22e">quads</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Make</span>(<span style="color:#e6db74">&#34;C2&#34;</span>, <span style="color:#e6db74">&#34;2&#34;</span>, <span style="color:#e6db74">&#34;B2&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>))
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">quads</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">AddQuadsToStore</span>(<span style="color:#a6e22e">store</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">Handle</span>, <span style="color:#a6e22e">quads</span> []<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Quad</span>) {
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">q</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">quads</span> {
+		<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">AddQuad</span>(<span style="color:#a6e22e">q</span>)
+	}
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">doQuery</span>(<span style="color:#a6e22e">store</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">Handle</span>) {
+	<span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">StartPath</span>(<span style="color:#a6e22e">store</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;1&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;2&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;2&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;1&#34;</span>)
+
+	<span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">Iterate</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>()).<span style="color:#a6e22e">EachValue</span>(<span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">value</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Value</span>) {
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%v\n&#34;</span>, <span style="color:#a6e22e">value</span>)
+	})
+}
+
+</code></pre></div>
+  </div>
+</details>
+
+<p>Results:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&#34;A&#34;
+&#34;A1&#34;
+&#34;A2&#34;
+
+</code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+  
+
+
+  
+
+  
+
+
+  
+
+
+<div class="book-languages" tabindex="0" aria-haspopup="true">
+  <ul>
+    <li class="flex align-center">
+      <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+      English
+    </li> 
+  </ul>
+
+  <ul class="book-languages-list">
+    
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/en/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </li>
+    
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/bidirectional/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        Magyar
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#test-data">Test data</a></li>
+    <li><a href="#gizmo-query">Gizmo Query</a></li>
+    <li><a href="#golang-implementation">Golang Implementation</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

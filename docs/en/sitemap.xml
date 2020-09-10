@@ -130,6 +130,20 @@
   </url>
   
   <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/bidirectional/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/bidirectional/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/bidirectional/"
+                />
+  </url>
+  
+  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/</loc>
     <xhtml:link
                 rel="alternate"
