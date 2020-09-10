@@ -1,0 +1,14 @@
+<A> <predicate-1> <B> .
+<B> <predicate-1> <A> .
+<B> <predicate-2> <C> .
+<C> <predicate-2> <B> .
+
+<A1> <predicate-1> <B1> .
+<B1> <predicate-1> <A1> .
+<B1> <predicate-2> <C1> .
+<C1> <predicate-2> <B1> .
+
+<A2> <predicate-1> <B2> .
+<B2> <predicate-1> <A2> .
+<B2> <predicate-2> <C2> .
+<C2> <predicate-2> <B2> .

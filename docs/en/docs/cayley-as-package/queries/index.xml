@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Queries on Cayley-CookBook</title>
+    <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/</link>
+    <description>Recent content in Queries on Cayley-CookBook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Find All Vertices</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_vertices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_vertices/</guid>
+      <description>Find All Vertices #  Test data:   Fig 1.: Graph diagram of test data   Show the test data in nquads format &amp;lt;alice&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;dani&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;emily&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;fred&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;greg&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;predicates&amp;gt; &amp;lt;are&amp;gt; &amp;lt;follows&amp;gt; .</description>
+    </item>
+    
+    <item>
+      <title>Find All Predicates</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_predicates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_predicates/</guid>
+      <description>Find All Predicates #  Test data:   Fig 1.: Graph diagram of test data   Show the test data in nquads format &amp;lt;alice&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;dani&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;emily&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;fred&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;greg&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;predicates&amp;gt; &amp;lt;are&amp;gt; &amp;lt;follows&amp;gt; .</description>
+    </item>
+    
+    <item>
+      <title>Bookmarks</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/bookmarks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/bookmarks/</guid>
+      <description>Bookmarks #  Run the program: 
+cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go The output of the program:
+Show the results Results of finding any of `nosql` or `gremlin` tags: - &amp;#34;Ontotext GraphDB&amp;#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.</description>
+    </item>
+    
+  </channel>
+</rss>

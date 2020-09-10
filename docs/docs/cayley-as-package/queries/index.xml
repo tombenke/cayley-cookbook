@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lekérdezések on Cayley-CookBook</title>
+    <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/</link>
+    <description>Recent content in Lekérdezések on Cayley-CookBook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Összes node kiírása</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/find_all_vertices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/find_all_vertices/</guid>
+      <description>Összes node kiírása #  Kiinduló adatok:   1. ábra: Teszt adatok Gráf diagramja   Kiinduló adatok megtekintése nquads formában &amp;lt;alice&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;dani&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;emily&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;fred&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;greg&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;predicates&amp;gt; &amp;lt;are&amp;gt; &amp;lt;follows&amp;gt; . &amp;lt;predicates&amp;gt; &amp;lt;are&amp;gt; &amp;lt;status&amp;gt; .</description>
+    </item>
+    
+    <item>
+      <title>Összes predikátum kiírása</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/find_all_predicates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/find_all_predicates/</guid>
+      <description>Összes predikátum kiírása #  Kiinduló adatok:   1. ábra: Teszt adatok Gráf diagramja   Kiinduló adatok megtekintése nquads formában &amp;lt;alice&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;dani&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;emily&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;fred&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;greg&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;predicates&amp;gt; &amp;lt;are&amp;gt; &amp;lt;follows&amp;gt; . &amp;lt;predicates&amp;gt; &amp;lt;are&amp;gt; &amp;lt;status&amp;gt; .</description>
+    </item>
+    
+    <item>
+      <title>Könyvjelzők</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/bookmarks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/bookmarks/</guid>
+      <description>Könyvjelzők #  Futtassuk a programot: 
+cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go A program kimenete:
+Az eredmények megjelenítése Results of finding any of `nosql` or `gremlin` tags: - &amp;#34;Ontotext GraphDB&amp;#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.</description>
+    </item>
+    
+  </channel>
+</rss>

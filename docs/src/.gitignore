@@ -6,6 +6,9 @@ main
 *.so
 *.dylib
 
+# Cayley databases in internal for faster loading
+*.pquads
+
 # Test binary, built with `go test -c`
 *.test
 

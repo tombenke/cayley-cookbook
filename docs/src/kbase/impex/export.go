@@ -41,7 +41,7 @@ import (
 func ExportToFile(quads []quad.Quad, outFileName string, formatName string) {
 
 	// Get formatter
-	format := getFormatter(outFileName, formatName)
+	format := GetFormatter(outFileName, formatName)
 
 	// Open/create the output file.
 	// If the `outFileName` is "" then open then returns with `os.Stdout`.
@@ -76,7 +76,7 @@ func ExportToFile(quads []quad.Quad, outFileName string, formatName string) {
 }
 
 // Get the formatter selected either by the `formatName` or by the file extension.
-func getFormatter(outFileName string, formatName string) (format *quad.Format) {
+func GetFormatter(outFileName string, formatName string) (format *quad.Format) {
 	if formatName != "" {
 		if strings.Contains(formatName, "/") {
 			format = quad.FormatByMime(formatName)

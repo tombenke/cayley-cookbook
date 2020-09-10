@@ -3,13 +3,19 @@
 version: '2'
 
 vars:
-  APPNAME: cayley-cookbook
+  APPNAME: cayley-cookbook-src
 
 tasks:
   default:
     desc: Executes all the tests then build the binary.
     cmds:
+      - task: test
       - task: execute_samples
+
+  test:
+    desc: Execute unit tests
+    cmds:
+      - cd kbase/impex/ && go test ./... -v -count=1
 
   execute_samples:
     desc: Executes the sample programs to generate outputs
@@ -18,6 +24,7 @@ tasks:
       - task: execute_schema
       - task: execute_store
       - task: execute_quad
+      - task: execute_queries
 
   execute_namespaces:
       - cd namespaces && go run list_namespaces.go > list_namespaces.out
@@ -25,6 +32,10 @@ tasks:
 
   execute_quad:
       - cd quad && go run make_quads.go > make_quads.out
+      - cd quad && go run nq2graphml.go ../data/testdata_multigraph.nq ../data/testdata_multigraph.graphml
+      - cd quad && go run ttl2graphml.go ../data/starwars.ttl ../data/starwars.graphml
+      - cd quad/reader && go run import_nquads.go
+      - cd quad/reader && go run import_turtle.go
       - cd quad/writer && go run export_nquads_to_stdout.go data.go > export_nquads_to_stdout.out
       - cd quad/writer && dot -Tpng people.dot > people_dot.png
       # NOTE: Manual customization of the output graphs is required in case of graphml export.
@@ -38,3 +49,9 @@ tasks:
       - cd store && go run print_all_nodes.go data.go > all_nodes.out
       - cd store && go run print_all_quads.go data.go > all_quads.out
       - cd store && go run query_all.go data.go > all.out
+
+  execute_queries:
+      - cd query/bidirectional && ../../scripts/execGizmoQuery.sh data.nq query.gizmo query.out
+      - cd query/bidirectional && go run main.go > main.out
+      - cd query/find_all_predicates && ../../scripts/execGizmoQuery.sh ../../data/testdata.nq query.gizmo query.out
+      - cd query/find_all_vertices && ../../scripts/execGizmoQuery.sh ../../data/testdata.nq query.gizmo query.out

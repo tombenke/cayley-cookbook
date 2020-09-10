@@ -18,7 +18,7 @@ See the full list of source code package main import ( &#34;fmt&#34; &#34;github
 <link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/quads/" title="Quad-ok">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/en.search.min.42da6406e75465755f6d66fb1bba91d03ef270a7d205993cce8e8fe32c37ed06.js" integrity="sha256-QtpkBudUZXVfbWb7G7qR0D7ycKfSBZk8zo6P4yw37QY="></script>
+<script defer src="/cayley-cookbook/en.search.min.bc176ebb4c1c405cbe0a83dffdae0ef2b33c2a6f382f1af93df588ff5523ee8d.js" integrity="sha256-vBduu0wcQFy&#43;CoPf/a4O8rM8Km84Lxr5PfWI/1Uj7o0="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -197,6 +197,47 @@ https://github.com/alex-shpak/hugo-book
           
   
     <a href="/cayley-cookbook/en/docs/cayley-as-package/queries/" class="">Queries</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_vertices/" class="">Find All Vertices</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_predicates/" class="">Find All Predicates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/queries/bookmarks/" class="">Bookmarks</a>
+  
+
+        </li>
+      
+    
+  </ul>
   
 
         </li>
@@ -396,21 +437,21 @@ https://github.com/alex-shpak/hugo-book
 <div class="book-tabs"><input type="radio" class="toggle" name="tabs-results-of-make-quads" id="tabs-results-of-make-quads-0" checked="checked" />
   <label for="tabs-results-of-make-quads-0">Graphviz</label>
   <div class="book-tabs-content markdown-inner"><pre><code class="language-graphviz" data-lang="graphviz">digraph cayley_graph {
-	&quot;_:n4802747492093317592&quot; -&gt; &quot;&lt;foaf:Person&gt;&quot; [ label = &quot;&lt;rdf:type&gt;&quot; ];
-	&quot;_:n4802747492093317592&quot; -&gt; &quot;\&quot;Luke\&quot;&quot; [ label = &quot;&lt;foaf:givenName&gt;&quot; ];
-	&quot;_:n4802747492093317592&quot; -&gt; &quot;\&quot;Skywalker\&quot;&quot; [ label = &quot;&lt;foaf:familyName&gt;&quot; ];
-	&quot;_:n4802747492093317592&quot; -&gt; &quot;\&quot;23\&quot;^^&lt;xsd:integer&gt;&quot; [ label = &quot;&lt;foaf:age&gt;&quot; ];
-	&quot;_:n128097891529655623&quot; -&gt; &quot;&lt;foaf:Person&gt;&quot; [ label = &quot;&lt;rdf:type&gt;&quot; ];
-	&quot;_:n128097891529655623&quot; -&gt; &quot;_:n4802747492093317592&quot; [ label = &quot;&lt;foaf:knows&gt;&quot; ];
-	&quot;_:n128097891529655623&quot; -&gt; &quot;\&quot;Leia\&quot;&quot; [ label = &quot;&lt;foaf:givenName&gt;&quot; ];
-	&quot;_:n128097891529655623&quot; -&gt; &quot;\&quot;Organa\&quot;&quot; [ label = &quot;&lt;foaf:familyName&gt;&quot; ];
+	&quot;_:n1531056514338802600&quot; -&gt; &quot;&lt;foaf:Person&gt;&quot; [ label = &quot;&lt;rdf:type&gt;&quot; ];
+	&quot;_:n1531056514338802600&quot; -&gt; &quot;\&quot;Luke\&quot;&quot; [ label = &quot;&lt;foaf:givenName&gt;&quot; ];
+	&quot;_:n1531056514338802600&quot; -&gt; &quot;\&quot;Skywalker\&quot;&quot; [ label = &quot;&lt;foaf:familyName&gt;&quot; ];
+	&quot;_:n1531056514338802600&quot; -&gt; &quot;\&quot;23\&quot;^^&lt;xsd:integer&gt;&quot; [ label = &quot;&lt;foaf:age&gt;&quot; ];
+	&quot;_:n6331394886452840694&quot; -&gt; &quot;&lt;foaf:Person&gt;&quot; [ label = &quot;&lt;rdf:type&gt;&quot; ];
+	&quot;_:n6331394886452840694&quot; -&gt; &quot;_:n1531056514338802600&quot; [ label = &quot;&lt;foaf:knows&gt;&quot; ];
+	&quot;_:n6331394886452840694&quot; -&gt; &quot;\&quot;Leia\&quot;&quot; [ label = &quot;&lt;foaf:givenName&gt;&quot; ];
+	&quot;_:n6331394886452840694&quot; -&gt; &quot;\&quot;Organa\&quot;&quot; [ label = &quot;&lt;foaf:familyName&gt;&quot; ];
 }
 
 </code></pre></div><input type="radio" class="toggle" name="tabs-results-of-make-quads" id="tabs-results-of-make-quads-1"  />
   <label for="tabs-results-of-make-quads-1">GML</label>
   <div class="book-tabs-content markdown-inner"><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">Creator &#34;Cayley&#34;
 graph [ directed 1
-	node [ id 0 label &#34;_:n4802747492093317592&#34; ]
+	node [ id 0 label &#34;_:n1531056514338802600&#34; ]
 	node [ id 1 label &#34;<span style="color:#f92672">&lt;foaf:Person&gt;</span>&#34; ]
 	edge [ source 0 target 1 label &#34;<span style="color:#f92672">&lt;rdf:type&gt;</span>&#34; ]
 	node [ id 2 label &#34;&amp;quot;Luke&amp;quot;&#34; ]
@@ -419,7 +460,7 @@ graph [ directed 1
 	edge [ source 0 target 3 label &#34;<span style="color:#f92672">&lt;foaf:familyName&gt;</span>&#34; ]
 	node [ id 4 label &#34;&amp;quot;23&amp;quot;^^<span style="color:#f92672">&lt;xsd:integer&gt;</span>&#34; ]
 	edge [ source 0 target 4 label &#34;<span style="color:#f92672">&lt;foaf:age&gt;</span>&#34; ]
-	node [ id 5 label &#34;_:n128097891529655623&#34; ]
+	node [ id 5 label &#34;_:n6331394886452840694&#34; ]
 	edge [ source 5 target 1 label &#34;<span style="color:#f92672">&lt;rdf:type&gt;</span>&#34; ]
 	edge [ source 5 target 0 label &#34;<span style="color:#f92672">&lt;foaf:knows&gt;</span>&#34; ]
 	node [ id 6 label &#34;&amp;quot;Leia&amp;quot;&#34; ]
@@ -445,7 +486,7 @@ graph [ directed 1
               <span style="color:#f92672">&lt;y:Geometry</span> <span style="color:#a6e22e">x=</span><span style="color:#e6db74">&#34;170.5&#34;</span> <span style="color:#a6e22e">y=</span><span style="color:#e6db74">&#34;-15.0&#34;</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;220.0&#34;</span> <span style="color:#a6e22e">height=</span><span style="color:#e6db74">&#34;30.0&#34;</span><span style="color:#f92672">/&gt;</span>  
               <span style="color:#f92672">&lt;y:Fill</span> <span style="color:#a6e22e">color=</span><span style="color:#e6db74">&#34;#E1E1E1&#34;</span> <span style="color:#a6e22e">transparent=</span><span style="color:#e6db74">&#34;false&#34;</span><span style="color:#f92672">/&gt;</span>  
               <span style="color:#f92672">&lt;y:BorderStyle</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;line&#34;</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;1.0&#34;</span> <span style="color:#a6e22e">color=</span><span style="color:#e6db74">&#34;#000000&#34;</span><span style="color:#f92672">/&gt;</span>  
-              <span style="color:#f92672">&lt;y:NodeLabel&gt;</span>_:n4802747492093317592<span style="color:#f92672">&lt;/y:NodeLabel&gt;</span>
+              <span style="color:#f92672">&lt;y:NodeLabel&gt;</span>_:n1531056514338802600<span style="color:#f92672">&lt;/y:NodeLabel&gt;</span>
               <span style="color:#f92672">&lt;y:Shape</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;ellipse&#34;</span><span style="color:#f92672">/&gt;</span>  
             <span style="color:#f92672">&lt;/y:ShapeNode&gt;</span>  
     <span style="color:#f92672">&lt;/data&gt;&lt;/node&gt;</span>
@@ -531,10 +572,10 @@ graph [ directed 1
  <span style="color:#f92672">&lt;/data&gt;&lt;/edge&gt;</span>
 		<span style="color:#f92672">&lt;node</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;n5&#34;</span><span style="color:#f92672">&gt;&lt;data</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;d0&#34;</span><span style="color:#f92672">&gt;</span>
             <span style="color:#f92672">&lt;y:ShapeNode&gt;</span>  
-              <span style="color:#f92672">&lt;y:Geometry</span> <span style="color:#a6e22e">x=</span><span style="color:#e6db74">&#34;170.5&#34;</span> <span style="color:#a6e22e">y=</span><span style="color:#e6db74">&#34;-15.0&#34;</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;210.0&#34;</span> <span style="color:#a6e22e">height=</span><span style="color:#e6db74">&#34;30.0&#34;</span><span style="color:#f92672">/&gt;</span>  
+              <span style="color:#f92672">&lt;y:Geometry</span> <span style="color:#a6e22e">x=</span><span style="color:#e6db74">&#34;170.5&#34;</span> <span style="color:#a6e22e">y=</span><span style="color:#e6db74">&#34;-15.0&#34;</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;220.0&#34;</span> <span style="color:#a6e22e">height=</span><span style="color:#e6db74">&#34;30.0&#34;</span><span style="color:#f92672">/&gt;</span>  
               <span style="color:#f92672">&lt;y:Fill</span> <span style="color:#a6e22e">color=</span><span style="color:#e6db74">&#34;#E1E1E1&#34;</span> <span style="color:#a6e22e">transparent=</span><span style="color:#e6db74">&#34;false&#34;</span><span style="color:#f92672">/&gt;</span>  
               <span style="color:#f92672">&lt;y:BorderStyle</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;line&#34;</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;1.0&#34;</span> <span style="color:#a6e22e">color=</span><span style="color:#e6db74">&#34;#000000&#34;</span><span style="color:#f92672">/&gt;</span>  
-              <span style="color:#f92672">&lt;y:NodeLabel&gt;</span>_:n128097891529655623<span style="color:#f92672">&lt;/y:NodeLabel&gt;</span>
+              <span style="color:#f92672">&lt;y:NodeLabel&gt;</span>_:n6331394886452840694<span style="color:#f92672">&lt;/y:NodeLabel&gt;</span>
               <span style="color:#f92672">&lt;y:Shape</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;ellipse&#34;</span><span style="color:#f92672">/&gt;</span>  
             <span style="color:#f92672">&lt;/y:ShapeNode&gt;</span>  
     <span style="color:#f92672">&lt;/data&gt;&lt;/node&gt;</span>
@@ -606,26 +647,26 @@ graph [ directed 1
 </code></pre></div></div><input type="radio" class="toggle" name="tabs-results-of-make-quads" id="tabs-results-of-make-quads-3"  />
   <label for="tabs-results-of-make-quads-3">JSON</label>
   <div class="book-tabs-content markdown-inner"><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n4802747492093317592&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003crdf:type\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:Person\u003e&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
-	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n4802747492093317592&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:givenName\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;Luke&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
-	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n4802747492093317592&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:familyName\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;Skywalker&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
-	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n4802747492093317592&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:age\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;\&#34;23\&#34;^^\u003cxsd:integer\u003e&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
-	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n128097891529655623&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003crdf:type\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:Person\u003e&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
-	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n128097891529655623&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:knows\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;_:n4802747492093317592&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
-	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n128097891529655623&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:givenName\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;Leia&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
-	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n128097891529655623&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:familyName\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;Organa&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>}
+	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n1531056514338802600&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003crdf:type\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:Person\u003e&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
+	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n1531056514338802600&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:givenName\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;Luke&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
+	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n1531056514338802600&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:familyName\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;Skywalker&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
+	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n1531056514338802600&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:age\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;\&#34;23\&#34;^^\u003cxsd:integer\u003e&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
+	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n6331394886452840694&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003crdf:type\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:Person\u003e&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
+	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n6331394886452840694&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:knows\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;_:n1531056514338802600&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
+	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n6331394886452840694&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:givenName\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;Leia&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>},
+	{<span style="color:#f92672">&#34;subject&#34;</span>:<span style="color:#e6db74">&#34;_:n6331394886452840694&#34;</span>,<span style="color:#f92672">&#34;predicate&#34;</span>:<span style="color:#e6db74">&#34;\u003cfoaf:familyName\u003e&#34;</span>,<span style="color:#f92672">&#34;object&#34;</span>:<span style="color:#e6db74">&#34;Organa&#34;</span>,<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;people&#34;</span>}
 ]
 
 </code></pre></div></div><input type="radio" class="toggle" name="tabs-results-of-make-quads" id="tabs-results-of-make-quads-4"  />
   <label for="tabs-results-of-make-quads-4">n-quads</label>
-  <div class="book-tabs-content markdown-inner"><pre><code class="language-nquads" data-lang="nquads">_:n4802747492093317592 &lt;rdf:type&gt; &lt;foaf:Person&gt; &quot;people&quot; .
-_:n4802747492093317592 &lt;foaf:givenName&gt; &quot;Luke&quot; &quot;people&quot; .
-_:n4802747492093317592 &lt;foaf:familyName&gt; &quot;Skywalker&quot; &quot;people&quot; .
-_:n4802747492093317592 &lt;foaf:age&gt; &quot;23&quot;^^&lt;xsd:integer&gt; &quot;people&quot; .
-_:n128097891529655623 &lt;rdf:type&gt; &lt;foaf:Person&gt; &quot;people&quot; .
-_:n128097891529655623 &lt;foaf:knows&gt; _:n4802747492093317592 &quot;people&quot; .
-_:n128097891529655623 &lt;foaf:givenName&gt; &quot;Leia&quot; &quot;people&quot; .
-_:n128097891529655623 &lt;foaf:familyName&gt; &quot;Organa&quot; &quot;people&quot; .
+  <div class="book-tabs-content markdown-inner"><pre><code class="language-nquads" data-lang="nquads">_:n1531056514338802600 &lt;rdf:type&gt; &lt;foaf:Person&gt; &quot;people&quot; .
+_:n1531056514338802600 &lt;foaf:givenName&gt; &quot;Luke&quot; &quot;people&quot; .
+_:n1531056514338802600 &lt;foaf:familyName&gt; &quot;Skywalker&quot; &quot;people&quot; .
+_:n1531056514338802600 &lt;foaf:age&gt; &quot;23&quot;^^&lt;xsd:integer&gt; &quot;people&quot; .
+_:n6331394886452840694 &lt;rdf:type&gt; &lt;foaf:Person&gt; &quot;people&quot; .
+_:n6331394886452840694 &lt;foaf:knows&gt; _:n1531056514338802600 &quot;people&quot; .
+_:n6331394886452840694 &lt;foaf:givenName&gt; &quot;Leia&quot; &quot;people&quot; .
+_:n6331394886452840694 &lt;foaf:familyName&gt; &quot;Organa&quot; &quot;people&quot; .
 
 </code></pre></div></div>
 

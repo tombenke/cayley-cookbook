@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Find All Predicates #  Test data:   Fig 1.: Graph diagram of test data   Show the test data in nquads format &lt;alice&gt; &lt;follows&gt; &lt;bob&gt; . &lt;bob&gt; &lt;follows&gt; &lt;fred&gt; . &lt;bob&gt; &lt;status&gt; &#34;cool_person&#34; . &lt;dani&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;dani&gt; . &lt;dani&gt; &lt;follows&gt; &lt;greg&gt; . &lt;dani&gt; &lt;status&gt; &#34;cool_person&#34; . &lt;emily&gt; &lt;follows&gt; &lt;fred&gt; . &lt;fred&gt; &lt;follows&gt; &lt;greg&gt; . &lt;greg&gt; &lt;status&gt; &#34;cool_person&#34; . &lt;predicates&gt; &lt;are&gt; &lt;follows&gt; .">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Find All Predicates" />
+<meta property="og:description" content="Find All Predicates #  Test data:   Fig 1.: Graph diagram of test data   Show the test data in nquads format &lt;alice&gt; &lt;follows&gt; &lt;bob&gt; . &lt;bob&gt; &lt;follows&gt; &lt;fred&gt; . &lt;bob&gt; &lt;status&gt; &#34;cool_person&#34; . &lt;dani&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;dani&gt; . &lt;dani&gt; &lt;follows&gt; &lt;greg&gt; . &lt;dani&gt; &lt;status&gt; &#34;cool_person&#34; . &lt;emily&gt; &lt;follows&gt; &lt;fred&gt; . &lt;fred&gt; &lt;follows&gt; &lt;greg&gt; . &lt;greg&gt; &lt;status&gt; &#34;cool_person&#34; . &lt;predicates&gt; &lt;are&gt; &lt;follows&gt; ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_predicates/" />
+
+<title>Find All Predicates | Cayley-CookBook</title>
+<link rel="manifest" href="/cayley-cookbook/manifest.json">
+<link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/find_all_predicates/" title="Összes predikátum kiírása">
+
+<link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
+<script defer src="/cayley-cookbook/en.search.min.bc176ebb4c1c405cbe0a83dffdae0ef2b33c2a6f382f1af93df588ff5523ee8d.js" integrity="sha256-vBduu0wcQFy&#43;CoPf/a4O8rM8Km84Lxr5PfWI/1Uj7o0="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-XXXXXXXXX-X', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cayley-cookbook/en"><span>Cayley-CookBook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/about/" class="">About</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/basic-concepts/" class="collapsed ">Basic Concepts</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-overview/" class="">Cayley Overview</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/" class="collapsed ">Cayley as Package</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/vocabularies/" class="">Namespaces and Vocabularies</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/quads/" class="">Quads</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/stores/" class="">Stores</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/crud-operations/" class="">CRUD Operations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/transactions/" class="">Transactions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/queries/" class="">Queries</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_vertices/" class="">Find All Vertices</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_predicates/" class="active">Find All Predicates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/queries/bookmarks/" class="">Bookmarks</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-as-package/schemas/" class="">Schemas</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Find All Predicates</strong>
+
+  <label for="toc-control">
+    
+    <img src="/cayley-cookbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents"></nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="find-all-predicates">
+  Find All Predicates
+  <a class="anchor" href="#find-all-predicates">#</a>
+</h1>
+<p>Test data:
+<figure>
+    <img src="/cayley-cookbook/src/data/testdata.png"/> <figcaption>
+            <h4>Fig 1.: Graph diagram of test data</h4>
+        </figcaption>
+</figure>
+</p>
+<details >
+  <summary>Show the test data in nquads format</summary>
+  <div class="markdown-inner">
+    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;alice&gt; &lt;follows&gt; &lt;bob&gt; .
+&lt;bob&gt; &lt;follows&gt; &lt;fred&gt; .
+&lt;bob&gt; &lt;status&gt; &#34;cool_person&#34; .
+&lt;dani&gt; &lt;follows&gt; &lt;bob&gt; .
+&lt;charlie&gt; &lt;follows&gt; &lt;bob&gt; .
+&lt;charlie&gt; &lt;follows&gt; &lt;dani&gt; .
+&lt;dani&gt; &lt;follows&gt; &lt;greg&gt; .
+&lt;dani&gt; &lt;status&gt; &#34;cool_person&#34; .
+&lt;emily&gt; &lt;follows&gt; &lt;fred&gt; .
+&lt;fred&gt; &lt;follows&gt; &lt;greg&gt; .
+&lt;greg&gt; &lt;status&gt; &#34;cool_person&#34; .
+&lt;predicates&gt; &lt;are&gt; &lt;follows&gt; .
+&lt;predicates&gt; &lt;are&gt; &lt;status&gt; .
+&lt;emily&gt; &lt;status&gt; &#34;smart_person&#34; &lt;smart_graph&gt; .
+&lt;greg&gt; &lt;status&gt; &#34;smart_person&#34; &lt;smart_graph&gt; .
+
+</code></pre></div>
+  </div>
+</details>
+
+<p>Gizmo query:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Find all predicates
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">V</span>().<span style="color:#a6e22e">OutPredicates</span>().<span style="color:#a6e22e">Union</span>(<span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">V</span>().<span style="color:#a6e22e">InPredicates</span>()).<span style="color:#a6e22e">Unique</span>().<span style="color:#a6e22e">All</span>();
+
+</code></pre></div><p>Results:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">{&#34;id&#34;:&#34;follows&#34;}
+{&#34;id&#34;:&#34;status&#34;}
+{&#34;id&#34;:&#34;are&#34;}
+
+</code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+  
+
+
+  
+
+  
+
+
+  
+
+
+<div class="book-languages" tabindex="0" aria-haspopup="true">
+  <ul>
+    <li class="flex align-center">
+      <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+      English
+    </li> 
+  </ul>
+
+  <ul class="book-languages-list">
+    
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/en/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </li>
+    
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/find_all_predicates/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        Magyar
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents"></nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,109 @@
+The details of the quads created:
+quads[0]:
+  subject: _:n1 quad.BNode
+  predicate: <rdf:type> quad.IRI
+  object: <foaf:Person> quad.IRI
+  label: "people" quad.String
+
+quads[1]:
+  subject: _:n1 quad.BNode
+  predicate: <foaf:familyName> quad.IRI
+  object: "Luke" quad.String
+  label: "people" quad.String
+
+quads[2]:
+  subject: _:n1 quad.BNode
+  predicate: <foaf:givenName> quad.IRI
+  object: "Skywalker" quad.String
+  label: "people" quad.String
+
+quads[3]:
+  subject: _:n1 quad.BNode
+  predicate: <foaf:age> quad.IRI
+  object: "23"^^<xsd:integer> quad.Int
+  label: "people" quad.String
+
+quads[4]:
+  subject: _:n2 quad.BNode
+  predicate: <rdf:type> quad.IRI
+  object: <foaf:Person> quad.IRI
+  label: "people" quad.String
+
+quads[5]:
+  subject: _:n2 quad.BNode
+  predicate: <foaf:familyName> quad.IRI
+  object: "Leia" quad.String
+  label: "people" quad.String
+
+quads[6]:
+  subject: _:n2 quad.BNode
+  predicate: <foaf:givenName> quad.IRI
+  object: "Organa" quad.String
+  label: "people" quad.String
+
+quads[7]:
+  subject: _:n2 quad.BNode
+  predicate: <foaf:knows> quad.IRI
+  object: _:n1 quad.BNode
+  label: "people" quad.String
+
+The quads in NQuad representation:
+_:n1 <rdf:type> <foaf:Person> "people" .
+_:n1 <foaf:familyName> "Luke" "people" .
+_:n1 <foaf:givenName> "Skywalker" "people" .
+_:n1 <foaf:age> "23"^^<xsd:integer> "people" .
+_:n2 <rdf:type> <foaf:Person> "people" .
+_:n2 <foaf:familyName> "Leia" "people" .
+_:n2 <foaf:givenName> "Organa" "people" .
+_:n2 <foaf:knows> _:n1 "people" .
+The details of the quads created:
+quads[0]:
+  subject: <https://swapi.co/resource/human/luke_skywalker> quad.IRI
+  predicate: <rdf:type> quad.IRI
+  object: <foaf:Person> quad.IRI
+  label: "people" quad.String
+
+quads[1]:
+  subject: <https://swapi.co/resource/human/luke_skywalker> quad.IRI
+  predicate: <foaf:familyName> quad.IRI
+  object: "Luke" quad.String
+  label: "people" quad.String
+
+quads[2]:
+  subject: <https://swapi.co/resource/human/luke_skywalker> quad.IRI
+  predicate: <foaf:givenName> quad.IRI
+  object: "Skywalker" quad.String
+  label: "people" quad.String
+
+quads[3]:
+  subject: <https://swapi.co/resource/human/leia_organa> quad.IRI
+  predicate: <rdf:type> quad.IRI
+  object: <foaf:Person> quad.IRI
+  label: "people" quad.String
+
+quads[4]:
+  subject: <https://swapi.co/resource/human/leia_organa> quad.IRI
+  predicate: <foaf:familyName> quad.IRI
+  object: "Leia" quad.String
+  label: "people" quad.String
+
+quads[5]:
+  subject: <https://swapi.co/resource/human/leia_organa> quad.IRI
+  predicate: <foaf:givenName> quad.IRI
+  object: "Organa" quad.String
+  label: "people" quad.String
+
+quads[6]:
+  subject: <https://swapi.co/resource/human/leia_organa> quad.IRI
+  predicate: <foaf:knows> quad.IRI
+  object: <https://swapi.co/resource/human/luke_skywalker> quad.IRI
+  label: "people" quad.String
+
+The quads in NQuad representation:
+<https://swapi.co/resource/human/luke_skywalker> <rdf:type> <foaf:Person> "people" .
+<https://swapi.co/resource/human/luke_skywalker> <foaf:familyName> "Luke" "people" .
+<https://swapi.co/resource/human/luke_skywalker> <foaf:givenName> "Skywalker" "people" .
+<https://swapi.co/resource/human/leia_organa> <rdf:type> <foaf:Person> "people" .
+<https://swapi.co/resource/human/leia_organa> <foaf:familyName> "Leia" "people" .
+<https://swapi.co/resource/human/leia_organa> <foaf:givenName> "Organa" "people" .
+<https://swapi.co/resource/human/leia_organa> <foaf:knows> <https://swapi.co/resource/human/luke_skywalker> "people" .

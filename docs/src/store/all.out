@@ -1,0 +1,16 @@
+p.TypeOf: *path.Path
+p.Iterate(nil).TypeOf: *graph.IterateChain
+_:n9193572241013786932 quad.BNode
+<rdf:type> quad.IRI
+<foaf:Person> quad.IRI
+"people" quad.String
+<foaf:givenName> quad.IRI
+"Luke" quad.String
+<foaf:familyName> quad.IRI
+"Skywalker" quad.String
+<foaf:age> quad.IRI
+"23"^^<xsd:integer> quad.Int
+<starwars:leia_organa> quad.IRI
+<foaf:knows> quad.IRI
+"Leia" quad.String
+"Organa" quad.String

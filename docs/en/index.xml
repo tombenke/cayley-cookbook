@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>Find All Vertices</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_vertices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_vertices/</guid>
+      <description>Find All Vertices #  Test data:   Fig 1.: Graph diagram of test data   Show the test data in nquads format &amp;lt;alice&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;dani&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;emily&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;fred&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;greg&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;predicates&amp;gt; &amp;lt;are&amp;gt; &amp;lt;follows&amp;gt; .</description>
+    </item>
+    
+    <item>
       <title>Graph Based Data Model</title>
       <link>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/graph-based-data-model/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -42,6 +51,15 @@ It represents:
 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add some predefined vocabularies 	_ &amp;#34;github.com/cayleygraph/quad/voc/schema&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/xsd&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; ) func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;); for _, v := range voc.List() { fmt.Printf(&amp;#34; %s =&amp;gt; %s\n&amp;#34;, v.Prefix, v.Full); } } 
 cd namespaces go run list_namespaces.go` The results:
 Registered namespaces: xsd: =&amp;gt; http://www.</description>
+    </item>
+    
+    <item>
+      <title>Find All Predicates</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_predicates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_predicates/</guid>
+      <description>Find All Predicates #  Test data:   Fig 1.: Graph diagram of test data   Show the test data in nquads format &amp;lt;alice&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;dani&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;emily&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;fred&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;greg&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;predicates&amp;gt; &amp;lt;are&amp;gt; &amp;lt;follows&amp;gt; .</description>
     </item>
     
     <item>
@@ -119,12 +137,14 @@ See the full list of source code package main import ( &amp;#34;fmt&amp;#34; &am
     </item>
     
     <item>
-      <title>Queries</title>
-      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/</link>
+      <title>Bookmarks</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/bookmarks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/</guid>
-      <description>Queries #  </description>
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/bookmarks/</guid>
+      <description>Bookmarks #  Run the program: 
+cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go The output of the program:
+Show the results Results of finding any of `nosql` or `gremlin` tags: - &amp;#34;Ontotext GraphDB&amp;#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.</description>
     </item>
     
     <item>

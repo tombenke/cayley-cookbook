@@ -4,14 +4,10 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Lekérdezések #  Futtassuk a programot: 
-cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go A program kimenete:
-Az eredmények megjelenítése Results of finding any of `nosql` or `gremlin` tags: - &#34;Ontotext GraphDB&#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &#34;Gremlin&#39;s Graph Traversal Machinery&#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &#34;Gremlin&#39;s Graph Traversal Machinery&#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.">
+<meta name="description" content="Lekérdezések #  Ez a fejezet azt demonstrálja, hogyan lehet lekérdezéseket végrehajtani a Cayley -vel.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Lekérdezések" />
-<meta property="og:description" content="Lekérdezések #  Futtassuk a programot: 
-cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go A program kimenete:
-Az eredmények megjelenítése Results of finding any of `nosql` or `gremlin` tags: - &#34;Ontotext GraphDB&#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &#34;Gremlin&#39;s Graph Traversal Machinery&#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &#34;Gremlin&#39;s Graph Traversal Machinery&#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www." />
-<meta property="og:type" content="article" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/" />
 
 <title>Lekérdezések | Cayley-CookBook</title>
@@ -20,7 +16,7 @@ Az eredmények megjelenítése Results of finding any of `nosql` or `gremlin` ta
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/" title="Queries">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.b620cbf4c3791f006579f6e7d22fde7c7169ea7bb778f3720f98d28b20dc48bb.js" integrity="sha256-tiDL9MN5HwBlefbn0i/efHFp6nu3ePNyD5jSiyDcSLs="></script>
+<script defer src="/cayley-cookbook/hu.search.min.473574f9d023c5158e944621d05a0afc35ab09a9a69f8182226eebbb0c066b44.js" integrity="sha256-RzV0&#43;dAjxRWOlEYh0FoK/DWrCammn4GCIm7ruwwGa0Q="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -32,6 +28,7 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
+<link rel="alternate" type="application/rss+xml" href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/index.xml" title="Cayley-CookBook" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -168,6 +165,57 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
+    <a href="/cayley-cookbook/docs/cayley-as-package/queries/" class="collapsed active">Lekérdezések</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/cayley-as-package/queries/find_all_vertices/" class="">Összes node kiírása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/cayley-as-package/queries/find_all_predicates/" class="">Összes predikátum kiírása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/cayley-as-package/queries/bookmarks/" class="">Könyvjelzők</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
     <a href="/cayley-cookbook/docs/cayley-as-package/stores/" class="">Store-ok</a>
   
 
@@ -189,16 +237,6 @@ https://github.com/alex-shpak/hugo-book
           
   
     <a href="/cayley-cookbook/docs/cayley-as-package/transactions/" class="">Tranzakciók</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/cayley-cookbook/docs/cayley-as-package/queries/" class="active">Lekérdezések</a>
   
 
         </li>
@@ -283,35 +321,8 @@ https://github.com/alex-shpak/hugo-book
   Lekérdezések
   <a class="anchor" href="#lek%c3%a9rdez%c3%a9sek">#</a>
 </h1>
-<p>Futtassuk a programot:
-<a href="https://repl.it/@tombenke/cayley-cookbook-src#schema/find_bookmarks_by_tags.go"><img src="https://repl.it/badge/github/tombenke/cayley-cookbook-src" alt="Run this code on Repl.it" /></a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    cd schema
-    go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go
-</code></pre></div><p>A program kimenete:</p>
-<details >
-  <summary>Az eredmények megjelenítése</summary>
-  <div class="markdown-inner">
-    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">
-Results of finding any of `nosql` or `gremlin` tags:
-- &#34;Ontotext GraphDB&#34;
-  [graphdb nosql knowledge-graph linked-data semantic-web rdf]
-  https://ontotext.com/products/graphdb/
-
-- &#34;Gremlin&#39;s Graph Traversal Machinery&#34;
-  [gremlin cayley tinkerprop gizmo presentation graph-db query-language]
-  https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery
-
-
-Results of finding every tags of `cayley` or `gremlin`:
-- &#34;Gremlin&#39;s Graph Traversal Machinery&#34;
-  [gremlin cayley tinkerprop gizmo presentation graph-db query-language]
-  https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery
-
-
-</code></pre></div>
-  </div>
-</details>
-
+<p>Ez a fejezet azt demonstrálja, hogyan lehet lekérdezéseket végrehajtani a <a href="https://cayley.io/" target="_blank">Cayley</a>
+-vel.</p>
 </article>
  
       

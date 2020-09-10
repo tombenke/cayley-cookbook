@@ -1,0 +1,8 @@
+_:n1531056514338802600 <rdf:type> <foaf:Person> "people" .
+_:n1531056514338802600 <foaf:givenName> "Luke" "people" .
+_:n1531056514338802600 <foaf:familyName> "Skywalker" "people" .
+_:n1531056514338802600 <foaf:age> "23"^^<xsd:integer> "people" .
+_:n6331394886452840694 <rdf:type> <foaf:Person> "people" .
+_:n6331394886452840694 <foaf:knows> _:n1531056514338802600 "people" .
+_:n6331394886452840694 <foaf:givenName> "Leia" "people" .
+_:n6331394886452840694 <foaf:familyName> "Organa" "people" .

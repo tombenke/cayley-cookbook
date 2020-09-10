@@ -32,6 +32,20 @@
   </url>
   
   <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_vertices/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/find_all_vertices/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_vertices/"
+                />
+  </url>
+  
+  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/graph-based-data-model/</loc>
     <xhtml:link
                 rel="alternate"
@@ -70,6 +84,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-overview/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_predicates/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/find_all_predicates/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_predicates/"
                 />
   </url>
   
@@ -196,6 +224,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/transactions/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/bookmarks/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/bookmarks/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/bookmarks/"
                 />
   </url>
   

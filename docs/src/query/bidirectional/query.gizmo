@@ -1,0 +1,1 @@
+g.V().Out("<predicate-1>").Out("<predicate-2>").Out("<predicate-2>").Out("<predicate-1>").All()

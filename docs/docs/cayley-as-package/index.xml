@@ -60,17 +60,6 @@ A teljes kódlista megtekintése package main import ( &amp;#34;fmt&amp;#34; &am
     </item>
     
     <item>
-      <title>Lekérdezések</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/</guid>
-      <description>Lekérdezések #  Futtassuk a programot: 
-cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go A program kimenete:
-Az eredmények megjelenítése Results of finding any of `nosql` or `gremlin` tags: - &amp;#34;Ontotext GraphDB&amp;#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.</description>
-    </item>
-    
-    <item>
       <title>Sémák</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/schemas/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -1,0 +1,2 @@
+// Find all predicates
+g.V().OutPredicates().Union(g.V().InPredicates()).Unique().All();
