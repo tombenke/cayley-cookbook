@@ -113,21 +113,21 @@ Test data #    Fig 1.: Graph diagram of test data   Show the test data in nquads
     </item>
     
     <item>
-      <title>CRUD Operations</title>
-      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/crud-operations/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/crud-operations/</guid>
-      <description>CRUD Operations #  </description>
-    </item>
-    
-    <item>
       <title>Vocabularies</title>
       <link>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/vocabularies/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/vocabularies/</guid>
       <description>Vocabularies #   Related pages:   Namespaces and Vocabularies   </description>
+    </item>
+    
+    <item>
+      <title>CRUD Operations</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/crud-operations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/crud-operations/</guid>
+      <description>CRUD Operations #  </description>
     </item>
     
     <item>
@@ -140,15 +140,6 @@ Test data #    Fig 1.: Graph diagram of test data   Show the test data in nquads
     </item>
     
     <item>
-      <title>Transactions</title>
-      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/transactions/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/transactions/</guid>
-      <description>Transactions #   Related pages: </description>
-    </item>
-    
-    <item>
       <title>Bookmarks</title>
       <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/bookmarks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -157,6 +148,15 @@ Test data #    Fig 1.: Graph diagram of test data   Show the test data in nquads
       <description>Bookmarks #  Run the program: 
 cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go The output of the program:
 Show the results Results of finding any of `nosql` or `gremlin` tags: - &amp;#34;Ontotext GraphDB&amp;#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.</description>
+    </item>
+    
+    <item>
+      <title>Transactions</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/transactions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/transactions/</guid>
+      <description>Transactions #   Related pages: </description>
     </item>
     
     <item>

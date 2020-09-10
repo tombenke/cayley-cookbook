@@ -158,20 +158,6 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/"
-                />
-  </url>
-  
-  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/statements/</loc>
     <xhtml:link
                 rel="alternate"
@@ -200,16 +186,16 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/crud-operations/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/crud-operations/"
+                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/crud-operations/"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/"
                 />
   </url>
   
@@ -228,6 +214,20 @@
   </url>
   
   <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/crud-operations/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/crud-operations/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/crud-operations/"
+                />
+  </url>
+  
+  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/rdf-graphs/</loc>
     <xhtml:link
                 rel="alternate"
@@ -242,20 +242,6 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/transactions/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/transactions/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/transactions/"
-                />
-  </url>
-  
-  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/bookmarks/</loc>
     <xhtml:link
                 rel="alternate"
@@ -266,6 +252,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/bookmarks/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/transactions/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/transactions/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/transactions/"
                 />
   </url>
   

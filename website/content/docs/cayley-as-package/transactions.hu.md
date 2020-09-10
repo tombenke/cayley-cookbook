@@ -1,6 +1,6 @@
 ---
 title: "Tranzakciók"
-weight: 5
+weight: 6
 keywords: ["transaction"]
 # bookFlatSection: false
 # bookToc: true

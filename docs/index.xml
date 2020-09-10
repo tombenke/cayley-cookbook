@@ -118,15 +118,6 @@ Luke-Skywalker has-age 23. A mondat elemei:
     </item>
     
     <item>
-      <title>CRUD Műveletek</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/crud-operations/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/crud-operations/</guid>
-      <description>CRUD Műveletek #  </description>
-    </item>
-    
-    <item>
       <title>Szótárak</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/vocabularies/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -137,12 +128,12 @@ Amikor egy entitást megnevezünk, vagy állításokat teszünk, predikátumok a
     </item>
     
     <item>
-      <title>Tranzakciók</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/transactions/</link>
+      <title>CRUD Műveletek</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/crud-operations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/transactions/</guid>
-      <description>Tranzakciók #   Kapcsolódó oldalak: </description>
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/crud-operations/</guid>
+      <description>CRUD Műveletek #  </description>
     </item>
     
     <item>
@@ -164,6 +155,15 @@ Bevezettük az IRI fogalmát, ami alkalmas arra, hogy a tényállításokat form
       <description>Könyvjelzők #  Futtassuk a programot: 
 cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go A program kimenete:
 Az eredmények megjelenítése Results of finding any of `nosql` or `gremlin` tags: - &amp;#34;Ontotext GraphDB&amp;#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.</description>
+    </item>
+    
+    <item>
+      <title>Tranzakciók</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/transactions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/transactions/</guid>
+      <description>Tranzakciók #   Kapcsolódó oldalak: </description>
     </item>
     
     <item>
