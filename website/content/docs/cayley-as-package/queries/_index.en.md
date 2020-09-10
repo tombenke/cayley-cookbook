@@ -1,6 +1,6 @@
 ---
 title: "Queries"
-weight: 6
+weight: 3
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false

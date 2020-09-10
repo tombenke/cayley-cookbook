@@ -144,6 +144,20 @@
   </url>
   
   <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/"
+                />
+  </url>
+  
+  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/statements/</loc>
     <xhtml:link
                 rel="alternate"
@@ -238,20 +252,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/bookmarks/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/"
                 />
   </url>
   
