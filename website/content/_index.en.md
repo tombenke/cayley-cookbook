@@ -11,7 +11,7 @@ This website is a collection of code fragments, that use the
 The [github.com/tombenke/cayley-cookbook-src](https://github.com/tombenke/cayley-cookbook-src/tree/master) repository holds the basic implementations of the most typical use-cases.about how to use Cayley as a Go library.
 The individual use-cases are organized into subfolders.
 
-The main purpose of this collection to make it easier to get started with using Caleygraph.
+The main purpose of this collection to make it easier to get started with using {{< cayley >}}.
 
 There are two options to use examples:
 1. The code examples can be immediately executed in the cloud.
