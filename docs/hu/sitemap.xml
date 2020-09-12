@@ -17,20 +17,6 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/"
-                />
-  </url>
-  
-  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/about/</loc>
     <xhtml:link
                 rel="alternate"
@@ -157,20 +143,6 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/"
-                />
-  </url>
-  
-  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/schema/</loc>
     <xhtml:link
                 rel="alternate"
@@ -181,6 +153,20 @@
                 rel="alternate"
                 hreflang="hu"
                 href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/schema/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/"
                 />
   </url>
   
@@ -251,6 +237,20 @@
                 rel="alternate"
                 hreflang="hu"
                 href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/"
                 />
   </url>
   

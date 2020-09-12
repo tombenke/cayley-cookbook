@@ -17,20 +17,6 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/"
-                />
-  </url>
-  
-  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/create-store/</loc>
     <xhtml:link
                 rel="alternate"
@@ -143,16 +129,16 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/"
+                href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/"
+                href="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/"
                 />
   </url>
   
@@ -251,6 +237,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/bidirectional/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/"
                 />
   </url>
   

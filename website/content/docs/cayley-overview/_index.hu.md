@@ -1,6 +1,6 @@
 ---
 title: "A Cayley rendszer áttekintése"
-weight: 2
+weight: 3
 bookCollapseSection: true
 ---
 
