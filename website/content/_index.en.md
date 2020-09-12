@@ -3,8 +3,6 @@ title: Cayley CookBook
 type: docs
 ---
 
-## Cayley CookBook
-
 [Cayley](https://github.com/cayleygraph/cayley) is an open-source database for Linked Data. It is inspired by the graph database behind Google's [Knowledge Graph](https://en.wikipedia.org/wiki/Knowledge_Graph).
 
 This website is a collection of code fragments, that use the 

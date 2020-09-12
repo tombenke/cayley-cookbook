@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>path.InPredicates() on Cayley-CookBook</title>
+    <link>https://tombenke.github.io/cayley-cookbook/apifuncs/path.inpredicates/</link>
+    <description>Recent content in path.InPredicates() on Cayley-CookBook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://tombenke.github.io/cayley-cookbook/apifuncs/path.inpredicates/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Összes predikátum kiírása</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/find_all_predicates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/find_all_predicates/</guid>
+      <description>Összes predikátum kiírása #  Probléma #  Hogyan tudom kilistázni az összes predikátumot, ami szerepel a gráfban?
+Teszt adatok #    1. ábra: Teszt adatok Gráf diagramja   Kiinduló adatok megtekintése nquads formában &amp;lt;alice&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;dani&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;emily&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; .</description>
+    </item>
+    
+  </channel>
+</rss>

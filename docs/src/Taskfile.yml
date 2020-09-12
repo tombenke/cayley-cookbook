@@ -52,6 +52,7 @@ tasks:
 
   execute_queries:
       - cd query/bidirectional && ../../scripts/execGizmoQuery.sh data.nq query.gizmo query.out
+      - cd query/bidirectional && ../../scripts/execGizmoQuery.sh data.nq query_with_morphism.gizmo query_with_morphism.out
       - cd query/bidirectional && go run main.go > main.out
       - cd query/find_all_predicates && ../../scripts/execGizmoQuery.sh ../../data/testdata.nq query.gizmo query.out
       - cd query/find_all_vertices && ../../scripts/execGizmoQuery.sh ../../data/testdata.nq query.gizmo query.out

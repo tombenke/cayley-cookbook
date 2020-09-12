@@ -32,16 +32,30 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_vertices/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/stores/create-store/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/find_all_vertices/"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/create-store/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_vertices/"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/stores/create-store/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/find_all_vertices/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/find_all_vertices/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/find_all_vertices/"
                 />
   </url>
   
@@ -60,16 +74,72 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/vocabularies/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/ns-voc/list-namespaces/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/vocabularies/"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/list-namespaces/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/vocabularies/"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/ns-voc/list-namespaces/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/ns-voc/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/ns-voc/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/impex/quads/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/impex/quads/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/stores/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/stores/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-overview/cayley-http/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-http/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-overview/cayley-http/"
                 />
   </url>
   
@@ -88,30 +158,58 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_predicates/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/impex/schema/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/find_all_predicates/"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/schema/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/find_all_predicates/"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/impex/schema/"
                 />
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/quads/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/find_all_predicates/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/quads/"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/find_all_predicates/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/quads/"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/find_all_predicates/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/stores/make-quads/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/make-quads/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/stores/make-quads/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/ns-voc/register-namespace/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/register-namespace/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/ns-voc/register-namespace/"
                 />
   </url>
   
@@ -130,30 +228,72 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/bidirectional/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-overview/cayley-convert/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/bidirectional/"
+                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-convert/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/bidirectional/"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-overview/cayley-convert/"
                 />
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/bidirectional/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/bidirectional/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/bidirectional/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/ns-voc/vocabularies/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/vocabularies/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/ns-voc/vocabularies/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/impex/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/impex/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/stores/print-all-nodes/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-nodes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/stores/print-all-nodes/"
                 />
   </url>
   
@@ -172,30 +312,72 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/stores/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-overview/cayley-repl/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/stores/"
+                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-repl/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/stores/"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-overview/cayley-repl/"
                 />
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/stores/print-all-quads/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-quads/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/stores/print-all-quads/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-overview/cayley-query/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-overview/cayley-query/"
                 />
   </url>
   
@@ -214,16 +396,16 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/crud-operations/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/crud-operations/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/crud-operations/"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/crud-operations/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/crud-operations/"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/crud-operations/"
                 />
   </url>
   
@@ -242,44 +424,44 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/bookmarks/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/stores/internals/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/queries/bookmarks/"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/internals/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/queries/bookmarks/"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/stores/internals/"
                 />
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/transactions/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/bookmarks/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/transactions/"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/bookmarks/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/transactions/"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/bookmarks/"
                 />
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/schemas/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/transactions/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-as-package/schemas/"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/transactions/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/en/docs/cayley-as-package/schemas/"
+                href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/transactions/"
                 />
   </url>
   
@@ -314,6 +496,20 @@
   </url>
   
   <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/apifuncs/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/apifuncs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/apifuncs/"
+                />
+  </url>
+  
+  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/en/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -328,6 +524,146 @@
   </url>
   
   <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/usecases/graph-discovery/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/usecases/graph-discovery/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/usecases/graph-discovery/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/apifuncs/graph.v/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/apifuncs/graph.v/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/apifuncs/graph.v/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/apifuncs/graph.vertex/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/apifuncs/graph.vertex/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/apifuncs/graph.vertex/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/apifuncs/path.all/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/apifuncs/path.all/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/apifuncs/path.all/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/apifuncs/path.in/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/apifuncs/path.in/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/apifuncs/path.in/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/apifuncs/path.inpredicates/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/apifuncs/path.inpredicates/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/apifuncs/path.inpredicates/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/apifuncs/path.out/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/apifuncs/path.out/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/apifuncs/path.out/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/apifuncs/path.outpredicates/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/apifuncs/path.outpredicates/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/apifuncs/path.outpredicates/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/apifuncs/path.union/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/apifuncs/path.union/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/apifuncs/path.union/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/usecases/subgraph-matching/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/usecases/subgraph-matching/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/usecases/subgraph-matching/"
+                />
+  </url>
+  
+  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/en/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -338,6 +674,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://tombenke.github.io/cayley-cookbook/en/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/en/usecases/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/usecases/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/en/usecases/"
                 />
   </url>
   

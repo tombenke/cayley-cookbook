@@ -29,3 +29,9 @@ enableInlineShortcodes = true
     name = "keywords"
     weight = 10
 
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  apifunc = "apifuncs"
+  usecase = "usecases"
+

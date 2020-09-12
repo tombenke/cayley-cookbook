@@ -1,8 +1,8 @@
-_:n1531056514338802600 <rdf:type> <foaf:Person> "people" .
-_:n1531056514338802600 <foaf:givenName> "Luke" "people" .
-_:n1531056514338802600 <foaf:familyName> "Skywalker" "people" .
-_:n1531056514338802600 <foaf:age> "23"^^<xsd:integer> "people" .
-_:n6331394886452840694 <rdf:type> <foaf:Person> "people" .
-_:n6331394886452840694 <foaf:knows> _:n1531056514338802600 "people" .
-_:n6331394886452840694 <foaf:givenName> "Leia" "people" .
-_:n6331394886452840694 <foaf:familyName> "Organa" "people" .
+_:n3747198576259004371 <rdf:type> <foaf:Person> "people" .
+_:n3747198576259004371 <foaf:givenName> "Luke" "people" .
+_:n3747198576259004371 <foaf:familyName> "Skywalker" "people" .
+_:n3747198576259004371 <foaf:age> "23"^^<xsd:integer> "people" .
+_:n8285458617337724806 <rdf:type> <foaf:Person> "people" .
+_:n8285458617337724806 <foaf:knows> _:n3747198576259004371 "people" .
+_:n8285458617337724806 <foaf:givenName> "Leia" "people" .
+_:n8285458617337724806 <foaf:familyName> "Organa" "people" .

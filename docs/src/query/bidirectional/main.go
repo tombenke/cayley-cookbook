@@ -56,9 +56,12 @@ func AddQuadsToStore(store *cayley.Handle, quads []quad.Quad) {
 }
 
 func doQuery(store *cayley.Handle) {
-	p := cayley.StartPath(store).Out("1").Out("2").Out("2").Out("1")
+	p := cayley.StartPath(store).Out("1").Out("2").Tag("target").Out("2").Out("1")
 
 	p.Iterate(context.Background()).EachValue(nil, func(value quad.Value) {
 		fmt.Printf("%v\n", value)
+	})
+	p.Iterate(context.Background()).TagValues(store, func(t map[string]quad.Value) {
+		fmt.Printf("%v\n", t)
 	})
 }

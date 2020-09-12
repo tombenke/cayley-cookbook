@@ -1,6 +1,6 @@
 ---
 weight: 1
-bookFlatSection: true
+bookFlatSection: false
 date: 2020-09-01T14:04:49+02:00
 title: "Bevezetés"
 ---
@@ -23,7 +23,7 @@ Nem kíván szabatos, kimerítő áttekintést adni a fent felsorolt technológi
 A tartalom három fő fejezetre tagolódik.
 1. Az ["Alapfogalmak"]({{< ref "/basic-concepts" >}}) c. fejezet ismerteti azokat a tudnivalókat, amelyek szükségesek ahhoz, hogy a {{<cayley>}}-t használni tudjuk.
 2. ["A Cayley rendszer áttekintése"]({{< ref "/cayley-overview" >}}) c. fejezet segít eligazodni abban, hogy milyen elemekből áll a {{<cayley>}} "ökoszisztéma", és az egyes elemeit milyen módon lehet használni, hol találunk hozzá dokumentációt.
-3. A ["Cayley mint Go package"]({{< ref "/cayley-as-package" >}}) c. fejezet alkotja a szakácskönyv fő tartalmát. Ebben találhatjuk az egyes használati eseteket, kezdve az egyszerűbbekkel, majd haladva a bonyolultabbak irányában.
+3. A ["Cayley mint Go package"]({{< ref "/working-with-cayley" >}}) c. fejezet alkotja a szakácskönyv fő tartalmát. Ebben találhatjuk az egyes használati eseteket, kezdve az egyszerűbbekkel, majd haladva a bonyolultabbak irányában.
 
 {{< button relref="basic-concepts" >}}Alapfogalmak &#9659;{{< /button >}}
 

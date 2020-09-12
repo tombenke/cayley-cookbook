@@ -1,6 +1,6 @@
 Creator "Cayley"
 graph [ directed 1
-	node [ id 0 label "_:n1531056514338802600" ]
+	node [ id 0 label "_:n3747198576259004371" ]
 	node [ id 1 label "<foaf:Person>" ]
 	edge [ source 0 target 1 label "<rdf:type>" ]
 	node [ id 2 label "&quot;Luke&quot;" ]
@@ -9,7 +9,7 @@ graph [ directed 1
 	edge [ source 0 target 3 label "<foaf:familyName>" ]
 	node [ id 4 label "&quot;23&quot;^^<xsd:integer>" ]
 	edge [ source 0 target 4 label "<foaf:age>" ]
-	node [ id 5 label "_:n6331394886452840694" ]
+	node [ id 5 label "_:n8285458617337724806" ]
 	edge [ source 5 target 1 label "<rdf:type>" ]
 	edge [ source 5 target 0 label "<foaf:knows>" ]
 	node [ id 6 label "&quot;Leia&quot;" ]

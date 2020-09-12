@@ -1,9 +1,7 @@
 ---
-title: Cayley CookBook
+title: Cayley Szakácskönyv
 type: docs
 ---
-
-## Cayley Szakácskönyv
 
 A [Cayley](https://github.com/cayleygraph/cayley) egy open-source Linked Data adatbáziskezelő.
 Léthrehozását a Google [Knowledge Graph](https://en.wikipedia.org/wiki/Knowledge_Graph) gráf adatbázisa inspirálta.
@@ -20,3 +18,4 @@ A példákat kétféle módon használhatjuk:
 [![Run on Repl.it](https://repl.it/badge/github/tombenke/cayley-cookbook-src)](https://repl.it/github/tombenke/cayley-cookbook-src)
 2. Klónozzuk a [repository](https://github.com/tombenke/cayley-cookbook-src/tree/master)-t a saját gépünkre, és ott futtatjuk.
 
+<hr />

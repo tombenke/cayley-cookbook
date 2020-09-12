@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Find All Vertices #  Problem #  How can I list all the nodes (subjects, predicates and objects) of the graph?
+Test Data #    Fig 1.: Graph diagram of test data   Show the test data in nquads format &lt;alice&gt; &lt;follows&gt; &lt;bob&gt; . &lt;bob&gt; &lt;follows&gt; &lt;fred&gt; . &lt;bob&gt; &lt;status&gt; &#34;cool_person&#34; . &lt;dani&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;dani&gt; . &lt;dani&gt; &lt;follows&gt; &lt;greg&gt; .">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Find All Vertices" />
+<meta property="og:description" content="Find All Vertices #  Problem #  How can I list all the nodes (subjects, predicates and objects) of the graph?
+Test Data #    Fig 1.: Graph diagram of test data   Show the test data in nquads format &lt;alice&gt; &lt;follows&gt; &lt;bob&gt; . &lt;bob&gt; &lt;follows&gt; &lt;fred&gt; . &lt;bob&gt; &lt;status&gt; &#34;cool_person&#34; . &lt;dani&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;dani&gt; . &lt;dani&gt; &lt;follows&gt; &lt;greg&gt; ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/find_all_vertices/" />
+
+<title>Find All Vertices | Cayley-CookBook</title>
+<link rel="manifest" href="/cayley-cookbook/manifest.json">
+<link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/find_all_vertices/" title="Összes node kiírása">
+
+<link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
+<script defer src="/cayley-cookbook/en.search.min.2f86929481f8cdee6531c7fc0fbf28e2ce9efda8f15158961b70e912c47a45f5.js" integrity="sha256-L4aSlIH4ze5lMcf8D78o4s6e/ajxUViWG3DpEsR6RfU="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-XXXXXXXXX-X', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cayley-cookbook/en"><span>Cayley-CookBook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/about/" class="">About</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/basic-concepts/" class="collapsed ">Basic Concepts</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/cayley-overview/" class="collapsed ">Cayley Overview</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/working-with-cayley/" class="collapsed ">Working with Knowledge Graph</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/working-with-cayley/ns-voc/" class="collapsed ">Namespaces and Vocabularies</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/working-with-cayley/stores/" class="collapsed ">Stores</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/working-with-cayley/impex/" class="collapsed ">Data import / export</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/working-with-cayley/queries/" class="collapsed ">Queries</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/working-with-cayley/queries/find_all_vertices/" class="active">Find All Vertices</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/working-with-cayley/queries/find_all_predicates/" class="">Find All Predicates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/working-with-cayley/queries/bidirectional/" class="">Bi-directional Relations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/working-with-cayley/queries/bookmarks/" class="">Find bookmarks by tags</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/working-with-cayley/crud-operations/" class="collapsed ">CRUD Operations</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/en/docs/working-with-cayley/transactions/" class="collapsed ">Transactions</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Find All Vertices</strong>
+
+  <label for="toc-control">
+    
+    <img src="/cayley-cookbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#test-data">Test Data</a></li>
+    <li><a href="#gizmo-query">Gizmo Query</a></li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="find-all-vertices">
+  Find All Vertices
+  <a class="anchor" href="#find-all-vertices">#</a>
+</h1>
+<h2 id="problem">
+  Problem
+  <a class="anchor" href="#problem">#</a>
+</h2>
+<p>How can I list all the nodes (subjects, predicates and objects) of the graph?</p>
+<h2 id="test-data">
+  Test Data
+  <a class="anchor" href="#test-data">#</a>
+</h2>
+<figure>
+    <img src="/cayley-cookbook/src/data/testdata.png"/> <figcaption>
+            <h4>Fig 1.: Graph diagram of test data</h4>
+        </figcaption>
+</figure>
+
+<details >
+  <summary>Show the test data in nquads format</summary>
+  <div class="markdown-inner">
+    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;alice&gt; &lt;follows&gt; &lt;bob&gt; .
+&lt;bob&gt; &lt;follows&gt; &lt;fred&gt; .
+&lt;bob&gt; &lt;status&gt; &#34;cool_person&#34; .
+&lt;dani&gt; &lt;follows&gt; &lt;bob&gt; .
+&lt;charlie&gt; &lt;follows&gt; &lt;bob&gt; .
+&lt;charlie&gt; &lt;follows&gt; &lt;dani&gt; .
+&lt;dani&gt; &lt;follows&gt; &lt;greg&gt; .
+&lt;dani&gt; &lt;status&gt; &#34;cool_person&#34; .
+&lt;emily&gt; &lt;follows&gt; &lt;fred&gt; .
+&lt;fred&gt; &lt;follows&gt; &lt;greg&gt; .
+&lt;greg&gt; &lt;status&gt; &#34;cool_person&#34; .
+&lt;predicates&gt; &lt;are&gt; &lt;follows&gt; .
+&lt;predicates&gt; &lt;are&gt; &lt;status&gt; .
+&lt;emily&gt; &lt;status&gt; &#34;smart_person&#34; &lt;smart_graph&gt; .
+&lt;greg&gt; &lt;status&gt; &#34;smart_person&#34; &lt;smart_graph&gt; .
+
+</code></pre></div>
+  </div>
+</details>
+
+<h2 id="gizmo-query">
+  Gizmo Query
+  <a class="anchor" href="#gizmo-query">#</a>
+</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">V</span>().<span style="color:#a6e22e">All</span>();
+
+
+</code></pre></div><p>Results:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">{&#34;id&#34;:&#34;alice&#34;}
+{&#34;id&#34;:&#34;follows&#34;}
+{&#34;id&#34;:&#34;bob&#34;}
+{&#34;id&#34;:&#34;fred&#34;}
+{&#34;id&#34;:&#34;status&#34;}
+{&#34;id&#34;:&#34;cool_person&#34;}
+{&#34;id&#34;:&#34;dani&#34;}
+{&#34;id&#34;:&#34;charlie&#34;}
+{&#34;id&#34;:&#34;greg&#34;}
+{&#34;id&#34;:&#34;emily&#34;}
+{&#34;id&#34;:&#34;predicates&#34;}
+{&#34;id&#34;:&#34;are&#34;}
+{&#34;id&#34;:&#34;smart_person&#34;}
+{&#34;id&#34;:&#34;smart_graph&#34;}
+
+</code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+  
+
+
+  
+
+  
+
+
+  
+
+
+<div class="book-languages" tabindex="0" aria-haspopup="true">
+  <ul>
+    <li class="flex align-center">
+      <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+      English
+    </li> 
+  </ul>
+
+  <ul class="book-languages-list">
+    
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/en/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </li>
+    
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/find_all_vertices/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        Magyar
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#test-data">Test Data</a></li>
+    <li><a href="#gizmo-query">Gizmo Query</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

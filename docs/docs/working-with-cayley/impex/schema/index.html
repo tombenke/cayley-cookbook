@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="hu" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Adat import / export struct annotációval #  Struktúra annotációk #  Ez a fejezet arra mutat példát, hogyan lehet egyszerű vagy összetett objektumokat, azok tulajdonságait quad-okká alakítani, és feltölteni a store-ba, az adatstruktúra deklarációjában elhelyezett annotációk segítségével. Továbbá hogyan lehet a store-ból, az eredmény listákból egyszerűen összeszedni az objektumok property-jeit, és objektumként visszakapni az eredményeket.
+Ezzel a módszerrel jelentősen egyszerűbb az összetett adat-szerkezetek store-ba való feltöltése és lekérdezése, nem kell saját implementációt készíteni arra például, hogy egy adott Blank Node-dal, vagy IRI-vel azonosított objektum minden egyes tulajdonság-értékét egyenként szedegessük össze.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Adat import / export struct annotációval" />
+<meta property="og:description" content="Adat import / export struct annotációval #  Struktúra annotációk #  Ez a fejezet arra mutat példát, hogyan lehet egyszerű vagy összetett objektumokat, azok tulajdonságait quad-okká alakítani, és feltölteni a store-ba, az adatstruktúra deklarációjában elhelyezett annotációk segítségével. Továbbá hogyan lehet a store-ból, az eredmény listákból egyszerűen összeszedni az objektumok property-jeit, és objektumként visszakapni az eredményeket.
+Ezzel a módszerrel jelentősen egyszerűbb az összetett adat-szerkezetek store-ba való feltöltése és lekérdezése, nem kell saját implementációt készíteni arra például, hogy egy adott Blank Node-dal, vagy IRI-vel azonosított objektum minden egyes tulajdonság-értékét egyenként szedegessük össze." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/schema/" />
+
+<title>Adat import / export struct annotációval | Cayley-CookBook</title>
+<link rel="manifest" href="/cayley-cookbook/manifest.json">
+<link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/impex/schema/" title="Data import / export via struct annotation">
+
+<link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
+<script defer src="/cayley-cookbook/hu.search.min.00f03e96b03a91c08c49e297d71ee5cf07fd4e6b95e95389c14d58d4de34f1ea.js" integrity="sha256-APA&#43;lrA6kcCMSeKX1x7lzwf9TmuV6VOJwU1Y1N408eo="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-XXXXXXXXX-X', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cayley-cookbook"><span>Cayley-CookBook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/about/" class="">Bevezetés</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Alapfogalmak</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/cayley-overview/" class="collapsed ">A Cayley rendszer áttekintése</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/working-with-cayley/" class="collapsed ">A Tudás-Gráf használata</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/" class="collapsed ">Namespace-ek és szótárak</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/working-with-cayley/stores/" class="collapsed ">Store-ok</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/working-with-cayley/impex/" class="collapsed ">Adat import / export</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/working-with-cayley/impex/quads/" class="">Quad-ok exportálása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/working-with-cayley/impex/schema/" class="active">Adat import / export struct annotációval</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/working-with-cayley/queries/" class="collapsed ">Lekérdezések</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/working-with-cayley/crud-operations/" class="collapsed ">CRUD Műveletek</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/working-with-cayley/transactions/" class="collapsed ">Tranzakciók</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Adat import / export struct annotációval</strong>
+
+  <label for="toc-control">
+    
+    <img src="/cayley-cookbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#struktúra-annotációk">Struktúra annotációk</a></li>
+    <li><a href="#store-létrehozása">Store létrehozása</a></li>
+    <li><a href="#teszt-adatok">Teszt adatok</a></li>
+    <li><a href="#struktúra-annotációk-definiálása">Struktúra annotációk definiálása</a></li>
+    <li><a href="#adat-importálás-struktúra-annotációk-alapján">Adat importálás struktúra annotációk alapján</a></li>
+    <li><a href="#adat-exportálás-struktúra-annotációk-alapján">Adat exportálás struktúra annotációk alapján</a></li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="adat-import--export-struct-annotációval">
+  Adat import / export struct annotációval
+  <a class="anchor" href="#adat-import--export-struct-annot%c3%a1ci%c3%b3val">#</a>
+</h1>
+<h2 id="struktúra-annotációk">
+  Struktúra annotációk
+  <a class="anchor" href="#strukt%c3%bara-annot%c3%a1ci%c3%b3k">#</a>
+</h2>
+<p>Ez a fejezet arra mutat példát, hogyan lehet egyszerű vagy összetett objektumokat, azok tulajdonságait quad-okká alakítani, és feltölteni a store-ba, az adatstruktúra deklarációjában elhelyezett annotációk segítségével. Továbbá hogyan lehet a store-ból, az eredmény listákból egyszerűen összeszedni az objektumok property-jeit, és objektumként visszakapni az eredményeket.</p>
+<p>Ezzel a módszerrel jelentősen egyszerűbb az összetett adat-szerkezetek store-ba való feltöltése és lekérdezése, nem kell saját implementációt készíteni arra például, hogy egy adott Blank Node-dal, vagy IRI-vel azonosított objektum minden egyes tulajdonság-értékét egyenként szedegessük össze.</p>
+<h2 id="store-létrehozása">
+  Store létrehozása
+  <a class="anchor" href="#store-l%c3%a9trehoz%c3%a1sa">#</a>
+</h2>
+<p>A példákban egyszerű, in-memory store-t fogunk használni, aminek a megnyitását a <code>store.go</code> file-ban implementált <code>InitStore()</code> funkció végzi el.</p>
+<details >
+  <summary>A store.go megjelenítése</summary>
+  <div class="markdown-inner">
+    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">kbase</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;github.com/cayleygraph/cayley&#34;</span>
+	<span style="color:#e6db74">&#34;log&#34;</span>
+)
+
+<span style="color:#75715e">// Create a mem-store for testing
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">InitStore</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">Handle</span> {
+	<span style="color:#a6e22e">store</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">NewMemoryGraph</span>()
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalln</span>(<span style="color:#a6e22e">err</span>)
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">store</span>
+}
+
+</code></pre></div>
+  </div>
+</details>
+
+<h2 id="teszt-adatok">
+  Teszt adatok
+  <a class="anchor" href="#teszt-adatok">#</a>
+</h2>
+<p>A <code>bookmarks.yml</code> file YAML formátumban reprezentált teszt adatokat tartalmaz. Könyvjelzők listája található benne.</p>
+<p>Ezeket a könyvjelzőket fogjuk feltölteni, és lekérdezni a séma annotációk segítségével.</p>
+<details >
+  <summary>A bookmarks.yml megjelenítése</summary>
+  <div class="markdown-inner">
+    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#66d9ef">id</span>: 9493efb9-be9a<span style="color:#ae81ff">-4435</span>-9b5d-f605fc9cddaa
+  <span style="color:#66d9ef">title</span>: Gremlin<span style="color:#e6db74">&#39;s Graph Traversal Machinery
+</span><span style="color:#e6db74">  content: &#34;&#34;
+</span><span style="color:#e6db74">  author: &#34;&#34;
+</span><span style="color:#e6db74">  published: &#34;&#34;
+</span><span style="color:#e6db74">  tags: [gremlin, cayley, tinkerprop, gizmo, presentation, graph-db, query-language]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: d6481271-d42d-487c-bec9-733ff383e029
+</span><span style="color:#e6db74">  title: Ontotext GraphDB
+</span><span style="color:#e6db74">  content: &#34;&#34;
+</span><span style="color:#e6db74">  author: &#34;&#34;
+</span><span style="color:#e6db74">  published: &#34;&#34;
+</span><span style="color:#e6db74">  tags: [graphdb, nosql, knowledge-graph, linked-data, semantic-web, rdf]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://ontotext.com/products/graphdb/<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: 058d41d5-6830-432b-8ebb-5733f8a2575b
+</span><span style="color:#e6db74">  title: &#39;</span><span style="color:#66d9ef">Graphs and neural networks</span>: Reading node properties<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">  content: &#34;&#34;
+</span><span style="color:#e6db74">  author: David Mack
+</span><span style="color:#e6db74">  published: &#34;&#34;
+</span><span style="color:#e6db74">  tags: [octavian-ai, graphs, neural-network, nlu, digital-assistant, dbms, brainputer,
+</span><span style="color:#e6db74">    knowledge-graphs, graph-databases]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://medium.com/octavian-ai/graphs-and-neural-networks-reading-node-properties-2c91625980eb<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: 324bacb5-8709-42b9-b38b-93755c48ef19
+</span><span style="color:#e6db74">  title: Towards building the next generation database query engine
+</span><span style="color:#e6db74">  content: &#34;&#34;
+</span><span style="color:#e6db74">  author: David Mack
+</span><span style="color:#e6db74">  published: Nov 12, 2018
+</span><span style="color:#e6db74">  tags: [octavian-ai, graphs, neural-network, nlu, digital-assistant, dbms, brainputer,
+</span><span style="color:#e6db74">    knowledge-graphs, graph-databases]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://medium.com/octavian-ai/towards-building-the-next-generation-database-query-engine-a1beca1e07a3<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: e0af0cdc-1795-482d-986e-96b08cc530f9
+</span><span style="color:#e6db74">  title: extracting-knowledge-from-knowledge-graphs
+</span><span style="color:#e6db74">  content: &#34;&#34;
+</span><span style="color:#e6db74">  author: &#34;&#34;
+</span><span style="color:#e6db74">  published: &#34;&#34;
+</span><span style="color:#e6db74">  tags: [brainputer, pythorch, knowlendge-graph]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://towardsdatascience.com/extracting-knowledge-from-knowledge-graphs-e5521e4861a0<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: 2e75fc6a-148f-4016-a178-2a53a67e06c8
+</span><span style="color:#e6db74">  title: Platypus
+</span><span style="color:#e6db74">  content: &#34;&#34;
+</span><span style="color:#e6db74">  author: &#34;&#34;
+</span><span style="color:#e6db74">  published: &#34;&#34;
+</span><span style="color:#e6db74">  tags: [knowledge-graph, wikidata, cognition, cui, platypus]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service/A_gentle_introduction_to_the_Wikidata_Query_Service<span style="color:#e6db74">&#39;,
+</span><span style="color:#e6db74">    &#39;</span>https://www.wikidata.org/wiki/Wikidata:Main_Page<span style="color:#e6db74">&#39;, &#39;</span>https://hal.archives-ouvertes.fr/hal<span style="color:#ae81ff">-01730479</span>/document<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: 46721a5a-0eda-48f4-b190-b1c2544146a4
+</span><span style="color:#e6db74">  title: Grakn.AI - learn
+</span><span style="color:#e6db74">  content: &#34;&#34;
+</span><span style="color:#e6db74">  author: &#34;&#34;
+</span><span style="color:#e6db74">  published: &#34;&#34;
+</span><span style="color:#e6db74">  tags: [grakn.ai, tutorials, blog, ai, inference-engine, knowledge-graph]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://blog.grakn.ai/learn/home<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: 418b7162-fc1e-4dda-a6a5-80b9d4558f47
+</span><span style="color:#e6db74">  title: &#39;</span><span style="color:#66d9ef">KagNet</span>: Knowledge-Aware Graph Networks for Commonsense Reasoning<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">  content: &#34;&#34;
+</span><span style="color:#e6db74">  author: &#34;&#34;
+</span><span style="color:#e6db74">  published: &#34;&#34;
+</span><span style="color:#e6db74">  tags: [kagnet, cognitive-computating, python, graphs, networks, knowledge-graph,
+</span><span style="color:#e6db74">    tools, commonsense, reasoning]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://github.com/INK-USC/KagNet<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: a0b1b538-56e8-4fa9-a10b-be7c21ea2f90
+</span><span style="color:#e6db74">  title: Knowledge extraction from unstructured texts
+</span><span style="color:#e6db74">  content: &#34;&#34;
+</span><span style="color:#e6db74">  author: Heuritech
+</span><span style="color:#e6db74">  published: &#34;&#34;
+</span><span style="color:#e6db74">  tags: [lstm, knowledge-graph, text-extraction, konwledge-extraction, heuritech,
+</span><span style="color:#e6db74">    semantics, universal-schema, triplet-extraction, word2vec]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://medium.com/heuritech/knowledge-extraction-from-unstructured-texts-c279e3b8f92f<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: 0b82f944-3f8c-4206-953e-a0d2d256dd60
+</span><span style="color:#e6db74">  title: Deep Learning with Knowledge Graphs
+</span><span style="color:#e6db74">  content: &#34;&#34;
+</span><span style="color:#e6db74">  author: Andrew Jefferson
+</span><span style="color:#e6db74">  published: &#34;&#34;
+</span><span style="color:#e6db74">  tags: [octavian, deep-neural-network, knowledge-graph, machine-learning, macgraph,
+</span><span style="color:#e6db74">    brainputer]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://medium.com/octavian-ai/deep-learning-with-knowledge-graphs-3df0b469a61a<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: e0d790fd-03de-4522-9ebc-3b931db52288
+</span><span style="color:#e6db74">  title: MacGraph
+</span><span style="color:#e6db74">  content: &#34;&#34;
+</span><span style="color:#e6db74">  author: &#34;&#34;
+</span><span style="color:#e6db74">  published: &#34;&#34;
+</span><span style="color:#e6db74">  tags: [octavian, deep-neural-network, knowledge-graph, machine-learning, macgraph,
+</span><span style="color:#e6db74">    brainputer, github, repository]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://github.com/Octavian-ai/mac-graph<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: 17217149-1274-4ea4-a5f2-9bd48e6003c5
+</span><span style="color:#e6db74">  title: octavian.ai
+</span><span style="color:#e6db74">  content: |
+</span><span style="color:#e6db74">    We research new approaches to machine reasoning and graph-based learning.
+</span><span style="color:#e6db74">    We&#39;</span>re working to build machines that can answer useful questions, using neural reasoning and knowledge graphs. We write articles, give talks and host workshops about our work.
+    We<span style="color:#e6db74">&#39;re an open-source research organization and welcome you to join us and contribute.
+</span><span style="color:#e6db74">  author: &#34;&#34;
+</span><span style="color:#e6db74">  published: &#34;&#34;
+</span><span style="color:#e6db74">  tags: [octavian, machine-learning, open-source, research, graph, knowledge-graph,
+</span><span style="color:#e6db74">    macgraph, brainputer]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://www.octavian.ai/<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: 955d0202-d259-46c7-b71b-eb2434da2058
+</span><span style="color:#e6db74">  title: Build your own Knowledge Graph From unstructured dark data to valuable business
+</span><span style="color:#e6db74">    insights
+</span><span style="color:#e6db74">  content: &#34;&#34;
+</span><span style="color:#e6db74">  author: Ignaz Wanders
+</span><span style="color:#e6db74">  published: &#34;&#34;
+</span><span style="color:#e6db74">  tags: [knowledge-graph, ai, machine-learning, ml, neo4j]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://medium.com/vectrconsulting/build-your-own-knowledge-graph-975cf6dde67f<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: b34b66d4-81d2-4449-a049-4cb29fdc8f75
+</span><span style="color:#e6db74">  title: Extracting knowledge from knowledge graphs using Facebook Pytorch BigGraph.
+</span><span style="color:#e6db74">  content: &#34;&#34;
+</span><span style="color:#e6db74">  author: &#34;&#34;
+</span><span style="color:#e6db74">  published: &#34;&#34;
+</span><span style="color:#e6db74">  tags: [knowledge-graph, kg, ai, graphs, facebook, pytorch, biggraph]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://towardsdatascience.com/extracting-knowledge-from-knowledge-graphs-e5521e4861a0<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: af631947-2a60-4ce6-a1a9-0b7ab88b9cfb
+</span><span style="color:#e6db74">  title: Deep Learning with Knowledge Graphs
+</span><span style="color:#e6db74">  content: &#34;&#34;
+</span><span style="color:#e6db74">  author: &#34;&#34;
+</span><span style="color:#e6db74">  published: &#34;&#34;
+</span><span style="color:#e6db74">  tags: [deep-learning, ml, machine-learning, knowledge-graph, ai]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://medium.com/octavian-ai/deep-learning-with-knowledge-graphs-3df0b469a61a<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: f020ade1-4824-4c47-95c4-527c49fe2406
+</span><span style="color:#e6db74">  title: Knowledge Graphs in Natural Language Processing @ ACL 2020
+</span><span style="color:#e6db74">  content: State of the Art Mid 2020
+</span><span style="color:#e6db74">  author: Michael Galkin
+</span><span style="color:#e6db74">  published: Jul 10, 2020
+</span><span style="color:#e6db74">  tags: [ai, kg, knowledge-graphs, nlp, acl]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://towardsdatascience.com/knowledge-graphs-in-natural-language-processing-acl<span style="color:#ae81ff">-2020</span>-ebb1f0a6e0b1<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: a45c3713-89a4-44eb-947b-d0720d8ff9f4
+</span><span style="color:#e6db74">  title: Blog-Rolling-with-BrightstarDB-Express-and-Node-js
+</span><span style="color:#e6db74">  content: &#34;&#34;
+</span><span style="color:#e6db74">  author: &#34;&#34;
+</span><span style="color:#e6db74">  published: &#34;&#34;
+</span><span style="color:#e6db74">  tags: [brightstardb, rdf, triple-store, nodejs, .net, database]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://www.codeproject.com/Articles/<span style="color:#ae81ff">419181</span>/Blog-Rolling-with-BrightstarDB-Express-and-Node-js<span style="color:#e6db74">&#39;,
+</span><span style="color:#e6db74">    &#39;</span>http://brightstardb.com/<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: fba5c188-4c20-4cc3-aa99-720662d58ab8
+</span><span style="color:#e6db74">  title: FOAF Vocabulary Specification 0.99
+</span><span style="color:#e6db74">  content: &#34;&#34;
+</span><span style="color:#e6db74">  author: &#34;&#34;
+</span><span style="color:#e6db74">  published: &#34;&#34;
+</span><span style="color:#e6db74">  tags: [foaf, vocabulary, rdf]
+</span><span style="color:#e6db74">  urls: [&#39;</span>http://xmlns.com/foaf/spec/<span style="color:#e6db74">&#39;]
+</span><span style="color:#e6db74">- id: 8193a8a4-ae32-4867-924b-ecc9b856cad3
+</span><span style="color:#e6db74">  title: SuperMemo Website
+</span><span style="color:#e6db74">  content: |
+</span><span style="color:#e6db74">    SuperMemo is a program that keeps track of discrete bits of information you&#39;</span>ve learned and want to retain.
+    SuperMemo tracks this so-called forgetting curve and reminds you to rehearse your knowledge when your chance of recalling it has dropped to, say, <span style="color:#ae81ff">90</span> percent.
+    When you first learn a new vocabulary word, your chance of recalling it will drop quickly. But after SuperMemo reminds you of the word, the rate of forgetting levels out. The program tracks this new decline and waits longer to quiz you the next time.
+  <span style="color:#66d9ef">author</span>: <span style="color:#e6db74">&#34;&#34;</span>
+  <span style="color:#66d9ef">published</span>: <span style="color:#e6db74">&#34;&#34;</span>
+  <span style="color:#66d9ef">tags</span>: [memory, learning, wozniak, brainputer, supermemo]
+  <span style="color:#66d9ef">urls</span>: [<span style="color:#e6db74">&#39;https://www.supermemo.com/en/archives1990-2015/articles/devour&#39;</span>]
+- <span style="color:#66d9ef">id</span>: 1d96dd4d-c30e-45a7-8f44-38dfb9a697f2
+  <span style="color:#66d9ef">title</span>: Gellish.net
+  <span style="color:#66d9ef">content</span>: Gellish is a standard language, methodology and tools for expressing information
+    in a computer interpretable and system independent way. It enables exchange and
+    integration of data among systems of multiple parties without the need for data
+    conversions.
+  <span style="color:#66d9ef">author</span>: <span style="color:#e6db74">&#34;&#34;</span>
+  <span style="color:#66d9ef">published</span>: <span style="color:#e6db74">&#34;&#34;</span>
+  <span style="color:#66d9ef">tags</span>: [dictionary, gellish.net, gellish, nlp, cognitive-computing, electronic-dictionary,
+    open-source, semantic-web, brainputer, robotics]
+  <span style="color:#66d9ef">urls</span>: [<span style="color:#e6db74">&#39;https://www.gellish.net/&#39;</span>]
+- <span style="color:#66d9ef">id</span>: bdd898dc-76de-4a41-86b1-8757aff5fe6c
+  <span style="color:#66d9ef">title</span>: Semantic Web and Model-Driven Engineering
+  <span style="color:#66d9ef">content</span>: Too theoretical
+  <span style="color:#66d9ef">author</span>: <span style="color:#e6db74">&#34;&#34;</span>
+  <span style="color:#66d9ef">published</span>: <span style="color:#e6db74">&#34;&#34;</span>
+  <span style="color:#66d9ef">tags</span>: [architecture, system-design, ddd, domain-driven-design, soo-poc, semantic-web]
+  <span style="color:#66d9ef">urls</span>: [<span style="color:#e6db74">&#39;http://www.allitebooks.org/semantic-web-and-model-driven-engineering/&#39;</span>]
+- <span style="color:#66d9ef">id</span>: 1deb716d-4ca8<span style="color:#ae81ff">-4834</span>-a771-7c68e8844067
+  <span style="color:#66d9ef">title</span>: MRD, Machine Readable dictionary
+  <span style="color:#66d9ef">content</span>: <span style="color:#e6db74">&#34;&#34;</span>
+  <span style="color:#66d9ef">author</span>: <span style="color:#e6db74">&#34;&#34;</span>
+  <span style="color:#66d9ef">published</span>: <span style="color:#e6db74">&#34;&#34;</span>
+  <span style="color:#66d9ef">tags</span>: [mrd, dictionary, nlp, cognitive-computing]
+  <span style="color:#66d9ef">urls</span>: [<span style="color:#e6db74">&#39;https://en.wikipedia.org/wiki/Machine-readable_dictionary&#39;</span>]
+- <span style="color:#66d9ef">id</span>: 9493efb9-be9a<span style="color:#ae81ff">-4435</span>-9b5d-f605fc9cddaa
+  <span style="color:#66d9ef">title</span>: Gremlin<span style="color:#e6db74">&#39;s Graph Traversal Machinery
+</span><span style="color:#e6db74">  content: &#34;&#34;
+</span><span style="color:#e6db74">  author: &#34;&#34;
+</span><span style="color:#e6db74">  published: &#34;&#34;
+</span><span style="color:#e6db74">  tags: [gremlin, cayley, tinkerprop, gizmo, presentation, graph-db, query-language]
+</span><span style="color:#e6db74">  urls: [&#39;</span>https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery&#39;]
+
+</code></pre></div>
+  </div>
+</details>
+
+<p>Az adatok file-ból történő beolvasására a <code>yaml.go</code>-ban található <code>ReadFromYaml()</code> funkciót használjuk.</p>
+<p>A <code>yaml.go</code> két függvény tartalmaz:</p>
+<ul>
+<li>A <code>ReadFromYaml()</code> az adatok YAML file-ból történő beolvasását végzi el,</li>
+<li>a <code>SaveToYaml()</code> a YAML formátumba történő kiírását teszi lehetővé.</li>
+</ul>
+<details >
+  <summary>A yaml.go megjelenítése</summary>
+  <div class="markdown-inner">
+    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">impex</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;gopkg.in/yaml.v2&#34;</span>
+	<span style="color:#e6db74">&#34;io/ioutil&#34;</span>
+	<span style="color:#e6db74">&#34;log&#34;</span>
+	<span style="color:#a6e22e">path</span> <span style="color:#e6db74">&#34;path/filepath&#34;</span>
+)
+
+<span style="color:#75715e">// Read YAML file and unmarshal its content into the `dst` data structure,
+</span><span style="color:#75715e">// using the `yaml` annotation of the structs.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">ReadFromYaml</span>(<span style="color:#a6e22e">yamlPath</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">dst</span> <span style="color:#66d9ef">interface</span>{}) <span style="color:#66d9ef">error</span> {
+
+	<span style="color:#a6e22e">absPath</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">Abs</span>(<span style="color:#a6e22e">yamlPath</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%s&#34;</span>, <span style="color:#a6e22e">err</span>)
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+	}
+
+	<span style="color:#a6e22e">buf</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">ReadFile</span>(<span style="color:#a6e22e">absPath</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%s&#34;</span>, <span style="color:#a6e22e">err</span>)
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+	}
+
+	<span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">yaml</span>.<span style="color:#a6e22e">Unmarshal</span>([]byte(<span style="color:#a6e22e">buf</span>), <span style="color:#a6e22e">dst</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;YAML unmarshal error: %v&#34;</span>, <span style="color:#a6e22e">err</span>)
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+}
+
+<span style="color:#75715e">// Marshal the content from the `dst` data structure, and savel into a YAML file
+</span><span style="color:#75715e">// using the `yaml` annotation of the structs.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">SaveToYaml</span>(<span style="color:#a6e22e">yamlPath</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">src</span> <span style="color:#66d9ef">interface</span>{}) <span style="color:#66d9ef">error</span> {
+	<span style="color:#a6e22e">buf</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">yaml</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">src</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%s&#34;</span>, <span style="color:#a6e22e">err</span>)
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+	}
+
+	<span style="color:#a6e22e">absPath</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">Abs</span>(<span style="color:#a6e22e">yamlPath</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%s&#34;</span>, <span style="color:#a6e22e">err</span>)
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">WriteFile</span>(<span style="color:#a6e22e">absPath</span>, <span style="color:#a6e22e">buf</span>, <span style="color:#ae81ff">0644</span>)
+}
+
+</code></pre></div>
+  </div>
+</details>
+
+<h2 id="struktúra-annotációk-definiálása">
+  Struktúra annotációk definiálása
+  <a class="anchor" href="#strukt%c3%bara-annot%c3%a1ci%c3%b3k-defini%c3%a1l%c3%a1sa">#</a>
+</h2>
+<p>A könyvjelző objektumok struktúráját, valamint a séma definícióját, az importáló és exportáló műveleteket mind a <code>bookmarks.go</code> file tartalmazza.</p>
+<details >
+  <summary>A bookmarks.go megjelenítése</summary>
+  <div class="markdown-inner">
+    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;context&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/cayleygraph/cayley&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/cayleygraph/cayley/graph&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/cayleygraph/cayley/schema&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/cayleygraph/quad&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/tombenke/cayley-cookbook-src/kbase/impex&#34;</span>
+	<span style="color:#e6db74">&#34;log&#34;</span>
+)
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Bookmarks</span> []<span style="color:#a6e22e">Bookmark</span>
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Bookmark</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">ID</span>        <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span> <span style="color:#e6db74">`yaml:&#34;id&#34; quad:&#34;id&#34;`</span>
+	<span style="color:#a6e22e">Title</span>     <span style="color:#66d9ef">string</span>   <span style="color:#e6db74">`yaml:&#34;title&#34; quad:&#34;title&#34;`</span>
+	<span style="color:#a6e22e">Content</span>   <span style="color:#66d9ef">string</span>   <span style="color:#e6db74">`yaml:&#34;content&#34; quad:&#34;content,optional&#34;`</span>
+	<span style="color:#a6e22e">Author</span>    <span style="color:#66d9ef">string</span>   <span style="color:#e6db74">`yaml:&#34;author&#34; quad:&#34;author,optional&#34;`</span>
+	<span style="color:#a6e22e">Published</span> <span style="color:#66d9ef">string</span>   <span style="color:#e6db74">`yaml:&#34;published&#34; quad:&#34;published,optional&#34;`</span>
+	<span style="color:#a6e22e">Tags</span>      []<span style="color:#66d9ef">string</span> <span style="color:#e6db74">`yaml:&#34;tags,flow&#34; quad:&#34;tags&#34;`</span>
+	<span style="color:#a6e22e">Urls</span>      []<span style="color:#66d9ef">string</span> <span style="color:#e6db74">`yaml:&#34;urls,flow&#34; quad:&#34;urls&#34;`</span>
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">BookmarkShort</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">ID</span>    <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span> <span style="color:#e6db74">`yaml:&#34;id&#34; quad:&#34;id&#34;`</span>
+	<span style="color:#a6e22e">Title</span> <span style="color:#66d9ef">string</span>   <span style="color:#e6db74">`yaml:&#34;title&#34; quad:&#34;title&#34;`</span>
+	<span style="color:#a6e22e">Urls</span>  []<span style="color:#66d9ef">string</span> <span style="color:#e6db74">`yaml:&#34;urls,flow&#34; quad:&#34;urls&#34;`</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
+	<span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">RegisterType</span>(<span style="color:#e6db74">&#34;Bookmark&#34;</span>, <span style="color:#a6e22e">Bookmark</span>{})
+	<span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">RegisterType</span>(<span style="color:#e6db74">&#34;BookmarkShort&#34;</span>, <span style="color:#a6e22e">BookmarkShort</span>{})
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Import</span>(<span style="color:#a6e22e">store</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">Handle</span>, <span style="color:#a6e22e">dbPath</span> <span style="color:#66d9ef">string</span>) {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">bm</span> <span style="color:#a6e22e">Bookmarks</span>
+	<span style="color:#a6e22e">impex</span>.<span style="color:#a6e22e">ReadFromYaml</span>(<span style="color:#a6e22e">dbPath</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">bm</span>)
+	<span style="color:#a6e22e">qw</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">graph</span>.<span style="color:#a6e22e">NewWriter</span>(<span style="color:#a6e22e">store</span>)
+	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">qw</span>.<span style="color:#a6e22e">Close</span>() <span style="color:#75715e">// don&#39;t forget to close a writer; it has some internal buffering
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">bm</span> {
+		<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">WriteAsQuads</span>(<span style="color:#a6e22e">qw</span>, <span style="color:#a6e22e">b</span>)
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+			<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;%v&#34;</span>, <span style="color:#a6e22e">err</span>)
+		}
+	}
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">GetAllShortBookmarks</span>(<span style="color:#a6e22e">store</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">Handle</span>) (<span style="color:#a6e22e">Bookmarks</span>, <span style="color:#66d9ef">error</span>) {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">bms</span> <span style="color:#a6e22e">Bookmarks</span>
+	<span style="color:#75715e">//p := cayley.StartPath(store).Has(quad.IRI(&#34;rdf:type&#34;), quad.IRI(&#34;Bookmark&#34;))
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">StartPath</span>(<span style="color:#a6e22e">store</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#e6db74">&#34;Bookmark&#34;</span>)).<span style="color:#a6e22e">In</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#e6db74">&#34;rdf:type&#34;</span>))
+	<span style="color:#a6e22e">schemaConfig</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">NewConfig</span>()
+	<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">Iterate</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>()).<span style="color:#a6e22e">EachValuePair</span>(<span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">ref</span> <span style="color:#a6e22e">graph</span>.<span style="color:#a6e22e">Ref</span>, <span style="color:#a6e22e">value</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Value</span>) {
+		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#a6e22e">Bookmark</span>
+		<span style="color:#a6e22e">schemaConfig</span>.<span style="color:#a6e22e">LoadTo</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#a6e22e">store</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">value</span>)
+		<span style="color:#75715e">//log.Printf(&#34;%v, %v, %v\n&#34;, reflect.TypeOf(ref), ref.Key(), b)
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">bms</span> = append(<span style="color:#a6e22e">bms</span>, <span style="color:#a6e22e">b</span>)
+	})
+
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%v&#34;</span>, <span style="color:#a6e22e">err</span>)
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">err</span>
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">bms</span>, <span style="color:#66d9ef">nil</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">GetAllBookmarks</span>(<span style="color:#a6e22e">store</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">Handle</span>) (<span style="color:#a6e22e">Bookmarks</span>, <span style="color:#66d9ef">error</span>) {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">bms</span> <span style="color:#a6e22e">Bookmarks</span>
+	<span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">StartPath</span>(<span style="color:#a6e22e">store</span>, <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#e6db74">&#34;Bookmark&#34;</span>)).<span style="color:#a6e22e">In</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#e6db74">&#34;rdf:type&#34;</span>))
+	<span style="color:#a6e22e">schemaConfig</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">NewConfig</span>()
+	<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">Iterate</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>()).<span style="color:#a6e22e">EachValuePair</span>(<span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">ref</span> <span style="color:#a6e22e">graph</span>.<span style="color:#a6e22e">Ref</span>, <span style="color:#a6e22e">value</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Value</span>) {
+		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#a6e22e">Bookmark</span>
+		<span style="color:#a6e22e">schemaConfig</span>.<span style="color:#a6e22e">LoadTo</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#a6e22e">store</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">value</span>)
+		<span style="color:#a6e22e">bms</span> = append(<span style="color:#a6e22e">bms</span>, <span style="color:#a6e22e">b</span>)
+	})
+
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%v&#34;</span>, <span style="color:#a6e22e">err</span>)
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">err</span>
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">bms</span>, <span style="color:#66d9ef">nil</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">FindBookmarksByAnyTag</span>(<span style="color:#a6e22e">store</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">Handle</span>, <span style="color:#a6e22e">tags</span> []<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Value</span>) (<span style="color:#a6e22e">Bookmarks</span>, <span style="color:#66d9ef">error</span>) {
+	<span style="color:#a6e22e">schemaConfig</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">NewConfig</span>()
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">bms</span> <span style="color:#a6e22e">Bookmarks</span>
+	<span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">StartPath</span>(<span style="color:#a6e22e">store</span>).<span style="color:#a6e22e">Has</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#e6db74">&#34;rdf:type&#34;</span>), <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#e6db74">&#34;Bookmark&#34;</span>)).<span style="color:#a6e22e">Has</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#e6db74">&#34;tags&#34;</span>), <span style="color:#a6e22e">tags</span><span style="color:#f92672">...</span>)
+	<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">Iterate</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>()).<span style="color:#a6e22e">EachValue</span>(<span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">value</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Value</span>) {
+		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#a6e22e">Bookmark</span>
+		<span style="color:#a6e22e">schemaConfig</span>.<span style="color:#a6e22e">LoadTo</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#a6e22e">store</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">value</span>)
+		<span style="color:#a6e22e">bms</span> = append(<span style="color:#a6e22e">bms</span>, <span style="color:#a6e22e">b</span>)
+	})
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">bms</span>, <span style="color:#a6e22e">err</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">FindBookmarksByEveryTag</span>(<span style="color:#a6e22e">store</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">Handle</span>, <span style="color:#a6e22e">tags</span> []<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Value</span>) (<span style="color:#a6e22e">Bookmarks</span>, <span style="color:#66d9ef">error</span>) {
+	<span style="color:#a6e22e">schemaConfig</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">NewConfig</span>()
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">bms</span> <span style="color:#a6e22e">Bookmarks</span>
+	<span style="color:#a6e22e">bookmarksMorph</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">StartPath</span>(<span style="color:#a6e22e">store</span>).<span style="color:#a6e22e">Has</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#e6db74">&#34;rdf:type&#34;</span>), <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#e6db74">&#34;Bookmark&#34;</span>))
+	<span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bookmarksMorph</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">t</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">tags</span> {
+		<span style="color:#a6e22e">p</span> = <span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">StartPath</span>(<span style="color:#a6e22e">store</span>).<span style="color:#a6e22e">Follow</span>(<span style="color:#a6e22e">p</span>).<span style="color:#a6e22e">Has</span>(<span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#e6db74">&#34;tags&#34;</span>), <span style="color:#a6e22e">t</span>)
+	}
+	<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">Iterate</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>()).<span style="color:#a6e22e">EachValue</span>(<span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">value</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Value</span>) {
+		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#a6e22e">Bookmark</span>
+		<span style="color:#a6e22e">schemaConfig</span>.<span style="color:#a6e22e">LoadTo</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#a6e22e">store</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">value</span>)
+		<span style="color:#a6e22e">bms</span> = append(<span style="color:#a6e22e">bms</span>, <span style="color:#a6e22e">b</span>)
+	})
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">bms</span>, <span style="color:#a6e22e">err</span>
+}
+
+</code></pre></div>
+  </div>
+</details>
+
+<p>A forráskódban látható, hogy kétféle struktúra van definiálva:</p>
+<ul>
+<li>a <code>Bookmark</code> a teljes változat,</li>
+<li>a <code>BookmarkShort</code> pedig egy rövidített változat.</li>
+</ul>
+<p>A <code>struct</code>-ban vannak elhelyezve a <code>yaml</code> és a <code>quad</code> cimkével azonosított annotációk, tehát egyszerre minkét típusú átalakításhoz megadhatjuk az instrukciókat.</p>
+<h2 id="adat-importálás-struktúra-annotációk-alapján">
+  Adat importálás struktúra annotációk alapján
+  <a class="anchor" href="#adat-import%c3%a1l%c3%a1s-strukt%c3%bara-annot%c3%a1ci%c3%b3k-alapj%c3%a1n">#</a>
+</h2>
+<p>Az adatokat először beolvassuk egy <code>[]Bookmarks</code> típusú változóba, majd abból feltöltjük a store-ba. A feltöltést a <code>&quot;github.com/cayleygraph/cayley/schema&quot;</code> package-ben definiált, <code>schema.WriteAsQuads()</code> funkcióval végezzük el, ahogyan az <code>import_bookmarks_with_schema.go</code> file-ban látható.</p>
+<details >
+  <summary>Az import_bookmarks_with_schema.go megjelenítése</summary>
+  <div class="markdown-inner">
+    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;context&#34;</span>
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/cayleygraph/cayley/schema&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/cayleygraph/quad&#34;</span>
+	<span style="color:#a6e22e">uuid</span> <span style="color:#e6db74">&#34;github.com/satori/go.uuid&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/tombenke/cayley-cookbook-src/kbase&#34;</span>
+)
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">bookmarksFixtures</span> = <span style="color:#e6db74">&#34;./bookmarks.yml&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
+	<span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">GenerateID</span> = <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">o</span> <span style="color:#66d9ef">interface</span>{}) <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Value</span> {
+		<span style="color:#66d9ef">switch</span> <span style="color:#a6e22e">o</span>.(<span style="color:#66d9ef">type</span>) {
+		<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">Bookmark</span>:
+			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">o</span>.(<span style="color:#a6e22e">Bookmark</span>).<span style="color:#a6e22e">ID</span>)
+		<span style="color:#66d9ef">default</span>:
+			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">uuid</span>.<span style="color:#a6e22e">NewV4</span>().<span style="color:#a6e22e">String</span>())
+		}
+	}
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">ImportBookmarksWithSchema</span>()
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">ImportBookmarksWithSchema</span>() {
+	<span style="color:#75715e">// Create an in-memory store
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">store</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">kbase</span>.<span style="color:#a6e22e">InitStore</span>()
+
+	<span style="color:#75715e">// Load Bookmarks from YAML and upload into the mem-store
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Import</span>(<span style="color:#a6e22e">store</span>, <span style="color:#a6e22e">bookmarksFixtures</span>)
+
+	<span style="color:#75715e">// Check if Bookmarks have been uploaded
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">stats</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">Stats</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#66d9ef">true</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		panic(<span style="color:#a6e22e">err</span>)
+	} <span style="color:#66d9ef">else</span> {
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Successfully imported bookmarks into the mem-store as %d nodes and %d quads.\n&#34;</span>, <span style="color:#a6e22e">stats</span>.<span style="color:#a6e22e">Nodes</span>.<span style="color:#a6e22e">Size</span>, <span style="color:#a6e22e">stats</span>.<span style="color:#a6e22e">Quads</span>.<span style="color:#a6e22e">Size</span>)
+	}
+}
+
+</code></pre></div>
+  </div>
+</details>
+
+<p>Futtassuk a programot:
+<a href="https://repl.it/@tombenke/cayley-cookbook-src#schema/import_bookmarks_with_schema.go"><img src="https://repl.it/badge/github/tombenke/cayley-cookbook-src" alt="Run this code on Repl.it" /></a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    cd schema
+    go run impex_bookmarks_with_schema.go yamlImpex.go store.go bookmarks.go
+</code></pre></div><p>A program kimenete:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">Successfully imported bookmarks into the mem-store as 176 nodes and 245 quads.
+
+</code></pre></div><h2 id="adat-exportálás-struktúra-annotációk-alapján">
+  Adat exportálás struktúra annotációk alapján
+  <a class="anchor" href="#adat-export%c3%a1l%c3%a1s-strukt%c3%bara-annot%c3%a1ci%c3%b3k-alapj%c3%a1n">#</a>
+</h2>
+<p>Az exportálás ugyanúgy kezdődik, mint az importálás. Először beolvassuk az adatokat a YAML file-ból, majd feltöltjük a store-ba.</p>
+<p>Ezt követően lekérdezzük az össze Bookmarkot a store-ból, kétféle módon:</p>
+<ul>
+<li>A <code>GetAllBookmarks()</code> funció a teljes részletességgel fogja lekérdezni az adatokat,</li>
+<li>a <code>GetAllShortBookmarks()</code> pedig az egyszerűsített változatban.</li>
+</ul>
+<p>Mindkét funkció a <code>bookmarks.go</code> file-ban van implementálva, és a <code>schemaConfig.LoadTo()</code> metódust használja a tulajdonságok összegyűjtésére. Ehhez előzőleg létre kell hoznunk egy <code>schemaConfig</code> objektumot, a <code>schema.NewConfig()</code> funció segítségével.</p>
+<details >
+  <summary>Az impex_bookmarks_with_schema.go megjelenítése</summary>
+  <div class="markdown-inner">
+    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;context&#34;</span>
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/cayleygraph/cayley&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/cayleygraph/cayley/schema&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/cayleygraph/quad&#34;</span>
+	<span style="color:#a6e22e">uuid</span> <span style="color:#e6db74">&#34;github.com/satori/go.uuid&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/tombenke/cayley-cookbook-src/kbase&#34;</span>
+)
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">bookmarksFixtures</span> = <span style="color:#e6db74">&#34;./bookmarks.yml&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
+	<span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">GenerateID</span> = <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">o</span> <span style="color:#66d9ef">interface</span>{}) <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Value</span> {
+		<span style="color:#66d9ef">switch</span> <span style="color:#a6e22e">o</span>.(<span style="color:#66d9ef">type</span>) {
+		<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">Bookmark</span>:
+			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">o</span>.(<span style="color:#a6e22e">Bookmark</span>).<span style="color:#a6e22e">ID</span>)
+		<span style="color:#66d9ef">default</span>:
+			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">IRI</span>(<span style="color:#a6e22e">uuid</span>.<span style="color:#a6e22e">NewV4</span>().<span style="color:#a6e22e">String</span>())
+		}
+	}
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#75715e">// Create an in-memory store
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">store</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">kbase</span>.<span style="color:#a6e22e">InitStore</span>()
+
+	<span style="color:#75715e">// Import bookmarks data from yaml using the `Bookmark` schema
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">ImportBookmarksWithSchema</span>(<span style="color:#a6e22e">store</span>)
+
+	<span style="color:#75715e">// Find all Bookmarks, and convert to and array of object using `Bookmark` schema.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">bookmarks</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">GetAllBookmarks</span>(<span style="color:#a6e22e">store</span>)
+	<span style="color:#a6e22e">printBookmarks</span>(<span style="color:#a6e22e">bookmarks</span>)
+
+	<span style="color:#75715e">// Find all Bookmarks, and convert to and array of object using `ShortBookmark` schema.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">shortBookmarks</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">GetAllShortBookmarks</span>(<span style="color:#a6e22e">store</span>)
+	<span style="color:#a6e22e">printShortBookmarks</span>(<span style="color:#a6e22e">shortBookmarks</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">ImportBookmarksWithSchema</span>(<span style="color:#a6e22e">store</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">Handle</span>) {
+
+	<span style="color:#75715e">// Load Bookmarks from YAML and upload into the mem-store
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Import</span>(<span style="color:#a6e22e">store</span>, <span style="color:#a6e22e">bookmarksFixtures</span>)
+
+	<span style="color:#75715e">// Check if Bookmarks have been uploaded
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">Stats</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#66d9ef">true</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		panic(<span style="color:#a6e22e">err</span>)
+	} <span style="color:#66d9ef">else</span> {
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Successfully imported bookmarks into the mem-store.\n&#34;</span>)
+	}
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">printBookmarks</span>(<span style="color:#a6e22e">bookmarks</span> <span style="color:#a6e22e">Bookmarks</span>) {
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;\nFull Bookmarks:&#34;</span>)
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">bookmark</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">bookmarks</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">bookmark</span>.<span style="color:#a6e22e">Author</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span> {
+			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;- \&#34;%s\&#34;\n&#34;</span>, <span style="color:#a6e22e">bookmark</span>.<span style="color:#a6e22e">Title</span>)
+		} <span style="color:#66d9ef">else</span> {
+			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;- \&#34;%s\&#34; by %s\n\n&#34;</span>, <span style="color:#a6e22e">bookmark</span>.<span style="color:#a6e22e">Title</span>, <span style="color:#a6e22e">bookmark</span>.<span style="color:#a6e22e">Author</span>)
+		}
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;  %s\n\n&#34;</span>, <span style="color:#a6e22e">bookmark</span>.<span style="color:#a6e22e">Urls</span>[<span style="color:#ae81ff">0</span>])
+	}
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">printShortBookmarks</span>(<span style="color:#a6e22e">bookmarks</span> <span style="color:#a6e22e">Bookmarks</span>) {
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;\nShort Bookmarks:&#34;</span>)
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">bookmark</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">bookmarks</span> {
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;- \&#34;%s\&#34;\n&#34;</span>, <span style="color:#a6e22e">bookmark</span>.<span style="color:#a6e22e">Title</span>)
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;  %s\n\n&#34;</span>, <span style="color:#a6e22e">bookmark</span>.<span style="color:#a6e22e">Urls</span>[<span style="color:#ae81ff">0</span>])
+	}
+}
+
+</code></pre></div>
+  </div>
+</details>
+
+<p>Futtassuk a programot:
+<a href="https://repl.it/@tombenke/cayley-cookbook-src#schema/impex_bookmarks_with_schema.go"><img src="https://repl.it/badge/github/tombenke/cayley-cookbook-src" alt="Run this code on Repl.it" /></a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    cd schema
+    go run impex_bookmarks_with_schema.go yamlImpex.go store.go bookmarks.go
+</code></pre></div><p>A lekérdezésekeket követően a program kiírja az eredményeket.</p>
+<p>A program kimenete:</p>
+<details >
+  <summary>Az eredmények megjelenítése</summary>
+  <div class="markdown-inner">
+    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">Successfully imported bookmarks into the mem-store.
+
+Full Bookmarks:
+- &#34;Gremlin&#39;s Graph Traversal Machinery&#34;
+  https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery
+
+- &#34;Ontotext GraphDB&#34;
+  https://ontotext.com/products/graphdb/
+
+- &#34;Graphs and neural networks: Reading node properties&#34; by David Mack
+
+  https://medium.com/octavian-ai/graphs-and-neural-networks-reading-node-properties-2c91625980eb
+
+- &#34;Towards building the next generation database query engine&#34; by David Mack
+
+  https://medium.com/octavian-ai/towards-building-the-next-generation-database-query-engine-a1beca1e07a3
+
+- &#34;extracting-knowledge-from-knowledge-graphs&#34;
+  https://towardsdatascience.com/extracting-knowledge-from-knowledge-graphs-e5521e4861a0
+
+- &#34;Platypus&#34;
+  https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service/A_gentle_introduction_to_the_Wikidata_Query_Service
+
+- &#34;Grakn.AI - learn&#34;
+  https://blog.grakn.ai/learn/home
+
+- &#34;KagNet: Knowledge-Aware Graph Networks for Commonsense Reasoning&#34;
+  https://github.com/INK-USC/KagNet
+
+- &#34;Knowledge extraction from unstructured texts&#34; by Heuritech
+
+  https://medium.com/heuritech/knowledge-extraction-from-unstructured-texts-c279e3b8f92f
+
+- &#34;Deep Learning with Knowledge Graphs&#34; by Andrew Jefferson
+
+  https://medium.com/octavian-ai/deep-learning-with-knowledge-graphs-3df0b469a61a
+
+- &#34;MacGraph&#34;
+  https://github.com/Octavian-ai/mac-graph
+
+- &#34;octavian.ai&#34;
+  https://www.octavian.ai/
+
+- &#34;Build your own Knowledge Graph From unstructured dark data to valuable business insights&#34; by Ignaz Wanders
+
+  https://medium.com/vectrconsulting/build-your-own-knowledge-graph-975cf6dde67f
+
+- &#34;Extracting knowledge from knowledge graphs using Facebook Pytorch BigGraph.&#34;
+  https://towardsdatascience.com/extracting-knowledge-from-knowledge-graphs-e5521e4861a0
+
+- &#34;Deep Learning with Knowledge Graphs&#34;
+  https://medium.com/octavian-ai/deep-learning-with-knowledge-graphs-3df0b469a61a
+
+- &#34;Knowledge Graphs in Natural Language Processing @ ACL 2020&#34; by Michael Galkin
+
+  https://towardsdatascience.com/knowledge-graphs-in-natural-language-processing-acl-2020-ebb1f0a6e0b1
+
+- &#34;Blog-Rolling-with-BrightstarDB-Express-and-Node-js&#34;
+  https://www.codeproject.com/Articles/419181/Blog-Rolling-with-BrightstarDB-Express-and-Node-js
+
+- &#34;FOAF Vocabulary Specification 0.99&#34;
+  http://xmlns.com/foaf/spec/
+
+- &#34;SuperMemo Website&#34;
+  https://www.supermemo.com/en/archives1990-2015/articles/devour
+
+- &#34;Gellish.net&#34;
+  https://www.gellish.net/
+
+- &#34;Semantic Web and Model-Driven Engineering&#34;
+  http://www.allitebooks.org/semantic-web-and-model-driven-engineering/
+
+- &#34;MRD, Machine Readable dictionary&#34;
+  https://en.wikipedia.org/wiki/Machine-readable_dictionary
+
+
+Short Bookmarks:
+- &#34;Gremlin&#39;s Graph Traversal Machinery&#34;
+  https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery
+
+- &#34;Ontotext GraphDB&#34;
+  https://ontotext.com/products/graphdb/
+
+- &#34;Graphs and neural networks: Reading node properties&#34;
+  https://medium.com/octavian-ai/graphs-and-neural-networks-reading-node-properties-2c91625980eb
+
+- &#34;Towards building the next generation database query engine&#34;
+  https://medium.com/octavian-ai/towards-building-the-next-generation-database-query-engine-a1beca1e07a3
+
+- &#34;extracting-knowledge-from-knowledge-graphs&#34;
+  https://towardsdatascience.com/extracting-knowledge-from-knowledge-graphs-e5521e4861a0
+
+- &#34;Platypus&#34;
+  https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service/A_gentle_introduction_to_the_Wikidata_Query_Service
+
+- &#34;Grakn.AI - learn&#34;
+  https://blog.grakn.ai/learn/home
+
+- &#34;KagNet: Knowledge-Aware Graph Networks for Commonsense Reasoning&#34;
+  https://github.com/INK-USC/KagNet
+
+- &#34;Knowledge extraction from unstructured texts&#34;
+  https://medium.com/heuritech/knowledge-extraction-from-unstructured-texts-c279e3b8f92f
+
+- &#34;Deep Learning with Knowledge Graphs&#34;
+  https://medium.com/octavian-ai/deep-learning-with-knowledge-graphs-3df0b469a61a
+
+- &#34;MacGraph&#34;
+  https://github.com/Octavian-ai/mac-graph
+
+- &#34;octavian.ai&#34;
+  https://www.octavian.ai/
+
+- &#34;Build your own Knowledge Graph From unstructured dark data to valuable business insights&#34;
+  https://medium.com/vectrconsulting/build-your-own-knowledge-graph-975cf6dde67f
+
+- &#34;Extracting knowledge from knowledge graphs using Facebook Pytorch BigGraph.&#34;
+  https://towardsdatascience.com/extracting-knowledge-from-knowledge-graphs-e5521e4861a0
+
+- &#34;Deep Learning with Knowledge Graphs&#34;
+  https://medium.com/octavian-ai/deep-learning-with-knowledge-graphs-3df0b469a61a
+
+- &#34;Knowledge Graphs in Natural Language Processing @ ACL 2020&#34;
+  https://towardsdatascience.com/knowledge-graphs-in-natural-language-processing-acl-2020-ebb1f0a6e0b1
+
+- &#34;Blog-Rolling-with-BrightstarDB-Express-and-Node-js&#34;
+  https://www.codeproject.com/Articles/419181/Blog-Rolling-with-BrightstarDB-Express-and-Node-js
+
+- &#34;FOAF Vocabulary Specification 0.99&#34;
+  http://xmlns.com/foaf/spec/
+
+- &#34;SuperMemo Website&#34;
+  https://www.supermemo.com/en/archives1990-2015/articles/devour
+
+- &#34;Gellish.net&#34;
+  https://www.gellish.net/
+
+- &#34;Semantic Web and Model-Driven Engineering&#34;
+  http://www.allitebooks.org/semantic-web-and-model-driven-engineering/
+
+- &#34;MRD, Machine Readable dictionary&#34;
+  https://en.wikipedia.org/wiki/Machine-readable_dictionary
+
+
+</code></pre></div>
+  </div>
+</details>
+
+<hr />
+<p>
+
+
+Kapcsolódó oldalak:
+
+</p>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+  
+
+
+  
+
+  
+
+
+  
+
+
+<div class="book-languages" tabindex="0" aria-haspopup="true">
+  <ul>
+    <li class="flex align-center">
+      <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+      Magyar
+    </li> 
+  </ul>
+
+  <ul class="book-languages-list">
+    
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/impex/schema/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </li>
+    
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        Magyar
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#struktúra-annotációk">Struktúra annotációk</a></li>
+    <li><a href="#store-létrehozása">Store létrehozása</a></li>
+    <li><a href="#teszt-adatok">Teszt adatok</a></li>
+    <li><a href="#struktúra-annotációk-definiálása">Struktúra annotációk definiálása</a></li>
+    <li><a href="#adat-importálás-struktúra-annotációk-alapján">Adat importálás struktúra annotációk alapján</a></li>
+    <li><a href="#adat-exportálás-struktúra-annotációk-alapján">Adat exportálás struktúra annotációk alapján</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

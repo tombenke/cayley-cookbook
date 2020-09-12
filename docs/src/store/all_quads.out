@@ -1,22 +1,22 @@
 Ref: {0xc00007a1c0} memstore.qprim
 Key: 5 int64
 Value: _:memnode5 quad.BNode
-Quad: _:n1824769210740809767 -- <rdf:type> -> <foaf:Person> quad.Quad
+Quad: _:n8556615191054955488 -- <rdf:type> -> <foaf:Person> quad.Quad
 
 Ref: {0xc00007a3c0} memstore.qprim
 Key: 8 int64
 Value: _:memnode8 quad.BNode
-Quad: _:n1824769210740809767 -- <foaf:givenName> -> "Luke" quad.Quad
+Quad: _:n8556615191054955488 -- <foaf:givenName> -> "Luke" quad.Quad
 
 Ref: {0xc00007a500} memstore.qprim
 Key: 11 int64
 Value: _:memnode11 quad.BNode
-Quad: _:n1824769210740809767 -- <foaf:familyName> -> "Skywalker" quad.Quad
+Quad: _:n8556615191054955488 -- <foaf:familyName> -> "Skywalker" quad.Quad
 
 Ref: {0xc00007a640} memstore.qprim
 Key: 14 int64
 Value: _:memnode14 quad.BNode
-Quad: _:n1824769210740809767 -- <foaf:age> -> "23"^^<xsd:integer> quad.Quad
+Quad: _:n8556615191054955488 -- <foaf:age> -> "23"^^<xsd:integer> quad.Quad
 
 Ref: {0xc00007a740} memstore.qprim
 Key: 16 int64
@@ -26,7 +26,7 @@ Quad: <starwars:leia_organa> -- <rdf:type> -> <foaf:Person> quad.Quad
 Ref: {0xc00007a800} memstore.qprim
 Key: 18 int64
 Value: _:memnode18 quad.BNode
-Quad: <starwars:leia_organa> -- <foaf:knows> -> _:n1824769210740809767 quad.Quad
+Quad: <starwars:leia_organa> -- <foaf:knows> -> _:n8556615191054955488 quad.Quad
 
 Ref: {0xc00007a900} memstore.qprim
 Key: 20 int64

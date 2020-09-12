@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Store-ok on Cayley-CookBook</title>
+    <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/</link>
+    <description>Recent content in Store-ok on Cayley-CookBook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Store létrehozása</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/create-store/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/create-store/</guid>
+      <description>Store létrehozása #  Probléma #  Hogyan tudok létrehozni egy store-t?
+In-memory store létrehozása #  package kbase import ( &amp;#34;github.com/cayleygraph/cayley&amp;#34; &amp;#34;log&amp;#34; ) // Create a mem-store for testing func InitStore() *cayley.Handle { store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } return store } </description>
+    </item>
+    
+    <item>
+      <title>Quads-ok létrehozása</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/make-quads/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/make-quads/</guid>
+      <description>Quads-ok létrehozása #  Probléma #  Hogyan tudok quad-okat létrehozni?
+Quad-ok létrehozása #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.Quad{} quads = append(quads, quad.Make(luke, quad.IRI(rdf.Type), quad.IRI(foaf.Person), label)) quads = append(quads, quad.</description>
+    </item>
+    
+    <item>
+      <title>A store összes node-jának kilistázása</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-nodes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-nodes/</guid>
+      <description>A store összes node-jának kilistázása #  Probléma #  Hogyan tudom az store-ban lévő összes node-ot lekérdezni, és kilistázni?
+Teszt adatok előállítása #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.</description>
+    </item>
+    
+    <item>
+      <title>A store összes quad-jának kilistázása</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-quads/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-quads/</guid>
+      <description>A store összes quad-jának kilistázása #  Probléma #  Hogyan tudom az store-ban lévő összes quad-ot lekérdezni, és kilistázni?
+Teszt adatok előállítása #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.</description>
+    </item>
+    
+    <item>
+      <title>A node-ok és quad-ok belső reprezentációja</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/internals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/internals/</guid>
+      <description>A node-ok és quad-ok belső reprezentációja #    1. ábra: Belső reprezentáció   </description>
+    </item>
+    
+  </channel>
+</rss>

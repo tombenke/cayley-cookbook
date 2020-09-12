@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>path.Union on Cayley-CookBook</title>
+    <link>https://tombenke.github.io/cayley-cookbook/en/apifuncs/path.union/</link>
+    <description>Recent content in path.Union on Cayley-CookBook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://tombenke.github.io/cayley-cookbook/en/apifuncs/path.union/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Find All Predicates</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/find_all_predicates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/find_all_predicates/</guid>
+      <description>Find All Predicates #  Problem #  How can I list all the predicates used in the graph?
+Test Data #    Fig 1.: Graph diagram of test data   Show the test data in nquads format &amp;lt;alice&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;dani&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; .</description>
+    </item>
+    
+  </channel>
+</rss>

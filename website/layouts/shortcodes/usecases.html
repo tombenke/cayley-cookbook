@@ -1,0 +1,10 @@
+{{ print $.Site.Taxonomies.usecases}}
+
+  {{ partial "docs/taxonomy" . }}
+
+{{ range $.Site.Taxonomies.usecases }}
+<ul>
+	// in here we can access the page’s information
+    <li>{{ . }}</li>
+</ul>
+{{ end }}

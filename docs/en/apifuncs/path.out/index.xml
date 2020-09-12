@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>path.Out() on Cayley-CookBook</title>
+    <link>https://tombenke.github.io/cayley-cookbook/en/apifuncs/path.out/</link>
+    <description>Recent content in path.Out() on Cayley-CookBook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://tombenke.github.io/cayley-cookbook/en/apifuncs/path.out/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bi-directional Relations</title>
+      <link>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/bidirectional/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/bidirectional/</guid>
+      <description>Bi-directional Relations #  Problem #  If I have a graph: A &amp;lt;-1-&amp;gt; B &amp;lt;-2-&amp;gt; C where A, B, C are subjects and objects linked with predicates 1, 2 (bidirectional). How can I get C using a path?
+Test data #    Fig 1.: Graph diagram of test data   Show the test data in nquads format &amp;lt;A&amp;gt; &amp;lt;predicate-1&amp;gt; &amp;lt;B&amp;gt; . &amp;lt;B&amp;gt; &amp;lt;predicate-1&amp;gt; &amp;lt;A&amp;gt; . &amp;lt;B&amp;gt; &amp;lt;predicate-2&amp;gt; &amp;lt;C&amp;gt; .</description>
+    </item>
+    
+  </channel>
+</rss>
