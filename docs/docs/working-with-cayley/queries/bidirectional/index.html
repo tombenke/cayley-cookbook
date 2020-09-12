@@ -18,7 +18,7 @@ Test data #    Fig 1.: Graph diagram of test data   Show the test data in nquads
 <link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bidirectional/" title="Kétirányú relációk">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/en.search.min.1ca47b62539b9f162e8a0a7d60297b653a3db89bd2e7d4ea30198d36f03c5bdd.js" integrity="sha256-HKR7YlObnxYuigp9YCl7ZTo9uJvS59TqMBmNNvA8W90="></script>
+<script defer src="/cayley-cookbook/en.search.min.3992449568a72f8e353fe1bd5dbbf130a37212230c909f323d1e0de009f840e8.js" integrity="sha256-OZJElWinL441P&#43;G9XbvxMKNyEiMMkJ8yPR4N4An4QOg="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -411,26 +411,26 @@ How  can I get <code>C</code> using a path?</p>
   Simple query
   <a class="anchor" href="#simple-query">#</a>
 </h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">V</span>().<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-1&gt;&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-2&gt;&#34;</span>).<span style="color:#a6e22e">Tag</span>(<span style="color:#e6db74">&#39;target&#39;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-2&gt;&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-1&gt;&#34;</span>).<span style="color:#a6e22e">All</span>()
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">V</span>().<span style="color:#a6e22e">Tag</span>(<span style="color:#e6db74">&#34;source&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-1&gt;&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-2&gt;&#34;</span>).<span style="color:#a6e22e">Tag</span>(<span style="color:#e6db74">&#39;target&#39;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-2&gt;&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-1&gt;&#34;</span>).<span style="color:#a6e22e">All</span>()
 
 </code></pre></div><p>Results:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">{&#34;id&#34;:&#34;A&#34;,&#34;target&#34;:&#34;C&#34;}
-{&#34;id&#34;:&#34;A1&#34;,&#34;target&#34;:&#34;C1&#34;}
-{&#34;id&#34;:&#34;A2&#34;,&#34;target&#34;:&#34;C2&#34;}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">{&#34;id&#34;:&#34;A&#34;,&#34;source&#34;:&#34;A&#34;,&#34;target&#34;:&#34;C&#34;}
+{&#34;id&#34;:&#34;A1&#34;,&#34;source&#34;:&#34;A1&#34;,&#34;target&#34;:&#34;C1&#34;}
+{&#34;id&#34;:&#34;A2&#34;,&#34;source&#34;:&#34;A2&#34;,&#34;target&#34;:&#34;C2&#34;}
 
 </code></pre></div><h3 id="query-with-morphism">
   Query with morphism
   <a class="anchor" href="#query-with-morphism">#</a>
 </h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// with morphism
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">forth</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">V</span>().<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-1&gt;&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-2&gt;&#34;</span>).<span style="color:#a6e22e">Tag</span>(<span style="color:#e6db74">&#34;target&#34;</span>);
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">forth</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">V</span>().<span style="color:#a6e22e">Tag</span>(<span style="color:#e6db74">&#34;source&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-1&gt;&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-2&gt;&#34;</span>).<span style="color:#a6e22e">Tag</span>(<span style="color:#e6db74">&#34;target&#34;</span>);
 <span style="color:#a6e22e">back</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">M</span>().<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-2&gt;&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;&lt;predicate-1&gt;&#34;</span>)
 <span style="color:#a6e22e">forth</span>.<span style="color:#a6e22e">Follow</span>(<span style="color:#a6e22e">back</span>).<span style="color:#a6e22e">All</span>()
 
 </code></pre></div><p>Results:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">{&#34;id&#34;:&#34;A&#34;,&#34;target&#34;:&#34;C&#34;}
-{&#34;id&#34;:&#34;A1&#34;,&#34;target&#34;:&#34;C1&#34;}
-{&#34;id&#34;:&#34;A2&#34;,&#34;target&#34;:&#34;C2&#34;}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">{&#34;id&#34;:&#34;A&#34;,&#34;source&#34;:&#34;A&#34;,&#34;target&#34;:&#34;C&#34;}
+{&#34;id&#34;:&#34;A1&#34;,&#34;source&#34;:&#34;A1&#34;,&#34;target&#34;:&#34;C1&#34;}
+{&#34;id&#34;:&#34;A2&#34;,&#34;source&#34;:&#34;A2&#34;,&#34;target&#34;:&#34;C2&#34;}
 
 </code></pre></div><h2 id="golang-implementation">
   Golang Implementation
@@ -497,7 +497,7 @@ How  can I get <code>C</code> using a path?</p>
 }
 
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">doQuery</span>(<span style="color:#a6e22e">store</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">Handle</span>) {
-	<span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">StartPath</span>(<span style="color:#a6e22e">store</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;1&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;2&#34;</span>).<span style="color:#a6e22e">Tag</span>(<span style="color:#e6db74">&#34;target&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;2&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;1&#34;</span>)
+	<span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cayley</span>.<span style="color:#a6e22e">StartPath</span>(<span style="color:#a6e22e">store</span>).<span style="color:#a6e22e">Tag</span>(<span style="color:#e6db74">&#34;source&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;1&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;2&#34;</span>).<span style="color:#a6e22e">Tag</span>(<span style="color:#e6db74">&#34;target&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;2&#34;</span>).<span style="color:#a6e22e">Out</span>(<span style="color:#e6db74">&#34;1&#34;</span>)
 
 	<span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">Iterate</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>()).<span style="color:#a6e22e">EachValue</span>(<span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">value</span> <span style="color:#a6e22e">quad</span>.<span style="color:#a6e22e">Value</span>) {
 		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%v\n&#34;</span>, <span style="color:#a6e22e">value</span>)
@@ -515,9 +515,9 @@ How  can I get <code>C</code> using a path?</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&#34;A&#34;
 &#34;A1&#34;
 &#34;A2&#34;
-map[target:&#34;C&#34;]
-map[target:&#34;C1&#34;]
-map[target:&#34;C2&#34;]
+map[source:&#34;A&#34; target:&#34;C&#34;]
+map[source:&#34;A1&#34; target:&#34;C1&#34;]
+map[source:&#34;A2&#34; target:&#34;C2&#34;]
 
 </code></pre></div></article>
  

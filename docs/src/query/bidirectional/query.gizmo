@@ -1,1 +1,1 @@
-g.V().Out("<predicate-1>").Out("<predicate-2>").Tag('target').Out("<predicate-2>").Out("<predicate-1>").All()
+g.V().Tag("source").Out("<predicate-1>").Out("<predicate-2>").Tag('target').Out("<predicate-2>").Out("<predicate-1>").All()

@@ -1,4 +1,4 @@
 // with morphism
-forth = g.V().Out("<predicate-1>").Out("<predicate-2>").Tag("target");
+forth = g.V().Tag("source").Out("<predicate-1>").Out("<predicate-2>").Tag("target");
 back = g.M().Out("<predicate-2>").Out("<predicate-1>")
 forth.Follow(back).All()

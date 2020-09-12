@@ -1,6 +1,6 @@
 "A"
 "A1"
 "A2"
-map[target:"C"]
-map[target:"C1"]
-map[target:"C2"]
+map[source:"A" target:"C"]
+map[source:"A1" target:"C1"]
+map[source:"A2" target:"C2"]
