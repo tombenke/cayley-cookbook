@@ -1,11 +1,7 @@
 ---
-title: "Gráf alapú adatmodellezés"
 weight: 1
-# bookFlatSection: false
-# bookToc: true
-# bookHidden: false
-# bookCollapseSection: true
-# bookComments: true
+bookCollapseSection: true
+title: "Gráf alapú adatmodellezés"
 ---
 
 # Gráf alapú adatmodellezés
@@ -36,7 +32,4 @@ Az 1. ábra egy egyszerű gráfot ábrázol, amin két csomópont (node) találh
 {{< figure src="/cayley-cookbook/simple-graph.png" title="1. ábra: Egyszerű Gráf" >}}
 
 Bizonyos gráf adatbázis-kezelők megengedik, hogy a node-ok és edge-ek több tulajdonságot is hordozzanak, a {{< cayley >}} esetében számunkra ezek egyetlen értéket fognak jelenteni.
-
-{{< button relref="basic-concepts" >}}&#9669; Alapfogalmak{{< /button >}}
-{{< button relref="resources" >}}Erőforrások &#9659;{{< /button >}}
 
