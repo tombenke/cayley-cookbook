@@ -3,21 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/about/</loc>
-    <lastmod>2020-09-01T14:04:49+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/docs/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/hu/docs/about/"
-                />
-  </url>
-  
-  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/</loc>
     <xhtml:link
                 rel="alternate"
@@ -42,6 +27,20 @@
                 rel="alternate"
                 hreflang="hu"
                 href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/about/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/docs/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/hu/docs/about/"
                 />
   </url>
   
@@ -466,36 +465,6 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/hu/</loc>
-    <lastmod>2020-09-01T14:04:49+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/hu/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/</loc>
-    <lastmod>2020-09-01T14:04:49+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/docs/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/hu/docs/"
-                />
-  </url>
-  
-  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/hu/apifuncs/</loc>
     <xhtml:link
                 rel="alternate"
@@ -520,6 +489,34 @@
                 rel="alternate"
                 hreflang="hu"
                 href="https://tombenke.github.io/cayley-cookbook/hu/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/hu/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/hu/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/docs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/hu/docs/"
                 />
   </url>
   

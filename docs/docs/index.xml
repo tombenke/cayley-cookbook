@@ -6,7 +6,6 @@
     <description>Recent content in Docs on Cayley-CookBook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Sep 2020 14:04:49 +0200</lastBuildDate>
     
 	<atom:link href="https://tombenke.github.io/cayley-cookbook/docs/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,10 +13,11 @@
     <item>
       <title>About</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/about/</link>
-      <pubDate>Tue, 01 Sep 2020 14:04:49 +0200</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/about/</guid>
-      <description>About #  TODO</description>
+      <description>About #  Nowadays, when we are talking about Artificial intelligence, we mostly think of Machine Learning, that is also called Statistical Learning. However we can achieve spectacular results via Machine Learning it has disadvantages too. It is quite cumbersome to analyze the results of learnings, and very difficult to reason for human beings.
+Machine Learning is only one possible approach to implement Artificial Intelligence. The early period of AI researches, in the 50s and 60s the symbolic approach was the main direction.</description>
     </item>
     
   </channel>

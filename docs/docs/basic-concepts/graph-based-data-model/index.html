@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Graph Based Data Model #  Conceptual Model, or Domain
+<meta name="description" content="Graph Based Data Model #  When we build a knowledge-graph, then we build a conceptual model of a part of the real World.
 A conceptual model is a model of a subject area or area of knowledge, sometimes called a domain.
-It represents:
+A domain model typically represents:
  the primary entities (the things of the domain), the relationships among entities, the attributes and attribute values (sometimes called properties and property values) of the entities and the relationships, and sometimes rules that associate entities, relationships, and attributes (or all three) in more complicated ways.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Graph Based Data Model" />
-<meta property="og:description" content="Graph Based Data Model #  Conceptual Model, or Domain
+<meta property="og:description" content="Graph Based Data Model #  When we build a knowledge-graph, then we build a conceptual model of a part of the real World.
 A conceptual model is a model of a subject area or area of knowledge, sometimes called a domain.
-It represents:
+A domain model typically represents:
  the primary entities (the things of the domain), the relationships among entities, the attributes and attribute values (sometimes called properties and property values) of the entities and the relationships, and sometimes rules that associate entities, relationships, and attributes (or all three) in more complicated ways." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/graph-based-data-model/" />
@@ -22,7 +22,7 @@ It represents:
 <link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/graph-based-data-model/" title="Gráf alapú adatmodellezés">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/en.search.min.13b575123c0733a148fe713b778313faeb2cf243539691fecce7640016eb6770.js" integrity="sha256-E7V1EjwHM6FI/nE7d4MT&#43;uss8kNTlpH&#43;zOdkABbrZ3A="></script>
+<script defer src="/cayley-cookbook/en.search.min.b1aa4c36a945e97ac3891e6f606f9cb4c7666e1238cda0df748f83c2d809661a.js" integrity="sha256-sapMNqlF6XrDiR5vYG&#43;ctMdmbhI4zaDfdI&#43;DwtgJZho="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -261,15 +261,32 @@ https://github.com/alex-shpak/hugo-book
   Graph Based Data Model
   <a class="anchor" href="#graph-based-data-model">#</a>
 </h1>
-<p>Conceptual Model, or Domain</p>
+<p>When we build a knowledge-graph, then we build a conceptual model of a part of the real World.</p>
 <p>A conceptual model is a model of a subject area or area of knowledge, sometimes called a domain.</p>
-<p>It represents:</p>
+<p>A domain model typically represents:</p>
 <ul>
 <li>the primary entities (the things of the domain),</li>
 <li>the relationships among entities,</li>
 <li>the attributes and attribute values (sometimes called properties and property values) of the entities and the relationships,</li>
 <li>and sometimes rules that associate entities, relationships, and attributes (or all three) in more complicated ways.</li>
 </ul>
+<p>The graph databases and semantic technologies can be very efficiently applied to solve problems, when we have to work with flexible, frequently changing, non-structured data models, and we have to analyze these data from different aspects. Therefore these technologies are very useful to describe and manage conceptual models.</p>
+<p>The <a href="https://hu.wikipedia.org/wiki/Gr%C3%A1f">graphs</a> are made of two basic elements:</p>
+<ul>
+<li>nodes, (or vertices).</li>
+<li>edges, that connect vertices.</li>
+</ul>
+<p>We usually use graphs to represent knowledge. The nodes of the graphs are typically represent the things of the World, and the edges represent the associations among the things.</p>
+<p>The edges are directed, and both the nodes and edges can have labels.</p>
+<p>the Figure 1. shows a very simple graph, which contains two nodes, one with the &ldquo;Luke&rdquo; label, and another one with the label of &ldquo;Leia&rdquo;, moreover there is an edge between them, with the label of &ldquo;knows&rdquo;.</p>
+<figure>
+    <img src="/cayley-cookbook/simple-graph.png"/> <figcaption>
+            <h4>figure 1: A simple graph</h4>
+        </figcaption>
+</figure>
+
+<p>Some graph databases allows us to give more than one labels to nodes and edges in the form of property-value maps. These kind of graphs are called property-graphs. in case of <a href="https://cayley.io/" target="_blank">Cayley</a>
+, our graphs will contain only one label per node and per edge.</p>
 </article>
  
       

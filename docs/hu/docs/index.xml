@@ -6,7 +6,6 @@
     <description>Recent content in Docs on Cayley-CookBook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Sep 2020 14:04:49 +0200</lastBuildDate>
     
 	<atom:link href="https://tombenke.github.io/cayley-cookbook/hu/docs/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +13,7 @@
     <item>
       <title>Bevezetés</title>
       <link>https://tombenke.github.io/cayley-cookbook/hu/docs/about/</link>
-      <pubDate>Tue, 01 Sep 2020 14:04:49 +0200</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/about/</guid>
       <description>Bevezetés #  Amikor manapság Mesterséges Intelligenciáról beszélünk, többnyire a Gépi Tanulásra gondolunk, amit Statisztikus Tanulásnak is neveznek. A Gépi Tanulás módszereivel nagyon látványos eredményeket lehet elérni, ugyanakkor komoly hátránya, hogy a tanulás során keletkezett eredmények elemzése, magyarázata ember számára szinte egyáltalán nem, vagy csak nehezen értelmezhető.

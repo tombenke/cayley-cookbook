@@ -6,7 +6,6 @@
     <description>Recent content in Cayley CookBook on Cayley-CookBook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Sep 2020 14:04:49 +0200</lastBuildDate>
     
 	<atom:link href="https://tombenke.github.io/cayley-cookbook/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,10 +13,11 @@
     <item>
       <title>About</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/about/</link>
-      <pubDate>Tue, 01 Sep 2020 14:04:49 +0200</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/about/</guid>
-      <description>About #  TODO</description>
+      <description>About #  Nowadays, when we are talking about Artificial intelligence, we mostly think of Machine Learning, that is also called Statistical Learning. However we can achieve spectacular results via Machine Learning it has disadvantages too. It is quite cumbersome to analyze the results of learnings, and very difficult to reason for human beings.
+Machine Learning is only one possible approach to implement Artificial Intelligence. The early period of AI researches, in the 50s and 60s the symbolic approach was the main direction.</description>
     </item>
     
     <item>
@@ -46,9 +46,9 @@ Test Data #    Fig 1.: Graph diagram of test data   Show the test data in nquads
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/graph-based-data-model/</guid>
-      <description>Graph Based Data Model #  Conceptual Model, or Domain
+      <description>Graph Based Data Model #  When we build a knowledge-graph, then we build a conceptual model of a part of the real World.
 A conceptual model is a model of a subject area or area of knowledge, sometimes called a domain.
-It represents:
+A domain model typically represents:
  the primary entities (the things of the domain), the relationships among entities, the attributes and attribute values (sometimes called properties and property values) of the entities and the relationships, and sometimes rules that associate entities, relationships, and attributes (or all three) in more complicated ways.</description>
     </item>
     
