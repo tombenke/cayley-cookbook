@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>A Cayley rendszer áttekintése on Cayley-CookBook</title>
+    <title>Cayley Overview on Cayley-CookBook</title>
     <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/</link>
-    <description>Recent content in A Cayley rendszer áttekintése on Cayley-CookBook</description>
+    <description>Recent content in Cayley Overview on Cayley-CookBook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -11,39 +11,39 @@
     
     
     <item>
-      <title>A `cayley http` parancs</title>
+      <title>The `cayley http` command</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-http/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-http/</guid>
-      <description>A cayley http parancs #    1. ábra: cayley http   </description>
+      <description>The cayley http command #    Figure 1.: cayley http   </description>
     </item>
     
     <item>
-      <title>A `cayley convert` parancs</title>
+      <title>The `cayley convert` command</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-convert/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-convert/</guid>
-      <description>A cayley convert parancs #    2. ábra: cayley convert   </description>
+      <description>The cayley convert command #    Figure 2.: cayley convert   </description>
     </item>
     
     <item>
-      <title>A `cayley repl` parancs</title>
+      <title>The `cayley repl` command</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-repl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-repl/</guid>
-      <description>A cayley repl parancs #    3. ábra: cayley repl   </description>
+      <description>The cayley repl command #    Figure 3.: cayley repl   </description>
     </item>
     
     <item>
-      <title>A `cayley query` parancs</title>
+      <title>The `cayley query` command</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/</guid>
-      <description>A cayley query parancs #    1. ábra: cayley query   </description>
+      <description>The cayley query command #    Figure 4.: cayley query   </description>
     </item>
     
   </channel>

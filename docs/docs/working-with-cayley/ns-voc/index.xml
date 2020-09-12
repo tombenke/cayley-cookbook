@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Namespace-ek és szótárak on Cayley-CookBook</title>
+    <title>Namespaces and Vocabularies on Cayley-CookBook</title>
     <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/</link>
-    <description>Recent content in Namespace-ek és szótárak on Cayley-CookBook</description>
+    <description>Recent content in Namespaces and Vocabularies on Cayley-CookBook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -11,37 +11,36 @@
     
     
     <item>
-      <title>Regisztrált Namespace-ek listázása</title>
+      <title>List Registered Namespaces</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/list-namespaces/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/list-namespaces/</guid>
-      <description>Regisztrált Namespace-ek listázása #  Az alábbi kód kilistázza az összes, jelenleg regisztrált namespace-t:
+      <description>List Registered Namespaces #  The following code fragment lists all the namespaces currently registered:
 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add some predefined vocabularies 	_ &amp;#34;github.com/cayleygraph/quad/voc/schema&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/xsd&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; ) func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;); for _, v := range voc.List() { fmt.Printf(&amp;#34; %s =&amp;gt; %s\n&amp;#34;, v.Prefix, v.Full); } } 
-cd namespaces go run list_namespaces.go` A program kimenete:
+cd namespaces go run list_namespaces.go` The results:
 Registered namespaces: rdfs: =&amp;gt; http://www.w3.org/2000/01/rdf-schema#  schema: =&amp;gt; http://schema.</description>
     </item>
     
     <item>
-      <title>Új namespace regisztrálása</title>
+      <title>Register a New Namespace</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/register-namespace/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/register-namespace/</guid>
-      <description>Új namespace regisztrálása #  Az alábbi kód regisztrál egy új namespace-t:
+      <description>Register a New Namespace #  The next code registers a new namespace:
 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add built-in vocabulary 	_ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; // Add own vocabulary 	_ &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func init() { // Register a new namespace with prefix 	voc.RegisterPrefix(`acc:`, `http://mycompany.com/voc/accounting#`) } func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;) for _, v := range voc.List() { fmt.Printf(&amp;#34; %s =&amp;gt; %s\n&amp;#34;, v.Prefix, v.Full) } } 
 cd namespaces go run register_namespace.</description>
     </item>
     
     <item>
-      <title>Új szótár létrehozása</title>
+      <title>Create a New Vocabulary</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/vocabularies/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/vocabularies/</guid>
-      <description>Új szótár létrehozása #  A következő kódrészlet bemutatja, hogyan lehet egy új szótárat definiálni.
-A foaf.go package FOAF Vocabulary Specification leggyakrabban használt kifejezéseit definiálja. Ezt a package-et több példában is használjuk. A szótárban definiált szavakat predikátumként alkalmazzuk.
-// Package foaf contains constants of the FOAF Concepts Vocabulary (RDF) package foaf import &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; func init() { voc.RegisterPrefix(Prefix, NS) } const ( NS = `http://xmlns.com/foaf/0.1/#` Prefix = `foaf:` ) const ( // Core  // An agent (eg.</description>
+      <description>Create a New Vocabulary #  The following code demonstrates how can a new vocabulary be defined. The foaf.go package defines the most frequently used terms of the FOAF Vocabulary Specification. This package is used by several other examples of the cookbook as a vocabulary to use some terms as predicates.
+// Package foaf contains constants of the FOAF Concepts Vocabulary (RDF) package foaf import &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; func init() { voc.RegisterPrefix(Prefix, NS) } const ( NS = `http://xmlns.</description>
     </item>
     
   </channel>

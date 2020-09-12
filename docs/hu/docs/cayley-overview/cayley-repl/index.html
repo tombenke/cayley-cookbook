@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="hu" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A cayley repl parancs #    3. ábra: cayley repl   ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="A `cayley repl` parancs" />
+<meta property="og:description" content="A cayley repl parancs #    3. ábra: cayley repl   " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/" />
+
+<title>A `cayley repl` parancs | Cayley-CookBook</title>
+<link rel="manifest" href="/cayley-cookbook/manifest.json">
+<link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-repl/" title="The `cayley repl` command">
+
+<link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
+<script defer src="/cayley-cookbook/hu.search.min.2718953528e3fe4c42b2aea8d057bf25d15e0772e59c18dcdcc3434c25486382.js" integrity="sha256-JxiVNSjj/kxCsq6o0Fe/JdFeB3LlnBjc3MNDTCVIY4I="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-177858708-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cayley-cookbook/hu"><span>Cayley-CookBook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/about/" class="">Bevezetés</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/basic-concepts/" class="collapsed ">Alapfogalmak</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/cayley-overview/" class="collapsed ">A Cayley rendszer áttekintése</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/cayley-overview/cayley-http/" class="">A `cayley http` parancs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/" class="">A `cayley convert` parancs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/" class="active">A `cayley repl` parancs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/cayley-overview/cayley-query/" class="">A `cayley query` parancs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/working-with-cayley/" class="collapsed ">A Tudás-Gráf használata</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>A `cayley repl` parancs</strong>
+
+  <label for="toc-control">
+    
+    <img src="/cayley-cookbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents"></nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="a-cayley-repl-parancs">
+  A <code>cayley repl</code> parancs
+  <a class="anchor" href="#a-cayley-repl-parancs">#</a>
+</h1>
+<figure>
+    <img src="/cayley-cookbook/cayley-repl.png"/> <figcaption>
+            <h4>3. ábra: cayley repl</h4>
+        </figcaption>
+</figure>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+  
+
+
+  
+
+  
+
+
+  
+
+
+<div class="book-languages" tabindex="0" aria-haspopup="true">
+  <ul>
+    <li class="flex align-center">
+      <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+      Magyar
+    </li> 
+  </ul>
+
+  <ul class="book-languages-list">
+    
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-repl/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </li>
+    
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        Magyar
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents"></nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

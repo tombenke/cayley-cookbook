@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cayley Szakácskönyv on Cayley-CookBook</title>
+    <title>Cayley CookBook on Cayley-CookBook</title>
     <link>https://tombenke.github.io/cayley-cookbook/</link>
-    <description>Recent content in Cayley Szakácskönyv on Cayley-CookBook</description>
+    <description>Recent content in Cayley CookBook on Cayley-CookBook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 01 Sep 2020 14:04:49 +0200</lastBuildDate>
@@ -12,248 +12,240 @@
     
     
     <item>
-      <title>Bevezetés</title>
+      <title>About</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/about/</link>
       <pubDate>Tue, 01 Sep 2020 14:04:49 +0200</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/about/</guid>
-      <description>Bevezetés #  Amikor manapság Mesterséges Intelligenciáról beszélünk, többnyire a Gépi Tanulásra gondolunk, amit Statisztikus Tanulásnak is neveznek. A Gépi Tanulás módszereivel nagyon látványos eredményeket lehet elérni, ugyanakkor komoly hátránya, hogy a tanulás során keletkezett eredmények elemzése, magyarázata ember számára szinte egyáltalán nem, vagy csak nehezen értelmezhető.
-A Gépi Tanulás azonban csak az egyik lehetséges megközelítés. Korábban, az MI kutatások kezdetén, az 50-es 60-as években a fő csapásirány a szimbolikus megközelítés volt.</description>
+      <description>About #  TODO</description>
     </item>
     
     <item>
-      <title>A `cayley http` parancs</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-http/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-http/</guid>
-      <description>A cayley http parancs #    1. ábra: cayley http   </description>
-    </item>
-    
-    <item>
-      <title>Gráf alapú adatmodellezés</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/graph-based-data-model/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/graph-based-data-model/</guid>
-      <description>Gráf alapú adatmodellezés #  Amikor tudásgráfot építünk, akkor a világ egy részéről építünk fel egy koncepcionális modellt.
-Egy koncepcionális modell jellemzően egy meghatározott szakterületet fed le, ezért ezt a modellt domain-nek, tudás-tartománynak is nevezzük.
-Egy domain a következőket képviseli:
- az elsődleges entitásokat (a dolgokat, amelyek a domain-be beletartoznak). Az entitásokra használni fogjuk a resource kifejezést is; az entitások között fennálló kapcsolatokat; az entitások és kapcsolatok tulajdonságait, más szóval attribútumait Ezeket property-knek is nevezzük esetleg a szabályokat, amelyek az entitások és attribútumaik kapcsolatára, azok belső tulajdonságaira vonatkoznak.</description>
-    </item>
-    
-    <item>
-      <title>Quad-ok exportálása</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/</guid>
-      <description>Quad-ok #  Az alábbi példa létrehoz egy quad halmazt, majd kiexportálja többféle formátumban:
-A teljes kódlista megtekintése package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad&amp;#34; &amp;#34;reflect&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func main() { // Create Quads about some people using Blank Nodes as references 	quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads 	printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references 	quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads 	printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad.</description>
-    </item>
-    
-    <item>
-      <title>Regisztrált Namespace-ek listázása</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/list-namespaces/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/list-namespaces/</guid>
-      <description>Regisztrált Namespace-ek listázása #  Az alábbi kód kilistázza az összes, jelenleg regisztrált namespace-t:
-package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add some predefined vocabularies 	_ &amp;#34;github.com/cayleygraph/quad/voc/schema&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/xsd&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; ) func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;); for _, v := range voc.List() { fmt.Printf(&amp;#34; %s =&amp;gt; %s\n&amp;#34;, v.Prefix, v.Full); } } 
-cd namespaces go run list_namespaces.go` A program kimenete:
-Registered namespaces: rdfs: =&amp;gt; http://www.w3.org/2000/01/rdf-schema#  schema: =&amp;gt; http://schema.</description>
-    </item>
-    
-    <item>
-      <title>Store létrehozása</title>
+      <title>Create Store</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/create-store/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/create-store/</guid>
-      <description>Store létrehozása #  Probléma #  Hogyan tudok létrehozni egy store-t?
-In-memory store létrehozása #  package kbase import ( &amp;#34;github.com/cayleygraph/cayley&amp;#34; &amp;#34;log&amp;#34; ) // Create a mem-store for testing func InitStore() *cayley.Handle { store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } return store } </description>
+      <description>Create Store #  Problem #  How can I create a store?
+In-memory store creation #  package kbase import ( &amp;#34;github.com/cayleygraph/cayley&amp;#34; &amp;#34;log&amp;#34; ) // Create a mem-store for testing func InitStore() *cayley.Handle { store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } return store } </description>
     </item>
     
     <item>
-      <title>Összes node kiírása</title>
+      <title>Find All Vertices</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/find_all_vertices/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/find_all_vertices/</guid>
-      <description>Összes node kiírása #  Probléma #  Hogyan tudom gráf összes elemét (subject-eket, object-eket, predicate-eket) kiíratni?
-Teszt adatok #    1. ábra: Teszt adatok Gráf diagramja   Kiinduló adatok megtekintése nquads formában &amp;lt;alice&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;dani&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;emily&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; .</description>
+      <description>Find All Vertices #  Problem #  How can I list all the nodes (subjects, predicates and objects) of the graph?
+Test Data #    Fig 1.: Graph diagram of test data   Show the test data in nquads format &amp;lt;alice&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;dani&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; .</description>
     </item>
     
     <item>
-      <title>Új namespace regisztrálása</title>
+      <title>Graph Based Data Model</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/graph-based-data-model/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/graph-based-data-model/</guid>
+      <description>Graph Based Data Model #  Conceptual Model, or Domain
+A conceptual model is a model of a subject area or area of knowledge, sometimes called a domain.
+It represents:
+ the primary entities (the things of the domain), the relationships among entities, the attributes and attribute values (sometimes called properties and property values) of the entities and the relationships, and sometimes rules that associate entities, relationships, and attributes (or all three) in more complicated ways.</description>
+    </item>
+    
+    <item>
+      <title>List Registered Namespaces</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/list-namespaces/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/list-namespaces/</guid>
+      <description>List Registered Namespaces #  The following code fragment lists all the namespaces currently registered:
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add some predefined vocabularies 	_ &amp;#34;github.com/cayleygraph/quad/voc/schema&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/xsd&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; ) func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;); for _, v := range voc.List() { fmt.Printf(&amp;#34; %s =&amp;gt; %s\n&amp;#34;, v.Prefix, v.Full); } } 
+cd namespaces go run list_namespaces.go` The results:
+Registered namespaces: rdfs: =&amp;gt; http://www.w3.org/2000/01/rdf-schema#  schema: =&amp;gt; http://schema.</description>
+    </item>
+    
+    <item>
+      <title>Quads export</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/</guid>
+      <description>Quads #  This code creates a set of quads, then exports them into several formats:
+See the full list of source code package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad&amp;#34; &amp;#34;reflect&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func main() { // Create Quads about some people using Blank Nodes as references 	quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads 	printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references 	quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads 	printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad.</description>
+    </item>
+    
+    <item>
+      <title>The `cayley http` command</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-http/</guid>
+      <description>The cayley http command #    Figure 1.: cayley http   </description>
+    </item>
+    
+    <item>
+      <title>Data import / export via struct annotation</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/schema/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/schema/</guid>
+      <description>Data import / export via struct annotation #  Structure annotations #  This section demonstrates how can we convert simple or complex objects and their properties to quads. it also shows how can we directly upload these data structures to the store, using the annotations placed into the struct declarations ob the objects. Moreover there are examples to the retrieval of these complex objects from the store.
+Within this method it is much easier to store/retrieve complex data structures, than doing it directly with the quads that these data structures are made of, and collecting their properties one-by-one.</description>
+    </item>
+    
+    <item>
+      <title>Find All Predicates</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/find_all_predicates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/find_all_predicates/</guid>
+      <description>Find All Predicates #  Problem #  How can I list all the predicates used in the graph?
+Test Data #    Fig 1.: Graph diagram of test data   Show the test data in nquads format &amp;lt;alice&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;dani&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; .</description>
+    </item>
+    
+    <item>
+      <title>Make Quads</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/make-quads/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/make-quads/</guid>
+      <description>Make Quads #  Problem #  How can I crate new quads?
+Create Quads #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.Quad{} quads = append(quads, quad.Make(luke, quad.</description>
+    </item>
+    
+    <item>
+      <title>Register a New Namespace</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/register-namespace/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/register-namespace/</guid>
-      <description>Új namespace regisztrálása #  Az alábbi kód regisztrál egy új namespace-t:
+      <description>Register a New Namespace #  The next code registers a new namespace:
 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add built-in vocabulary 	_ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; // Add own vocabulary 	_ &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func init() { // Register a new namespace with prefix 	voc.RegisterPrefix(`acc:`, `http://mycompany.com/voc/accounting#`) } func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;) for _, v := range voc.List() { fmt.Printf(&amp;#34; %s =&amp;gt; %s\n&amp;#34;, v.Prefix, v.Full) } } 
 cd namespaces go run register_namespace.</description>
     </item>
     
     <item>
-      <title>A `cayley convert` parancs</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-convert/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-convert/</guid>
-      <description>A cayley convert parancs #    2. ábra: cayley convert   </description>
-    </item>
-    
-    <item>
-      <title>Adat import / export struct annotációval</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/schema/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/schema/</guid>
-      <description>Adat import / export struct annotációval #  Struktúra annotációk #  Ez a fejezet arra mutat példát, hogyan lehet egyszerű vagy összetett objektumokat, azok tulajdonságait quad-okká alakítani, és feltölteni a store-ba, az adatstruktúra deklarációjában elhelyezett annotációk segítségével. Továbbá hogyan lehet a store-ból, az eredmény listákból egyszerűen összeszedni az objektumok property-jeit, és objektumként visszakapni az eredményeket.
-Ezzel a módszerrel jelentősen egyszerűbb az összetett adat-szerkezetek store-ba való feltöltése és lekérdezése, nem kell saját implementációt készíteni arra például, hogy egy adott Blank Node-dal, vagy IRI-vel azonosított objektum minden egyes tulajdonság-értékét egyenként szedegessük össze.</description>
-    </item>
-    
-    <item>
-      <title>Erőforrások</title>
+      <title>Resources</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/resources/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/resources/</guid>
-      <description>Erőforrások #  Erőforrás #  Az erőforrás egy általános fogalom, amelyet a web-en, és a szemantikus web-en gyakran használunk. Lényegében a világban létező konkrét és absztrakt dolgokat értjük alatta. A resource-nak van két fontos tulajdonsága:
- van egyedi azonossága, identitása (identity), ábrázolható valamilyen módon (representation).  Tekintetbe véve a fenti két jellemzőt, a resource megfeleltethető a Domain Driven Design entity (entitás) és aggregate fogalmainak. A mi vizsgálatunk szempontjából a két dolgot azonosnak tekinthetjük, a lényeg, hogy egy adott dolgot egyértelműen tudjunk azonosítani, akár globálisan, akár egy szűkebb értelmezési tartományban, vagyis rendelkezzen legalább egy egyedi azonosítóval, valamint le tudjuk írni valamilyen formában.</description>
+      <description>Resources #  </description>
     </item>
     
     <item>
-      <title>Quads-ok létrehozása</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/make-quads/</link>
+      <title>The `cayley convert` command</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-convert/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/make-quads/</guid>
-      <description>Quads-ok létrehozása #  Probléma #  Hogyan tudok quad-okat létrehozni?
-Quad-ok létrehozása #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.Quad{} quads = append(quads, quad.Make(luke, quad.IRI(rdf.Type), quad.IRI(foaf.Person), label)) quads = append(quads, quad.</description>
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-convert/</guid>
+      <description>The cayley convert command #    Figure 2.: cayley convert   </description>
     </item>
     
     <item>
-      <title>Összes predikátum kiírása</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/find_all_predicates/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/find_all_predicates/</guid>
-      <description>Összes predikátum kiírása #  Probléma #  Hogyan tudom kilistázni az összes predikátumot, ami szerepel a gráfban?
-Teszt adatok #    1. ábra: Teszt adatok Gráf diagramja   Kiinduló adatok megtekintése nquads formában &amp;lt;alice&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;dani&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;emily&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; .</description>
-    </item>
-    
-    <item>
-      <title>A `cayley repl` parancs</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-repl/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-repl/</guid>
-      <description>A cayley repl parancs #    3. ábra: cayley repl   </description>
-    </item>
-    
-    <item>
-      <title>A store összes node-jának kilistázása</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-nodes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-nodes/</guid>
-      <description>A store összes node-jának kilistázása #  Probléma #  Hogyan tudom az store-ban lévő összes node-ot lekérdezni, és kilistázni?
-Teszt adatok előállítása #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.</description>
-    </item>
-    
-    <item>
-      <title>Kétirányú relációk</title>
+      <title>Bi-directional Relations</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/bidirectional/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/bidirectional/</guid>
-      <description>Kétirányú relációk #  Probléma #  Ha van egy A &amp;lt;-1-&amp;gt; B &amp;lt;-2-&amp;gt; C gráfunk ahol A, B, C subject-ek, és object-ek az 1, 2 predikátumokkal vannak összekapcsolva mindkét irányban (bidirectional), akkor hogyan tudjuk C-t elérni A-ból egy path segítségével?
-Teszt adatok #    Fig 1.: A tesz adat gráfja   A teszt adatok megjelenítése in nquads formátumban &amp;lt;A&amp;gt; &amp;lt;predicate-1&amp;gt; &amp;lt;B&amp;gt; . &amp;lt;B&amp;gt; &amp;lt;predicate-1&amp;gt; &amp;lt;A&amp;gt; . &amp;lt;B&amp;gt; &amp;lt;predicate-2&amp;gt; &amp;lt;C&amp;gt; .</description>
+      <description>Bi-directional Relations #  Problem #  If I have a graph: A &amp;lt;-1-&amp;gt; B &amp;lt;-2-&amp;gt; C where A, B, C are subjects and objects linked with predicates 1, 2 (bidirectional). How can I get C using a path?
+Test data #    Fig 1.: Graph diagram of test data   Show the test data in nquads format &amp;lt;A&amp;gt; &amp;lt;predicate-1&amp;gt; &amp;lt;B&amp;gt; . &amp;lt;B&amp;gt; &amp;lt;predicate-1&amp;gt; &amp;lt;A&amp;gt; . &amp;lt;B&amp;gt; &amp;lt;predicate-2&amp;gt; &amp;lt;C&amp;gt; .</description>
     </item>
     
     <item>
-      <title>Állítások</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/statements/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/statements/</guid>
-      <description>Állítások #  Alany, Állítmány, Tárgy #  A tudást tény-állításokként rögzítjük. A tényeket kijelentő mondatokként megfogalmazott állítások formájában írtuk le. Például:
-Luke Skywalker életkora kora 23 év. angolul:
-Luke Skywalker has age 23. A mondatokat át lehet alakítani olyan formába, hogy azok az alany-állítmány-tárgy szerkezetet tükrözzék. Ezeket a szerkezeti elemeket angolul subject-predicate-object névvel azonosítjuk.
-Luke-Skywalker has-age 23. A mondat elemei:
- subject (alany): Luke-Skywalker, predicate (állítmány): has-age, object (tárgy): 23.</description>
-    </item>
-    
-    <item>
-      <title>Új szótár létrehozása</title>
+      <title>Create a New Vocabulary</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/vocabularies/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/vocabularies/</guid>
-      <description>Új szótár létrehozása #  A következő kódrészlet bemutatja, hogyan lehet egy új szótárat definiálni.
-A foaf.go package FOAF Vocabulary Specification leggyakrabban használt kifejezéseit definiálja. Ezt a package-et több példában is használjuk. A szótárban definiált szavakat predikátumként alkalmazzuk.
-// Package foaf contains constants of the FOAF Concepts Vocabulary (RDF) package foaf import &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; func init() { voc.RegisterPrefix(Prefix, NS) } const ( NS = `http://xmlns.com/foaf/0.1/#` Prefix = `foaf:` ) const ( // Core  // An agent (eg.</description>
+      <description>Create a New Vocabulary #  The following code demonstrates how can a new vocabulary be defined. The foaf.go package defines the most frequently used terms of the FOAF Vocabulary Specification. This package is used by several other examples of the cookbook as a vocabulary to use some terms as predicates.
+// Package foaf contains constants of the FOAF Concepts Vocabulary (RDF) package foaf import &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; func init() { voc.RegisterPrefix(Prefix, NS) } const ( NS = `http://xmlns.</description>
     </item>
     
     <item>
-      <title>A `cayley query` parancs</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/</link>
+      <title>List all nodes from store</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-nodes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/</guid>
-      <description>A cayley query parancs #    1. ábra: cayley query   </description>
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-nodes/</guid>
+      <description>List all nodes from store #  Problem #  How can I retrieve and print all nodes from the store?
+Test Data #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.</description>
     </item>
     
     <item>
-      <title>A store összes quad-jának kilistázása</title>
+      <title>Statements</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/statements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/statements/</guid>
+      <description>Statements #  Statements or assertions
+ Related pages: </description>
+    </item>
+    
+    <item>
+      <title>The `cayley repl` command</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-repl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-repl/</guid>
+      <description>The cayley repl command #    Figure 3.: cayley repl   </description>
+    </item>
+    
+    <item>
+      <title>List all quads from store</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-quads/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-quads/</guid>
-      <description>A store összes quad-jának kilistázása #  Probléma #  Hogyan tudom az store-ban lévő összes quad-ot lekérdezni, és kilistázni?
-Teszt adatok előállítása #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.</description>
+      <description>List all quads from store #  Problem #  How can I retrieve and print all quads from the store?
+Retrieve and list all quads from the store: #  package main import ( &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;reflect&amp;#34; &amp;#34;context&amp;#34; &amp;#34;github.com/cayleygraph/cayley&amp;#34; ) func main() { // Create a brand new graph  store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } // Create Quads about some people using Blank Nodes as references  quads := makeQuads() // Add quads to the store  for _, q := range(quads) { store.</description>
     </item>
     
     <item>
-      <title>Szótárak</title>
+      <title>The `cayley query` command</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/</guid>
+      <description>The cayley query command #    Figure 4.: cayley query   </description>
+    </item>
+    
+    <item>
+      <title>Vocabularies</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/vocabularies/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/vocabularies/</guid>
-      <description>Szótárak #  Szótár #  A tudásgráfok alkalmazásának egyik fő előnye, hogy a segítségükkel leírt tudás-területek ismeretanyagát a szimbolikus térben tárgyalja, vagyis olyan kódolási, és reprezentációs formákat alkalmaz, ami az emberek számára is érthetővé teszi a fogalmak, dolgok egyértelmű azonosítását.
-Amikor egy entitást megnevezünk, vagy állításokat teszünk, predikátumok alkalmazásával, a gépnek és az embernek ugyanazt a jelentéstartalmat kell értenie a kifejezések mögött. Ahhoz, hogy a kifejezések jelentése is egyértelmű legyen, szótárakat hozunk létre.</description>
+      <description>Vocabularies #   Related pages:   Create a New Vocabulary     List Registered Namespaces     Register a New Namespace   </description>
     </item>
     
     <item>
-      <title>A node-ok és quad-ok belső reprezentációja</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/internals/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/internals/</guid>
-      <description>A node-ok és quad-ok belső reprezentációja #    1. ábra: Belső reprezentáció   </description>
-    </item>
-    
-    <item>
-      <title>Tudás Gráf reprezentációk</title>
+      <title>Rdf Graphs</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/rdf-graphs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/rdf-graphs/</guid>
-      <description>Tudás Gráf reprezentációk #  Az előző fejezetekben bemutattuk, hogyan lehet tényállításokat kifejezni resource-ok, predikátumok, és literál értékek alkalmazásával. Ezeket a tényállítás hármasokat tripleteknek is nevezzük.
-Bevezettük az IRI fogalmát, ami alkalmas arra, hogy a tényállításokat formalizáltan, általános érvénnyel írjuk le. Rendelkezésünkre áll tehát egy egyszerű módszer arra, hogy a tudásgráf csomópontjait és éleit, valamint azok címkéit szövegszerkesztővel szerkeszthető, egyszerű text formátumba alakítsuk, file-okban tároljuk, és ezen file-ok tartalmát betöltsük a tudásgráfot megvalósító adatbázisba, a számítógép memóriájába, továbbá, hogy onnan kinyerjük, és visszatároljuk file-ba.</description>
+      <description>Rdf Graphs #  </description>
     </item>
     
     <item>
-      <title>Könyvjelzők keresése tag alapján</title>
+      <title>The internal representation of nodes and quads</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/internals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/internals/</guid>
+      <description>The internal representation of nodes and quads #    Figure 1.: Internal Representation   </description>
+    </item>
+    
+    <item>
+      <title>Find bookmarks by tags</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/bookmarks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/bookmarks/</guid>
-      <description>Könyvjelzők keresése tag alapján #  Futtassuk a programot: 
-cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go A program kimenete:
-Az eredmények megjelenítése Results of finding any of `nosql` or `gremlin` tags: - &amp;#34;Ontotext GraphDB&amp;#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.</description>
+      <description>Find bookmarks by tags #  Run the program: 
+cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go The output of the program:
+Show the results Results of finding any of `nosql` or `gremlin` tags: - &amp;#34;Ontotext GraphDB&amp;#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.</description>
     </item>
     
   </channel>

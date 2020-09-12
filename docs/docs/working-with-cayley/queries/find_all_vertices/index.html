@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang="hu" dir=>
+<html lang="en" dir=>
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Összes node kiírása #  Probléma #  Hogyan tudom gráf összes elemét (subject-eket, object-eket, predicate-eket) kiíratni?
-Teszt adatok #    1. ábra: Teszt adatok Gráf diagramja   Kiinduló adatok megtekintése nquads formában &lt;alice&gt; &lt;follows&gt; &lt;bob&gt; . &lt;bob&gt; &lt;follows&gt; &lt;fred&gt; . &lt;bob&gt; &lt;status&gt; &#34;cool_person&#34; . &lt;dani&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;dani&gt; . &lt;dani&gt; &lt;follows&gt; &lt;greg&gt; . &lt;dani&gt; &lt;status&gt; &#34;cool_person&#34; . &lt;emily&gt; &lt;follows&gt; &lt;fred&gt; .">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Összes node kiírása" />
-<meta property="og:description" content="Összes node kiírása #  Probléma #  Hogyan tudom gráf összes elemét (subject-eket, object-eket, predicate-eket) kiíratni?
-Teszt adatok #    1. ábra: Teszt adatok Gráf diagramja   Kiinduló adatok megtekintése nquads formában &lt;alice&gt; &lt;follows&gt; &lt;bob&gt; . &lt;bob&gt; &lt;follows&gt; &lt;fred&gt; . &lt;bob&gt; &lt;status&gt; &#34;cool_person&#34; . &lt;dani&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;dani&gt; . &lt;dani&gt; &lt;follows&gt; &lt;greg&gt; . &lt;dani&gt; &lt;status&gt; &#34;cool_person&#34; . &lt;emily&gt; &lt;follows&gt; &lt;fred&gt; ." />
+<meta name="description" content="Find All Vertices #  Problem #  How can I list all the nodes (subjects, predicates and objects) of the graph?
+Test Data #    Fig 1.: Graph diagram of test data   Show the test data in nquads format &lt;alice&gt; &lt;follows&gt; &lt;bob&gt; . &lt;bob&gt; &lt;follows&gt; &lt;fred&gt; . &lt;bob&gt; &lt;status&gt; &#34;cool_person&#34; . &lt;dani&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;dani&gt; . &lt;dani&gt; &lt;follows&gt; &lt;greg&gt; .">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Find All Vertices" />
+<meta property="og:description" content="Find All Vertices #  Problem #  How can I list all the nodes (subjects, predicates and objects) of the graph?
+Test Data #    Fig 1.: Graph diagram of test data   Show the test data in nquads format &lt;alice&gt; &lt;follows&gt; &lt;bob&gt; . &lt;bob&gt; &lt;follows&gt; &lt;fred&gt; . &lt;bob&gt; &lt;status&gt; &#34;cool_person&#34; . &lt;dani&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;dani&gt; . &lt;dani&gt; &lt;follows&gt; &lt;greg&gt; ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/find_all_vertices/" />
 
-<title>Összes node kiírása | Cayley-CookBook</title>
+<title>Find All Vertices | Cayley-CookBook</title>
 <link rel="manifest" href="/cayley-cookbook/manifest.json">
 <link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
-<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/find_all_vertices/" title="Find All Vertices">
+<link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/find_all_vertices/" title="Összes node kiírása">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.00f03e96b03a91c08c49e297d71ee5cf07fd4e6b95e95389c14d58d4de34f1ea.js" integrity="sha256-APA&#43;lrA6kcCMSeKX1x7lzwf9TmuV6VOJwU1Y1N408eo="></script>
+<script defer src="/cayley-cookbook/en.search.min.13b575123c0733a148fe713b778313faeb2cf243539691fecce7640016eb6770.js" integrity="sha256-E7V1EjwHM6FI/nE7d4MT&#43;uss8kNTlpH&#43;zOdkABbrZ3A="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-XXXXXXXXX-X', 'auto');
+	ga('create', 'UA-177858708-1', 'auto');
 	
 	ga('send', 'pageview');
 }
@@ -52,7 +52,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -83,7 +83,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/about/" class="">Bevezetés</a>
+    <a href="/cayley-cookbook/docs/about/" class="">About</a>
   
 
         </li>
@@ -93,24 +93,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Alapfogalmak</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/cayley-cookbook/docs/cayley-overview/" class="collapsed ">A Cayley rendszer áttekintése</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Basic Concepts</a>
   
 
           
@@ -127,7 +110,24 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/" class="collapsed ">A Tudás-Gráf használata</a>
+    <a href="/cayley-cookbook/docs/cayley-overview/" class="collapsed ">Cayley Overview</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/working-with-cayley/" class="collapsed ">Working with Knowledge Graph</a>
   
 
           
@@ -142,7 +142,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/" class="collapsed ">Namespace-ek és szótárak</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/" class="collapsed ">Namespaces and Vocabularies</a>
   
 
           
@@ -159,7 +159,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/stores/" class="collapsed ">Store-ok</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/stores/" class="collapsed ">Stores</a>
   
 
           
@@ -176,7 +176,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/impex/" class="collapsed ">Adat import / export</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/impex/" class="collapsed ">Data import / export</a>
   
 
           
@@ -193,7 +193,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/queries/" class="collapsed ">Lekérdezések</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/queries/" class="collapsed ">Queries</a>
   
 
           
@@ -208,7 +208,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/queries/find_all_vertices/" class="active">Összes node kiírása</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/queries/find_all_vertices/" class="active">Find All Vertices</a>
   
 
         </li>
@@ -218,7 +218,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/queries/find_all_predicates/" class="">Összes predikátum kiírása</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/queries/find_all_predicates/" class="">Find All Predicates</a>
   
 
         </li>
@@ -228,7 +228,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/queries/bidirectional/" class="">Kétirányú relációk</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/queries/bidirectional/" class="">Bi-directional Relations</a>
   
 
         </li>
@@ -238,7 +238,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/queries/bookmarks/" class="">Könyvjelzők keresése tag alapján</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/queries/bookmarks/" class="">Find bookmarks by tags</a>
   
 
         </li>
@@ -254,7 +254,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/crud-operations/" class="collapsed ">CRUD Műveletek</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/crud-operations/" class="collapsed ">CRUD Operations</a>
   
 
           
@@ -271,7 +271,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/transactions/" class="collapsed ">Tranzakciók</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/transactions/" class="collapsed ">Transactions</a>
   
 
           
@@ -326,7 +326,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Összes node kiírása</strong>
+  <strong>Find All Vertices</strong>
 
   <label for="toc-control">
     
@@ -341,9 +341,9 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#probléma">Probléma</a></li>
-    <li><a href="#teszt-adatok">Teszt adatok</a></li>
-    <li><a href="#gizmo-query">Gizmo query</a></li>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#test-data">Test Data</a></li>
+    <li><a href="#gizmo-query">Gizmo Query</a></li>
   </ul>
 </nav>
 
@@ -355,27 +355,27 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="összes-node-kiírása">
-  Összes node kiírása
-  <a class="anchor" href="#%c3%b6sszes-node-ki%c3%adr%c3%a1sa">#</a>
+  <article class="markdown"><h1 id="find-all-vertices">
+  Find All Vertices
+  <a class="anchor" href="#find-all-vertices">#</a>
 </h1>
-<h2 id="probléma">
-  Probléma
-  <a class="anchor" href="#probl%c3%a9ma">#</a>
+<h2 id="problem">
+  Problem
+  <a class="anchor" href="#problem">#</a>
 </h2>
-<p>Hogyan tudom gráf összes elemét (subject-eket, object-eket, predicate-eket) kiíratni?</p>
-<h2 id="teszt-adatok">
-  Teszt adatok
-  <a class="anchor" href="#teszt-adatok">#</a>
+<p>How can I list all the nodes (subjects, predicates and objects) of the graph?</p>
+<h2 id="test-data">
+  Test Data
+  <a class="anchor" href="#test-data">#</a>
 </h2>
 <figure>
     <img src="/cayley-cookbook/src/data/testdata.png"/> <figcaption>
-            <h4>1. ábra: Teszt adatok Gráf diagramja</h4>
+            <h4>Fig 1.: Graph diagram of test data</h4>
         </figcaption>
 </figure>
 
 <details >
-  <summary>Kiinduló adatok megtekintése nquads formában</summary>
+  <summary>Show the test data in nquads format</summary>
   <div class="markdown-inner">
     <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;alice&gt; &lt;follows&gt; &lt;bob&gt; .
 &lt;bob&gt; &lt;follows&gt; &lt;fred&gt; .
@@ -398,13 +398,13 @@ https://github.com/alex-shpak/hugo-book
 </details>
 
 <h2 id="gizmo-query">
-  Gizmo query
+  Gizmo Query
   <a class="anchor" href="#gizmo-query">#</a>
 </h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">V</span>().<span style="color:#a6e22e">All</span>();
 
 
-</code></pre></div><p>Eredmények:</p>
+</code></pre></div><p>Results:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">{&#34;id&#34;:&#34;alice&#34;}
 {&#34;id&#34;:&#34;follows&#34;}
 {&#34;id&#34;:&#34;bob&#34;}
@@ -443,21 +443,21 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li class="flex align-center">
       <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
-      Magyar
+      English
     </li> 
   </ul>
 
   <ul class="book-languages-list">
     
-    <li class="">
-      <a href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/find_all_vertices/" class="flex align-center">
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
         <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
         English
       </a>
     </li>
     
-    <li class="active">
-      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/find_all_vertices/" class="flex align-center">
         <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
         Magyar
       </a>
@@ -493,9 +493,9 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#probléma">Probléma</a></li>
-    <li><a href="#teszt-adatok">Teszt adatok</a></li>
-    <li><a href="#gizmo-query">Gizmo query</a></li>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#test-data">Test Data</a></li>
+    <li><a href="#gizmo-query">Gizmo Query</a></li>
   </ul>
 </nav>
 

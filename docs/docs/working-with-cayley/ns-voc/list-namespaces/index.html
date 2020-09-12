@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang="hu" dir=>
+<html lang="en" dir=>
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Regisztrált Namespace-ek listázása #  Az alábbi kód kilistázza az összes, jelenleg regisztrált namespace-t:
+<meta name="description" content="List Registered Namespaces #  The following code fragment lists all the namespaces currently registered:
 package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad/voc&#34; // Add some predefined vocabularies 	_ &#34;github.com/cayleygraph/quad/voc/schema&#34; _ &#34;github.com/cayleygraph/quad/voc/xsd&#34; _ &#34;github.com/cayleygraph/quad/voc/rdf&#34; _ &#34;github.com/cayleygraph/quad/voc/rdfs&#34; ) func main() { fmt.Println(&#34;Registered namespaces:&#34;); for _, v := range voc.List() { fmt.Printf(&#34; %s =&gt; %s\n&#34;, v.Prefix, v.Full); } } 
-cd namespaces go run list_namespaces.go` A program kimenete:
+cd namespaces go run list_namespaces.go` The results:
 Registered namespaces: rdfs: =&gt; http://www.w3.org/2000/01/rdf-schema#  schema: =&gt; http://schema.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Regisztrált Namespace-ek listázása" />
-<meta property="og:description" content="Regisztrált Namespace-ek listázása #  Az alábbi kód kilistázza az összes, jelenleg regisztrált namespace-t:
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="List Registered Namespaces" />
+<meta property="og:description" content="List Registered Namespaces #  The following code fragment lists all the namespaces currently registered:
 package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad/voc&#34; // Add some predefined vocabularies 	_ &#34;github.com/cayleygraph/quad/voc/schema&#34; _ &#34;github.com/cayleygraph/quad/voc/xsd&#34; _ &#34;github.com/cayleygraph/quad/voc/rdf&#34; _ &#34;github.com/cayleygraph/quad/voc/rdfs&#34; ) func main() { fmt.Println(&#34;Registered namespaces:&#34;); for _, v := range voc.List() { fmt.Printf(&#34; %s =&gt; %s\n&#34;, v.Prefix, v.Full); } } 
-cd namespaces go run list_namespaces.go` A program kimenete:
+cd namespaces go run list_namespaces.go` The results:
 Registered namespaces: rdfs: =&gt; http://www.w3.org/2000/01/rdf-schema#  schema: =&gt; http://schema." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/list-namespaces/" />
 
-<title>Regisztrált Namespace-ek listázása | Cayley-CookBook</title>
+<title>List Registered Namespaces | Cayley-CookBook</title>
 <link rel="manifest" href="/cayley-cookbook/manifest.json">
 <link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
-<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/ns-voc/list-namespaces/" title="List Registered Namespaces">
+<link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/list-namespaces/" title="Regisztrált Namespace-ek listázása">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.00f03e96b03a91c08c49e297d71ee5cf07fd4e6b95e95389c14d58d4de34f1ea.js" integrity="sha256-APA&#43;lrA6kcCMSeKX1x7lzwf9TmuV6VOJwU1Y1N408eo="></script>
+<script defer src="/cayley-cookbook/en.search.min.13b575123c0733a148fe713b778313faeb2cf243539691fecce7640016eb6770.js" integrity="sha256-E7V1EjwHM6FI/nE7d4MT&#43;uss8kNTlpH&#43;zOdkABbrZ3A="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-XXXXXXXXX-X', 'auto');
+	ga('create', 'UA-177858708-1', 'auto');
 	
 	ga('send', 'pageview');
 }
@@ -56,7 +56,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -87,7 +87,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/about/" class="">Bevezetés</a>
+    <a href="/cayley-cookbook/docs/about/" class="">About</a>
   
 
         </li>
@@ -97,24 +97,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Alapfogalmak</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/cayley-cookbook/docs/cayley-overview/" class="collapsed ">A Cayley rendszer áttekintése</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Basic Concepts</a>
   
 
           
@@ -131,7 +114,24 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/" class="collapsed ">A Tudás-Gráf használata</a>
+    <a href="/cayley-cookbook/docs/cayley-overview/" class="collapsed ">Cayley Overview</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/working-with-cayley/" class="collapsed ">Working with Knowledge Graph</a>
   
 
           
@@ -146,7 +146,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/" class="collapsed ">Namespace-ek és szótárak</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/" class="collapsed ">Namespaces and Vocabularies</a>
   
 
           
@@ -161,7 +161,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/list-namespaces/" class="active">Regisztrált Namespace-ek listázása</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/list-namespaces/" class="active">List Registered Namespaces</a>
   
 
         </li>
@@ -171,7 +171,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/register-namespace/" class="">Új namespace regisztrálása</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/register-namespace/" class="">Register a New Namespace</a>
   
 
         </li>
@@ -181,7 +181,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/vocabularies/" class="">Új szótár létrehozása</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/vocabularies/" class="">Create a New Vocabulary</a>
   
 
         </li>
@@ -197,7 +197,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/stores/" class="collapsed ">Store-ok</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/stores/" class="collapsed ">Stores</a>
   
 
           
@@ -214,7 +214,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/impex/" class="collapsed ">Adat import / export</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/impex/" class="collapsed ">Data import / export</a>
   
 
           
@@ -231,7 +231,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/queries/" class="collapsed ">Lekérdezések</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/queries/" class="collapsed ">Queries</a>
   
 
           
@@ -248,7 +248,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/crud-operations/" class="collapsed ">CRUD Műveletek</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/crud-operations/" class="collapsed ">CRUD Operations</a>
   
 
           
@@ -265,7 +265,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/transactions/" class="collapsed ">Tranzakciók</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/transactions/" class="collapsed ">Transactions</a>
   
 
           
@@ -320,7 +320,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Regisztrált Namespace-ek listázása</strong>
+  <strong>List Registered Namespaces</strong>
 
   <label for="toc-control">
     
@@ -343,11 +343,11 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="regisztrált-namespace-ek-listázása">
-  Regisztrált Namespace-ek listázása
-  <a class="anchor" href="#regisztr%c3%a1lt-namespace-ek-list%c3%a1z%c3%a1sa">#</a>
+  <article class="markdown"><h1 id="list-registered-namespaces">
+  List Registered Namespaces
+  <a class="anchor" href="#list-registered-namespaces">#</a>
 </h1>
-<p>Az alábbi kód kilistázza az összes, jelenleg regisztrált namespace-t:</p>
+<p>The following code fragment lists all the namespaces currently registered:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
 <span style="color:#f92672">import</span> (
@@ -371,7 +371,7 @@ https://github.com/alex-shpak/hugo-book
 </code></pre></div><p><a href="https://repl.it/@tombenke/cayley-cookbook-src#namespaces/list_namespaces.go"><img src="https://repl.it/badge/github/tombenke/cayley-cookbook-src" alt="Run this code on Repl.it" /></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    cd namespaces
     go run list_namespaces.go<span style="color:#e6db74">`</span>
-</code></pre></div><p>A program kimenete:</p>
+</code></pre></div><p>The results:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">Registered</span> <span style="color:#a6e22e">namespaces</span>:
   <span style="color:#a6e22e">rdfs</span>: =&gt; <span style="color:#a6e22e">http</span>:<span style="color:#75715e">//www.w3.org/2000/01/rdf-schema#
 </span><span style="color:#75715e"></span>  <span style="color:#a6e22e">schema</span>: =&gt; <span style="color:#a6e22e">http</span>:<span style="color:#75715e">//schema.org/
@@ -401,21 +401,21 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li class="flex align-center">
       <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
-      Magyar
+      English
     </li> 
   </ul>
 
   <ul class="book-languages-list">
     
-    <li class="">
-      <a href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/ns-voc/list-namespaces/" class="flex align-center">
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
         <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
         English
       </a>
     </li>
     
-    <li class="active">
-      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/list-namespaces/" class="flex align-center">
         <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
         Magyar
       </a>

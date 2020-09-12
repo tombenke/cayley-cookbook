@@ -1,30 +1,28 @@
 <!DOCTYPE html>
-<html lang="hu" dir=>
+<html lang="en" dir=>
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Tudás Gráf reprezentációk #  Az előző fejezetekben bemutattuk, hogyan lehet tényállításokat kifejezni resource-ok, predikátumok, és literál értékek alkalmazásával. Ezeket a tényállítás hármasokat tripleteknek is nevezzük.
-Bevezettük az IRI fogalmát, ami alkalmas arra, hogy a tényállításokat formalizáltan, általános érvénnyel írjuk le. Rendelkezésünkre áll tehát egy egyszerű módszer arra, hogy a tudásgráf csomópontjait és éleit, valamint azok címkéit szövegszerkesztővel szerkeszthető, egyszerű text formátumba alakítsuk, file-okban tároljuk, és ezen file-ok tartalmát betöltsük a tudásgráfot megvalósító adatbázisba, a számítógép memóriájába, továbbá, hogy onnan kinyerjük, és visszatároljuk file-ba.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Tudás Gráf reprezentációk" />
-<meta property="og:description" content="Tudás Gráf reprezentációk #  Az előző fejezetekben bemutattuk, hogyan lehet tényállításokat kifejezni resource-ok, predikátumok, és literál értékek alkalmazásával. Ezeket a tényállítás hármasokat tripleteknek is nevezzük.
-Bevezettük az IRI fogalmát, ami alkalmas arra, hogy a tényállításokat formalizáltan, általános érvénnyel írjuk le. Rendelkezésünkre áll tehát egy egyszerű módszer arra, hogy a tudásgráf csomópontjait és éleit, valamint azok címkéit szövegszerkesztővel szerkeszthető, egyszerű text formátumba alakítsuk, file-okban tároljuk, és ezen file-ok tartalmát betöltsük a tudásgráfot megvalósító adatbázisba, a számítógép memóriájába, továbbá, hogy onnan kinyerjük, és visszatároljuk file-ba." />
+<meta name="description" content="Rdf Graphs #  ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Rdf Graphs" />
+<meta property="og:description" content="Rdf Graphs #  " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/rdf-graphs/" />
 
-<title>Tudás Gráf reprezentációk | Cayley-CookBook</title>
+<title>Rdf Graphs | Cayley-CookBook</title>
 <link rel="manifest" href="/cayley-cookbook/manifest.json">
 <link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
-<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/rdf-graphs/" title="Rdf Graphs">
+<link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/rdf-graphs/" title="Tudás Gráf reprezentációk">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.00f03e96b03a91c08c49e297d71ee5cf07fd4e6b95e95389c14d58d4de34f1ea.js" integrity="sha256-APA&#43;lrA6kcCMSeKX1x7lzwf9TmuV6VOJwU1Y1N408eo="></script>
+<script defer src="/cayley-cookbook/en.search.min.13b575123c0733a148fe713b778313faeb2cf243539691fecce7640016eb6770.js" integrity="sha256-E7V1EjwHM6FI/nE7d4MT&#43;uss8kNTlpH&#43;zOdkABbrZ3A="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-XXXXXXXXX-X', 'auto');
+	ga('create', 'UA-177858708-1', 'auto');
 	
 	ga('send', 'pageview');
 }
@@ -52,7 +50,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -83,7 +81,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/about/" class="">Bevezetés</a>
+    <a href="/cayley-cookbook/docs/about/" class="">About</a>
   
 
         </li>
@@ -93,7 +91,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Alapfogalmak</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Basic Concepts</a>
   
 
           
@@ -108,7 +106,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/graph-based-data-model/" class="">Gráf alapú adatmodellezés</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/graph-based-data-model/" class="">Graph Based Data Model</a>
   
 
         </li>
@@ -118,7 +116,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/resources/" class="">Erőforrások</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/resources/" class="">Resources</a>
   
 
         </li>
@@ -128,7 +126,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/statements/" class="">Állítások</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/statements/" class="">Statements</a>
   
 
         </li>
@@ -138,7 +136,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/vocabularies/" class="">Szótárak</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/vocabularies/" class="">Vocabularies</a>
   
 
         </li>
@@ -148,7 +146,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/rdf-graphs/" class="active">Tudás Gráf reprezentációk</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/rdf-graphs/" class="active">Rdf Graphs</a>
   
 
         </li>
@@ -164,7 +162,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/cayley-overview/" class="collapsed ">A Cayley rendszer áttekintése</a>
+    <a href="/cayley-cookbook/docs/cayley-overview/" class="collapsed ">Cayley Overview</a>
   
 
           
@@ -181,7 +179,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/" class="collapsed ">A Tudás-Gráf használata</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/" class="collapsed ">Working with Knowledge Graph</a>
   
 
           
@@ -230,7 +228,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Tudás Gráf reprezentációk</strong>
+  <strong>Rdf Graphs</strong>
 
   <label for="toc-control">
     
@@ -243,15 +241,7 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#n-triples-n-quads">n-triples, n-quads</a></li>
-    <li><a href="#turtle">Turtle</a></li>
-    <li><a href="#n3">N3</a></li>
-    <li><a href="#rdfxml">RDF/XML</a></li>
-    <li><a href="#json-ld">JSON-LD</a></li>
-  </ul>
-</nav>
+  <nav id="TableOfContents"></nav>
 
 
   </aside>
@@ -261,244 +251,11 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="tudás-gráf-reprezentációk">
-  Tudás Gráf reprezentációk
-  <a class="anchor" href="#tud%c3%a1s-gr%c3%a1f-reprezent%c3%a1ci%c3%b3k">#</a>
+  <article class="markdown"><h1 id="rdf-graphs">
+  Rdf Graphs
+  <a class="anchor" href="#rdf-graphs">#</a>
 </h1>
-<p>Az előző fejezetekben bemutattuk, hogyan lehet tényállításokat kifejezni resource-ok, predikátumok, és literál értékek alkalmazásával. Ezeket a tényállítás hármasokat tripleteknek is nevezzük.</p>
-<p>Bevezettük az IRI fogalmát, ami alkalmas arra, hogy a tényállításokat formalizáltan, általános érvénnyel írjuk le. Rendelkezésünkre áll tehát egy egyszerű módszer arra, hogy a tudásgráf csomópontjait és éleit, valamint azok címkéit szövegszerkesztővel szerkeszthető, egyszerű text formátumba alakítsuk, file-okban tároljuk, és ezen file-ok tartalmát betöltsük a tudásgráfot megvalósító adatbázisba, a számítógép memóriájába, továbbá, hogy onnan kinyerjük, és visszatároljuk file-ba.</p>
-<p>Létezik tehát a tudásgráfnak egy olyan reprezentációja, ami a számítógép memóriájában helyezkedik el, és olyan is, ami valamilyen szabványosított formátumú file-ban kerül tárolásra. Ezekből a file formátumokból számos létezik. Az alábbiakban azokat a formátumokat soroljuk fel, amelyekkel a <a href="https://cayley.io/" target="_blank">Cayley</a>
- használata során találkozni fogunk.</p>
-<p>Az erőforrások (resource-ok) formális ábrázolását definiáló keretrendszert RDF-nek nevezzük. Az RDF a <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">Resource Description Framework</a> kifejezés rövidítése.</p>
-<p>Az RDF többféle file-szerializációs formátumot is definiál. A leggyakoribb formátumok általában szöveg alapúak (text, XML), amiknek szabványos mime azonosítójuk is van.</p>
-<p>Az alábbi táblázat összefoglalja a leggyakrabban használatos formátumokat.</p>
-<blockquote class="book-hint info">
-  <p><strong>Megjegyzés:</strong></p>
-<p>A táblázat csak a teljesség kedvéért sorolja fel a formátumokat. Számunkra első közelítésben, szinte kizárólag az <code>n-quads</code>, <code>n-triples</code> és a <code>Turtle</code> formátumok fontosak. A többit nem szükséges mélyebben tanulmányozni, ahhoz, hogy a szakácskönyv példáit megértsük, és hogy a <!-- raw HTML omitted -->Cayley<!-- raw HTML omitted -->
--t használhassuk.</p>
-
-</blockquote>
-
-<table>
-<thead>
-<tr>
-<th>formátum</th>
-<th>kiterjesztés</th>
-<th>mime-type</th>
-<th>mikor használjuk?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://www.w3.org/TR/n-triples/">n-triples</a></td>
-<td><code>.nt</code></td>
-<td><code>application/n-triples</code></td>
-<td>Ha elfogadható performanciát, és magas szintű kompatibilitást akarunk biztosítani.</td>
-</tr>
-<tr>
-<td><a href="https://www.w3.org/TR/n-quads/">n-quads</a></td>
-<td><code>.nq</code></td>
-<td><code>application/n-quads</code></td>
-<td>ua. mint n-triples</td>
-</tr>
-<tr>
-<td><a href="https://www.w3.org/TR/turtle/">Turtle</a></td>
-<td><code>.ttl</code></td>
-<td><code>application/x-turtle</code></td>
-<td>Ha manuálisan kell szerkeszteni, olvasni.</td>
-</tr>
-<tr>
-<td><a href="https://www.w3.org/TeamSubmission/n3/">N3</a></td>
-<td><code>.n3</code></td>
-<td><code>text/n3</code></td>
-<td>Ha szükségünk van RDF szabályok alkalmazására.</td>
-</tr>
-<tr>
-<td><a href="https://www.w3.org/TR/rdf-syntax-grammar/">RDF/XML</a></td>
-<td><code>.xml</code></td>
-<td><code>application/rdf+xml</code></td>
-<td>Ha XML-t kell használnunk.</td>
-</tr>
-<tr>
-<td><a href="https://www.w3.org/2018/jsonld-cg-reports/json-ld/">JSON-LD</a></td>
-<td><code>.jsonld</code></td>
-<td><code>application/ld+json</code></td>
-<td>Ha JSON API-t akarunk biztosítani, vagy ahhoz csatlakozunk, és nincs nagy performancia-igény.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="n-triples-n-quads">
-  n-triples, n-quads
-  <a class="anchor" href="#n-triples-n-quads">#</a>
-</h2>
-<p>Ez a két formátum szinte azonos. Az <code>n-triples</code> lényegében nem más, mint amit korábban a kijelentések c. fejezetben bemutattunk. Minden kijelentés <code>subject predicate object</code> formában, külön sorban szerepel, amit egy <code>.</code> karakter zár le. Például:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;Luke-Skywalker-from-StarWars&gt; &lt;is-a&gt; &lt;Person&gt; .
-&lt;Luke-Skywalker-from-StarWars&gt; &lt;has-given-name&gt; &#34;Luke&#34; .
-&lt;Luke-Skywalker-from-StarWars&gt; &lt;has-family-name&gt; &#34;Skywalker&#34; .
-&lt;Luke-Skywalker-from-StarWars&gt; &lt;has-age&gt; 23 .
-</code></pre></div><p>az <code>n-quads</code> formátum ettől annyiban tér el, hogy az <code>object</code> és a záró <code>.</code> közé még elhelyezünk egy opcionális <code>label</code> stringet. Ez a <code>label</code> (címke), arra jó, hogy az egy csoportba (gráfba) tartozó kijelentéseket megjelölhessük vele. Ezzel az adatbázis-kezelő performanciáját javíthatjuk, ha a keresést csak meghatározott gráfokra szűkítjük, az összes feltöltött gráf helyett.</p>
-<p>Például az alábbi kódrészlet <code>n-quads</code> kijelentéseket tartalmaz, a <code>&quot;a-new-hope&quot;</code> címkével kiegészítve:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;Luke-Skywalker-from-StarWars&gt; &lt;is-a&gt; &lt;Person&gt; &#34;a-new-hope&#34; .
-&lt;Luke-Skywalker-from-StarWars&gt; &lt;has-given-name&gt; &#34;Luke&#34; &#34;a-new-hope&#34; .
-&lt;Luke-Skywalker-from-StarWars&gt; &lt;has-family-name&gt; &#34;Skywalker&#34; &#34;a-new-hope&#34; .
-&lt;Luke-Skywalker-from-StarWars&gt; &lt;has-age&gt; 23 &#34;a-new-hope&#34; .
-</code></pre></div><p>Ez a címke az epizódra utal, amiben a szereplők először feltűntek.</p>
-<p>A következő kódrészlet a Dantooine bolygót írja le <code>n-triples</code> formátumban. Ezt a többi formátummal való összehasonlítás kedvéért hoztuk létre. Ugyanezen bolygó-leírást láthatjuk a további fejezetekben, többféle formátumban megjelenítve.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;https://swapi.co/resource/planet/25&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;https://swapi.co/vocabulary/Planet&gt; .
-&lt;https://swapi.co/resource/planet/25&gt; &lt;http://www.w3.org/2000/01/rdf-schema#label&gt; &#34;Dantooine&#34;^^&lt;http://www.w3.org/2001/XMLSchema#string&gt; .
-&lt;https://swapi.co/resource/planet/25&gt; &lt;http://www.ontotext.com/business-object/type&gt; &#34;Planet&#34; .
-&lt;https://swapi.co/resource/planet/25&gt; &lt;https://swapi.co/vocabulary/climate&gt; &#34;temperate&#34;^^&lt;http://www.w3.org/2001/XMLSchema#string&gt; .
-&lt;https://swapi.co/resource/planet/25&gt; &lt;https://swapi.co/vocabulary/desc&gt; &#34;None&#34;^^&lt;http://www.w3.org/2001/XMLSchema#string&gt; .
-&lt;https://swapi.co/resource/planet/25&gt; &lt;https://swapi.co/vocabulary/diameter&gt; &#34;9830&#34;^^&lt;http://www.w3.org/2001/XMLSchema#integer&gt; .
-&lt;https://swapi.co/resource/planet/25&gt; &lt;https://swapi.co/vocabulary/gravity&gt; &#34;1 standard&#34;^^&lt;http://www.w3.org/2001/XMLSchema#string&gt; .
-&lt;https://swapi.co/resource/planet/25&gt; &lt;https://swapi.co/vocabulary/orbitalPeriod&gt; &#34;378&#34;^^&lt;http://www.w3.org/2001/XMLSchema#integer&gt; .
-&lt;https://swapi.co/resource/planet/25&gt; &lt;https://swapi.co/vocabulary/population&gt; &#34;1000&#34;^^&lt;http://www.w3.org/2001/XMLSchema#integer&gt; .
-&lt;https://swapi.co/resource/planet/25&gt; &lt;https://swapi.co/vocabulary/rotationPeriod&gt; &#34;25&#34;^^&lt;http://www.w3.org/2001/XMLSchema#integer&gt; .
-&lt;https://swapi.co/resource/planet/25&gt; &lt;https://swapi.co/vocabulary/terrain&gt; &#34;oceans, savannas, mountains, grasslands&#34;^^&lt;http://www.w3.org/2001/XMLSchema#string&gt; .
-</code></pre></div><h2 id="turtle">
-  Turtle
-  <a class="anchor" href="#turtle">#</a>
-</h2>
-<p>A Turle egy nagyon népszerű formátum. Nagyon hasonlít az <code>n-quads</code>-ra, de sokkal tömörebb. A file elején definiálhatjuk a prefixeket és namespace-eket, és a kijelentéseinkben a subject-et elegendő csak egyszer megadni, majd ezt követhetik a predicate-object párosok, amelyeket a <code>;</code> karakter zárja le, majd a teljes kijelentéshalmazt a <code>.</code> zárja le.</p>
-<p>A Turtle formátum további könnyítéseket is tartalmaz, amiből adódóan kiválóan alkalmazható olyan esetben, ahol olvasnunk, vagy kézzel kell írnunk a tartalmat.</p>
-<p>A Dantooine bolygó leírása Turtle formátumban:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">@prefix bo: &lt;http://www.ontotext.com/business-object/&gt; .
-@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
-@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
-@prefix voc: &lt;https://swapi.co/vocabulary/&gt; .
-@prefix xml: &lt;http://www.w3.org/XML/1998/namespace&gt; .
-@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
-
-&lt;https://swapi.co/resource/planet/25&gt; a voc:Planet ;
-    rdfs:label &#34;Dantooine&#34;^^xsd:string ;
-    bo:type &#34;Planet&#34; ;
-    voc:climate &#34;temperate&#34;^^xsd:string ;
-    voc:desc &#34;None&#34;^^xsd:string ;
-    voc:diameter 9830 ;
-    voc:gravity &#34;1 standard&#34;^^xsd:string ;
-    voc:orbitalPeriod 378 ;
-    voc:population 1000 ;
-    voc:rotationPeriod 25 ;
-    voc:terrain &#34;oceans, savannas, mountains, grasslands&#34;^^xsd:string .
-</code></pre></div><h2 id="n3">
-  N3
-  <a class="anchor" href="#n3">#</a>
-</h2>
-<p>Az N3-at, más néven Notation3 formátumot Tim-Berners Lee dolgozta ki, az eredeti RDF/XML formátum helyettesítésére. Az N3 a szemantikus információ teljes körű leírására alkalmas. Egyenértékű az RDF/XML formátummal, de annál sokkal jobban olvasható, átlátható emberi szem számára. Az N3 nagyon hasonlít a Turtle-re, a Turtle valójában az N3 egy részhalmaza.</p>
-<p>A Dantooine bolygó leírása N3 formátumban:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
-@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
-@prefix ns0: &lt;http://www.ontotext.com/business-object/&gt; .
-@prefix ns1: &lt;https://swapi.co/vocabulary/&gt; .
-
-&lt;https://swapi.co/resource/planet/25&gt;
-  a &lt;https://swapi.co/vocabulary/Planet&gt; ;
-  rdfs:label &#34;Dantooine&#34;^^xsd:string ;
-  ns0:type &#34;Planet&#34; ;
-  ns1:climate &#34;temperate&#34;^^xsd:string ;
-  ns1:desc &#34;None&#34;^^xsd:string ;
-  ns1:diameter 9830 ;
-  ns1:gravity &#34;1 standard&#34;^^xsd:string ;
-  ns1:orbitalPeriod 378 ;
-  ns1:population 1000 ;
-  ns1:rotationPeriod 25 ;
-  ns1:terrain &#34;oceans, savannas, mountains, grasslands&#34;^^xsd:string .
-</code></pre></div><h2 id="rdfxml">
-  RDF/XML
-  <a class="anchor" href="#rdfxml">#</a>
-</h2>
-<p>Az RDF/XML az a szerializációs formátum, amit legelőször hoztak létre, és ami teljes körűen lefedi a szemantikus web tudás-reprezentációval szemben támasztott igényeit.</p>
-<p>Sajnos az RDF/XML meglehetősen bőbeszédű, ember számára nem túl jól olvasható. Leginkább akkor használjuk, ha az XML formátum alkalmazása szükséges.</p>
-<p>A Dantooine bolygó leírása XML/RDF formátumban:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34; ?&gt;</span>
-<span style="color:#f92672">&lt;rdf:RDF</span> <span style="color:#a6e22e">xmlns:rdf=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/02/22-rdf-syntax-ns#&#34;</span>
-         <span style="color:#a6e22e">xmlns:rdfs=</span><span style="color:#e6db74">&#34;http://www.w3.org/2000/01/rdf-schema#&#34;</span>
-         <span style="color:#a6e22e">xmlns:ns0=</span><span style="color:#e6db74">&#34;http://www.ontotext.com/business-object/&#34;</span>
-         <span style="color:#a6e22e">xmlns:ns1=</span><span style="color:#e6db74">&#34;https://swapi.co/vocabulary/&#34;</span><span style="color:#f92672">&gt;</span>
-
-  <span style="color:#f92672">&lt;rdf:Description</span> <span style="color:#a6e22e">rdf:about=</span><span style="color:#e6db74">&#34;https://swapi.co/resource/planet/25&#34;</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;rdf:type</span> <span style="color:#a6e22e">rdf:resource=</span><span style="color:#e6db74">&#34;https://swapi.co/vocabulary/Planet&#34;</span><span style="color:#f92672">/&gt;</span>
-    <span style="color:#f92672">&lt;rdfs:label</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#f92672">&gt;</span>Dantooine<span style="color:#f92672">&lt;/rdfs:label&gt;</span>
-    <span style="color:#f92672">&lt;ns0:type&gt;</span>Planet<span style="color:#f92672">&lt;/ns0:type&gt;</span>
-    <span style="color:#f92672">&lt;ns1:climate</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#f92672">&gt;</span>temperate<span style="color:#f92672">&lt;/ns1:climate&gt;</span>
-    <span style="color:#f92672">&lt;ns1:desc</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#f92672">&gt;</span>None<span style="color:#f92672">&lt;/ns1:desc&gt;</span>
-    <span style="color:#f92672">&lt;ns1:diameter</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#integer&#34;</span><span style="color:#f92672">&gt;</span>9830<span style="color:#f92672">&lt;/ns1:diameter&gt;</span>
-    <span style="color:#f92672">&lt;ns1:gravity</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#f92672">&gt;</span>1 standard<span style="color:#f92672">&lt;/ns1:gravity&gt;</span>
-    <span style="color:#f92672">&lt;ns1:orbitalPeriod</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#integer&#34;</span><span style="color:#f92672">&gt;</span>378<span style="color:#f92672">&lt;/ns1:orbitalPeriod&gt;</span>
-    <span style="color:#f92672">&lt;ns1:population</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#integer&#34;</span><span style="color:#f92672">&gt;</span>1000<span style="color:#f92672">&lt;/ns1:population&gt;</span>
-    <span style="color:#f92672">&lt;ns1:rotationPeriod</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#integer&#34;</span><span style="color:#f92672">&gt;</span>25<span style="color:#f92672">&lt;/ns1:rotationPeriod&gt;</span>
-    <span style="color:#f92672">&lt;ns1:terrain</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#f92672">&gt;</span>oceans, savannas, mountains, grasslands<span style="color:#f92672">&lt;/ns1:terrain&gt;</span>
-  <span style="color:#f92672">&lt;/rdf:Description&gt;</span>
-
-<span style="color:#f92672">&lt;/rdf:RDF&gt;</span>
-</code></pre></div><h2 id="json-ld">
-  JSON-LD
-  <a class="anchor" href="#json-ld">#</a>
-</h2>
-<p>A JSON-LD formátumú reprezentáció egy szabályos JSON dokumentum. A JSON-t elterjedten alkalmazzák REST API-ok request/response formátumaként. Jól olvasható ember számára is. Mivel mérete meglehetősen nagy, a feldolgozása sok erőforrást igényelhet, ezért nem a legoptimálisabb formátum, ha a feldolgozási sebesség fontos szempont.</p>
-<p>A Dantooine bolygó leírása JSON-LD formátumban:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-    {
-        <span style="color:#f92672">&#34;@id&#34;</span>: <span style="color:#e6db74">&#34;https://swapi.co/resource/planet/25&#34;</span>,
-        <span style="color:#f92672">&#34;@type&#34;</span>: [
-            <span style="color:#e6db74">&#34;https://swapi.co/vocabulary/Planet&#34;</span>
-        ],
-        <span style="color:#f92672">&#34;http://www.ontotext.com/business-object/type&#34;</span>: [
-            {
-                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#e6db74">&#34;Planet&#34;</span>
-            }
-        ],
-        <span style="color:#f92672">&#34;http://www.w3.org/2000/01/rdf-schema#label&#34;</span>: [
-            {
-                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#e6db74">&#34;Dantooine&#34;</span>
-            }
-        ],
-        <span style="color:#f92672">&#34;https://swapi.co/vocabulary/climate&#34;</span>: [
-            {
-                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#e6db74">&#34;temperate&#34;</span>
-            }
-        ],
-        <span style="color:#f92672">&#34;https://swapi.co/vocabulary/desc&#34;</span>: [
-            {
-                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#e6db74">&#34;None&#34;</span>
-            }
-        ],
-        <span style="color:#f92672">&#34;https://swapi.co/vocabulary/diameter&#34;</span>: [
-            {
-                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#ae81ff">9830</span>
-            }
-        ],
-        <span style="color:#f92672">&#34;https://swapi.co/vocabulary/gravity&#34;</span>: [
-            {
-                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#e6db74">&#34;1 standard&#34;</span>
-            }
-        ],
-        <span style="color:#f92672">&#34;https://swapi.co/vocabulary/orbitalPeriod&#34;</span>: [
-            {
-                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#ae81ff">378</span>
-            }
-        ],
-        <span style="color:#f92672">&#34;https://swapi.co/vocabulary/population&#34;</span>: [
-            {
-                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#ae81ff">1000</span>
-            }
-        ],
-        <span style="color:#f92672">&#34;https://swapi.co/vocabulary/rotationPeriod&#34;</span>: [
-            {
-                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#ae81ff">25</span>
-            }
-        ],
-        <span style="color:#f92672">&#34;https://swapi.co/vocabulary/terrain&#34;</span>: [
-            {
-                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#e6db74">&#34;oceans, savannas, mountains, grasslands&#34;</span>
-            }
-        ]
-    },
-    {
-        <span style="color:#f92672">&#34;@id&#34;</span>: <span style="color:#e6db74">&#34;https://swapi.co/vocabulary/Planet&#34;</span>
-    }
-]
-</code></pre></div></article>
+</article>
  
       
 
@@ -521,21 +278,21 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li class="flex align-center">
       <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
-      Magyar
+      English
     </li> 
   </ul>
 
   <ul class="book-languages-list">
     
-    <li class="">
-      <a href="https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/rdf-graphs/" class="flex align-center">
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
         <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
         English
       </a>
     </li>
     
-    <li class="active">
-      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/rdf-graphs/" class="flex align-center">
         <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
         Magyar
       </a>
@@ -569,15 +326,7 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#n-triples-n-quads">n-triples, n-quads</a></li>
-    <li><a href="#turtle">Turtle</a></li>
-    <li><a href="#n3">N3</a></li>
-    <li><a href="#rdfxml">RDF/XML</a></li>
-    <li><a href="#json-ld">JSON-LD</a></li>
-  </ul>
-</nav>
+  <nav id="TableOfContents"></nav>
 
  
     </aside>

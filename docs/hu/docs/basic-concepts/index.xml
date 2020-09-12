@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alapfogalmak on Cayley-CookBook</title>
+    <link>https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/</link>
+    <description>Recent content in Alapfogalmak on Cayley-CookBook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gráf alapú adatmodellezés</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/graph-based-data-model/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/graph-based-data-model/</guid>
+      <description>Gráf alapú adatmodellezés #  Amikor tudásgráfot építünk, akkor a világ egy részéről építünk fel egy koncepcionális modellt.
+Egy koncepcionális modell jellemzően egy meghatározott szakterületet fed le, ezért ezt a modellt domain-nek, tudás-tartománynak is nevezzük.
+Egy domain a következőket képviseli:
+ az elsődleges entitásokat (a dolgokat, amelyek a domain-be beletartoznak). Az entitásokra használni fogjuk a resource kifejezést is; az entitások között fennálló kapcsolatokat; az entitások és kapcsolatok tulajdonságait, más szóval attribútumait Ezeket property-knek is nevezzük esetleg a szabályokat, amelyek az entitások és attribútumaik kapcsolatára, azok belső tulajdonságaira vonatkoznak.</description>
+    </item>
+    
+    <item>
+      <title>Erőforrások</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/resources/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/resources/</guid>
+      <description>Erőforrások #  Erőforrás #  Az erőforrás egy általános fogalom, amelyet a web-en, és a szemantikus web-en gyakran használunk. Lényegében a világban létező konkrét és absztrakt dolgokat értjük alatta. A resource-nak van két fontos tulajdonsága:
+ van egyedi azonossága, identitása (identity), ábrázolható valamilyen módon (representation).  Tekintetbe véve a fenti két jellemzőt, a resource megfeleltethető a Domain Driven Design entity (entitás) és aggregate fogalmainak. A mi vizsgálatunk szempontjából a két dolgot azonosnak tekinthetjük, a lényeg, hogy egy adott dolgot egyértelműen tudjunk azonosítani, akár globálisan, akár egy szűkebb értelmezési tartományban, vagyis rendelkezzen legalább egy egyedi azonosítóval, valamint le tudjuk írni valamilyen formában.</description>
+    </item>
+    
+    <item>
+      <title>Állítások</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/statements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/statements/</guid>
+      <description>Állítások #  Alany, Állítmány, Tárgy #  A tudást tény-állításokként rögzítjük. A tényeket kijelentő mondatokként megfogalmazott állítások formájában írtuk le. Például:
+Luke Skywalker életkora kora 23 év. angolul:
+Luke Skywalker has age 23. A mondatokat át lehet alakítani olyan formába, hogy azok az alany-állítmány-tárgy szerkezetet tükrözzék. Ezeket a szerkezeti elemeket angolul subject-predicate-object névvel azonosítjuk.
+Luke-Skywalker has-age 23. A mondat elemei:
+ subject (alany): Luke-Skywalker, predicate (állítmány): has-age, object (tárgy): 23.</description>
+    </item>
+    
+    <item>
+      <title>Szótárak</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/vocabularies/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/vocabularies/</guid>
+      <description>Szótárak #  Szótár #  A tudásgráfok alkalmazásának egyik fő előnye, hogy a segítségükkel leírt tudás-területek ismeretanyagát a szimbolikus térben tárgyalja, vagyis olyan kódolási, és reprezentációs formákat alkalmaz, ami az emberek számára is érthetővé teszi a fogalmak, dolgok egyértelmű azonosítását.
+Amikor egy entitást megnevezünk, vagy állításokat teszünk, predikátumok alkalmazásával, a gépnek és az embernek ugyanazt a jelentéstartalmat kell értenie a kifejezések mögött. Ahhoz, hogy a kifejezések jelentése is egyértelmű legyen, szótárakat hozunk létre.</description>
+    </item>
+    
+    <item>
+      <title>Tudás Gráf reprezentációk</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/rdf-graphs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/rdf-graphs/</guid>
+      <description>Tudás Gráf reprezentációk #  Az előző fejezetekben bemutattuk, hogyan lehet tényállításokat kifejezni resource-ok, predikátumok, és literál értékek alkalmazásával. Ezeket a tényállítás hármasokat tripleteknek is nevezzük.
+Bevezettük az IRI fogalmát, ami alkalmas arra, hogy a tényállításokat formalizáltan, általános érvénnyel írjuk le. Rendelkezésünkre áll tehát egy egyszerű módszer arra, hogy a tudásgráf csomópontjait és éleit, valamint azok címkéit szövegszerkesztővel szerkeszthető, egyszerű text formátumba alakítsuk, file-okban tároljuk, és ezen file-ok tartalmát betöltsük a tudásgráfot megvalósító adatbázisba, a számítógép memóriájába, továbbá, hogy onnan kinyerjük, és visszatároljuk file-ba.</description>
+    </item>
+    
+  </channel>
+</rss>

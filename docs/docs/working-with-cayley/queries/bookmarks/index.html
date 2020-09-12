@@ -1,32 +1,32 @@
 <!DOCTYPE html>
-<html lang="hu" dir=>
+<html lang="en" dir=>
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Könyvjelzők keresése tag alapján #  Futtassuk a programot: 
-cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go A program kimenete:
-Az eredmények megjelenítése Results of finding any of `nosql` or `gremlin` tags: - &#34;Ontotext GraphDB&#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &#34;Gremlin&#39;s Graph Traversal Machinery&#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &#34;Gremlin&#39;s Graph Traversal Machinery&#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Könyvjelzők keresése tag alapján" />
-<meta property="og:description" content="Könyvjelzők keresése tag alapján #  Futtassuk a programot: 
-cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go A program kimenete:
-Az eredmények megjelenítése Results of finding any of `nosql` or `gremlin` tags: - &#34;Ontotext GraphDB&#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &#34;Gremlin&#39;s Graph Traversal Machinery&#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &#34;Gremlin&#39;s Graph Traversal Machinery&#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www." />
+<meta name="description" content="Find bookmarks by tags #  Run the program: 
+cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go The output of the program:
+Show the results Results of finding any of `nosql` or `gremlin` tags: - &#34;Ontotext GraphDB&#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &#34;Gremlin&#39;s Graph Traversal Machinery&#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &#34;Gremlin&#39;s Graph Traversal Machinery&#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Find bookmarks by tags" />
+<meta property="og:description" content="Find bookmarks by tags #  Run the program: 
+cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go The output of the program:
+Show the results Results of finding any of `nosql` or `gremlin` tags: - &#34;Ontotext GraphDB&#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &#34;Gremlin&#39;s Graph Traversal Machinery&#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &#34;Gremlin&#39;s Graph Traversal Machinery&#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/bookmarks/" />
 
-<title>Könyvjelzők keresése tag alapján | Cayley-CookBook</title>
+<title>Find bookmarks by tags | Cayley-CookBook</title>
 <link rel="manifest" href="/cayley-cookbook/manifest.json">
 <link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
-<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/bookmarks/" title="Find bookmarks by tags">
+<link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bookmarks/" title="Könyvjelzők keresése tag alapján">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.00f03e96b03a91c08c49e297d71ee5cf07fd4e6b95e95389c14d58d4de34f1ea.js" integrity="sha256-APA&#43;lrA6kcCMSeKX1x7lzwf9TmuV6VOJwU1Y1N408eo="></script>
+<script defer src="/cayley-cookbook/en.search.min.13b575123c0733a148fe713b778313faeb2cf243539691fecce7640016eb6770.js" integrity="sha256-E7V1EjwHM6FI/nE7d4MT&#43;uss8kNTlpH&#43;zOdkABbrZ3A="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-XXXXXXXXX-X', 'auto');
+	ga('create', 'UA-177858708-1', 'auto');
 	
 	ga('send', 'pageview');
 }
@@ -54,7 +54,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -85,7 +85,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/about/" class="">Bevezetés</a>
+    <a href="/cayley-cookbook/docs/about/" class="">About</a>
   
 
         </li>
@@ -95,24 +95,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Alapfogalmak</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/cayley-cookbook/docs/cayley-overview/" class="collapsed ">A Cayley rendszer áttekintése</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Basic Concepts</a>
   
 
           
@@ -129,7 +112,24 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/" class="collapsed ">A Tudás-Gráf használata</a>
+    <a href="/cayley-cookbook/docs/cayley-overview/" class="collapsed ">Cayley Overview</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/working-with-cayley/" class="collapsed ">Working with Knowledge Graph</a>
   
 
           
@@ -144,7 +144,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/" class="collapsed ">Namespace-ek és szótárak</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/" class="collapsed ">Namespaces and Vocabularies</a>
   
 
           
@@ -161,7 +161,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/stores/" class="collapsed ">Store-ok</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/stores/" class="collapsed ">Stores</a>
   
 
           
@@ -178,7 +178,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/impex/" class="collapsed ">Adat import / export</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/impex/" class="collapsed ">Data import / export</a>
   
 
           
@@ -195,7 +195,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/queries/" class="collapsed ">Lekérdezések</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/queries/" class="collapsed ">Queries</a>
   
 
           
@@ -210,7 +210,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/queries/find_all_vertices/" class="">Összes node kiírása</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/queries/find_all_vertices/" class="">Find All Vertices</a>
   
 
         </li>
@@ -220,7 +220,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/queries/find_all_predicates/" class="">Összes predikátum kiírása</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/queries/find_all_predicates/" class="">Find All Predicates</a>
   
 
         </li>
@@ -230,7 +230,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/queries/bidirectional/" class="">Kétirányú relációk</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/queries/bidirectional/" class="">Bi-directional Relations</a>
   
 
         </li>
@@ -240,7 +240,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/queries/bookmarks/" class="active">Könyvjelzők keresése tag alapján</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/queries/bookmarks/" class="active">Find bookmarks by tags</a>
   
 
         </li>
@@ -256,7 +256,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/crud-operations/" class="collapsed ">CRUD Műveletek</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/crud-operations/" class="collapsed ">CRUD Operations</a>
   
 
           
@@ -273,7 +273,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/transactions/" class="collapsed ">Tranzakciók</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/transactions/" class="collapsed ">Transactions</a>
   
 
           
@@ -328,7 +328,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Könyvjelzők keresése tag alapján</strong>
+  <strong>Find bookmarks by tags</strong>
 
   <label for="toc-control">
     
@@ -351,17 +351,17 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="könyvjelzők-keresése-tag-alapján">
-  Könyvjelzők keresése tag alapján
-  <a class="anchor" href="#k%c3%b6nyvjelz%c5%91k-keres%c3%a9se-tag-alapj%c3%a1n">#</a>
+  <article class="markdown"><h1 id="find-bookmarks-by-tags">
+  Find bookmarks by tags
+  <a class="anchor" href="#find-bookmarks-by-tags">#</a>
 </h1>
-<p>Futtassuk a programot:
+<p>Run the program:
 <a href="https://repl.it/@tombenke/cayley-cookbook-src#schema/find_bookmarks_by_tags.go"><img src="https://repl.it/badge/github/tombenke/cayley-cookbook-src" alt="Run this code on Repl.it" /></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    cd schema
     go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go
-</code></pre></div><p>A program kimenete:</p>
+</code></pre></div><p>The output of the program:</p>
 <details >
-  <summary>Az eredmények megjelenítése</summary>
+  <summary>Show the results</summary>
   <div class="markdown-inner">
     <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">
 Results of finding any of `nosql` or `gremlin` tags:
@@ -407,21 +407,21 @@ Results of finding every tags of `cayley` or `gremlin`:
   <ul>
     <li class="flex align-center">
       <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
-      Magyar
+      English
     </li> 
   </ul>
 
   <ul class="book-languages-list">
     
-    <li class="">
-      <a href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/queries/bookmarks/" class="flex align-center">
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
         <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
         English
       </a>
     </li>
     
-    <li class="active">
-      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bookmarks/" class="flex align-center">
         <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
         Magyar
       </a>

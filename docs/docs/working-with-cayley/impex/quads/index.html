@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang="hu" dir=>
+<html lang="en" dir=>
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Quad-ok #  Az alábbi példa létrehoz egy quad halmazt, majd kiexportálja többféle formátumban:
-A teljes kódlista megtekintése package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad&#34; &#34;reflect&#34; // Add some predefined vocabularies 	&#34;github.com/cayleygraph/quad/voc/rdf&#34; &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func main() { // Create Quads about some people using Blank Nodes as references 	quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads 	printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references 	quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads 	printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Quad-ok exportálása" />
-<meta property="og:description" content="Quad-ok #  Az alábbi példa létrehoz egy quad halmazt, majd kiexportálja többféle formátumban:
-A teljes kódlista megtekintése package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad&#34; &#34;reflect&#34; // Add some predefined vocabularies 	&#34;github.com/cayleygraph/quad/voc/rdf&#34; &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func main() { // Create Quads about some people using Blank Nodes as references 	quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads 	printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references 	quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads 	printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad." />
+<meta name="description" content="Quads #  This code creates a set of quads, then exports them into several formats:
+See the full list of source code package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad&#34; &#34;reflect&#34; // Add some predefined vocabularies 	&#34;github.com/cayleygraph/quad/voc/rdf&#34; &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func main() { // Create Quads about some people using Blank Nodes as references 	quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads 	printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references 	quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads 	printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Quads export" />
+<meta property="og:description" content="Quads #  This code creates a set of quads, then exports them into several formats:
+See the full list of source code package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad&#34; &#34;reflect&#34; // Add some predefined vocabularies 	&#34;github.com/cayleygraph/quad/voc/rdf&#34; &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func main() { // Create Quads about some people using Blank Nodes as references 	quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads 	printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references 	quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads 	printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/" />
 
-<title>Quad-ok exportálása | Cayley-CookBook</title>
+<title>Quads export | Cayley-CookBook</title>
 <link rel="manifest" href="/cayley-cookbook/manifest.json">
 <link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
-<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/impex/quads/" title="Quads export">
+<link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/quads/" title="Quad-ok exportálása">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.00f03e96b03a91c08c49e297d71ee5cf07fd4e6b95e95389c14d58d4de34f1ea.js" integrity="sha256-APA&#43;lrA6kcCMSeKX1x7lzwf9TmuV6VOJwU1Y1N408eo="></script>
+<script defer src="/cayley-cookbook/en.search.min.13b575123c0733a148fe713b778313faeb2cf243539691fecce7640016eb6770.js" integrity="sha256-E7V1EjwHM6FI/nE7d4MT&#43;uss8kNTlpH&#43;zOdkABbrZ3A="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-XXXXXXXXX-X', 'auto');
+	ga('create', 'UA-177858708-1', 'auto');
 	
 	ga('send', 'pageview');
 }
@@ -52,7 +52,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -83,7 +83,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/about/" class="">Bevezetés</a>
+    <a href="/cayley-cookbook/docs/about/" class="">About</a>
   
 
         </li>
@@ -93,24 +93,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Alapfogalmak</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/cayley-cookbook/docs/cayley-overview/" class="collapsed ">A Cayley rendszer áttekintése</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Basic Concepts</a>
   
 
           
@@ -127,7 +110,24 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/" class="collapsed ">A Tudás-Gráf használata</a>
+    <a href="/cayley-cookbook/docs/cayley-overview/" class="collapsed ">Cayley Overview</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/working-with-cayley/" class="collapsed ">Working with Knowledge Graph</a>
   
 
           
@@ -142,7 +142,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/" class="collapsed ">Namespace-ek és szótárak</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/" class="collapsed ">Namespaces and Vocabularies</a>
   
 
           
@@ -159,7 +159,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/stores/" class="collapsed ">Store-ok</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/stores/" class="collapsed ">Stores</a>
   
 
           
@@ -176,7 +176,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/impex/" class="collapsed ">Adat import / export</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/impex/" class="collapsed ">Data import / export</a>
   
 
           
@@ -191,7 +191,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/impex/quads/" class="active">Quad-ok exportálása</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/impex/quads/" class="active">Quads export</a>
   
 
         </li>
@@ -201,7 +201,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/impex/schema/" class="">Adat import / export struct annotációval</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/impex/schema/" class="">Data import / export via struct annotation</a>
   
 
         </li>
@@ -217,7 +217,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/queries/" class="collapsed ">Lekérdezések</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/queries/" class="collapsed ">Queries</a>
   
 
           
@@ -234,7 +234,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/crud-operations/" class="collapsed ">CRUD Műveletek</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/crud-operations/" class="collapsed ">CRUD Operations</a>
   
 
           
@@ -251,7 +251,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/transactions/" class="collapsed ">Tranzakciók</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/transactions/" class="collapsed ">Transactions</a>
   
 
           
@@ -306,7 +306,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Quad-ok exportálása</strong>
+  <strong>Quads export</strong>
 
   <label for="toc-control">
     
@@ -329,13 +329,13 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="quad-ok">
-  Quad-ok
-  <a class="anchor" href="#quad-ok">#</a>
+  <article class="markdown"><h1 id="quads">
+  Quads
+  <a class="anchor" href="#quads">#</a>
 </h1>
-<p>Az alábbi példa létrehoz egy quad halmazt, majd kiexportálja többféle formátumban:</p>
+<p>This code creates a set of quads, then exports them into several formats:</p>
 <details >
-  <summary>A teljes kódlista megtekintése</summary>
+  <summary>See the full list of source code</summary>
   <div class="markdown-inner">
     <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
@@ -437,29 +437,28 @@ https://github.com/alex-shpak/hugo-book
   </div>
 </details>
 
-<p>Futtassuk a programot:
-<a href="https://repl.it/@tombenke/cayley-cookbook-src#quad/writer/export_nquads_to_stdout.go"><img src="https://repl.it/badge/github/tombenke/cayley-cookbook-src" alt="Run this code on Repl.it" /></a></p>
+<p><a href="https://repl.it/@tombenke/cayley-cookbook-src#quad/writer/export_nquads_to_stdout.go"><img src="https://repl.it/badge/github/tombenke/cayley-cookbook-src" alt="Run this code on Repl.it" /></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    cd quad/writer
     go run export_nquads_to_stdout.go data
-</code></pre></div><p>A program kimenete:</p>
+</code></pre></div><p>The results:</p>
 
 
 
 
 <div class="book-tabs"><input type="radio" class="toggle" name="tabs-results-of-make-quads" id="tabs-results-of-make-quads-0" checked="checked" />
   <label for="tabs-results-of-make-quads-0">Graphviz</label>
-  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">digraph cayley_graph {
-	&#34;_:n3747198576259004371&#34; -&gt; &#34;&lt;foaf:Person&gt;&#34; [ label = &#34;&lt;rdf:type&gt;&#34; ];
-	&#34;_:n3747198576259004371&#34; -&gt; &#34;\&#34;Luke\&#34;&#34; [ label = &#34;&lt;foaf:givenName&gt;&#34; ];
-	&#34;_:n3747198576259004371&#34; -&gt; &#34;\&#34;Skywalker\&#34;&#34; [ label = &#34;&lt;foaf:familyName&gt;&#34; ];
-	&#34;_:n3747198576259004371&#34; -&gt; &#34;\&#34;23\&#34;^^&lt;xsd:integer&gt;&#34; [ label = &#34;&lt;foaf:age&gt;&#34; ];
-	&#34;_:n8285458617337724806&#34; -&gt; &#34;&lt;foaf:Person&gt;&#34; [ label = &#34;&lt;rdf:type&gt;&#34; ];
-	&#34;_:n8285458617337724806&#34; -&gt; &#34;_:n3747198576259004371&#34; [ label = &#34;&lt;foaf:knows&gt;&#34; ];
-	&#34;_:n8285458617337724806&#34; -&gt; &#34;\&#34;Leia\&#34;&#34; [ label = &#34;&lt;foaf:givenName&gt;&#34; ];
-	&#34;_:n8285458617337724806&#34; -&gt; &#34;\&#34;Organa\&#34;&#34; [ label = &#34;&lt;foaf:familyName&gt;&#34; ];
+  <div class="book-tabs-content markdown-inner"><pre><code class="language-graphviz" data-lang="graphviz">digraph cayley_graph {
+	&quot;_:n3747198576259004371&quot; -&gt; &quot;&lt;foaf:Person&gt;&quot; [ label = &quot;&lt;rdf:type&gt;&quot; ];
+	&quot;_:n3747198576259004371&quot; -&gt; &quot;\&quot;Luke\&quot;&quot; [ label = &quot;&lt;foaf:givenName&gt;&quot; ];
+	&quot;_:n3747198576259004371&quot; -&gt; &quot;\&quot;Skywalker\&quot;&quot; [ label = &quot;&lt;foaf:familyName&gt;&quot; ];
+	&quot;_:n3747198576259004371&quot; -&gt; &quot;\&quot;23\&quot;^^&lt;xsd:integer&gt;&quot; [ label = &quot;&lt;foaf:age&gt;&quot; ];
+	&quot;_:n8285458617337724806&quot; -&gt; &quot;&lt;foaf:Person&gt;&quot; [ label = &quot;&lt;rdf:type&gt;&quot; ];
+	&quot;_:n8285458617337724806&quot; -&gt; &quot;_:n3747198576259004371&quot; [ label = &quot;&lt;foaf:knows&gt;&quot; ];
+	&quot;_:n8285458617337724806&quot; -&gt; &quot;\&quot;Leia\&quot;&quot; [ label = &quot;&lt;foaf:givenName&gt;&quot; ];
+	&quot;_:n8285458617337724806&quot; -&gt; &quot;\&quot;Organa\&quot;&quot; [ label = &quot;&lt;foaf:familyName&gt;&quot; ];
 }
 
-</code></pre></div></div><input type="radio" class="toggle" name="tabs-results-of-make-quads" id="tabs-results-of-make-quads-1"  />
+</code></pre></div><input type="radio" class="toggle" name="tabs-results-of-make-quads" id="tabs-results-of-make-quads-1"  />
   <label for="tabs-results-of-make-quads-1">GML</label>
   <div class="book-tabs-content markdown-inner"><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">Creator &#34;Cayley&#34;
 graph [ directed 1
@@ -671,26 +670,26 @@ graph [ directed 1
 
 </code></pre></div></div><input type="radio" class="toggle" name="tabs-results-of-make-quads" id="tabs-results-of-make-quads-4"  />
   <label for="tabs-results-of-make-quads-4">n-quads</label>
-  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">_:n3747198576259004371 &lt;rdf:type&gt; &lt;foaf:Person&gt; &#34;people&#34; .
-_:n3747198576259004371 &lt;foaf:givenName&gt; &#34;Luke&#34; &#34;people&#34; .
-_:n3747198576259004371 &lt;foaf:familyName&gt; &#34;Skywalker&#34; &#34;people&#34; .
-_:n3747198576259004371 &lt;foaf:age&gt; &#34;23&#34;^^&lt;xsd:integer&gt; &#34;people&#34; .
-_:n8285458617337724806 &lt;rdf:type&gt; &lt;foaf:Person&gt; &#34;people&#34; .
-_:n8285458617337724806 &lt;foaf:knows&gt; _:n3747198576259004371 &#34;people&#34; .
-_:n8285458617337724806 &lt;foaf:givenName&gt; &#34;Leia&#34; &#34;people&#34; .
-_:n8285458617337724806 &lt;foaf:familyName&gt; &#34;Organa&#34; &#34;people&#34; .
+  <div class="book-tabs-content markdown-inner"><pre><code class="language-nquads" data-lang="nquads">_:n3747198576259004371 &lt;rdf:type&gt; &lt;foaf:Person&gt; &quot;people&quot; .
+_:n3747198576259004371 &lt;foaf:givenName&gt; &quot;Luke&quot; &quot;people&quot; .
+_:n3747198576259004371 &lt;foaf:familyName&gt; &quot;Skywalker&quot; &quot;people&quot; .
+_:n3747198576259004371 &lt;foaf:age&gt; &quot;23&quot;^^&lt;xsd:integer&gt; &quot;people&quot; .
+_:n8285458617337724806 &lt;rdf:type&gt; &lt;foaf:Person&gt; &quot;people&quot; .
+_:n8285458617337724806 &lt;foaf:knows&gt; _:n3747198576259004371 &quot;people&quot; .
+_:n8285458617337724806 &lt;foaf:givenName&gt; &quot;Leia&quot; &quot;people&quot; .
+_:n8285458617337724806 &lt;foaf:familyName&gt; &quot;Organa&quot; &quot;people&quot; .
 
-</code></pre></div></div></div>
+</code></pre></div></div>
 
 <figure>
     <img src="/cayley-cookbook/src/quad/writer/people_dot.png"/> <figcaption>
-            <h4>Graphviz-ből előállított diagram</h4>
+            <h4>Rendered Graphviz</h4>
         </figcaption>
 </figure>
 
 <figure>
     <img src="/cayley-cookbook/src/quad/writer/people_graphml.png"/> <figcaption>
-            <h4>yEd GraphML-ből előállított diagram</h4>
+            <h4>Rendered yEd GraphML</h4>
         </figcaption>
 </figure>
 
@@ -717,21 +716,21 @@ _:n8285458617337724806 &lt;foaf:familyName&gt; &#34;Organa&#34; &#34;people&#34;
   <ul>
     <li class="flex align-center">
       <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
-      Magyar
+      English
     </li> 
   </ul>
 
   <ul class="book-languages-list">
     
-    <li class="">
-      <a href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/impex/quads/" class="flex align-center">
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
         <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
         English
       </a>
     </li>
     
-    <li class="active">
-      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/quads/" class="flex align-center">
         <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
         Magyar
       </a>

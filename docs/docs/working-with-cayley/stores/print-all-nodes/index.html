@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang="hu" dir=>
+<html lang="en" dir=>
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A store összes node-jának kilistázása #  Probléma #  Hogyan tudom az store-ban lévő összes node-ot lekérdezni, és kilistázni?
-Teszt adatok előállítása #  package main import ( &#34;github.com/cayleygraph/quad&#34; // Add some predefined vocabularies 	&#34;github.com/cayleygraph/quad/voc/rdf&#34; &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&#34;starwars:leia_organa&#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &#34;people&#34; quads := []quad.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="A store összes node-jának kilistázása" />
-<meta property="og:description" content="A store összes node-jának kilistázása #  Probléma #  Hogyan tudom az store-ban lévő összes node-ot lekérdezni, és kilistázni?
-Teszt adatok előállítása #  package main import ( &#34;github.com/cayleygraph/quad&#34; // Add some predefined vocabularies 	&#34;github.com/cayleygraph/quad/voc/rdf&#34; &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&#34;starwars:leia_organa&#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &#34;people&#34; quads := []quad." />
+<meta name="description" content="List all nodes from store #  Problem #  How can I retrieve and print all nodes from the store?
+Test Data #  package main import ( &#34;github.com/cayleygraph/quad&#34; // Add some predefined vocabularies 	&#34;github.com/cayleygraph/quad/voc/rdf&#34; &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&#34;starwars:leia_organa&#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &#34;people&#34; quads := []quad.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="List all nodes from store" />
+<meta property="og:description" content="List all nodes from store #  Problem #  How can I retrieve and print all nodes from the store?
+Test Data #  package main import ( &#34;github.com/cayleygraph/quad&#34; // Add some predefined vocabularies 	&#34;github.com/cayleygraph/quad/voc/rdf&#34; &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&#34;starwars:leia_organa&#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &#34;people&#34; quads := []quad." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-nodes/" />
 
-<title>A store összes node-jának kilistázása | Cayley-CookBook</title>
+<title>List all nodes from store | Cayley-CookBook</title>
 <link rel="manifest" href="/cayley-cookbook/manifest.json">
 <link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
-<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/stores/print-all-nodes/" title="List all nodes from store">
+<link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-nodes/" title="A store összes node-jának kilistázása">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.00f03e96b03a91c08c49e297d71ee5cf07fd4e6b95e95389c14d58d4de34f1ea.js" integrity="sha256-APA&#43;lrA6kcCMSeKX1x7lzwf9TmuV6VOJwU1Y1N408eo="></script>
+<script defer src="/cayley-cookbook/en.search.min.13b575123c0733a148fe713b778313faeb2cf243539691fecce7640016eb6770.js" integrity="sha256-E7V1EjwHM6FI/nE7d4MT&#43;uss8kNTlpH&#43;zOdkABbrZ3A="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-XXXXXXXXX-X', 'auto');
+	ga('create', 'UA-177858708-1', 'auto');
 	
 	ga('send', 'pageview');
 }
@@ -52,7 +52,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -83,7 +83,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/about/" class="">Bevezetés</a>
+    <a href="/cayley-cookbook/docs/about/" class="">About</a>
   
 
         </li>
@@ -93,24 +93,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Alapfogalmak</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/cayley-cookbook/docs/cayley-overview/" class="collapsed ">A Cayley rendszer áttekintése</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Basic Concepts</a>
   
 
           
@@ -127,7 +110,24 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/" class="collapsed ">A Tudás-Gráf használata</a>
+    <a href="/cayley-cookbook/docs/cayley-overview/" class="collapsed ">Cayley Overview</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/working-with-cayley/" class="collapsed ">Working with Knowledge Graph</a>
   
 
           
@@ -142,7 +142,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/" class="collapsed ">Namespace-ek és szótárak</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/" class="collapsed ">Namespaces and Vocabularies</a>
   
 
           
@@ -159,7 +159,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/stores/" class="collapsed ">Store-ok</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/stores/" class="collapsed ">Stores</a>
   
 
           
@@ -174,7 +174,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/stores/create-store/" class="">Store létrehozása</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/stores/create-store/" class="">Create Store</a>
   
 
         </li>
@@ -184,7 +184,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/stores/make-quads/" class="">Quads-ok létrehozása</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/stores/make-quads/" class="">Make Quads</a>
   
 
         </li>
@@ -194,7 +194,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/stores/print-all-nodes/" class="active">A store összes node-jának kilistázása</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/stores/print-all-nodes/" class="active">List all nodes from store</a>
   
 
         </li>
@@ -204,7 +204,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/stores/print-all-quads/" class="">A store összes quad-jának kilistázása</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/stores/print-all-quads/" class="">List all quads from store</a>
   
 
         </li>
@@ -214,7 +214,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/stores/internals/" class="">A node-ok és quad-ok belső reprezentációja</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/stores/internals/" class="">The internal representation of nodes and quads</a>
   
 
         </li>
@@ -230,7 +230,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/impex/" class="collapsed ">Adat import / export</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/impex/" class="collapsed ">Data import / export</a>
   
 
           
@@ -247,7 +247,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/queries/" class="collapsed ">Lekérdezések</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/queries/" class="collapsed ">Queries</a>
   
 
           
@@ -264,7 +264,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/crud-operations/" class="collapsed ">CRUD Műveletek</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/crud-operations/" class="collapsed ">CRUD Operations</a>
   
 
           
@@ -281,7 +281,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/transactions/" class="collapsed ">Tranzakciók</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/transactions/" class="collapsed ">Transactions</a>
   
 
           
@@ -336,7 +336,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>A store összes node-jának kilistázása</strong>
+  <strong>List all nodes from store</strong>
 
   <label for="toc-control">
     
@@ -351,9 +351,9 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#probléma">Probléma</a></li>
-    <li><a href="#teszt-adatok-előállítása">Teszt adatok előállítása</a></li>
-    <li><a href="#a-store-ban-lévő-összes-node-lekérdezése-is-listázása">A store-ban lévő összes node lekérdezése is listázása:</a></li>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#test-data">Test Data</a></li>
+    <li><a href="#retrieve-and-list-all-nodes-from-the-store">Retrieve and list all nodes from the store:</a></li>
   </ul>
 </nav>
 
@@ -365,18 +365,18 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="a-store-összes-node-jának-kilistázása">
-  A store összes node-jának kilistázása
-  <a class="anchor" href="#a-store-%c3%b6sszes-node-j%c3%a1nak-kilist%c3%a1z%c3%a1sa">#</a>
+  <article class="markdown"><h1 id="list-all-nodes-from-store">
+  List all nodes from store
+  <a class="anchor" href="#list-all-nodes-from-store">#</a>
 </h1>
-<h2 id="probléma">
-  Probléma
-  <a class="anchor" href="#probl%c3%a9ma">#</a>
+<h2 id="problem">
+  Problem
+  <a class="anchor" href="#problem">#</a>
 </h2>
-<p>Hogyan tudom az store-ban lévő összes node-ot lekérdezni, és kilistázni?</p>
-<h2 id="teszt-adatok-előállítása">
-  Teszt adatok előállítása
-  <a class="anchor" href="#teszt-adatok-el%c5%91%c3%a1ll%c3%adt%c3%a1sa">#</a>
+<p>How can I retrieve and print all nodes from the store?</p>
+<h2 id="test-data">
+  Test Data
+  <a class="anchor" href="#test-data">#</a>
 </h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
@@ -409,9 +409,9 @@ https://github.com/alex-shpak/hugo-book
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">quads</span>
 }
 
-</code></pre></div><h2 id="a-store-ban-lévő-összes-node-lekérdezése-is-listázása">
-  A store-ban lévő összes node lekérdezése is listázása:
-  <a class="anchor" href="#a-store-ban-l%c3%a9v%c5%91-%c3%b6sszes-node-lek%c3%a9rdez%c3%a9se-is-list%c3%a1z%c3%a1sa">#</a>
+</code></pre></div><h2 id="retrieve-and-list-all-nodes-from-the-store">
+  Retrieve and list all nodes from the store:
+  <a class="anchor" href="#retrieve-and-list-all-nodes-from-the-store">#</a>
 </h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
@@ -458,7 +458,7 @@ https://github.com/alex-shpak/hugo-book
     }
 }
 
-</code></pre></div><p>A program kimenete:</p>
+</code></pre></div><p>Results:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">MemStoreAll *memstore.AllIterator
 Ref: 1 memstore.bnode
 Key: 1 memstore.bnode
@@ -540,21 +540,21 @@ Value: &#34;Organa&#34; quad.String
   <ul>
     <li class="flex align-center">
       <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
-      Magyar
+      English
     </li> 
   </ul>
 
   <ul class="book-languages-list">
     
-    <li class="">
-      <a href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/stores/print-all-nodes/" class="flex align-center">
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
         <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
         English
       </a>
     </li>
     
-    <li class="active">
-      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-nodes/" class="flex align-center">
         <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
         Magyar
       </a>
@@ -590,9 +590,9 @@ Value: &#34;Organa&#34; quad.String
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#probléma">Probléma</a></li>
-    <li><a href="#teszt-adatok-előállítása">Teszt adatok előállítása</a></li>
-    <li><a href="#a-store-ban-lévő-összes-node-lekérdezése-is-listázása">A store-ban lévő összes node lekérdezése is listázása:</a></li>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#test-data">Test Data</a></li>
+    <li><a href="#retrieve-and-list-all-nodes-from-the-store">Retrieve and list all nodes from the store:</a></li>
   </ul>
 </nav>
 

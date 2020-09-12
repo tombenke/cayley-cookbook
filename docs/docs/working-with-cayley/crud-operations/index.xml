@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>CRUD Műveletek on Cayley-CookBook</title>
+    <title>CRUD Operations on Cayley-CookBook</title>
     <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/crud-operations/</link>
-    <description>Recent content in CRUD Műveletek on Cayley-CookBook</description>
+    <description>Recent content in CRUD Operations on Cayley-CookBook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     

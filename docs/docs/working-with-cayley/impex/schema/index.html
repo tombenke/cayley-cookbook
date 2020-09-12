@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang="hu" dir=>
+<html lang="en" dir=>
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Adat import / export struct annotációval #  Struktúra annotációk #  Ez a fejezet arra mutat példát, hogyan lehet egyszerű vagy összetett objektumokat, azok tulajdonságait quad-okká alakítani, és feltölteni a store-ba, az adatstruktúra deklarációjában elhelyezett annotációk segítségével. Továbbá hogyan lehet a store-ból, az eredmény listákból egyszerűen összeszedni az objektumok property-jeit, és objektumként visszakapni az eredményeket.
-Ezzel a módszerrel jelentősen egyszerűbb az összetett adat-szerkezetek store-ba való feltöltése és lekérdezése, nem kell saját implementációt készíteni arra például, hogy egy adott Blank Node-dal, vagy IRI-vel azonosított objektum minden egyes tulajdonság-értékét egyenként szedegessük össze.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Adat import / export struct annotációval" />
-<meta property="og:description" content="Adat import / export struct annotációval #  Struktúra annotációk #  Ez a fejezet arra mutat példát, hogyan lehet egyszerű vagy összetett objektumokat, azok tulajdonságait quad-okká alakítani, és feltölteni a store-ba, az adatstruktúra deklarációjában elhelyezett annotációk segítségével. Továbbá hogyan lehet a store-ból, az eredmény listákból egyszerűen összeszedni az objektumok property-jeit, és objektumként visszakapni az eredményeket.
-Ezzel a módszerrel jelentősen egyszerűbb az összetett adat-szerkezetek store-ba való feltöltése és lekérdezése, nem kell saját implementációt készíteni arra például, hogy egy adott Blank Node-dal, vagy IRI-vel azonosított objektum minden egyes tulajdonság-értékét egyenként szedegessük össze." />
+<meta name="description" content="Data import / export via struct annotation #  Structure annotations #  This section demonstrates how can we convert simple or complex objects and their properties to quads. it also shows how can we directly upload these data structures to the store, using the annotations placed into the struct declarations ob the objects. Moreover there are examples to the retrieval of these complex objects from the store.
+Within this method it is much easier to store/retrieve complex data structures, than doing it directly with the quads that these data structures are made of, and collecting their properties one-by-one.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Data import / export via struct annotation" />
+<meta property="og:description" content="Data import / export via struct annotation #  Structure annotations #  This section demonstrates how can we convert simple or complex objects and their properties to quads. it also shows how can we directly upload these data structures to the store, using the annotations placed into the struct declarations ob the objects. Moreover there are examples to the retrieval of these complex objects from the store.
+Within this method it is much easier to store/retrieve complex data structures, than doing it directly with the quads that these data structures are made of, and collecting their properties one-by-one." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/schema/" />
 
-<title>Adat import / export struct annotációval | Cayley-CookBook</title>
+<title>Data import / export via struct annotation | Cayley-CookBook</title>
 <link rel="manifest" href="/cayley-cookbook/manifest.json">
 <link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
-<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/impex/schema/" title="Data import / export via struct annotation">
+<link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/schema/" title="Adat import / export struct annotációval">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.00f03e96b03a91c08c49e297d71ee5cf07fd4e6b95e95389c14d58d4de34f1ea.js" integrity="sha256-APA&#43;lrA6kcCMSeKX1x7lzwf9TmuV6VOJwU1Y1N408eo="></script>
+<script defer src="/cayley-cookbook/en.search.min.13b575123c0733a148fe713b778313faeb2cf243539691fecce7640016eb6770.js" integrity="sha256-E7V1EjwHM6FI/nE7d4MT&#43;uss8kNTlpH&#43;zOdkABbrZ3A="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-XXXXXXXXX-X', 'auto');
+	ga('create', 'UA-177858708-1', 'auto');
 	
 	ga('send', 'pageview');
 }
@@ -52,7 +52,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -83,7 +83,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/about/" class="">Bevezetés</a>
+    <a href="/cayley-cookbook/docs/about/" class="">About</a>
   
 
         </li>
@@ -93,24 +93,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Alapfogalmak</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/cayley-cookbook/docs/cayley-overview/" class="collapsed ">A Cayley rendszer áttekintése</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Basic Concepts</a>
   
 
           
@@ -127,7 +110,24 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/" class="collapsed ">A Tudás-Gráf használata</a>
+    <a href="/cayley-cookbook/docs/cayley-overview/" class="collapsed ">Cayley Overview</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/docs/working-with-cayley/" class="collapsed ">Working with Knowledge Graph</a>
   
 
           
@@ -142,7 +142,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/" class="collapsed ">Namespace-ek és szótárak</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/ns-voc/" class="collapsed ">Namespaces and Vocabularies</a>
   
 
           
@@ -159,7 +159,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/stores/" class="collapsed ">Store-ok</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/stores/" class="collapsed ">Stores</a>
   
 
           
@@ -176,7 +176,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/impex/" class="collapsed ">Adat import / export</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/impex/" class="collapsed ">Data import / export</a>
   
 
           
@@ -191,7 +191,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/impex/quads/" class="">Quad-ok exportálása</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/impex/quads/" class="">Quads export</a>
   
 
         </li>
@@ -201,7 +201,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/impex/schema/" class="active">Adat import / export struct annotációval</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/impex/schema/" class="active">Data import / export via struct annotation</a>
   
 
         </li>
@@ -217,7 +217,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/queries/" class="collapsed ">Lekérdezések</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/queries/" class="collapsed ">Queries</a>
   
 
           
@@ -234,7 +234,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/crud-operations/" class="collapsed ">CRUD Műveletek</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/crud-operations/" class="collapsed ">CRUD Operations</a>
   
 
           
@@ -251,7 +251,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/transactions/" class="collapsed ">Tranzakciók</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/transactions/" class="collapsed ">Transactions</a>
   
 
           
@@ -306,7 +306,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Adat import / export struct annotációval</strong>
+  <strong>Data import / export via struct annotation</strong>
 
   <label for="toc-control">
     
@@ -321,12 +321,12 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#struktúra-annotációk">Struktúra annotációk</a></li>
-    <li><a href="#store-létrehozása">Store létrehozása</a></li>
-    <li><a href="#teszt-adatok">Teszt adatok</a></li>
-    <li><a href="#struktúra-annotációk-definiálása">Struktúra annotációk definiálása</a></li>
-    <li><a href="#adat-importálás-struktúra-annotációk-alapján">Adat importálás struktúra annotációk alapján</a></li>
-    <li><a href="#adat-exportálás-struktúra-annotációk-alapján">Adat exportálás struktúra annotációk alapján</a></li>
+    <li><a href="#structure-annotations">Structure annotations</a></li>
+    <li><a href="#create-store">Create store</a></li>
+    <li><a href="#test-data">Test data</a></li>
+    <li><a href="#define-structures-with-annotations">Define structures with annotations</a></li>
+    <li><a href="#data-import-based-on-annotated-structures">Data import based on annotated structures</a></li>
+    <li><a href="#data-export-based-on-annotated-structures">Data export based on annotated structures</a></li>
   </ul>
 </nav>
 
@@ -338,23 +338,25 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="adat-import--export-struct-annotációval">
-  Adat import / export struct annotációval
-  <a class="anchor" href="#adat-import--export-struct-annot%c3%a1ci%c3%b3val">#</a>
+  <article class="markdown"><h1 id="data-import--export-via-struct-annotation">
+  Data import / export via struct annotation
+  <a class="anchor" href="#data-import--export-via-struct-annotation">#</a>
 </h1>
-<h2 id="struktúra-annotációk">
-  Struktúra annotációk
-  <a class="anchor" href="#strukt%c3%bara-annot%c3%a1ci%c3%b3k">#</a>
+<h2 id="structure-annotations">
+  Structure annotations
+  <a class="anchor" href="#structure-annotations">#</a>
 </h2>
-<p>Ez a fejezet arra mutat példát, hogyan lehet egyszerű vagy összetett objektumokat, azok tulajdonságait quad-okká alakítani, és feltölteni a store-ba, az adatstruktúra deklarációjában elhelyezett annotációk segítségével. Továbbá hogyan lehet a store-ból, az eredmény listákból egyszerűen összeszedni az objektumok property-jeit, és objektumként visszakapni az eredményeket.</p>
-<p>Ezzel a módszerrel jelentősen egyszerűbb az összetett adat-szerkezetek store-ba való feltöltése és lekérdezése, nem kell saját implementációt készíteni arra például, hogy egy adott Blank Node-dal, vagy IRI-vel azonosított objektum minden egyes tulajdonság-értékét egyenként szedegessük össze.</p>
-<h2 id="store-létrehozása">
-  Store létrehozása
-  <a class="anchor" href="#store-l%c3%a9trehoz%c3%a1sa">#</a>
+<p>This section demonstrates how can we convert simple or complex objects and their properties to quads.
+it also shows how can we directly upload these data structures to the store, using the annotations placed into the <code>struct</code> declarations ob the objects. Moreover there are examples to the retrieval of these complex objects from the store.</p>
+<p>Within this method it is much easier to store/retrieve complex data structures, than doing it directly with the quads that these data structures are made of, and collecting their properties one-by-one.</p>
+<h2 id="create-store">
+  Create store
+  <a class="anchor" href="#create-store">#</a>
 </h2>
-<p>A példákban egyszerű, in-memory store-t fogunk használni, aminek a megnyitását a <code>store.go</code> file-ban implementált <code>InitStore()</code> funkció végzi el.</p>
+<p>In the examples we will use a simple in-memory store.
+We can start using such a store via calling the <code>InitStore()</code> function, that we can find in the <code>store.go</code> file.</p>
 <details >
-  <summary>A store.go megjelenítése</summary>
+  <summary>Show the source code of the `store.go`</summary>
   <div class="markdown-inner">
     <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">kbase</span>
 
@@ -377,14 +379,14 @@ https://github.com/alex-shpak/hugo-book
   </div>
 </details>
 
-<h2 id="teszt-adatok">
-  Teszt adatok
-  <a class="anchor" href="#teszt-adatok">#</a>
+<h2 id="test-data">
+  Test data
+  <a class="anchor" href="#test-data">#</a>
 </h2>
-<p>A <code>bookmarks.yml</code> file YAML formátumban reprezentált teszt adatokat tartalmaz. Könyvjelzők listája található benne.</p>
-<p>Ezeket a könyvjelzőket fogjuk feltölteni, és lekérdezni a séma annotációk segítségével.</p>
+<p>The <code>bookmarks.yml</code> file holds the test data in YAML format. it contains a list of bookmarks.</p>
+<p>We will upload these bookmarks, then we will query them. The results of the queries will be retrieved via the help of <code>struct</code> annotations.</p>
 <details >
-  <summary>A bookmarks.yml megjelenítése</summary>
+  <summary>Show the `bookmarks.yml` file</summary>
   <div class="markdown-inner">
     <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#66d9ef">id</span>: 9493efb9-be9a<span style="color:#ae81ff">-4435</span>-9b5d-f605fc9cddaa
   <span style="color:#66d9ef">title</span>: Gremlin<span style="color:#e6db74">&#39;s Graph Traversal Machinery
@@ -572,14 +574,14 @@ https://github.com/alex-shpak/hugo-book
   </div>
 </details>
 
-<p>Az adatok file-ból történő beolvasására a <code>yaml.go</code>-ban található <code>ReadFromYaml()</code> funkciót használjuk.</p>
-<p>A <code>yaml.go</code> két függvény tartalmaz:</p>
+<p>In the <code>yaml.go</code> file, there is the <code>ReadFromYaml()</code> function, that we will use to read the data in.</p>
+<p>The <code>yaml.go</code> contains two relevant functions:</p>
 <ul>
-<li>A <code>ReadFromYaml()</code> az adatok YAML file-ból történő beolvasását végzi el,</li>
-<li>a <code>SaveToYaml()</code> a YAML formátumba történő kiírását teszi lehetővé.</li>
+<li>The <code>ReadFromYaml()</code> reads data in from YAML files,</li>
+<li>the <code>SaveToYaml()</code> saves data into a YAML format file.</li>
 </ul>
 <details >
-  <summary>A yaml.go megjelenítése</summary>
+  <summary>Show the `yaml.go` file</summary>
   <div class="markdown-inner">
     <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">impex</span>
 
@@ -636,13 +638,13 @@ https://github.com/alex-shpak/hugo-book
   </div>
 </details>
 
-<h2 id="struktúra-annotációk-definiálása">
-  Struktúra annotációk definiálása
-  <a class="anchor" href="#strukt%c3%bara-annot%c3%a1ci%c3%b3k-defini%c3%a1l%c3%a1sa">#</a>
+<h2 id="define-structures-with-annotations">
+  Define structures with annotations
+  <a class="anchor" href="#define-structures-with-annotations">#</a>
 </h2>
-<p>A könyvjelző objektumok struktúráját, valamint a séma definícióját, az importáló és exportáló műveleteket mind a <code>bookmarks.go</code> file tartalmazza.</p>
+<p>The description of the bookmark objects, and their schema annotations are placed into the <code>bookmarks.go</code> file, as well as the functions to import and export these objects.</p>
 <details >
-  <summary>A bookmarks.go megjelenítése</summary>
+  <summary>Show the `bookmarks.go` file</summary>
   <div class="markdown-inner">
     <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
@@ -762,19 +764,20 @@ https://github.com/alex-shpak/hugo-book
   </div>
 </details>
 
-<p>A forráskódban látható, hogy kétféle struktúra van definiálva:</p>
+<p>In the source code there are two structures defined:</p>
 <ul>
-<li>a <code>Bookmark</code> a teljes változat,</li>
-<li>a <code>BookmarkShort</code> pedig egy rövidített változat.</li>
+<li>The <code>Bookmark</code> which is the full variant,</li>
+<li>ant the <code>BookmarkShort</code> which is a simplified variant.</li>
 </ul>
-<p>A <code>struct</code>-ban vannak elhelyezve a <code>yaml</code> és a <code>quad</code> cimkével azonosított annotációk, tehát egyszerre minkét típusú átalakításhoz megadhatjuk az instrukciókat.</p>
-<h2 id="adat-importálás-struktúra-annotációk-alapján">
-  Adat importálás struktúra annotációk alapján
-  <a class="anchor" href="#adat-import%c3%a1l%c3%a1s-strukt%c3%bara-annot%c3%a1ci%c3%b3k-alapj%c3%a1n">#</a>
+<p>In the <code>struct</code> declaration we placed the annotations to the <code>yaml</code> and <code>quad</code> serialization/deserialization. So these annotations can be used for both formats.</p>
+<h2 id="data-import-based-on-annotated-structures">
+  Data import based on annotated structures
+  <a class="anchor" href="#data-import-based-on-annotated-structures">#</a>
 </h2>
-<p>Az adatokat először beolvassuk egy <code>[]Bookmarks</code> típusú változóba, majd abból feltöltjük a store-ba. A feltöltést a <code>&quot;github.com/cayleygraph/cayley/schema&quot;</code> package-ben definiált, <code>schema.WriteAsQuads()</code> funkcióval végezzük el, ahogyan az <code>import_bookmarks_with_schema.go</code> file-ban látható.</p>
+<p>First we read the data into a <code>[]Bookmarks</code> variable, then upload it into the store.
+For the uploading, we use the <code>schema.WriteAsQuads()</code> that is defined in the <code>&quot;github.com/cayleygraph/cayley/schema&quot;</code> package-ben, as we can see in the example in the <code>import_bookmarks_with_schema.go</code> file.</p>
 <details >
-  <summary>Az import_bookmarks_with_schema.go megjelenítése</summary>
+  <summary>Show the `import_bookmarks_with_schema.go` file</summary>
   <div class="markdown-inner">
     <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
@@ -824,26 +827,27 @@ https://github.com/alex-shpak/hugo-book
   </div>
 </details>
 
-<p>Futtassuk a programot:
+<p>Run the program:
 <a href="https://repl.it/@tombenke/cayley-cookbook-src#schema/import_bookmarks_with_schema.go"><img src="https://repl.it/badge/github/tombenke/cayley-cookbook-src" alt="Run this code on Repl.it" /></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    cd schema
     go run impex_bookmarks_with_schema.go yamlImpex.go store.go bookmarks.go
-</code></pre></div><p>A program kimenete:</p>
+</code></pre></div><p>The results:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">Successfully imported bookmarks into the mem-store as 176 nodes and 245 quads.
 
-</code></pre></div><h2 id="adat-exportálás-struktúra-annotációk-alapján">
-  Adat exportálás struktúra annotációk alapján
-  <a class="anchor" href="#adat-export%c3%a1l%c3%a1s-strukt%c3%bara-annot%c3%a1ci%c3%b3k-alapj%c3%a1n">#</a>
+</code></pre></div><h2 id="data-export-based-on-annotated-structures">
+  Data export based on annotated structures
+  <a class="anchor" href="#data-export-based-on-annotated-structures">#</a>
 </h2>
-<p>Az exportálás ugyanúgy kezdődik, mint az importálás. Először beolvassuk az adatokat a YAML file-ból, majd feltöltjük a store-ba.</p>
-<p>Ezt követően lekérdezzük az össze Bookmarkot a store-ból, kétféle módon:</p>
+<p>The export operation begins similarly to the import operation.
+First we read the data in from the YAML file, then we upload it into the store.</p>
+<p>The we retrieve all the Bookmarks from the store within the following two functions:</p>
 <ul>
-<li>A <code>GetAllBookmarks()</code> funció a teljes részletességgel fogja lekérdezni az adatokat,</li>
-<li>a <code>GetAllShortBookmarks()</code> pedig az egyszerűsített változatban.</li>
+<li>The <code>GetAllBookmarks()</code> function will show the results with full details,</li>
+<li>the <code>GetAllShortBookmarks()</code> will show the simplified version.</li>
 </ul>
-<p>Mindkét funkció a <code>bookmarks.go</code> file-ban van implementálva, és a <code>schemaConfig.LoadTo()</code> metódust használja a tulajdonságok összegyűjtésére. Ehhez előzőleg létre kell hoznunk egy <code>schemaConfig</code> objektumot, a <code>schema.NewConfig()</code> funció segítségével.</p>
+<p>Both functions are implemented in the <code>bookmarks.go</code> file, and they use the <code>schemaConfig.LoadTo()</code> method to collect the properties of the resulted objects. In order to call this method, first we need to create a <code>schemaConfig</code> object, using the <code>schema.NewConfig()</code> function.</p>
 <details >
-  <summary>Az impex_bookmarks_with_schema.go megjelenítése</summary>
+  <summary>Show the `impex_bookmarks_with_schema.go` file</summary>
   <div class="markdown-inner">
     <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
@@ -924,14 +928,13 @@ https://github.com/alex-shpak/hugo-book
   </div>
 </details>
 
-<p>Futtassuk a programot:
+<p>Run the program:
 <a href="https://repl.it/@tombenke/cayley-cookbook-src#schema/impex_bookmarks_with_schema.go"><img src="https://repl.it/badge/github/tombenke/cayley-cookbook-src" alt="Run this code on Repl.it" /></a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    cd schema
     go run impex_bookmarks_with_schema.go yamlImpex.go store.go bookmarks.go
-</code></pre></div><p>A lekérdezésekeket követően a program kiírja az eredményeket.</p>
-<p>A program kimenete:</p>
+</code></pre></div><p>The results:</p>
 <details >
-  <summary>Az eredmények megjelenítése</summary>
+  <summary>Show the results</summary>
   <div class="markdown-inner">
     <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">Successfully imported bookmarks into the mem-store.
 
@@ -1085,7 +1088,7 @@ Short Bookmarks:
 <p>
 
 
-Kapcsolódó oldalak:
+Related pages:
 
 </p>
 
@@ -1112,21 +1115,21 @@ Kapcsolódó oldalak:
   <ul>
     <li class="flex align-center">
       <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
-      Magyar
+      English
     </li> 
   </ul>
 
   <ul class="book-languages-list">
     
-    <li class="">
-      <a href="https://tombenke.github.io/cayley-cookbook/en/docs/working-with-cayley/impex/schema/" class="flex align-center">
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
         <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
         English
       </a>
     </li>
     
-    <li class="active">
-      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/schema/" class="flex align-center">
         <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
         Magyar
       </a>
@@ -1162,12 +1165,12 @@ Kapcsolódó oldalak:
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#struktúra-annotációk">Struktúra annotációk</a></li>
-    <li><a href="#store-létrehozása">Store létrehozása</a></li>
-    <li><a href="#teszt-adatok">Teszt adatok</a></li>
-    <li><a href="#struktúra-annotációk-definiálása">Struktúra annotációk definiálása</a></li>
-    <li><a href="#adat-importálás-struktúra-annotációk-alapján">Adat importálás struktúra annotációk alapján</a></li>
-    <li><a href="#adat-exportálás-struktúra-annotációk-alapján">Adat exportálás struktúra annotációk alapján</a></li>
+    <li><a href="#structure-annotations">Structure annotations</a></li>
+    <li><a href="#create-store">Create store</a></li>
+    <li><a href="#test-data">Test data</a></li>
+    <li><a href="#define-structures-with-annotations">Define structures with annotations</a></li>
+    <li><a href="#data-import-based-on-annotated-structures">Data import based on annotated structures</a></li>
+    <li><a href="#data-export-based-on-annotated-structures">Data export based on annotated structures</a></li>
   </ul>
 </nav>
 

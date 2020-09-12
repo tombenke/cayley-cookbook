@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lekérdezések on Cayley-CookBook</title>
+    <link>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/</link>
+    <description>Recent content in Lekérdezések on Cayley-CookBook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Összes node kiírása</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/find_all_vertices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/find_all_vertices/</guid>
+      <description>Összes node kiírása #  Probléma #  Hogyan tudom gráf összes elemét (subject-eket, object-eket, predicate-eket) kiíratni?
+Teszt adatok #    1. ábra: Teszt adatok Gráf diagramja   Kiinduló adatok megtekintése nquads formában &amp;lt;alice&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;dani&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;emily&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; .</description>
+    </item>
+    
+    <item>
+      <title>Összes predikátum kiírása</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/find_all_predicates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/find_all_predicates/</guid>
+      <description>Összes predikátum kiírása #  Probléma #  Hogyan tudom kilistázni az összes predikátumot, ami szerepel a gráfban?
+Teszt adatok #    1. ábra: Teszt adatok Gráf diagramja   Kiinduló adatok megtekintése nquads formában &amp;lt;alice&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;dani&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;greg&amp;gt; . &amp;lt;dani&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;emily&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; .</description>
+    </item>
+    
+    <item>
+      <title>Kétirányú relációk</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bidirectional/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bidirectional/</guid>
+      <description>Kétirányú relációk #  Probléma #  Ha van egy A &amp;lt;-1-&amp;gt; B &amp;lt;-2-&amp;gt; C gráfunk ahol A, B, C subject-ek, és object-ek az 1, 2 predikátumokkal vannak összekapcsolva mindkét irányban (bidirectional), akkor hogyan tudjuk C-t elérni A-ból egy path segítségével?
+Teszt adatok #    Fig 1.: A tesz adat gráfja   A teszt adatok megjelenítése in nquads formátumban &amp;lt;A&amp;gt; &amp;lt;predicate-1&amp;gt; &amp;lt;B&amp;gt; . &amp;lt;B&amp;gt; &amp;lt;predicate-1&amp;gt; &amp;lt;A&amp;gt; . &amp;lt;B&amp;gt; &amp;lt;predicate-2&amp;gt; &amp;lt;C&amp;gt; .</description>
+    </item>
+    
+    <item>
+      <title>Könyvjelzők keresése tag alapján</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bookmarks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bookmarks/</guid>
+      <description>Könyvjelzők keresése tag alapján #  Futtassuk a programot: 
+cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go A program kimenete:
+Az eredmények megjelenítése Results of finding any of `nosql` or `gremlin` tags: - &amp;#34;Ontotext GraphDB&amp;#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang="hu" dir=>
+<html lang="en" dir=>
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Gráf alapú adatmodellezés #  Amikor tudásgráfot építünk, akkor a világ egy részéről építünk fel egy koncepcionális modellt.
-Egy koncepcionális modell jellemzően egy meghatározott szakterületet fed le, ezért ezt a modellt domain-nek, tudás-tartománynak is nevezzük.
-Egy domain a következőket képviseli:
- az elsődleges entitásokat (a dolgokat, amelyek a domain-be beletartoznak). Az entitásokra használni fogjuk a resource kifejezést is; az entitások között fennálló kapcsolatokat; az entitások és kapcsolatok tulajdonságait, más szóval attribútumait Ezeket property-knek is nevezzük esetleg a szabályokat, amelyek az entitások és attribútumaik kapcsolatára, azok belső tulajdonságaira vonatkoznak.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Gráf alapú adatmodellezés" />
-<meta property="og:description" content="Gráf alapú adatmodellezés #  Amikor tudásgráfot építünk, akkor a világ egy részéről építünk fel egy koncepcionális modellt.
-Egy koncepcionális modell jellemzően egy meghatározott szakterületet fed le, ezért ezt a modellt domain-nek, tudás-tartománynak is nevezzük.
-Egy domain a következőket képviseli:
- az elsődleges entitásokat (a dolgokat, amelyek a domain-be beletartoznak). Az entitásokra használni fogjuk a resource kifejezést is; az entitások között fennálló kapcsolatokat; az entitások és kapcsolatok tulajdonságait, más szóval attribútumait Ezeket property-knek is nevezzük esetleg a szabályokat, amelyek az entitások és attribútumaik kapcsolatára, azok belső tulajdonságaira vonatkoznak." />
+<meta name="description" content="Graph Based Data Model #  Conceptual Model, or Domain
+A conceptual model is a model of a subject area or area of knowledge, sometimes called a domain.
+It represents:
+ the primary entities (the things of the domain), the relationships among entities, the attributes and attribute values (sometimes called properties and property values) of the entities and the relationships, and sometimes rules that associate entities, relationships, and attributes (or all three) in more complicated ways.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Graph Based Data Model" />
+<meta property="og:description" content="Graph Based Data Model #  Conceptual Model, or Domain
+A conceptual model is a model of a subject area or area of knowledge, sometimes called a domain.
+It represents:
+ the primary entities (the things of the domain), the relationships among entities, the attributes and attribute values (sometimes called properties and property values) of the entities and the relationships, and sometimes rules that associate entities, relationships, and attributes (or all three) in more complicated ways." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/graph-based-data-model/" />
 
-<title>Gráf alapú adatmodellezés | Cayley-CookBook</title>
+<title>Graph Based Data Model | Cayley-CookBook</title>
 <link rel="manifest" href="/cayley-cookbook/manifest.json">
 <link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
-<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/graph-based-data-model/" title="Graph Based Data Model">
+<link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/graph-based-data-model/" title="Gráf alapú adatmodellezés">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.00f03e96b03a91c08c49e297d71ee5cf07fd4e6b95e95389c14d58d4de34f1ea.js" integrity="sha256-APA&#43;lrA6kcCMSeKX1x7lzwf9TmuV6VOJwU1Y1N408eo="></script>
+<script defer src="/cayley-cookbook/en.search.min.13b575123c0733a148fe713b778313faeb2cf243539691fecce7640016eb6770.js" integrity="sha256-E7V1EjwHM6FI/nE7d4MT&#43;uss8kNTlpH&#43;zOdkABbrZ3A="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-XXXXXXXXX-X', 'auto');
+	ga('create', 'UA-177858708-1', 'auto');
 	
 	ga('send', 'pageview');
 }
@@ -56,7 +56,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -87,7 +87,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/about/" class="">Bevezetés</a>
+    <a href="/cayley-cookbook/docs/about/" class="">About</a>
   
 
         </li>
@@ -97,7 +97,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Alapfogalmak</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/" class="collapsed ">Basic Concepts</a>
   
 
           
@@ -112,7 +112,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/graph-based-data-model/" class="active">Gráf alapú adatmodellezés</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/graph-based-data-model/" class="active">Graph Based Data Model</a>
   
 
         </li>
@@ -122,7 +122,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/resources/" class="">Erőforrások</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/resources/" class="">Resources</a>
   
 
         </li>
@@ -132,7 +132,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/statements/" class="">Állítások</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/statements/" class="">Statements</a>
   
 
         </li>
@@ -142,7 +142,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/vocabularies/" class="">Szótárak</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/vocabularies/" class="">Vocabularies</a>
   
 
         </li>
@@ -152,7 +152,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/rdf-graphs/" class="">Tudás Gráf reprezentációk</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/rdf-graphs/" class="">Rdf Graphs</a>
   
 
         </li>
@@ -168,7 +168,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/cayley-overview/" class="collapsed ">A Cayley rendszer áttekintése</a>
+    <a href="/cayley-cookbook/docs/cayley-overview/" class="collapsed ">Cayley Overview</a>
   
 
           
@@ -185,7 +185,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/working-with-cayley/" class="collapsed ">A Tudás-Gráf használata</a>
+    <a href="/cayley-cookbook/docs/working-with-cayley/" class="collapsed ">Working with Knowledge Graph</a>
   
 
           
@@ -234,7 +234,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Gráf alapú adatmodellezés</strong>
+  <strong>Graph Based Data Model</strong>
 
   <label for="toc-control">
     
@@ -257,56 +257,19 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="gráf-alapú-adatmodellezés">
-  Gráf alapú adatmodellezés
-  <a class="anchor" href="#gr%c3%a1f-alap%c3%ba-adatmodellez%c3%a9s">#</a>
+  <article class="markdown"><h1 id="graph-based-data-model">
+  Graph Based Data Model
+  <a class="anchor" href="#graph-based-data-model">#</a>
 </h1>
-<p>Amikor tudásgráfot építünk, akkor a világ egy részéről építünk fel egy koncepcionális modellt.</p>
-<p>Egy koncepcionális modell jellemzően egy meghatározott szakterületet fed le, ezért ezt a modellt domain-nek, tudás-tartománynak is nevezzük.</p>
-<p>Egy domain a következőket képviseli:</p>
+<p>Conceptual Model, or Domain</p>
+<p>A conceptual model is a model of a subject area or area of knowledge, sometimes called a domain.</p>
+<p>It represents:</p>
 <ul>
-<li>az elsődleges entitásokat (a dolgokat, amelyek a domain-be beletartoznak). Az entitásokra használni fogjuk a resource kifejezést is;</li>
-<li>az entitások között fennálló kapcsolatokat;</li>
-<li>az entitások és kapcsolatok tulajdonságait, más szóval attribútumait Ezeket property-knek is nevezzük</li>
-<li>esetleg a szabályokat, amelyek az entitások és attribútumaik kapcsolatára, azok belső tulajdonságaira vonatkoznak.</li>
+<li>the primary entities (the things of the domain),</li>
+<li>the relationships among entities,</li>
+<li>the attributes and attribute values (sometimes called properties and property values) of the entities and the relationships,</li>
+<li>and sometimes rules that associate entities, relationships, and attributes (or all three) in more complicated ways.</li>
 </ul>
-<p>A gráf alapú adatbázis-kezelők, és a szemantikus technológiák hatékonyan alkalmazhatók olyan esetben, ahol rugalmas, gyakran változó, nem strukturált adatmodellel kell dolgozni, és sokféle keresési szempont alapján kell lekérdezéseket végrehajtanunk. Ebből adódóan jók a koncepcionális modellek leírására.</p>
-<p>A <a href="https://hu.wikipedia.org/wiki/Gr%C3%A1f">gráfok</a> két fontos alkotóelemből állnak:</p>
-<ul>
-<li>csomópontok, más néven csúcsok, angolul <strong>node</strong>, vagy <strong>vertex</strong>.</li>
-<li>élek, amelyek a csomópontokat összekötik, angolul <strong>edge</strong>.</li>
-</ul>
-<p>A tudásreprezentációnál a node-okat jellemzően fogalmak, dolgok ábrázolására használjuk, az edge-eket pedig a köztük fennálló kapcsolatok, asszociációk jelölésére.</p>
-<p>Az élek irányítottak, és mind a node-oknak, mind az edge-eknek lehetnek címkéi, angolul <strong>label</strong>.</p>
-<p>Az 1. ábra egy egyszerű gráfot ábrázol, amin két csomópont (node) található a &ldquo;Luke&rdquo; és &ldquo;Leia&rdquo; címkékkel, továbbá köztük egy él (edge) a &ldquo;knows&rdquo; címkével</p>
-<figure>
-    <img src="/cayley-cookbook/simple-graph.png"/> <figcaption>
-            <h4>1. ábra: Egyszerű Gráf</h4>
-        </figcaption>
-</figure>
-
-<p>Bizonyos gráf adatbázis-kezelők megengedik, hogy a node-ok és edge-ek több tulajdonságot is hordozzanak, a <a href="https://cayley.io/" target="_blank">Cayley</a>
- esetében számunkra ezek egyetlen értéket fognak jelenteni.</p>
-<p>
-
-
-
-  
-
-<a  href="/cayley-cookbook/docs/basic-concepts/"   class="book-btn">
-  &#9669; Alapfogalmak
-</a>
-
-
-
-
-
-  
-
-<a  href="/cayley-cookbook/docs/basic-concepts/resources/"   class="book-btn">
-  Erőforrások &#9659;
-</a>
-</p>
 </article>
  
       
@@ -330,21 +293,21 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li class="flex align-center">
       <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
-      Magyar
+      English
     </li> 
   </ul>
 
   <ul class="book-languages-list">
     
-    <li class="">
-      <a href="https://tombenke.github.io/cayley-cookbook/en/docs/basic-concepts/graph-based-data-model/" class="flex align-center">
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
         <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
         English
       </a>
     </li>
     
-    <li class="active">
-      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/graph-based-data-model/" class="flex align-center">
         <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
         Magyar
       </a>

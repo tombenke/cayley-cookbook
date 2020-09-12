@@ -12,13 +12,12 @@
     
     
     <item>
-      <title>Bevezetés</title>
+      <title>About</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/about/</link>
       <pubDate>Tue, 01 Sep 2020 14:04:49 +0200</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/about/</guid>
-      <description>Bevezetés #  Amikor manapság Mesterséges Intelligenciáról beszélünk, többnyire a Gépi Tanulásra gondolunk, amit Statisztikus Tanulásnak is neveznek. A Gépi Tanulás módszereivel nagyon látványos eredményeket lehet elérni, ugyanakkor komoly hátránya, hogy a tanulás során keletkezett eredmények elemzése, magyarázata ember számára szinte egyáltalán nem, vagy csak nehezen értelmezhető.
-A Gépi Tanulás azonban csak az egyik lehetséges megközelítés. Korábban, az MI kutatások kezdetén, az 50-es 60-as években a fő csapásirány a szimbolikus megközelítés volt.</description>
+      <description>About #  TODO</description>
     </item>
     
   </channel>

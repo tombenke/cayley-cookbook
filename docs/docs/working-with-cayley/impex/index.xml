@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Adat import / export on Cayley-CookBook</title>
+    <title>Data import / export on Cayley-CookBook</title>
     <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/</link>
-    <description>Recent content in Adat import / export on Cayley-CookBook</description>
+    <description>Recent content in Data import / export on Cayley-CookBook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -11,23 +11,23 @@
     
     
     <item>
-      <title>Quad-ok exportálása</title>
+      <title>Quads export</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/</guid>
-      <description>Quad-ok #  Az alábbi példa létrehoz egy quad halmazt, majd kiexportálja többféle formátumban:
-A teljes kódlista megtekintése package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad&amp;#34; &amp;#34;reflect&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func main() { // Create Quads about some people using Blank Nodes as references 	quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads 	printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references 	quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads 	printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad.</description>
+      <description>Quads #  This code creates a set of quads, then exports them into several formats:
+See the full list of source code package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad&amp;#34; &amp;#34;reflect&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func main() { // Create Quads about some people using Blank Nodes as references 	quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads 	printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references 	quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads 	printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad.</description>
     </item>
     
     <item>
-      <title>Adat import / export struct annotációval</title>
+      <title>Data import / export via struct annotation</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/schema/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/schema/</guid>
-      <description>Adat import / export struct annotációval #  Struktúra annotációk #  Ez a fejezet arra mutat példát, hogyan lehet egyszerű vagy összetett objektumokat, azok tulajdonságait quad-okká alakítani, és feltölteni a store-ba, az adatstruktúra deklarációjában elhelyezett annotációk segítségével. Továbbá hogyan lehet a store-ból, az eredmény listákból egyszerűen összeszedni az objektumok property-jeit, és objektumként visszakapni az eredményeket.
-Ezzel a módszerrel jelentősen egyszerűbb az összetett adat-szerkezetek store-ba való feltöltése és lekérdezése, nem kell saját implementációt készíteni arra például, hogy egy adott Blank Node-dal, vagy IRI-vel azonosított objektum minden egyes tulajdonság-értékét egyenként szedegessük össze.</description>
+      <description>Data import / export via struct annotation #  Structure annotations #  This section demonstrates how can we convert simple or complex objects and their properties to quads. it also shows how can we directly upload these data structures to the store, using the annotations placed into the struct declarations ob the objects. Moreover there are examples to the retrieval of these complex objects from the store.
+Within this method it is much easier to store/retrieve complex data structures, than doing it directly with the quads that these data structures are made of, and collecting their properties one-by-one.</description>
     </item>
     
   </channel>

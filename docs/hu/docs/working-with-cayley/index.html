@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="hu" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ez a fejezet azt demonstrálja, hogyan lehet a Cayley Tudás-Gráffal dolgozni.
+Az egyes példák, használati esetek igyekeznek minél több oldalról bemutatni, hogyan lehet egy-egy feladatok megoldani, a Cayley által nyújtott eszközökkel, mint például a Gizmo query nyelvvel, vagy a Go nyelven implementált funkciókkal.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="A Tudás-Gráf használata" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/" />
+
+<title>A Tudás-Gráf használata | Cayley-CookBook</title>
+<link rel="manifest" href="/cayley-cookbook/manifest.json">
+<link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/" title="Working with Knowledge Graph">
+
+<link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
+<script defer src="/cayley-cookbook/hu.search.min.2718953528e3fe4c42b2aea8d057bf25d15e0772e59c18dcdcc3434c25486382.js" integrity="sha256-JxiVNSjj/kxCsq6o0Fe/JdFeB3LlnBjc3MNDTCVIY4I="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-177858708-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<link rel="alternate" type="application/rss+xml" href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/index.xml" title="Cayley-CookBook" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cayley-cookbook/hu"><span>Cayley-CookBook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/about/" class="">Bevezetés</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/basic-concepts/" class="collapsed ">Alapfogalmak</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/cayley-overview/" class="collapsed ">A Cayley rendszer áttekintése</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/working-with-cayley/" class="collapsed active">A Tudás-Gráf használata</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/" class="collapsed ">Namespace-ek és szótárak</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/working-with-cayley/stores/" class="collapsed ">Store-ok</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/working-with-cayley/impex/" class="collapsed ">Adat import / export</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/working-with-cayley/queries/" class="collapsed ">Lekérdezések</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/working-with-cayley/crud-operations/" class="collapsed ">CRUD Műveletek</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/cayley-cookbook/hu/docs/working-with-cayley/transactions/" class="collapsed ">Tranzakciók</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>A Tudás-Gráf használata</strong>
+
+  <label for="toc-control">
+    
+    <img src="/cayley-cookbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents"></nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<main>
+    <article>
+        <header>
+            <h1>A Tudás-Gráf használata</h1>
+        </header>
+        
+        <p>Ez a fejezet azt demonstrálja, hogyan lehet a Cayley Tudás-Gráffal dolgozni.</p>
+<p>Az egyes példák, használati esetek igyekeznek minél több oldalról bemutatni, hogyan lehet egy-egy feladatok megoldani, a Cayley által nyújtott eszközökkel, mint például a Gizmo query nyelvvel, vagy a Go nyelven implementált funkciókkal.</p>
+
+    </article>
+    <hr />
+    <ul>
+    
+    
+        <li>
+            <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/">Namespace-ek és szótárak</a>
+        </li>
+    
+        <li>
+            <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/">Store-ok</a>
+        </li>
+    
+        <li>
+            <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/">Adat import / export</a>
+        </li>
+    
+        <li>
+            <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/">Lekérdezések</a>
+        </li>
+    
+        <li>
+            <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/crud-operations/">CRUD Műveletek</a>
+        </li>
+    
+        <li>
+            <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/transactions/">Tranzakciók</a>
+        </li>
+    
+    </ul>
+</main>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+  
+
+
+  
+
+  
+
+
+  
+
+
+<div class="book-languages" tabindex="0" aria-haspopup="true">
+  <ul>
+    <li class="flex align-center">
+      <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+      Magyar
+    </li> 
+  </ul>
+
+  <ul class="book-languages-list">
+    
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </li>
+    
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        Magyar
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents"></nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
