@@ -130,7 +130,9 @@ cd namespaces go run register_namespace.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/resources/</guid>
-      <description>Resources #  </description>
+      <description>Resources #  Resource #  The resource is a generic term, that we use both on the normal web and in the domain of semantic web. We usually mean a tangible or an abstract thing.
+A resource has two important properties:
+ it has unique identity, it can be represented (described in a way that holds each relevant properties of the resource).  Taken into consideration these two properties, we can say that the resource is compatible with the entity term of the Domain Driven Design methodology.</description>
     </item>
     
     <item>

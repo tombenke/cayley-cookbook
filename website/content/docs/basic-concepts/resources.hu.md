@@ -1,12 +1,8 @@
 ---
-title: "Erőforrások"
 weight: 2
 keywords: ["entity","resource","literal","property","IRI"]
-# bookFlatSection: false
-# bookToc: true
-# bookHidden: false
-# bookCollapseSection: true
-# bookComments: true
+bookCollapseSection: true
+title: "Erőforrások"
 ---
 
 # Erőforrások
@@ -112,7 +108,3 @@ Példák nyelvi azonosításra:
 ```
 
 A nyelv azonosítása mellett az írás irányát is lehet, jelezni, és még sok finom részletet tárgyalnak a specifikációk, de ezek ismerete nem szükséges az itt leírtak megértéséhez és a {{< cayley >}} használatához.
-
-{{< button relref="graph-based-data-model" >}}&#9669; Gráf alapú adat modell{{< /button >}}
-{{< button relref="statements" >}}Állítások &#9659;{{< /button >}}
-
