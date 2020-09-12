@@ -33,6 +33,12 @@ akkor hogyan tudjuk `C`-t elérni `A`-ból egy path segítségével?
 Kimenet:
 {{% code file="/static/src/query/bidirectional/query.out" language="txt" %}}
 
+### Query kétirányú predicate alkalmazásával
+{{% code file="/static/src/query/bidirectional/query_with_both.gizmo" language="javascript" %}}
+
+Kimenet:
+{{% code file="/static/src/query/bidirectional/query_with_both.out" language="txt" %}}
+
 ### Query morphism alkalmazásával
 {{% code file="/static/src/query/bidirectional/query_with_morphism.gizmo" language="javascript" %}}
 

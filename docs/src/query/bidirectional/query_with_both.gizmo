@@ -1,0 +1,1 @@
+g.V().Tag("source").Both("<predicate-1>").Both("<predicate-2>").Tag('target').All()

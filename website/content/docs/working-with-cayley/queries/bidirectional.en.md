@@ -33,6 +33,12 @@ How  can I get `C` using a path?
 Results:
 {{% code file="/static/src/query/bidirectional/query.out" language="txt" %}}
 
+### Query with bidirectional predicate
+{{% code file="/static/src/query/bidirectional/query_with_both.gizmo" language="javascript" %}}
+
+Results:
+{{% code file="/static/src/query/bidirectional/query_with_both.out" language="txt" %}}
+
 ### Query with morphism
 {{% code file="/static/src/query/bidirectional/query_with_morphism.gizmo" language="javascript" %}}
 
