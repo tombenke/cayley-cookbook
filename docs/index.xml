@@ -180,8 +180,12 @@ Test Data #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34;
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/statements/</guid>
-      <description>Statements #  Statements or assertions
- Related pages: </description>
+      <description>Statements #  Subject, Predicate Object #  We use statements of facts to define knowledge. In general, we usually use declarative sentences to make statements of facts
+For example:
+Luke Skywalker is 23 years old. or, in other words:
+Luke Skywalker has age 23. It is possible to convert these declarative sentences into a subject-predicate-object structure.
+Luke-Skywalker has-age 23. The parts of this sentence:
+ subject: Luke-Skywalker, predicate: has-age, object: 23.</description>
     </item>
     
     <item>
@@ -218,7 +222,7 @@ Retrieve and list all quads from the store: #  package main import ( &amp;#34;fm
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/vocabularies/</guid>
-      <description>Vocabularies #   Related pages:   Create a New Vocabulary     List Registered Namespaces     Register a New Namespace   </description>
+      <description>Vocabularies #  Vocabulary #  One of the big advantages of using knowledge-graphs is that the domain knowledge of the subject area is represented and manipulated in the symbolic space, so it is relatively easy to understand for human beings. What is even more important, it is possible to obviously identify and transmit concepts among the information processing agents, whether they are humans or computers. This way the mapping of tangible physical things, and abstract concepts are possible without misunderstanding.</description>
     </item>
     
     <item>

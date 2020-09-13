@@ -24,7 +24,7 @@ Luke-Skywalker has-age 23. A mondat elemei:
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/statements/" title="Statements">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.1d8f5b3bd03c523db972b853a75b9fe80d0a7281536a57856c24dc20fbcaf38b.js" integrity="sha256-HY9bO9A8Uj25crhTp1uf6A0KcoFTaleFbCTcIPvK84s="></script>
+<script defer src="/cayley-cookbook/hu.search.min.4fc5e11f17e02f6b051d5eeed56d64b9975f4f8b70e3cbd4944ee3cf82e326ac.js" integrity="sha256-T8XhHxfgL2sFHV7u1W1kuZdfT4tw48vUlE7jz4LjJqw="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -295,6 +295,12 @@ Ezen felül szükségünk vagy egy literálra, aminek az értéke <code>23</code
 Végleges formában tehát a kijelentés az alábbi lesz:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">    &lt;Luke-Skywalker-from-StarWars&gt; &lt;has-age&gt; 23^^integer .
 </code></pre></div><p>Láthatjuk az 1. ábrán, hogy a <code>subject-predicate-object</code> hármas felrajzolható gráfként, ahol a subject és az object node-okként jelenik meg, és a predicate lesz a két node-ot összekötő, irányított él.</p>
+<blockquote class="book-hint info">
+  <p><strong>Fontos Megjegyzés:</strong></p>
+<p>Valójában, a predikátumok belső reprezentációja szintén gráf csomópont, ami jellemzően IRI, vagy esetenként literál érték lehet. Ezek a predikátumok megjelenhetnek a keresési eredménylistákban is. Az 1. ábra a tripletek klasszikus gráf ábrázolási formáját mutatja, ami tulajdonképpen egy cimkével azonosított bináris relációt jelképez.</p>
+
+</blockquote>
+
 <figure>
     <img src="/cayley-cookbook/subject-predicate-object-graph.png"/> <figcaption>
             <h4>1. ábra: Subject-Predicate-Object Gráf</h4>
@@ -358,7 +364,7 @@ A subject-eket és predicate-eket rögtön IRI formátumba alakítottuk.</p>
 Ebben az esetben úgynevezett üres csomópontokat, angolul Blank Node-okat alkalmazunk.</p>
 <p>A Blank Node-oknak is van saját azonosítója, ami egy adott gráfon belül egyedi ameddig a program fut.</p>
 <p>A Blank Node-ok a <code>_:</code> prefix-szel kezdődnek, és többnyire valamilyen véletlenszerűen generált számmal, vagy stringgel folytatódnak.</p>
-<p>A 3. ábra hasonló a 2. ábrán látható gráfhoz, azzal a különbséggel, hogy azon a két személyt nem azonosítjuk, globális hatáskörű IRI-kkel, hanem csak lokális hatáskörű Blank node-okkal.</p>
+<p>A 3. ábra hasonló a 2. ábrán látható gráfhoz, azzal a különbséggel, hogy azon a két személyt nem azonosítjuk, globális hatáskörű IRI-kkel, hanem csak lokális hatáskörű Blank Node-okkal.</p>
 <figure>
     <img src="/cayley-cookbook/blank-node-example.png"/> <figcaption>
             <h4>3. ábra: Predikátumok gráfként ábrázolva, Blank node-okkal</h4>
@@ -390,26 +396,6 @@ Kapcsolódó oldalak:
 
 </p>
 
-<p>
-
-
-
-  
-
-<a  href="/cayley-cookbook/hu/docs/basic-concepts/resources/"   class="book-btn">
-  &#9669; Erőforrások
-</a>
-
-
-
-
-
-  
-
-<a  href="/cayley-cookbook/hu/docs/basic-concepts/vocabularies/"   class="book-btn">
-  Szótárak &#9659;
-</a>
-</p>
 </article>
  
       

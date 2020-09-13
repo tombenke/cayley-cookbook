@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Vocabularies #   Related pages:   Create a New Vocabulary     List Registered Namespaces     Register a New Namespace   ">
+<meta name="description" content="Vocabularies #  Vocabulary #  One of the big advantages of using knowledge-graphs is that the domain knowledge of the subject area is represented and manipulated in the symbolic space, so it is relatively easy to understand for human beings. What is even more important, it is possible to obviously identify and transmit concepts among the information processing agents, whether they are humans or computers. This way the mapping of tangible physical things, and abstract concepts are possible without misunderstanding.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Vocabularies" />
-<meta property="og:description" content="Vocabularies #   Related pages:   Create a New Vocabulary     List Registered Namespaces     Register a New Namespace   " />
+<meta property="og:description" content="Vocabularies #  Vocabulary #  One of the big advantages of using knowledge-graphs is that the domain knowledge of the subject area is represented and manipulated in the symbolic space, so it is relatively easy to understand for human beings. What is even more important, it is possible to obviously identify and transmit concepts among the information processing agents, whether they are humans or computers. This way the mapping of tangible physical things, and abstract concepts are possible without misunderstanding." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/vocabularies/" />
 
@@ -16,7 +16,7 @@
 <link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/vocabularies/" title="Szótárak">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/en.search.min.b0be55eeca9f3b9a425c9404abcb92728a134fd66054be7fdab80bfa0f690ab6.js" integrity="sha256-sL5V7sqfO5pCXJQEq8uScooTT9ZgVL5/2rgL&#43;g9pCrY="></script>
+<script defer src="/cayley-cookbook/en.search.min.8c12c006d2bbb471807d054d3ecae1c47308d2551b1debc954ff21352b31bb66.js" integrity="sha256-jBLABtK7tHGAfQVNPsrhxHMI0lUbHevJVP8hNSsxu2Y="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -241,7 +241,13 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#vocabulary">Vocabulary</a></li>
+    <li><a href="#namespaces">Namespaces</a></li>
+    <li><a href="#ontologies">Ontologies</a></li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -255,7 +261,97 @@ https://github.com/alex-shpak/hugo-book
   Vocabularies
   <a class="anchor" href="#vocabularies">#</a>
 </h1>
-<hr />
+<h2 id="vocabulary">
+  Vocabulary
+  <a class="anchor" href="#vocabulary">#</a>
+</h2>
+<p>One of the big advantages of using knowledge-graphs is that the domain knowledge of the subject area is represented and manipulated in the symbolic space, so it is relatively easy to understand for human beings. What is even more important, it is possible to obviously identify and transmit concepts among the information processing agents, whether they are humans or computers. This way the mapping of tangible physical things, and abstract concepts are possible without misunderstanding.</p>
+<p>When we give a name an entity, or we use statements by predicates, the machine and the programmer must have to mean the same meaning behind that name. The human languages are rather redundant, and they are full with homonyms and synonyms. So we need to use well defined vocabularies that clearly define these one-to-one mappings among these entities and their names. In most of the cases these vocabularies contain IRIs to name the entities and predicates, accompanied with some details, that mention their meaning. The vocabularies may also contain application rules about the predicates and resources.</p>
+<p>The IRIs of the vocabularies mostly are English words or acronyms. The same word -whether we use it to identify an entity or a predicate- may mean different thing in different contexts. For example the word <code>robot</code> can mean an industrial assembly robot or welding robot, in case our context is a car-assembly factory, but it can also mean an intelligent humanoid droid in case of a sci-fi novel. So the predicate IRIs such as <code>&lt;knows&gt;</code>, <code>&lt;Person&gt;</code> that we&rsquo;ve been using so far were not precise enough.</p>
+<p>In order to make the IRIs more specific, and unambiguous, it is typical to create dedicated vocabularies to the specific business or scientific domains. These vocabularies may contain generic terms, e. g. <code>person</code>, <code>friend</code>, <code>knows</code>, <code>parent</code>, <code>typeOf</code>, but they can be very particular, which belong to a narrow field, such as antibiotics research. It is also possible that the same word exists in several vocabularies, with similar or even with different meanings.</p>
+<p>The <a href="http://xmlns.com/foaf/spec/">FOAF</a> is a very good example to a generic vocabulary, that holds IRIs to describe personal and/or organizational properties and profiles.</p>
+<p>When we use the IRIs, we usually indicate which vocabulary the IRI belongs to so that ensure unambiguity of its meaning. We can do this via an identifier string, that we put to the front of the IRI. This string uniquely and globally identifies the vocabulary, the given IRI belongs to.</p>
+<p>Let&rsquo;s extend the previously defined predicates with an identifier, which indicates that these predicates belong to the FOAF vocabulary:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;http://xmlns.com/foaf/0.1/#age&gt;
+&lt;http://xmlns.com/foaf/0.1/#familyName&gt;
+&lt;http://xmlns.com/foaf/0.1/#givenName&gt;
+&lt;http://xmlns.com/foaf/0.1/#Person&gt;
+</code></pre></div><h2 id="namespaces">
+  Namespaces
+  <a class="anchor" href="#namespaces">#</a>
+</h2>
+<p>In the previous section we introduced the vocabulary identifier string (e.g. <code>http://xmlns.com/foaf/0.1/#</code>), which makes unambiguous the meaning of the IRIs that we use as subjects, objects or predicates. This identifier string defines a so called <strong>namespace</strong>, in which the words are interpreted. These IRIs are unambiguous, but not too readable for humans. In order to make it more convenient to read and write the predicates, we apply a so called <strong>prefix</strong>, which is a short version of the ID, and that we append to the front of the IRI, separated by an <code>:</code> from the word.</p>
+<p>In case of the FOAF vocabulary we use the <code>foaf:</code> prefix:</p>
+<ul>
+<li>namespace: <code>http://xmlns.com/foaf/0.1/</code></li>
+<li>prefix: <code>foaf</code></li>
+</ul>
+<p>Now, let&rsquo;s see our predicates in this prefixed form:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;foaf:age&gt;
+&lt;foaf:familyName&gt;
+&lt;foaf:givenName&gt;
+&lt;foaf:Person&gt;
+</code></pre></div><p>The full IRIs and the prefixed IRIs are equivalent. The only difference between the two formats is that the full IRIs can be used everywhere, but the prefixed version may used only we have introduced the prefix and namespace, and tied them up with each other. It means, we need to define which prefix identifies which namespace. Each standard knowledge representational formats (RDF, Turtle, etc.) makes this possible via special syntax elements.</p>
+<p>These are the most relevant vocabularies, that are registered by default in <a href="https://cayley.io/" target="_blank">Cayley</a>
+:</p>
+<table>
+<thead>
+<tr>
+<th>prefix</th>
+<th>namespace</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>owl</code></td>
+<td><code>http://www.w3.org/2002/07/owl#</code></td>
+</tr>
+<tr>
+<td><code>rdf</code></td>
+<td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></td>
+</tr>
+<tr>
+<td><code>rdfs</code></td>
+<td><code>http://www.w3.org/2000/01/rdf-schema#</code></td>
+</tr>
+<tr>
+<td><code>schema</code></td>
+<td><code>http://schema.org/</code></td>
+</tr>
+<tr>
+<td><code>xsd</code></td>
+<td><code>http://www.w3.org/2001/XMLSchema#</code></td>
+</tr>
+</tbody>
+</table>
+<p>We can create vocabularies too. For example we can introduce the following namespace/prefix pair for the Star-Wars Universe:</p>
+<ul>
+<li>namespace: <code>http://starwars.universe/#</code></li>
+<li>prefix: <code>starwars</code></li>
+</ul>
+<p>then we can use it, in the followings:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;starwars:Luke-Skywalker&gt;
+&lt;starwars:Leia-Organa&gt;
+</code></pre></div><p>Within a specific knowledge representation file, we can combine the IRIs defined by several vocabularies. Let&rsquo;s see how do our statements look like using the prefixed IRIs:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;starwars:Luke-Skywalker&gt; &lt;rdf:type&gt; &lt;Person&gt; .
+&lt;starwars:Luke-Skywalker&gt; &lt;foaf:givenName&gt; &#34;Luke&#34; .
+&lt;starwars:Luke-Skywalker&gt; &lt;foaf:familyName&gt; &#34;Skywalker&#34; .
+&lt;starwars:Luke-Skywalker&gt; &lt;foaf:age&gt; 23 .
+&lt;starwars:Leia-Organa&gt; &lt;rdf:type&gt; &lt;Person&gt; .
+&lt;starwars:Leia-Organa&gt; &lt;foaf:givenName&gt; &#34;Leia&#34; .
+&lt;starwars:Leia-Organa&gt; &lt;foaf:familyName&gt; &#34;Organa&#34; .
+&lt;starwars:Leia-Organa&gt; &lt;knows&gt; &lt;starwars:Luke-Skywalker&gt; .
+</code></pre></div><h2 id="ontologies">
+  Ontologies
+  <a class="anchor" href="#ontologies">#</a>
+</h2>
+<p>For the sake of completeness, it is important to note that many of the vocabularies offers much more information, than simply just introduce the list of words with prefixes.</p>
+<p>The semantic web technology enables us to define resources and predicates that hold additional, meta-information on other resources, and predicates. For example, we can describe the properties of predicates, whether they are reflexive, or transitive, etc.). This meta-information can be used by the inference engines to deduce implicit information from the graphs, that are not written explicitly, and do reasoning, by applying the rules of logic. These extended knowledge representations, that hold such meta-informations are called Ontologies.</p>
+<p>For example, if we would know that the <code>&lt;foaf:knows&gt;</code> relation is reflexive, then it were enough to say that</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;starwars:Luke_Skywalker&gt; &lt;foaf:knows&gt; &lt;starwars:Leia_Organa&gt; .
+</code></pre></div><p>moreover, we could apply the rule of logic to the statement, and infer another, implicit statement that is also true:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;starwars:Leia_Organa&gt; &lt;foaf:knows&gt; &lt;starwars:Luke_Skywalker&gt; .
+</code></pre></div><hr />
 <p>
 
 
@@ -358,7 +454,13 @@ Related pages:
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#vocabulary">Vocabulary</a></li>
+    <li><a href="#namespaces">Namespaces</a></li>
+    <li><a href="#ontologies">Ontologies</a></li>
+  </ul>
+</nav>
 
  
     </aside>

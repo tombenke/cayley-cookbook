@@ -1,12 +1,8 @@
 ---
-title: "Állítások"
 weight: 3
 keywords: ["triplet","subject","predicate","object","IRI","literal","statement"]
-# bookFlatSection: false
-# bookToc: true
-# bookHidden: false
-# bookCollapseSection: true
-# bookComments: true
+bookCollapseSection: true
+title: "Állítások"
 ---
 
 # Állítások
@@ -52,6 +48,13 @@ Végleges formában tehát a kijelentés az alábbi lesz:
 ```
 
 Láthatjuk az 1. ábrán, hogy a `subject-predicate-object` hármas felrajzolható gráfként, ahol a subject és az object node-okként jelenik meg, és a predicate lesz a két node-ot összekötő, irányított él.
+
+{{< hint info >}}
+__Fontos Megjegyzés:__
+
+Valójában, a predikátumok belső reprezentációja szintén gráf csomópont, ami jellemzően IRI, vagy esetenként literál érték lehet. Ezek a predikátumok megjelenhetnek a keresési eredménylistákban is. Az 1. ábra a tripletek klasszikus gráf ábrázolási formáját mutatja, ami tulajdonképpen egy cimkével azonosított bináris relációt jelképez.
+
+{{< /hint >}}
 
 
 {{< figure src="/cayley-cookbook/subject-predicate-object-graph.png" title="1. ábra: Subject-Predicate-Object Gráf" >}}
@@ -120,14 +123,11 @@ A Blank Node-oknak is van saját azonosítója, ami egy adott gráfon belül egy
 
 A Blank Node-ok a `_:` prefix-szel kezdődnek, és többnyire valamilyen véletlenszerűen generált számmal, vagy stringgel folytatódnak.
 
-A 3. ábra hasonló a 2. ábrán látható gráfhoz, azzal a különbséggel, hogy azon a két személyt nem azonosítjuk, globális hatáskörű IRI-kkel, hanem csak lokális hatáskörű Blank node-okkal.
+A 3. ábra hasonló a 2. ábrán látható gráfhoz, azzal a különbséggel, hogy azon a két személyt nem azonosítjuk, globális hatáskörű IRI-kkel, hanem csak lokális hatáskörű Blank Node-okkal.
 
 {{< figure src="/cayley-cookbook/blank-node-example.png" title="3. ábra: Predikátumok gráfként ábrázolva, Blank node-okkal" >}}
 
 A Blank Node-okat szürke színnel jelöljük.
 
 {{< seealso >}}
-
-{{< button relref="resources" >}}&#9669; Erőforrások{{< /button >}}
-{{< button relref="vocabularies" >}}Szótárak &#9659;{{< /button >}}
 
