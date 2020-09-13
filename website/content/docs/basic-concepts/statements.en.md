@@ -47,7 +47,7 @@ The final statement looks like this:
     <Luke-Skywalker-from-StarWars> <has-age> 23^^integer .
 ```
 
-We can observe on the Figure 1. that the `subject-predicate-object` triple can be visualized as a simple graph, where the subject and object show up as nodes, and the predicate appears as a labeled edge betwee these two nodes.
+We can observe on the Figure 1. that the `subject-predicate-object` triple can be visualized as a simple graph, where the subject and object show up as nodes, and the predicate appears as a labeled edge between these two nodes.
 
 {{< hint info >}}
 __Important Note:__
@@ -71,7 +71,7 @@ Her family name is Organa, and her first name is Leia.
 Leia knows Luke.
 ```
 
-Let's transform the sentences listed above to the `subject-predicat-object` format, using IRIs for the predicates:
+Let's transform the sentences listed above to the `subject-predicate-object` format, using IRIs for the predicates:
 
 ```txt
 <Luke-Skywalker-from-StarWars> <is-a> <Person> .

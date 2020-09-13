@@ -26,7 +26,7 @@ Luke-Skywalker has-age 23. The parts of this sentence:
 <link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/statements/" title="Állítások">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/en.search.min.8c12c006d2bbb471807d054d3ecae1c47308d2551b1debc954ff21352b31bb66.js" integrity="sha256-jBLABtK7tHGAfQVNPsrhxHMI0lUbHevJVP8hNSsxu2Y="></script>
+<script defer src="/cayley-cookbook/en.search.min.a606bf9be8caed53efcec0d6672d846255d27c0f676f5a0e78ced86dc3a0f6c3.js" integrity="sha256-pga/m&#43;jK7VPvzsDWZy2EYlXSfA9nb1oOeM7YbcOg9sM="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -156,7 +156,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/rdf-graphs/" class="">Rdf Graphs</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/rdf-graphs/" class="">Knowledge-Graph Representations</a>
   
 
         </li>
@@ -294,7 +294,7 @@ In general, we usually use declarative sentences to make statements of facts</p>
 He has the <em>age</em> property, that we can can express by the <code>&lt;has-age&gt;</code> IRI, since this is a generic term. In addition, we need a literal value, that is <code>23</code>, with the type of integer. This is the value that belongs to the <code>&lt;has-age&gt;</code> property, in case of Luke.</p>
 <p>The final statement looks like this:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">    &lt;Luke-Skywalker-from-StarWars&gt; &lt;has-age&gt; 23^^integer .
-</code></pre></div><p>We can observe on the Figure 1. that the <code>subject-predicate-object</code> triple can be visualized as a simple graph, where the subject and object show up as nodes, and the predicate appears as a labeled edge betwee these two nodes.</p>
+</code></pre></div><p>We can observe on the Figure 1. that the <code>subject-predicate-object</code> triple can be visualized as a simple graph, where the subject and object show up as nodes, and the predicate appears as a labeled edge between these two nodes.</p>
 <blockquote class="book-hint info">
   <p><strong>Important Note:</strong></p>
 <p>Internally, the predicates are also represented in the form of graph nodes, such as IRIs or even as Literal values too. They can appear in the results of queries too. The Figure 1. shows the classical graph visualization of triples in the form of binary relations.</p>
@@ -315,7 +315,7 @@ Luke is 23 years old.
 Leia Organa is a person in the StarWars Universe.
 Her family name is Organa, and her first name is Leia.
 Leia knows Luke.
-</code></pre></div><p>Let&rsquo;s transform the sentences listed above to the <code>subject-predicat-object</code> format, using IRIs for the predicates:</p>
+</code></pre></div><p>Let&rsquo;s transform the sentences listed above to the <code>subject-predicate-object</code> format, using IRIs for the predicates:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;Luke-Skywalker-from-StarWars&gt; &lt;is-a&gt; &lt;Person&gt; .
 &lt;Luke-Skywalker-from-StarWars&gt; &lt;has-given-name&gt; &#34;Luke&#34; .
 &lt;Luke-Skywalker-from-StarWars&gt; &lt;has-family-name&gt; &#34;Skywalker&#34; .
@@ -375,6 +375,14 @@ Leia knows Luke.
 
 
 Related pages:
+
+<ul>
+    
+    <li>
+            <a href="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/rdf-graphs/"> Knowledge-Graph Representations</a>
+    </li>
+    
+</ul>
 
 </p>
 

@@ -57,12 +57,13 @@ Luke-Skywalker has-age 23. The parts of this sentence:
     </item>
     
     <item>
-      <title>Rdf Graphs</title>
+      <title>Knowledge-Graph Representations</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/rdf-graphs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/rdf-graphs/</guid>
-      <description>Rdf Graphs #  </description>
+      <description>Knowledge-Graph Representations #  In the previous sections we described, how can we make statements of facts by the application of resources, predicates and literal values. These statements are named triples.
+We also introduced the concept of IRI, that makes possible to write unambiguous statements in standardized format, that are generally applicable. This way we have a simple solution to define the nodes and edges of the knowledge graph, including their labels, by the use of a plain text editor.</description>
     </item>
     
   </channel>

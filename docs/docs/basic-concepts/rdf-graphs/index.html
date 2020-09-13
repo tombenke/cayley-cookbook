@@ -4,19 +4,21 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Rdf Graphs #  ">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Rdf Graphs" />
-<meta property="og:description" content="Rdf Graphs #  " />
+<meta name="description" content="Knowledge-Graph Representations #  In the previous sections we described, how can we make statements of facts by the application of resources, predicates and literal values. These statements are named triples.
+We also introduced the concept of IRI, that makes possible to write unambiguous statements in standardized format, that are generally applicable. This way we have a simple solution to define the nodes and edges of the knowledge graph, including their labels, by the use of a plain text editor.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Knowledge-Graph Representations" />
+<meta property="og:description" content="Knowledge-Graph Representations #  In the previous sections we described, how can we make statements of facts by the application of resources, predicates and literal values. These statements are named triples.
+We also introduced the concept of IRI, that makes possible to write unambiguous statements in standardized format, that are generally applicable. This way we have a simple solution to define the nodes and edges of the knowledge graph, including their labels, by the use of a plain text editor." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/rdf-graphs/" />
 
-<title>Rdf Graphs | Cayley-CookBook</title>
+<title>Knowledge-Graph Representations | Cayley-CookBook</title>
 <link rel="manifest" href="/cayley-cookbook/manifest.json">
 <link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
 <link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/rdf-graphs/" title="Tudás Gráf reprezentációk">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/en.search.min.8c12c006d2bbb471807d054d3ecae1c47308d2551b1debc954ff21352b31bb66.js" integrity="sha256-jBLABtK7tHGAfQVNPsrhxHMI0lUbHevJVP8hNSsxu2Y="></script>
+<script defer src="/cayley-cookbook/en.search.min.a606bf9be8caed53efcec0d6672d846255d27c0f676f5a0e78ced86dc3a0f6c3.js" integrity="sha256-pga/m&#43;jK7VPvzsDWZy2EYlXSfA9nb1oOeM7YbcOg9sM="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -146,7 +148,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/docs/basic-concepts/rdf-graphs/" class="active">Rdf Graphs</a>
+    <a href="/cayley-cookbook/docs/basic-concepts/rdf-graphs/" class="active">Knowledge-Graph Representations</a>
   
 
         </li>
@@ -228,7 +230,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Rdf Graphs</strong>
+  <strong>Knowledge-Graph Representations</strong>
 
   <label for="toc-control">
     
@@ -241,7 +243,15 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#n-triples-n-quads">n-triples, n-quads</a></li>
+    <li><a href="#turtle">Turtle</a></li>
+    <li><a href="#n3">N3</a></li>
+    <li><a href="#rdfxml">RDF/XML</a></li>
+    <li><a href="#json-ld">JSON-LD</a></li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -251,11 +261,247 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="rdf-graphs">
-  Rdf Graphs
-  <a class="anchor" href="#rdf-graphs">#</a>
+  <article class="markdown"><h1 id="knowledge-graph-representations">
+  Knowledge-Graph Representations
+  <a class="anchor" href="#knowledge-graph-representations">#</a>
 </h1>
-</article>
+<p>In the previous sections we described, how can we make statements of facts by the application of resources, predicates and literal values. These statements are named <em>triples</em>.</p>
+<p>We also introduced the concept of IRI, that makes possible to write unambiguous statements in standardized format, that are generally applicable. This way we have a simple solution to define the nodes and edges of the knowledge graph, including their labels, by the use of a plain text editor. We can store these graph descriptions in plain text files, that we can load into a graph database, as well as we can export the graphs from the database into text files.</p>
+<p>The graph database has its own internal representation to store and index the nodes and edges. When we store the knowledge representation in text files, we have several options to choose a standard format for this. In the following sub-sections, we summarize the most widespread formats we can choose from, when we work with <a href="https://cayley.io/" target="_blank">Cayley</a>
+.</p>
+<p>The most fundamental, base framework we use to describe resources is called RDF. The RDF is the acronym of <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">Resource Description Framework</a> expression.</p>
+<p>The RDF standard defines several file-serialization formats. The most frequently used formats are text based formats, that also have their corresponding mime-types.</p>
+<p>The next table briefly summarizes the nuts-and-bolts of these formats:</p>
+<blockquote class="book-hint info">
+  <p><strong>Note:</strong></p>
+<p>This table lists these format only for the sake of completeness. In the first approximation to this topic, it is not needed to dive into the details of these formats and the semantic technology stack. We focus on the practical aspects.</p>
+<p>In order to use <!-- raw HTML omitted -->Cayley<!-- raw HTML omitted -->
+we only need to know <code>n-quads</code>, <code>n-triples</code> and the <code>Turtle</code> formats.</p>
+
+</blockquote>
+
+<table>
+<thead>
+<tr>
+<th>format</th>
+<th>file extension</th>
+<th>mime-type</th>
+<th>when to use?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.w3.org/TR/n-triples/">n-triples</a></td>
+<td><code>.nt</code></td>
+<td><code>application/n-triples</code></td>
+<td>In case we need acceptable performance, and want to ensure high level of compatibility.</td>
+</tr>
+<tr>
+<td><a href="https://www.w3.org/TR/n-quads/">n-quads</a></td>
+<td><code>.nq</code></td>
+<td><code>application/n-quads</code></td>
+<td>The same as with n-triples</td>
+</tr>
+<tr>
+<td><a href="https://www.w3.org/TR/turtle/">Turtle</a></td>
+<td><code>.ttl</code></td>
+<td><code>application/x-turtle</code></td>
+<td>In case we need to read and write the content manually.</td>
+</tr>
+<tr>
+<td><a href="https://www.w3.org/TeamSubmission/n3/">N3</a></td>
+<td><code>.n3</code></td>
+<td><code>text/n3</code></td>
+<td>in case we need to apply RDF rules.</td>
+</tr>
+<tr>
+<td><a href="https://www.w3.org/TR/rdf-syntax-grammar/">RDF/XML</a></td>
+<td><code>.xml</code></td>
+<td><code>application/rdf+xml</code></td>
+<td>If we have to use XML.</td>
+</tr>
+<tr>
+<td><a href="https://www.w3.org/2018/jsonld-cg-reports/json-ld/">JSON-LD</a></td>
+<td><code>.jsonld</code></td>
+<td><code>application/ld+json</code></td>
+<td>When we want to provide a JSON API, or we need to connect to a JSON-LD API, and there is no high performance need.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="n-triples-n-quads">
+  n-triples, n-quads
+  <a class="anchor" href="#n-triples-n-quads">#</a>
+</h2>
+<p>These two formats are nearly identical. In fact, the <code>n-triples</code> are the statements that we introduced in the previous sections. In the text file, each statement is placed a separate line that is closed by the <code>.</code> character. For example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;Luke-Skywalker-from-StarWars&gt; &lt;is-a&gt; &lt;Person&gt; .
+&lt;Luke-Skywalker-from-StarWars&gt; &lt;has-given-name&gt; &#34;Luke&#34; .
+&lt;Luke-Skywalker-from-StarWars&gt; &lt;has-family-name&gt; &#34;Skywalker&#34; .
+&lt;Luke-Skywalker-from-StarWars&gt; &lt;has-age&gt; 23 .
+</code></pre></div><p>The <code>n-quads</code> format differs only slightly from the <code>n-triples</code> format. The <code>n-quads</code> statements may contain a fourth element, that is a string that called (graph-) label. this label can identify the graph the statement belongs, to. this way it is possible to store more than one graphs in the database, that are not fully connected with each other, that makes the performance optimization easier in case of indexing and querying.</p>
+<p>The following code fragment contains <code>n-quads</code> statements, that are extended with the <code>&quot;a-new-hope&quot;</code> label:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;Luke-Skywalker-from-StarWars&gt; &lt;is-a&gt; &lt;Person&gt; &#34;a-new-hope&#34; .
+&lt;Luke-Skywalker-from-StarWars&gt; &lt;has-given-name&gt; &#34;Luke&#34; &#34;a-new-hope&#34; .
+&lt;Luke-Skywalker-from-StarWars&gt; &lt;has-family-name&gt; &#34;Skywalker&#34; &#34;a-new-hope&#34; .
+&lt;Luke-Skywalker-from-StarWars&gt; &lt;has-age&gt; 23 &#34;a-new-hope&#34; .
+</code></pre></div><p>This label refers to the film episode in which the characters appeared first time.</p>
+<p>The next code fragment describes the Dantooine planet in <code>n-triples</code> format. This example is made for the sake of comparison with the other formats that we will describe below. The same planet will be represented by the several formats in the upcoming examples.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;https://swapi.co/resource/planet/25&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;https://swapi.co/vocabulary/Planet&gt; .
+&lt;https://swapi.co/resource/planet/25&gt; &lt;http://www.w3.org/2000/01/rdf-schema#label&gt; &#34;Dantooine&#34;^^&lt;http://www.w3.org/2001/XMLSchema#string&gt; .
+&lt;https://swapi.co/resource/planet/25&gt; &lt;http://www.ontotext.com/business-object/type&gt; &#34;Planet&#34; .
+&lt;https://swapi.co/resource/planet/25&gt; &lt;https://swapi.co/vocabulary/climate&gt; &#34;temperate&#34;^^&lt;http://www.w3.org/2001/XMLSchema#string&gt; .
+&lt;https://swapi.co/resource/planet/25&gt; &lt;https://swapi.co/vocabulary/desc&gt; &#34;None&#34;^^&lt;http://www.w3.org/2001/XMLSchema#string&gt; .
+&lt;https://swapi.co/resource/planet/25&gt; &lt;https://swapi.co/vocabulary/diameter&gt; &#34;9830&#34;^^&lt;http://www.w3.org/2001/XMLSchema#integer&gt; .
+&lt;https://swapi.co/resource/planet/25&gt; &lt;https://swapi.co/vocabulary/gravity&gt; &#34;1 standard&#34;^^&lt;http://www.w3.org/2001/XMLSchema#string&gt; .
+&lt;https://swapi.co/resource/planet/25&gt; &lt;https://swapi.co/vocabulary/orbitalPeriod&gt; &#34;378&#34;^^&lt;http://www.w3.org/2001/XMLSchema#integer&gt; .
+&lt;https://swapi.co/resource/planet/25&gt; &lt;https://swapi.co/vocabulary/population&gt; &#34;1000&#34;^^&lt;http://www.w3.org/2001/XMLSchema#integer&gt; .
+&lt;https://swapi.co/resource/planet/25&gt; &lt;https://swapi.co/vocabulary/rotationPeriod&gt; &#34;25&#34;^^&lt;http://www.w3.org/2001/XMLSchema#integer&gt; .
+&lt;https://swapi.co/resource/planet/25&gt; &lt;https://swapi.co/vocabulary/terrain&gt; &#34;oceans, savannas, mountains, grasslands&#34;^^&lt;http://www.w3.org/2001/XMLSchema#string&gt; .
+</code></pre></div><h2 id="turtle">
+  Turtle
+  <a class="anchor" href="#turtle">#</a>
+</h2>
+<p>The Turtle is a very popular format. It looks very similar to the <code>n-quads</code> format, but it is much less verbose. Moreover we can define the prefixes and namespaces in the head part of the file, then we can use the prefixed version of IRIs in the main part of the file, which makes much more dense, and eye-friendly the knowledge description.</p>
+<p>When we define the statements to a specific subject, we need to refer to the subject only once, then we only have to list the predicate/object pairs, that we close with a <code>;</code> character, then we need to close the whole statement-set with the final <code>.</code> character.</p>
+<p>Among these features, the Turtle format offers other facilitation and convenience services, so this format is really perfect to use for describing knowledge in case we need to manage manually the content.</p>
+<p>The Dantooine planet in Turtle format:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">@prefix bo: &lt;http://www.ontotext.com/business-object/&gt; .
+@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix voc: &lt;https://swapi.co/vocabulary/&gt; .
+@prefix xml: &lt;http://www.w3.org/XML/1998/namespace&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+&lt;https://swapi.co/resource/planet/25&gt; a voc:Planet ;
+    rdfs:label &#34;Dantooine&#34;^^xsd:string ;
+    bo:type &#34;Planet&#34; ;
+    voc:climate &#34;temperate&#34;^^xsd:string ;
+    voc:desc &#34;None&#34;^^xsd:string ;
+    voc:diameter 9830 ;
+    voc:gravity &#34;1 standard&#34;^^xsd:string ;
+    voc:orbitalPeriod 378 ;
+    voc:population 1000 ;
+    voc:rotationPeriod 25 ;
+    voc:terrain &#34;oceans, savannas, mountains, grasslands&#34;^^xsd:string .
+</code></pre></div><h2 id="n3">
+  N3
+  <a class="anchor" href="#n3">#</a>
+</h2>
+<p>The N3 format (Notation3 in longer form) was worked out by Tim-Berners Lee, who also created the original RDF/XML format.</p>
+<p>The N3 format is suitable to make complete semantic specifications. It is equivalent to the XML/RDF format, but it is much more readable than the XML content, so much transparent to human eyes. The N3 format is very similar to the Turtle. in fact the Turtle format is a subset of the N3 format.</p>
+<p>the Dantooine planet in N3 format:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ns0: &lt;http://www.ontotext.com/business-object/&gt; .
+@prefix ns1: &lt;https://swapi.co/vocabulary/&gt; .
+
+&lt;https://swapi.co/resource/planet/25&gt;
+  a &lt;https://swapi.co/vocabulary/Planet&gt; ;
+  rdfs:label &#34;Dantooine&#34;^^xsd:string ;
+  ns0:type &#34;Planet&#34; ;
+  ns1:climate &#34;temperate&#34;^^xsd:string ;
+  ns1:desc &#34;None&#34;^^xsd:string ;
+  ns1:diameter 9830 ;
+  ns1:gravity &#34;1 standard&#34;^^xsd:string ;
+  ns1:orbitalPeriod 378 ;
+  ns1:population 1000 ;
+  ns1:rotationPeriod 25 ;
+  ns1:terrain &#34;oceans, savannas, mountains, grasslands&#34;^^xsd:string .
+</code></pre></div><h2 id="rdfxml">
+  RDF/XML
+  <a class="anchor" href="#rdfxml">#</a>
+</h2>
+<p>The RDF/XML is the serialization format the was primarily created, and which is able to completely satisfy all the expectations against the knowledge representation on the semantic web.</p>
+<p>Unfortunately the RDF/XML format is rather verbose, so it is not really well readable for human beings. We use it in cases we must use XML format.</p>
+<p>The Dantooine planet in XML/RDF format:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34; ?&gt;</span>
+<span style="color:#f92672">&lt;rdf:RDF</span> <span style="color:#a6e22e">xmlns:rdf=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/02/22-rdf-syntax-ns#&#34;</span>
+         <span style="color:#a6e22e">xmlns:rdfs=</span><span style="color:#e6db74">&#34;http://www.w3.org/2000/01/rdf-schema#&#34;</span>
+         <span style="color:#a6e22e">xmlns:ns0=</span><span style="color:#e6db74">&#34;http://www.ontotext.com/business-object/&#34;</span>
+         <span style="color:#a6e22e">xmlns:ns1=</span><span style="color:#e6db74">&#34;https://swapi.co/vocabulary/&#34;</span><span style="color:#f92672">&gt;</span>
+
+  <span style="color:#f92672">&lt;rdf:Description</span> <span style="color:#a6e22e">rdf:about=</span><span style="color:#e6db74">&#34;https://swapi.co/resource/planet/25&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;rdf:type</span> <span style="color:#a6e22e">rdf:resource=</span><span style="color:#e6db74">&#34;https://swapi.co/vocabulary/Planet&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;rdfs:label</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#f92672">&gt;</span>Dantooine<span style="color:#f92672">&lt;/rdfs:label&gt;</span>
+    <span style="color:#f92672">&lt;ns0:type&gt;</span>Planet<span style="color:#f92672">&lt;/ns0:type&gt;</span>
+    <span style="color:#f92672">&lt;ns1:climate</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#f92672">&gt;</span>temperate<span style="color:#f92672">&lt;/ns1:climate&gt;</span>
+    <span style="color:#f92672">&lt;ns1:desc</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#f92672">&gt;</span>None<span style="color:#f92672">&lt;/ns1:desc&gt;</span>
+    <span style="color:#f92672">&lt;ns1:diameter</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#integer&#34;</span><span style="color:#f92672">&gt;</span>9830<span style="color:#f92672">&lt;/ns1:diameter&gt;</span>
+    <span style="color:#f92672">&lt;ns1:gravity</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#f92672">&gt;</span>1 standard<span style="color:#f92672">&lt;/ns1:gravity&gt;</span>
+    <span style="color:#f92672">&lt;ns1:orbitalPeriod</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#integer&#34;</span><span style="color:#f92672">&gt;</span>378<span style="color:#f92672">&lt;/ns1:orbitalPeriod&gt;</span>
+    <span style="color:#f92672">&lt;ns1:population</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#integer&#34;</span><span style="color:#f92672">&gt;</span>1000<span style="color:#f92672">&lt;/ns1:population&gt;</span>
+    <span style="color:#f92672">&lt;ns1:rotationPeriod</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#integer&#34;</span><span style="color:#f92672">&gt;</span>25<span style="color:#f92672">&lt;/ns1:rotationPeriod&gt;</span>
+    <span style="color:#f92672">&lt;ns1:terrain</span> <span style="color:#a6e22e">rdf:datatype=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#f92672">&gt;</span>oceans, savannas, mountains, grasslands<span style="color:#f92672">&lt;/ns1:terrain&gt;</span>
+  <span style="color:#f92672">&lt;/rdf:Description&gt;</span>
+
+<span style="color:#f92672">&lt;/rdf:RDF&gt;</span>
+</code></pre></div><h2 id="json-ld">
+  JSON-LD
+  <a class="anchor" href="#json-ld">#</a>
+</h2>
+<p>The JSON-LD representations are documents that conform with the JSON standard. The JSON representation format is widely used by the REST APIs, as the main format of the requests and responses. It is well readable for humans too. Unfortunately the size of this format is farther big, relative to the other formats, and bigger files may consume too much computational resources for processing, so it is not the most perfect format if we need high throughput, and processing speed.</p>
+<p>The Dantooine planet in JSON-LD format:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+    {
+        <span style="color:#f92672">&#34;@id&#34;</span>: <span style="color:#e6db74">&#34;https://swapi.co/resource/planet/25&#34;</span>,
+        <span style="color:#f92672">&#34;@type&#34;</span>: [
+            <span style="color:#e6db74">&#34;https://swapi.co/vocabulary/Planet&#34;</span>
+        ],
+        <span style="color:#f92672">&#34;http://www.ontotext.com/business-object/type&#34;</span>: [
+            {
+                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#e6db74">&#34;Planet&#34;</span>
+            }
+        ],
+        <span style="color:#f92672">&#34;http://www.w3.org/2000/01/rdf-schema#label&#34;</span>: [
+            {
+                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#e6db74">&#34;Dantooine&#34;</span>
+            }
+        ],
+        <span style="color:#f92672">&#34;https://swapi.co/vocabulary/climate&#34;</span>: [
+            {
+                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#e6db74">&#34;temperate&#34;</span>
+            }
+        ],
+        <span style="color:#f92672">&#34;https://swapi.co/vocabulary/desc&#34;</span>: [
+            {
+                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#e6db74">&#34;None&#34;</span>
+            }
+        ],
+        <span style="color:#f92672">&#34;https://swapi.co/vocabulary/diameter&#34;</span>: [
+            {
+                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#ae81ff">9830</span>
+            }
+        ],
+        <span style="color:#f92672">&#34;https://swapi.co/vocabulary/gravity&#34;</span>: [
+            {
+                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#e6db74">&#34;1 standard&#34;</span>
+            }
+        ],
+        <span style="color:#f92672">&#34;https://swapi.co/vocabulary/orbitalPeriod&#34;</span>: [
+            {
+                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#ae81ff">378</span>
+            }
+        ],
+        <span style="color:#f92672">&#34;https://swapi.co/vocabulary/population&#34;</span>: [
+            {
+                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#ae81ff">1000</span>
+            }
+        ],
+        <span style="color:#f92672">&#34;https://swapi.co/vocabulary/rotationPeriod&#34;</span>: [
+            {
+                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#ae81ff">25</span>
+            }
+        ],
+        <span style="color:#f92672">&#34;https://swapi.co/vocabulary/terrain&#34;</span>: [
+            {
+                <span style="color:#f92672">&#34;@value&#34;</span>: <span style="color:#e6db74">&#34;oceans, savannas, mountains, grasslands&#34;</span>
+            }
+        ]
+    },
+    {
+        <span style="color:#f92672">&#34;@id&#34;</span>: <span style="color:#e6db74">&#34;https://swapi.co/vocabulary/Planet&#34;</span>
+    }
+]
+</code></pre></div></article>
  
       
 
@@ -326,7 +572,15 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#n-triples-n-quads">n-triples, n-quads</a></li>
+    <li><a href="#turtle">Turtle</a></li>
+    <li><a href="#n3">N3</a></li>
+    <li><a href="#rdfxml">RDF/XML</a></li>
+    <li><a href="#json-ld">JSON-LD</a></li>
+  </ul>
+</nav>
 
  
     </aside>

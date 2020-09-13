@@ -4,10 +4,10 @@ type: docs
 ---
 
 A [Cayley](https://github.com/cayleygraph/cayley) egy open-source Linked Data adatbáziskezelő.
-Léthrehozását a Google [Knowledge Graph](https://en.wikipedia.org/wiki/Knowledge_Graph) gráf adatbázisa inspirálta.
+Létrehozását a Google [Knowledge Graph](https://en.wikipedia.org/wiki/Knowledge_Graph) gráf adatbázisa inspirálta.
 
 Ez a weboldal kódrészletek gyűjteménye, melyek azt mutatják be, működő példákon keresztül, hogyan lehet a
-[Cayley Knowledge Graph](https://github.com/cayleygraph/cayley) Golang könyvtárként alkalmazni.
+[Cayley Knowledge Graph](https://github.com/cayleygraph/cayley) [Golang](https://golang.org/) könyvtárként alkalmazni.
 
 A [github.com/tombenke/cayley-cookbook-src](https://github.com/tombenke/cayley-cookbook-src/tree/master)
 repository tartalmazza a forráskódot. A repository-ban az egyes használati esetek directory-kba vannak szervezve.

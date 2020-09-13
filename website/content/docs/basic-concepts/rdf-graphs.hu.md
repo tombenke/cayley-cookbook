@@ -1,12 +1,8 @@
 ---
-title: "Tudás Gráf reprezentációk"
 weight: 5
+bookCollapseSection: true
 keywords: ["n-quads","n-triples","triplet","rdf"]
-# bookFlatSection: false
-# bookToc: true
-# bookHidden: false
-# bookCollapseSection: true
-# bookComments: true
+title: "Tudás Gráf reprezentációk"
 ---
 
 # Tudás Gráf reprezentációk
