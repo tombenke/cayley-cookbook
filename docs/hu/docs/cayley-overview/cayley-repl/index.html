@@ -4,9 +4,15 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A cayley repl parancs #    3. ábra: cayley repl   ">
+<meta name="description" content="A cayley repl parancs #  A REPL aRead-Eval-Print-Loop kifejezés rövidítése.
+A cayley repl paranccsal elindíthatunk egy konzolt ami egy már korábban létrehozott adatbázishoz kapcsolódik, és interaktívan végrehajthatunk az adatbázisban lekérdezéseket, és egyéb műveleket.
+A konzol a normál Linux konzolhoz hasonlóan működik.
+Beírhatjuk a kifejezéseket, amelyeket az Enter billenytű lenyomása után az interpreter értelmez, és végrehajt, az eredményt pedig kiírja a konzolra. A fel/le nyilakat is használhatjuk, hogy navigáljunk a korábban végrehajtott parancsok között.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="A `cayley repl` parancs" />
-<meta property="og:description" content="A cayley repl parancs #    3. ábra: cayley repl   " />
+<meta property="og:description" content="A cayley repl parancs #  A REPL aRead-Eval-Print-Loop kifejezés rövidítése.
+A cayley repl paranccsal elindíthatunk egy konzolt ami egy már korábban létrehozott adatbázishoz kapcsolódik, és interaktívan végrehajthatunk az adatbázisban lekérdezéseket, és egyéb műveleket.
+A konzol a normál Linux konzolhoz hasonlóan működik.
+Beírhatjuk a kifejezéseket, amelyeket az Enter billenytű lenyomása után az interpreter értelmez, és végrehajt, az eredményt pedig kiírja a konzolra. A fel/le nyilakat is használhatjuk, hogy navigáljunk a korábban végrehajtott parancsok között." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/" />
 
@@ -16,7 +22,7 @@
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-repl/" title="The `cayley repl` command">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
-<script defer src="/cayley-cookbook/hu.search.min.8d2e31ad18b7b532b7f9fc813662ca411b3410a86a39db4520598d0df13e3959.js" integrity="sha256-jS4xrRi3tTK3&#43;fyBNmLKQRs0EKhqOdtFIFmNDfE&#43;OVk="></script>
+<script defer src="/cayley-cookbook/hu.search.min.327c1eec7b039fa02fee39d3b69b8e11d2235abffdd22c8353934b8b553fcce0.js" integrity="sha256-Mnwe7HsDn6Av7jnTtpuOEdIjWr/90iyDU5NLi1U/zOA="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -216,9 +222,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-e17818fe16bf33b6ca86d2d0af497abe" class="toggle"  />
-    <label for="section-e17818fe16bf33b6ca86d2d0af497abe" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/" class="">A `cayley http` parancs</a>
+    <input type="checkbox" id="section-55182948002255292040e2457cbfb89b" class="toggle"  />
+    <label for="section-55182948002255292040e2457cbfb89b" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/" class="">A `cayley convert` parancs</a>
       <span>▾</span>
     </label>
   
@@ -233,9 +239,26 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-55182948002255292040e2457cbfb89b" class="toggle"  />
-    <label for="section-55182948002255292040e2457cbfb89b" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/" class="">A `cayley convert` parancs</a>
+    <input type="checkbox" id="section-2baee5b05d4e80f1462a11796d44b0ff" class="toggle"  />
+    <label for="section-2baee5b05d4e80f1462a11796d44b0ff" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-init/" class="">A `cayley init` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1977bdf61e68e287c42ffa90652a0b9b" class="toggle"  />
+    <label for="section-1977bdf61e68e287c42ffa90652a0b9b" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-load/" class="">The `cayley load` parancs</a>
       <span>▾</span>
     </label>
   
@@ -270,6 +293,23 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" id="section-192c0abe0b3802c7c197cdf9243477c7" class="toggle"  />
     <label for="section-192c0abe0b3802c7c197cdf9243477c7" class="flex justify-between">
       <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/" class="">A `cayley query` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e17818fe16bf33b6ca86d2d0af497abe" class="toggle"  />
+    <label for="section-e17818fe16bf33b6ca86d2d0af497abe" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/" class="">A `cayley http` parancs</a>
       <span>▾</span>
     </label>
   
@@ -692,13 +732,67 @@ https://github.com/alex-shpak/hugo-book
   A <code>cayley repl</code> parancs
   <a class="anchor" href="#a-cayley-repl-parancs">#</a>
 </h1>
+<p>A REPL aRead-Eval-Print-Loop kifejezés rövidítése.</p>
+<p>A <code>cayley repl</code> paranccsal elindíthatunk egy konzolt ami egy már korábban létrehozott adatbázishoz kapcsolódik, és interaktívan végrehajthatunk az adatbázisban lekérdezéseket, és egyéb műveleket.</p>
+<p>A konzol a normál Linux konzolhoz hasonlóan működik.</p>
+<p>Beírhatjuk a kifejezéseket, amelyeket az Enter billenytű lenyomása után az interpreter értelmez, és végrehajt, az eredményt pedig kiírja a konzolra.
+A fel/le nyilakat is használhatjuk, hogy navigáljunk a korábban végrehajtott parancsok között.
+A kifejezések, amiket végrehajtunk, bekerülnek egy <code>.cayley_history</code> nevű file-ba, amit később megnyithatunk egy text editorral, és átemelhetjük belőle azokat a kifejezéseket, amelyek hasznosnak bizonyultak.
+Ezen a módon a REPL-t hatékonyan alkalmazhatjuk a query-k kialakítására, és a kísérletek eredményét végül átemelhetjük a véglegesnek szánt query file-okba.</p>
 <figure>
     <img src="/cayley-cookbook/cayley-repl.png"/> <figcaption>
-            <h4>3. ábra: cayley repl</h4>
+            <h4>Figure 3.: cayley repl</h4>
         </figcaption>
 </figure>
 
-</article>
+<p>A következő lépéssorozat elindít egy REPL session-t egy létező adatbázison, majd végrehajt egy egyszerű query-t, ami megkeresi és kilistázza az összes node-ot, amit az adatbázisban talál:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cayley repl --db bolt --dbpath /home/tombenke/tmp/cayley/ 
+    I0915 18:02:08.623789   <span style="color:#ae81ff">25897</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0915 18:02:08.623971   <span style="color:#ae81ff">25897</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;bolt&#34;</span> <span style="color:#f92672">(</span>/home/tombenke/tmp/cayley/<span style="color:#f92672">)</span>
+    cayley&gt; g.V<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;bob&gt;
+    ****
+    id : &lt;status&gt;
+    ****
+    id : cool_person
+    ****
+    id : &lt;alice&gt;
+    ****
+    id : &lt;greg&gt;
+    ****
+    id : &lt;emily&gt;
+    ****
+    id : &lt;smart_graph&gt;
+    ****
+    id : &lt;predicates&gt;
+    ****
+    id : &lt;dani&gt;
+    ****
+    id : &lt;fred&gt;
+    ****
+    id : smart_person
+    ****
+    id : &lt;charlie&gt;
+    ****
+    id : &lt;are&gt;
+    ****
+    id : &lt;follows&gt;
+    -----------
+    <span style="color:#ae81ff">14</span> Results
+    Elapsed time: 3.046727 ms
+
+    cayley&gt;
+
+</code></pre></div><p>Lássuk, hogy a session-t követően mit találunk a <code>.cayley_history</code> file-ban:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cat .cayley_history 
+    
+    g.V<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+</code></pre></div></article>
  
       
 

@@ -7,12 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://tombenke.github.io/cayley-cookbook/hu/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>A `cayley http` parancs</title>
-      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/</link>
+      <title>A `cayley convert` parancs</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/</guid>
-      <description>A cayley http parancs #    1. ábra: cayley http   </description>
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/</guid>
+      <description>A cayley convert parancs #  A cayley convert parancs segítségével a tudásreprezentációs file-okat tudjuk konvertálni a különböző reprezentációs formátumok között.
+  2. ábra: cayley convert   Az alábbi parancs a teszt adatokat konvertálja n-quads formátumból JSON-LD formátumba:
+$ cayley convert --load data/testdata.nq --dump data/testdata.jsonld Az alábbi parancs ugyanezt a konverziót végzi el, de az eredményt a standard output-ra írja:
+$ cayley convert --load data/testdata.nq --dump_format jsonld --dump - I0915 19:15:58.</description>
     </item>
     
     <item>
@@ -91,12 +94,14 @@ cd namespaces go run register_namespace.</description>
     </item>
     
     <item>
-      <title>A `cayley convert` parancs</title>
-      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/</link>
+      <title>A `cayley init` parancs</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-init/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/</guid>
-      <description>A cayley convert parancs #    2. ábra: cayley convert   </description>
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-init/</guid>
+      <description>A cayley init parancs #  A cayley init paranccsal létrehozhatunk egy új, üres adatbázist.
+  Figure 1.: cayley init   Az alábbi parancs létrehoz egy perzisztens Bolt típusú key-value store-t, a /home/tombenke/tmp/cayleydb folder-ben:
+$ cayley init --db bolt --dbpath /home/tombenke/tmp/cayleydb I0915 17:52:56.529687 24933 cayley.go:63] Cayley version: 0.7.5 (cf576babb7db) I0915 17:52:56.529904 24933 database.go:187] using backend &amp;#34;bolt&amp;#34; (/home/tombenke/tmp/cayleydb) Az eredményképpen létrejött adatbázist használhatjuk a többi programmal, úgymint: load, dump, repl, query and http.</description>
     </item>
     
     <item>
@@ -140,15 +145,6 @@ Teszt adatok #    1. ábra: Teszt adatok Gráf diagramja   Kiinduló adatok megt
     </item>
     
     <item>
-      <title>A `cayley repl` parancs</title>
-      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/</guid>
-      <description>A cayley repl parancs #    3. ábra: cayley repl   </description>
-    </item>
-    
-    <item>
       <title>A store összes node-jának kilistázása</title>
       <link>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-nodes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -166,6 +162,17 @@ Teszt adatok előállítása #  package main import ( &amp;#34;github.com/cayley
       <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bidirectional/</guid>
       <description>Kétirányú relációk #  Probléma #  Ha van egy A &amp;lt;-1-&amp;gt; B &amp;lt;-2-&amp;gt; C gráfunk ahol A, B, C subject-ek, és object-ek az 1, 2 predikátumokkal vannak összekapcsolva mindkét irányban (bidirectional), akkor hogyan tudjuk C-t elérni A-ból egy path segítségével?
 Teszt adatok #    Fig 1.: A tesz adat gráfja   A teszt adatok megjelenítése in nquads formátumban &amp;lt;A&amp;gt; &amp;lt;predicate-1&amp;gt; &amp;lt;B&amp;gt; . &amp;lt;B&amp;gt; &amp;lt;predicate-1&amp;gt; &amp;lt;A&amp;gt; . &amp;lt;B&amp;gt; &amp;lt;predicate-2&amp;gt; &amp;lt;C&amp;gt; .</description>
+    </item>
+    
+    <item>
+      <title>The `cayley load` parancs</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-load/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-load/</guid>
+      <description>The cayley load parancs #  A cayley load paranccsal betölthetünk resource leíró file-ok tartalmát egy korábban létrehozott store-ba.
+  Figure 1.: cayley load   Az alábbi parancs feltölti a data/testdata.nq file tartalmát egy adatbázisba:
+$ cayley load --db bolt --dbpath /home/tombenke/tmp/cayley/ --load data/testdata.nq I0915 18:01:07.140303 25803 cayley.go:63] Cayley version: 0.7.5 (cf576babb7db) I0915 18:01:07.140500 25803 database.go:187] using backend &amp;#34;bolt&amp;#34; (/home/tombenke/tmp/cayley/) </description>
     </item>
     
     <item>
@@ -193,12 +200,15 @@ A foaf.go package FOAF Vocabulary Specification leggyakrabban használt kifejez�
     </item>
     
     <item>
-      <title>A `cayley query` parancs</title>
-      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/</link>
+      <title>A `cayley repl` parancs</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/</guid>
-      <description>A cayley query parancs #    1. ábra: cayley query   </description>
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/</guid>
+      <description>A cayley repl parancs #  A REPL aRead-Eval-Print-Loop kifejezés rövidítése.
+A cayley repl paranccsal elindíthatunk egy konzolt ami egy már korábban létrehozott adatbázishoz kapcsolódik, és interaktívan végrehajthatunk az adatbázisban lekérdezéseket, és egyéb műveleket.
+A konzol a normál Linux konzolhoz hasonlóan működik.
+Beírhatjuk a kifejezéseket, amelyeket az Enter billenytű lenyomása után az interpreter értelmez, és végrehajt, az eredményt pedig kiírja a konzolra. A fel/le nyilakat is használhatjuk, hogy navigáljunk a korábban végrehajtott parancsok között.</description>
     </item>
     
     <item>
@@ -219,6 +229,17 @@ Teszt adatok előállítása #  package main import ( &amp;#34;github.com/cayley
       <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/vocabularies/</guid>
       <description>Szótárak #  Szótár #  A tudásgráfok alkalmazásának egyik fő előnye, hogy a segítségükkel leírt tudás-területek ismeretanyagát a szimbolikus térben tárgyalja, vagyis olyan kódolási, és reprezentációs formákat alkalmaz, ami az emberek számára is érthetővé teszi a fogalmak, dolgok egyértelmű azonosítását.
 Amikor egy entitást megnevezünk, vagy állításokat teszünk, predikátumok alkalmazásával, a gépnek és az embernek ugyanazt a jelentéstartalmat kell értenie a kifejezések mögött. Ahhoz, hogy a kifejezések jelentése is egyértelmű legyen, szótárakat hozunk létre.</description>
+    </item>
+    
+    <item>
+      <title>A `cayley query` parancs</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/</guid>
+      <description>A cayley query parancs #  A cayley query paranccsal végrehajthatunk egy query-t egy létező adatbázison.
+  Figure 4.: cayley query   Futtasunk egy query-t egy korábban létrehozott store tartalmán:
+echo &amp;#34;g.V().All();&amp;#34; | cayley query --logtostderr false --db bolt --dbpath /home/tombenke/tmp/cayley --logs ~/tmp {&amp;#34;id&amp;#34;:&amp;#34;bob&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;status&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;cool_person&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;alice&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;greg&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;emily&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;smart_graph&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;predicates&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;dani&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;fred&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;smart_person&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;charlie&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;are&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;follows&amp;#34;} Amennyiben a query eredményét közvetlenül egy másik programba szeretnénk betáplálni, akkor szükségünk lehet arra, hogy a logokat eltüntessük.</description>
     </item>
     
     <item>
@@ -249,6 +270,15 @@ Bevezettük az IRI fogalmát, ami alkalmas arra, hogy a tényállításokat form
       <description>Könyvjelzők keresése tag alapján #  Futtassuk a programot: 
 cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go A program kimenete:
 Az eredmények megjelenítése Results of finding any of `nosql` or `gremlin` tags: - &amp;#34;Ontotext GraphDB&amp;#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.</description>
+    </item>
+    
+    <item>
+      <title>A `cayley http` parancs</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/</guid>
+      <description>A cayley http parancs #    1. ábra: cayley http   </description>
     </item>
     
   </channel>

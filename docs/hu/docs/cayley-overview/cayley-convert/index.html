@@ -4,9 +4,15 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A cayley convert parancs #    2. ábra: cayley convert   ">
+<meta name="description" content="A cayley convert parancs #  A cayley convert parancs segítségével a tudásreprezentációs file-okat tudjuk konvertálni a különböző reprezentációs formátumok között.
+  2. ábra: cayley convert   Az alábbi parancs a teszt adatokat konvertálja n-quads formátumból JSON-LD formátumba:
+$ cayley convert --load data/testdata.nq --dump data/testdata.jsonld Az alábbi parancs ugyanezt a konverziót végzi el, de az eredményt a standard output-ra írja:
+$ cayley convert --load data/testdata.nq --dump_format jsonld --dump - I0915 19:15:58.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="A `cayley convert` parancs" />
-<meta property="og:description" content="A cayley convert parancs #    2. ábra: cayley convert   " />
+<meta property="og:description" content="A cayley convert parancs #  A cayley convert parancs segítségével a tudásreprezentációs file-okat tudjuk konvertálni a különböző reprezentációs formátumok között.
+  2. ábra: cayley convert   Az alábbi parancs a teszt adatokat konvertálja n-quads formátumból JSON-LD formátumba:
+$ cayley convert --load data/testdata.nq --dump data/testdata.jsonld Az alábbi parancs ugyanezt a konverziót végzi el, de az eredményt a standard output-ra írja:
+$ cayley convert --load data/testdata.nq --dump_format jsonld --dump - I0915 19:15:58." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/" />
 
@@ -16,7 +22,7 @@
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-convert/" title="The `cayley convert` command">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
-<script defer src="/cayley-cookbook/hu.search.min.8d2e31ad18b7b532b7f9fc813662ca411b3410a86a39db4520598d0df13e3959.js" integrity="sha256-jS4xrRi3tTK3&#43;fyBNmLKQRs0EKhqOdtFIFmNDfE&#43;OVk="></script>
+<script defer src="/cayley-cookbook/hu.search.min.327c1eec7b039fa02fee39d3b69b8e11d2235abffdd22c8353934b8b553fcce0.js" integrity="sha256-Mnwe7HsDn6Av7jnTtpuOEdIjWr/90iyDU5NLi1U/zOA="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -216,9 +222,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-e17818fe16bf33b6ca86d2d0af497abe" class="toggle"  />
-    <label for="section-e17818fe16bf33b6ca86d2d0af497abe" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/" class="">A `cayley http` parancs</a>
+    <input type="checkbox" id="section-55182948002255292040e2457cbfb89b" class="toggle" checked />
+    <label for="section-55182948002255292040e2457cbfb89b" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/" class="active">A `cayley convert` parancs</a>
       <span>▾</span>
     </label>
   
@@ -233,9 +239,26 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-55182948002255292040e2457cbfb89b" class="toggle" checked />
-    <label for="section-55182948002255292040e2457cbfb89b" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/" class="active">A `cayley convert` parancs</a>
+    <input type="checkbox" id="section-2baee5b05d4e80f1462a11796d44b0ff" class="toggle"  />
+    <label for="section-2baee5b05d4e80f1462a11796d44b0ff" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-init/" class="">A `cayley init` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1977bdf61e68e287c42ffa90652a0b9b" class="toggle"  />
+    <label for="section-1977bdf61e68e287c42ffa90652a0b9b" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-load/" class="">The `cayley load` parancs</a>
       <span>▾</span>
     </label>
   
@@ -270,6 +293,23 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" id="section-192c0abe0b3802c7c197cdf9243477c7" class="toggle"  />
     <label for="section-192c0abe0b3802c7c197cdf9243477c7" class="flex justify-between">
       <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/" class="">A `cayley query` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e17818fe16bf33b6ca86d2d0af497abe" class="toggle"  />
+    <label for="section-e17818fe16bf33b6ca86d2d0af497abe" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/" class="">A `cayley http` parancs</a>
       <span>▾</span>
     </label>
   
@@ -692,13 +732,27 @@ https://github.com/alex-shpak/hugo-book
   A <code>cayley convert</code> parancs
   <a class="anchor" href="#a-cayley-convert-parancs">#</a>
 </h1>
+<p>A <code>cayley convert</code> parancs segítségével a tudásreprezentációs file-okat tudjuk konvertálni a különböző reprezentációs formátumok között.</p>
 <figure>
     <img src="/cayley-cookbook/cayley-convert.png"/> <figcaption>
             <h4>2. ábra: cayley convert</h4>
         </figcaption>
 </figure>
 
-</article>
+<p>Az alábbi parancs a teszt adatokat konvertálja n-quads formátumból JSON-LD formátumba:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cayley convert --load data/testdata.nq --dump data/testdata.jsonld
+
+</code></pre></div><p>Az alábbi parancs ugyanezt a konverziót végzi el, de az eredményt a standard output-ra írja:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cayley convert --load data/testdata.nq --dump_format jsonld --dump -
+    I0915 19:15:58.328789   <span style="color:#ae81ff">30572</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0915 19:15:58.328974   <span style="color:#ae81ff">30572</span> dump.go:20<span style="color:#f92672">]</span> writing quads to stdout
+    I0915 19:15:58.328989   <span style="color:#ae81ff">30572</span> convert.go:100<span style="color:#f92672">]</span> reading <span style="color:#e6db74">&#34;data/testdata.nq&#34;</span>
+    <span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;alice&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;fred&#34;</span><span style="color:#f92672">}]</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;cool_person&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;charlie&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span><span style="color:#f92672">}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;dani&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;dani&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span><span style="color:#f92672">}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span><span style="color:#f92672">}]</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;cool_person&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;emily&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;fred&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;fred&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;cool_person&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;predicates&#34;</span>,<span style="color:#e6db74">&#34;are&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;follows&#34;</span><span style="color:#f92672">}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;status&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@graph&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;emily&#34;</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;smart_person&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;smart_person&#34;</span><span style="color:#f92672">}]}]</span>,<span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;smart_graph&#34;</span><span style="color:#f92672">}]</span>
+    <span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;alice&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;fred&#34;</span><span style="color:#f92672">}]</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;cool_person&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;charlie&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span><span style="color:#f92672">}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;dani&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;dani&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span><span style="color:#f92672">}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span><span style="color:#f92672">}]</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;cool_person&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;emily&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;fred&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;fred&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;cool_person&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;predicates&#34;</span>,<span style="color:#e6db74">&#34;are&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;follows&#34;</span><span style="color:#f92672">}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;status&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@graph&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;emily&#34;</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;smart_person&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;smart_person&#34;</span><span style="color:#f92672">}]}]</span>,<span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;smart_graph&#34;</span><span style="color:#f92672">}]</span>
+
+</code></pre></div></article>
  
       
 

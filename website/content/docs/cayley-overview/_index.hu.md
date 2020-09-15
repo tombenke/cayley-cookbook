@@ -86,7 +86,7 @@ A konfigurációs file-ok YAML vagy JSON formátumúak lehetnek. Az alábbi pél
 __Megjegyzés:__
 
 Amikor egy `cayley` parancsot futtatunk, az kizárólagosan fogja használni a perzisztens store-t, tehát nem lehetséges, hogy például adatokat töltsünk fel egy adatbázisba a `load` paranccsal, miközben azt egy másik parancs, pl. a `http` használja. Ezért két lehetőségünk van az adatbázisok manipulálására és használatára többféle paranccsal:
-- Meghatározott sorrendben, egymás után, külön-külön használjuk a `cayley` parancsokat, pl.: `init`, `store`, `http`, `dump`,
+- Meghatározott sorrendben, egymás után, külön-külön használjuk a `cayley` parancsokat, pl.: `init`, `load`, `http`, `dump`,
 - Használjuk a REST API-t, amit a `cayley http` biztosít, és ami lehetővé teszi, hogy manipuláljuk az adatbázisban lévő adatokat, miközben lekérdezéseket is végrehajtunk.
 
 {{< /hint >}}

@@ -4,9 +4,13 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The cayley query command #    Figure 4.: cayley query   ">
+<meta name="description" content="The cayley query command #  With the cayley query we can run a query expression on an existing database.
+  Figure 4.: cayley query   Run a query on a previously created database that has data:
+echo &#34;g.V().All();&#34; | cayley query --logtostderr false --db bolt --dbpath /home/tombenke/tmp/cayley --logs ~/tmp {&#34;id&#34;:&#34;bob&#34;} {&#34;id&#34;:&#34;status&#34;} {&#34;id&#34;:&#34;cool_person&#34;} {&#34;id&#34;:&#34;alice&#34;} {&#34;id&#34;:&#34;greg&#34;} {&#34;id&#34;:&#34;emily&#34;} {&#34;id&#34;:&#34;smart_graph&#34;} {&#34;id&#34;:&#34;predicates&#34;} {&#34;id&#34;:&#34;dani&#34;} {&#34;id&#34;:&#34;fred&#34;} {&#34;id&#34;:&#34;smart_person&#34;} {&#34;id&#34;:&#34;charlie&#34;} {&#34;id&#34;:&#34;are&#34;} {&#34;id&#34;:&#34;follows&#34;} In case we want to feed the results into another program, then we may want to hide the logs pronted out by the command.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="The `cayley query` command" />
-<meta property="og:description" content="The cayley query command #    Figure 4.: cayley query   " />
+<meta property="og:description" content="The cayley query command #  With the cayley query we can run a query expression on an existing database.
+  Figure 4.: cayley query   Run a query on a previously created database that has data:
+echo &#34;g.V().All();&#34; | cayley query --logtostderr false --db bolt --dbpath /home/tombenke/tmp/cayley --logs ~/tmp {&#34;id&#34;:&#34;bob&#34;} {&#34;id&#34;:&#34;status&#34;} {&#34;id&#34;:&#34;cool_person&#34;} {&#34;id&#34;:&#34;alice&#34;} {&#34;id&#34;:&#34;greg&#34;} {&#34;id&#34;:&#34;emily&#34;} {&#34;id&#34;:&#34;smart_graph&#34;} {&#34;id&#34;:&#34;predicates&#34;} {&#34;id&#34;:&#34;dani&#34;} {&#34;id&#34;:&#34;fred&#34;} {&#34;id&#34;:&#34;smart_person&#34;} {&#34;id&#34;:&#34;charlie&#34;} {&#34;id&#34;:&#34;are&#34;} {&#34;id&#34;:&#34;follows&#34;} In case we want to feed the results into another program, then we may want to hide the logs pronted out by the command." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/" />
 
@@ -16,7 +20,7 @@
 <link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/" title="A `cayley query` parancs">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
-<script defer src="/cayley-cookbook/en.search.min.23f524a7a88d34e5b580d33a3a376f8ab25004b43256cc37bbb99c4993a9fdd7.js" integrity="sha256-I/Ukp6iNNOW1gNM6OjdvirJQBLQyVsw3u7mcSZOp/dc="></script>
+<script defer src="/cayley-cookbook/en.search.min.84d4080de0d4b27ff258af6e5ea7e9479976895bf7c013e891a50c4bd5e05444.js" integrity="sha256-hNQIDeDUsn/yWK9uXqfpR5l2iVv3wBPokaUMS9XgVEQ="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -216,9 +220,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-74ec165895f19ac3241763c948bc108d" class="toggle"  />
-    <label for="section-74ec165895f19ac3241763c948bc108d" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-http/" class="">The `cayley http` command</a>
+    <input type="checkbox" id="section-8d961dabcc784e5f545055da7d36d04e" class="toggle"  />
+    <label for="section-8d961dabcc784e5f545055da7d36d04e" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-convert/" class="">The `cayley convert` command</a>
       <span>▾</span>
     </label>
   
@@ -233,9 +237,43 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-8d961dabcc784e5f545055da7d36d04e" class="toggle"  />
-    <label for="section-8d961dabcc784e5f545055da7d36d04e" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-convert/" class="">The `cayley convert` command</a>
+    <input type="checkbox" id="section-97f12c3cdfd7240aa4c86056b0003f88" class="toggle"  />
+    <label for="section-97f12c3cdfd7240aa4c86056b0003f88" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-init/" class="">The `cayley init` command</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-40eaa83532b4f601a22562f349d2de4e" class="toggle"  />
+    <label for="section-40eaa83532b4f601a22562f349d2de4e" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-dump/" class="">The `cayley dump` command</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-91a5cf1c44b66e29df3dfb08aee97c1d" class="toggle"  />
+    <label for="section-91a5cf1c44b66e29df3dfb08aee97c1d" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-load/" class="">The `cayley load` command</a>
       <span>▾</span>
     </label>
   
@@ -270,6 +308,23 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" id="section-4d4f6be28690d5894cb2b564dd4cf3a8" class="toggle" checked />
     <label for="section-4d4f6be28690d5894cb2b564dd4cf3a8" class="flex justify-between">
       <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/" class="active">The `cayley query` command</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-74ec165895f19ac3241763c948bc108d" class="toggle"  />
+    <label for="section-74ec165895f19ac3241763c948bc108d" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-http/" class="">The `cayley http` command</a>
       <span>▾</span>
     </label>
   
@@ -692,12 +747,41 @@ https://github.com/alex-shpak/hugo-book
   The <code>cayley query</code> command
   <a class="anchor" href="#the-cayley-query-command">#</a>
 </h1>
+<p>With the <code>cayley query</code> we can run a query expression on an existing database.</p>
 <figure>
     <img src="/cayley-cookbook/cayley-query.png"/> <figcaption>
             <h4>Figure 4.: cayley query</h4>
         </figcaption>
 </figure>
 
+<p>Run a query on a previously created database that has data:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    echo <span style="color:#e6db74">&#34;g.V().All();&#34;</span> | cayley query --logtostderr false --db bolt --dbpath /home/tombenke/tmp/cayley --logs ~/tmp
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;status&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;cool_person&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;alice&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;emily&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;smart_graph&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;predicates&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;dani&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;fred&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;smart_person&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;charlie&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;are&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;follows&#34;</span><span style="color:#f92672">}</span>
+
+</code></pre></div><p>In case we want to feed the results into another program, then we may want to hide the logs pronted out by the command.
+The next example shows how can we do this. The logs are written into the <code>/home/tombenke/tmp</code> directory:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cat ~/tmp/cayley.tombenke-Latitude-E5470.tombenke.log.INFO.20200915-182850.27351 
+    Log file created at: 2020/09/15 18:28:50
+    Running on machine: tombenke-Latitude-E5470
+    Binary: Built with gc go1.11.2 <span style="color:#66d9ef">for</span> linux/amd64
+    Log line format: <span style="color:#f92672">[</span>IWEF<span style="color:#f92672">]</span>mmdd hh:mm:ss.uuuuuu threadid file:line<span style="color:#f92672">]</span> msg
+
+</code></pre></div><p>This trick we can apply to the other commands as well.</p>
 </article>
  
       

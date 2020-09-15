@@ -91,7 +91,7 @@ The config file can be written both in JSON or YAML format. This is an example c
 __Note:__
 
 When we run a `cayley`, it locks the database, so it is not possible for example to load data into a persistent database that is currently used by another command, such as `http`, etc. So there are two ways to manipulate data in a persistent store:
-- Use the `cayley` commands individually, one-by-one, for example: `init`, `store`, `http`, `dump`,
+- Use the `cayley` commands individually, one-by-one, for example: `init`, `load`, `http`, `dump`,
 - Use the REST API of the `cayley http` mode, which makes possible to alter the content in parallel using the query functionalities at the same time.
 
 {{< /hint >}}

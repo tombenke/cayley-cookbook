@@ -71,12 +71,15 @@ See the full list of source code package main import ( &amp;#34;fmt&amp;#34; &am
     </item>
     
     <item>
-      <title>The `cayley http` command</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-http/</link>
+      <title>The `cayley convert` command</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-convert/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-http/</guid>
-      <description>The cayley http command #    Figure 1.: cayley http   </description>
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-convert/</guid>
+      <description>The cayley convert command #  We can convert knowledge-content files from one representation format to another with the cayley convert command.
+  2. ábra: cayley convert   The following command converts the test data from n-quads format to JSON-LD format:
+$ cayley convert --load data/testdata.nq --dump data/testdata.jsonld The next command below does the same conversion, but the results will be written to the standard output:
+$ cayley convert --load data/testdata.</description>
     </item>
     
     <item>
@@ -132,12 +135,14 @@ A resource has two important properties:
     </item>
     
     <item>
-      <title>The `cayley convert` command</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-convert/</link>
+      <title>The `cayley init` command</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-init/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-convert/</guid>
-      <description>The cayley convert command #    Figure 2.: cayley convert   </description>
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-init/</guid>
+      <description>The cayley init command #  We can create an empty database with the cayley init command.
+  Figure 1.: cayley init   The following command will create a persistent database, using the Bolt key-value store type, in the /home/tombenke/tmp/cayleydb folder:
+$ cayley init --db bolt --dbpath /home/tombenke/tmp/cayleydb I0915 17:52:56.529687 24933 cayley.go:63] Cayley version: 0.7.5 (cf576babb7db) I0915 17:52:56.529904 24933 database.go:187] using backend &amp;#34;bolt&amp;#34; (/home/tombenke/tmp/cayleydb) The resulted database can be used by the other commands, such as: load, dump, repl, query and http.</description>
     </item>
     
     <item>
@@ -185,12 +190,24 @@ Luke-Skywalker has-age 23. The parts of this sentence:
     </item>
     
     <item>
-      <title>The `cayley repl` command</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-repl/</link>
+      <title>The `cayley dump` command</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-dump/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-repl/</guid>
-      <description>The cayley repl command #    Figure 3.: cayley repl   </description>
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-dump/</guid>
+      <description>The cayley dump command #  Dump the actual content of a database to the stdout:
+$ cayley dump --db bolt --dbpath /home/tombenke/tmp/cayley/ I0915 18:03:30.188245 25985 cayley.go:63] Cayley version: 0.7.5 (cf576babb7db) I0915 18:03:30.188453 25985 database.go:187] using backend &amp;#34;bolt&amp;#34; (/home/tombenke/tmp/cayley/) I0915 18:03:30.191235 25985 dump.go:20] writing quads to stdout &amp;lt;alice&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;fred&amp;gt; . &amp;lt;bob&amp;gt; &amp;lt;status&amp;gt; &amp;#34;cool_person&amp;#34; . &amp;lt;dani&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;bob&amp;gt; . &amp;lt;charlie&amp;gt; &amp;lt;follows&amp;gt; &amp;lt;dani&amp;gt; .</description>
+    </item>
+    
+    <item>
+      <title>The `cayley load` command</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-load/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-load/</guid>
+      <description>The cayley load command #  The cayley load command loads resource descriptions into an existing database.
+  Figure 1.: cayley load   The following command loads the content of the data/testdata.nq file into a previously created database:
+$ cayley load --db bolt --dbpath /home/tombenke/tmp/cayley/ --load data/testdata.nq I0915 18:01:07.140303 25803 cayley.go:63] Cayley version: 0.7.5 (cf576babb7db) I0915 18:01:07.140500 25803 database.go:187] using backend &amp;#34;bolt&amp;#34; (/home/tombenke/tmp/cayley/) </description>
     </item>
     
     <item>
@@ -204,12 +221,13 @@ Retrieve and list all quads from the store: #  package main import ( &amp;#34;fm
     </item>
     
     <item>
-      <title>The `cayley query` command</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/</link>
+      <title>The `cayley repl` command</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-repl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/</guid>
-      <description>The cayley query command #    Figure 4.: cayley query   </description>
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-repl/</guid>
+      <description>The cayley repl command #  The REPL is the acronym of Read-Eval-Print-Loop. We can use the cayley repl command to open a console to an existing database, and interactively execute queries and other operations on the database.
+The console works similar to a normal linux console. We can type in the expressions, then press the Enter, and the interpreter will execute, then prints the results. It is also possible to use the up/down arrows to navigate among the previousle entered commands.</description>
     </item>
     
     <item>
@@ -232,6 +250,17 @@ We also introduced the concept of IRI, that makes possible to write unambiguous 
     </item>
     
     <item>
+      <title>The `cayley query` command</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/</guid>
+      <description>The cayley query command #  With the cayley query we can run a query expression on an existing database.
+  Figure 4.: cayley query   Run a query on a previously created database that has data:
+echo &amp;#34;g.V().All();&amp;#34; | cayley query --logtostderr false --db bolt --dbpath /home/tombenke/tmp/cayley --logs ~/tmp {&amp;#34;id&amp;#34;:&amp;#34;bob&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;status&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;cool_person&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;alice&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;greg&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;emily&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;smart_graph&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;predicates&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;dani&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;fred&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;smart_person&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;charlie&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;are&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;follows&amp;#34;} In case we want to feed the results into another program, then we may want to hide the logs pronted out by the command.</description>
+    </item>
+    
+    <item>
       <title>The internal representation of nodes and quads</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/internals/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -249,6 +278,15 @@ We also introduced the concept of IRI, that makes possible to write unambiguous 
       <description>Find bookmarks by tags #  Run the program: 
 cd schema go run find_bookmarks_by_tags.go yamlImpex.go store.go bookmarks.go The output of the program:
 Show the results Results of finding any of `nosql` or `gremlin` tags: - &amp;#34;Ontotext GraphDB&amp;#34; [graphdb nosql knowledge-graph linked-data semantic-web rdf] https://ontotext.com/products/graphdb/ - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.slideshare.net/slidarko/gremlins-graph-traversal-machinery Results of finding every tags of `cayley` or `gremlin`: - &amp;#34;Gremlin&amp;#39;s Graph Traversal Machinery&amp;#34; [gremlin cayley tinkerprop gizmo presentation graph-db query-language] https://www.</description>
+    </item>
+    
+    <item>
+      <title>The `cayley http` command</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-http/</guid>
+      <description>The cayley http command #    Figure 1.: cayley http   </description>
     </item>
     
   </channel>

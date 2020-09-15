@@ -19,7 +19,7 @@ snap install --edge --devmode cayley A Cayley használata #  A Cayley kétféle 
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/" title="Cayley Overview">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
-<script defer src="/cayley-cookbook/hu.search.min.8d2e31ad18b7b532b7f9fc813662ca411b3410a86a39db4520598d0df13e3959.js" integrity="sha256-jS4xrRi3tTK3&#43;fyBNmLKQRs0EKhqOdtFIFmNDfE&#43;OVk="></script>
+<script defer src="/cayley-cookbook/hu.search.min.327c1eec7b039fa02fee39d3b69b8e11d2235abffdd22c8353934b8b553fcce0.js" integrity="sha256-Mnwe7HsDn6Av7jnTtpuOEdIjWr/90iyDU5NLi1U/zOA="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -220,9 +220,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-e17818fe16bf33b6ca86d2d0af497abe" class="toggle"  />
-    <label for="section-e17818fe16bf33b6ca86d2d0af497abe" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/" class="">A `cayley http` parancs</a>
+    <input type="checkbox" id="section-55182948002255292040e2457cbfb89b" class="toggle"  />
+    <label for="section-55182948002255292040e2457cbfb89b" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/" class="">A `cayley convert` parancs</a>
       <span>▾</span>
     </label>
   
@@ -237,9 +237,26 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-55182948002255292040e2457cbfb89b" class="toggle"  />
-    <label for="section-55182948002255292040e2457cbfb89b" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/" class="">A `cayley convert` parancs</a>
+    <input type="checkbox" id="section-2baee5b05d4e80f1462a11796d44b0ff" class="toggle"  />
+    <label for="section-2baee5b05d4e80f1462a11796d44b0ff" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-init/" class="">A `cayley init` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1977bdf61e68e287c42ffa90652a0b9b" class="toggle"  />
+    <label for="section-1977bdf61e68e287c42ffa90652a0b9b" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-load/" class="">The `cayley load` parancs</a>
       <span>▾</span>
     </label>
   
@@ -274,6 +291,23 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" id="section-192c0abe0b3802c7c197cdf9243477c7" class="toggle"  />
     <label for="section-192c0abe0b3802c7c197cdf9243477c7" class="flex justify-between">
       <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/" class="">A `cayley query` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e17818fe16bf33b6ca86d2d0af497abe" class="toggle"  />
+    <label for="section-e17818fe16bf33b6ca86d2d0af497abe" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/" class="">A `cayley http` parancs</a>
       <span>▾</span>
     </label>
   
@@ -805,7 +839,7 @@ https://github.com/alex-shpak/hugo-book
   <p><strong>Megjegyzés:</strong></p>
 <p>Amikor egy <code>cayley</code> parancsot futtatunk, az kizárólagosan fogja használni a perzisztens store-t, tehát nem lehetséges, hogy például adatokat töltsünk fel egy adatbázisba a <code>load</code> paranccsal, miközben azt egy másik parancs, pl. a <code>http</code> használja. Ezért két lehetőségünk van az adatbázisok manipulálására és használatára többféle paranccsal:</p>
 <ul>
-<li>Meghatározott sorrendben, egymás után, külön-külön használjuk a <code>cayley</code> parancsokat, pl.: <code>init</code>, <code>store</code>, <code>http</code>, <code>dump</code>,</li>
+<li>Meghatározott sorrendben, egymás után, külön-külön használjuk a <code>cayley</code> parancsokat, pl.: <code>init</code>, <code>load</code>, <code>http</code>, <code>dump</code>,</li>
 <li>Használjuk a REST API-t, amit a <code>cayley http</code> biztosít, és ami lehetővé teszi, hogy manipuláljuk az adatbázisban lévő adatokat, miközben lekérdezéseket is végrehajtunk.</li>
 </ul>
 
@@ -818,11 +852,15 @@ https://github.com/alex-shpak/hugo-book
     
     
         <li>
-            <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/">A `cayley http` parancs</a>
+            <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/">A `cayley convert` parancs</a>
         </li>
     
         <li>
-            <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/">A `cayley convert` parancs</a>
+            <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-init/">A `cayley init` parancs</a>
+        </li>
+    
+        <li>
+            <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-load/">The `cayley load` parancs</a>
         </li>
     
         <li>
@@ -831,6 +869,10 @@ https://github.com/alex-shpak/hugo-book
     
         <li>
             <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/">A `cayley query` parancs</a>
+        </li>
+    
+        <li>
+            <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/">A `cayley http` parancs</a>
         </li>
     
     </ul>
