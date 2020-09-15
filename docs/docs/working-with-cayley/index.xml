@@ -5,10 +5,6 @@
     <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/</link>
     <description>Recent content in Working with Knowledge Graph on Cayley-CookBook</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

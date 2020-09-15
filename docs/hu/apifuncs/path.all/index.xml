@@ -5,11 +5,7 @@
     <link>https://tombenke.github.io/cayley-cookbook/hu/apifuncs/path.all/</link>
     <description>Recent content in path.All() on Cayley-CookBook</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://tombenke.github.io/cayley-cookbook/hu/apifuncs/path.all/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://tombenke.github.io/cayley-cookbook/hu/apifuncs/path.all/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Összes node kiírása</title>
       <link>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/find_all_vertices/</link>

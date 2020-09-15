@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Ez a fejezet, abban segít eligazodni, hogy milyen elemekből áll a Cayley &ldquo;ökoszisztéma&rdquo;, és hogyan lehet az egyes elemeket praktikusan felhasználni.
-A Cayley komponensek használatára vonatkozó információk a hivatalos dokumentációs oldalakon olvashatóak.">
+A Cayley komponensek használatára vonatkozó információk a hivatalos dokumentációs oldalakon olvashatóak.
+Installation #  Ez a szakácskönyv egy Linux-ot futtató gépen készült. A Cayley installálásának a legegyszerűbb módja egy linuxos gépen, a snap használata:
+snap install --edge --devmode cayley A Cayley használata #  A Cayley kétféle módon használható:">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="A Cayley rendszer áttekintése" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -16,8 +18,8 @@ A Cayley komponensek használatára vonatkozó információk a hivatalos dokumen
 <link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/" title="Cayley Overview">
 
-<link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.4fc5e11f17e02f6b051d5eeed56d64b9975f4f8b70e3cbd4944ee3cf82e326ac.js" integrity="sha256-T8XhHxfgL2sFHV7u1W1kuZdfT4tw48vUlE7jz4LjJqw="></script>
+<link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
+<script defer src="/cayley-cookbook/hu.search.min.8d2e31ad18b7b532b7f9fc813662ca411b3410a86a39db4520598d0df13e3959.js" integrity="sha256-jS4xrRi3tTK3&#43;fyBNmLKQRs0EKhqOdtFIFmNDfE&#43;OVk="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -72,18 +74,16 @@ https://github.com/alex-shpak/hugo-book
 
 
   
-  
-  
-  
-
-  
   <ul>
     
       
         <li>
           
   
-    <a href="/cayley-cookbook/hu/docs/about/" class="">Bevezetés</a>
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/about/" class="">Bevezetés</a>
   
 
         </li>
@@ -93,39 +93,31 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/hu/docs/basic-concepts/" class="collapsed ">Alapfogalmak</a>
+  
+
+  
+    <input type="checkbox" id="section-9f8a7e34bb16b852cd12e02884abbe2c" class="toggle"  />
+    <label for="section-9f8a7e34bb16b852cd12e02884abbe2c" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/" class="">Alapfogalmak</a>
+      <span>▾</span>
+    </label>
   
 
           
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/cayley-cookbook/hu/docs/cayley-overview/" class="collapsed active">A Cayley rendszer áttekintése</a>
-  
-
-          
-  
-  
-  
-
-  
   <ul>
     
       
         <li>
           
   
-    <a href="/cayley-cookbook/hu/docs/cayley-overview/cayley-http/" class="">A `cayley http` parancs</a>
+  
+
+  
+    <input type="checkbox" id="section-8476439ec07e5890629d17c6650eaf78" class="toggle"  />
+    <label for="section-8476439ec07e5890629d17c6650eaf78" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/graph-based-data-model/" class="">Gráf alapú adatmodellezés</a>
+      <span>▾</span>
+    </label>
   
 
         </li>
@@ -135,7 +127,14 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/" class="">A `cayley convert` parancs</a>
+  
+
+  
+    <input type="checkbox" id="section-089b6654780ec7a8ce20922dacfa8068" class="toggle"  />
+    <label for="section-089b6654780ec7a8ce20922dacfa8068" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/resources/" class="">Erőforrások</a>
+      <span>▾</span>
+    </label>
   
 
         </li>
@@ -145,7 +144,14 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/" class="">A `cayley repl` parancs</a>
+  
+
+  
+    <input type="checkbox" id="section-7dfb5eca6458abef2307adeefaaddfdb" class="toggle"  />
+    <label for="section-7dfb5eca6458abef2307adeefaaddfdb" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/statements/" class="">Állítások</a>
+      <span>▾</span>
+    </label>
   
 
         </li>
@@ -155,13 +161,70 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/hu/docs/cayley-overview/cayley-query/" class="">A `cayley query` parancs</a>
+  
+
+  
+    <input type="checkbox" id="section-d50cc6ddbbf9a7138450d4114fe2fba6" class="toggle"  />
+    <label for="section-d50cc6ddbbf9a7138450d4114fe2fba6" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/vocabularies/" class="">Szótárak</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c232a69b7fae588b1fb718a7def4c723" class="toggle"  />
+    <label for="section-c232a69b7fae588b1fb718a7def4c723" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/rdf-graphs/" class="">Tudás Gráf reprezentációk</a>
+      <span>▾</span>
+    </label>
   
 
         </li>
       
     
   </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7e64f39b334418521e8f0af1fc8791bb" class="toggle" checked />
+    <label for="section-7e64f39b334418521e8f0af1fc8791bb" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/" class="active">A Cayley rendszer áttekintése</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e17818fe16bf33b6ca86d2d0af497abe" class="toggle"  />
+    <label for="section-e17818fe16bf33b6ca86d2d0af497abe" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/" class="">A `cayley http` parancs</a>
+      <span>▾</span>
+    </label>
   
 
         </li>
@@ -171,21 +234,407 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/hu/docs/working-with-cayley/" class="collapsed ">A Tudás-Gráf használata</a>
   
 
+  
+    <input type="checkbox" id="section-55182948002255292040e2457cbfb89b" class="toggle"  />
+    <label for="section-55182948002255292040e2457cbfb89b" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/" class="">A `cayley convert` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
           
   
   
+
+  
+    <input type="checkbox" id="section-6fcbefd0c5ef68d0c04ac54cbea6b1f4" class="toggle"  />
+    <label for="section-6fcbefd0c5ef68d0c04ac54cbea6b1f4" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/" class="">A `cayley repl` parancs</a>
+      <span>▾</span>
+    </label>
   
 
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-192c0abe0b3802c7c197cdf9243477c7" class="toggle"  />
+    <label for="section-192c0abe0b3802c7c197cdf9243477c7" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/" class="">A `cayley query` parancs</a>
+      <span>▾</span>
+    </label>
   
 
         </li>
       
     
   </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
   
+  
+
+  
+    <input type="checkbox" id="section-309cdc2b46d95b2509c611910b40f29c" class="toggle"  />
+    <label for="section-309cdc2b46d95b2509c611910b40f29c" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/" class="">A Tudás-Gráf használata</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-15751440abcb4a690e1874b8d5a57ea3" class="toggle"  />
+    <label for="section-15751440abcb4a690e1874b8d5a57ea3" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/" class="">Namespace-ek és szótárak</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/list-namespaces/" class="">Regisztrált Namespace-ek listázása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/register-namespace/" class="">Új namespace regisztrálása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/vocabularies/" class="">Új szótár létrehozása</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0055eb580f8cd4b7980836466a5c33fd" class="toggle"  />
+    <label for="section-0055eb580f8cd4b7980836466a5c33fd" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/" class="">Store-ok</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/create-store/" class="">Store létrehozása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/make-quads/" class="">Quads-ok létrehozása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-nodes/" class="">A store összes node-jának kilistázása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-quads/" class="">A store összes quad-jának kilistázása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/internals/" class="">A node-ok és quad-ok belső reprezentációja</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-062fbdcb0d5237ca703532ede8716481" class="toggle"  />
+    <label for="section-062fbdcb0d5237ca703532ede8716481" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/" class="">Adat import / export</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-14fa452aebb42c44ef234af47bd9c4f4" class="toggle"  />
+    <label for="section-14fa452aebb42c44ef234af47bd9c4f4" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/quads/" class="">Quad-ok exportálása</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-968cea4be1a55104598910f578b25a1e" class="toggle"  />
+    <label for="section-968cea4be1a55104598910f578b25a1e" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/schema/" class="">Adat import / export struct annotációval</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a8fb241cb8ed56da76d51fcaf41845cd" class="toggle"  />
+    <label for="section-a8fb241cb8ed56da76d51fcaf41845cd" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/" class="">Lekérdezések</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/find_all_vertices/" class="">Összes node kiírása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/find_all_predicates/" class="">Összes predikátum kiírása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bidirectional/" class="">Kétirányú relációk</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4fcf7fededff39d60891373012a27f0e" class="toggle"  />
+    <label for="section-4fcf7fededff39d60891373012a27f0e" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bookmarks/" class="">Könyvjelzők keresése tag alapján</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e8aec92da5f23c882db6bdd4d2f66642" class="toggle"  />
+    <label for="section-e8aec92da5f23c882db6bdd4d2f66642" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/crud-operations/" class="">CRUD Műveletek</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0286dce401f1b4f8b31afbecd52d27b4" class="toggle"  />
+    <label for="section-0286dce401f1b4f8b31afbecd52d27b4" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/transactions/" class="">Tranzakciók</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
 
 
 
@@ -233,7 +682,18 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#a-cayley-használata">A Cayley használata</a>
+      <ul>
+        <li><a href="#a-cayley-beágyazása-go-könyvtárként">A cayley beágyazása Go könyvtárként</a></li>
+        <li><a href="#a-cayley-mint-önálló-alkalmazás-használata">A cayley mint önálló alkalmazás használata</a></li>
+        <li><a href="#in-memory-vs-perzisztens-store">In-memory vs. perzisztens store</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -252,6 +712,105 @@ https://github.com/alex-shpak/hugo-book
         <p>Ez a fejezet, abban segít eligazodni, hogy milyen elemekből áll a Cayley &ldquo;ökoszisztéma&rdquo;, és hogyan lehet az egyes elemeket praktikusan felhasználni.</p>
 <p>A <a href="https://cayley.io/" target="_blank">Cayley</a>
  komponensek használatára vonatkozó információk a <a href="https://cayley.gitbook.io/cayley/">hivatalos dokumentációs oldalakon</a> olvashatóak.</p>
+<h2 id="installation">
+  Installation
+  <a class="anchor" href="#installation">#</a>
+</h2>
+<p>Ez a szakácskönyv egy Linux-ot futtató gépen készült. A <a href="https://cayley.io/" target="_blank">Cayley</a>
+ installálásának a legegyszerűbb módja egy linuxos gépen, a <code>snap</code> használata:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    snap install --edge --devmode cayley
+
+</code></pre></div><h2 id="a-cayley-használata">
+  A Cayley használata
+  <a class="anchor" href="#a-cayley-haszn%c3%a1lata">#</a>
+</h2>
+<p>A <a href="https://cayley.io/" target="_blank">Cayley</a>
+ kétféle módon használható:</p>
+<ul>
+<li>mint önálló bináris program (<code>cayley</code>),</li>
+<li>mint program könyvtár, beépítve egy másik alkalmazásba, amit Go nyelven írtak.</li>
+</ul>
+<h3 id="a-cayley-beágyazása-go-könyvtárként">
+  A cayley beágyazása Go könyvtárként
+  <a class="anchor" href="#a-cayley-be%c3%a1gyaz%c3%a1sa-go-k%c3%b6nyvt%c3%a1rk%c3%a9nt">#</a>
+</h3>
+<p><a href="/cayley-cookbook/hu/docs/working-with-cayley/">A Tudás-Gráf használata</a> című fejezet számos példát hoz arra vonatkozóan, hogyan lehet a <a href="https://cayley.io/" target="_blank">Cayley</a>
+-t Go library-ként használni.</p>
+<h3 id="a-cayley-mint-önálló-alkalmazás-használata">
+  A cayley mint önálló alkalmazás használata
+  <a class="anchor" href="#a-cayley-mint-%c3%b6n%c3%a1ll%c3%b3-alkalmaz%c3%a1s-haszn%c3%a1lata">#</a>
+</h3>
+<p>Az önálló bináris alkalmazás több parancsot is támogat. A help lekérésével kilistázhatjuk ezeket a parancsokat:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cayley -h
+    Cayley is a graph store and graph query layer.
+
+    Usage:
+      cayley <span style="color:#f92672">[</span>command<span style="color:#f92672">]</span>
+
+    Available Commands:
+      convert     Convert quad files between supported formats.
+      dedup       Deduplicate bnode values
+      dump        Bulk-dump the database into a quad file.
+      help        Help about any command
+      http        Serve an HTTP endpoint on the given host and port.
+      init        Create an empty database.
+      load        Bulk-load a quad file into the database.
+      query       Run a query in a specified database and print results.
+      repl        Drop into a REPL of the given query language.
+      upgrade     Upgrade Cayley database to current supported format.
+      version     Prints the version of Cayley.
+
+</code></pre></div><p>Az alábbi parancsok használhatóak arra, hogy elindítsuk a triple-store-t, és a lekérdező motort, különféle üzemmódokban, úgymint:</p>
+<ul>
+<li>HTTP server: <code>cayley http</code>.</li>
+<li>REPL server: <code>cayley repl</code>.</li>
+<li>Query server: <code>cayley query</code>.</li>
+</ul>
+<p>A <code>cayley</code> alkalmazás, adatmanipulációs célokra is használható, a következő parancsokkal:</p>
+<ul>
+<li>Üres, perzisztens adatbázis létrehozása: <code>cayley init</code>,</li>
+<li>Adatok betöltése egy (perzisztens) adatbázisba, file-ból: <code>cayley load</code>,</li>
+<li>Adatok kiíratása file-ba, egy (perzisztens) adatbázisból: <code>cayley dump</code>.</li>
+<li>Erőforrás leíró file-ok konvertálása különféle formátumok között: <code>cayley conv</code>.</li>
+</ul>
+<p>A soron következő alfejezetekben röviden ismertetjük, hogyan lehet az imént felsorolt parancsokat használni.</p>
+<h3 id="in-memory-vs-perzisztens-store">
+  In-memory vs. perzisztens store
+  <a class="anchor" href="#in-memory-vs-perzisztens-store">#</a>
+</h3>
+<p>A <a href="https://cayley.io/" target="_blank">Cayley</a>
+ egy ún. triple-store, ami lehetővé teszi n-quads-ok és/vagy n-triplet-ek betöltését egy adatbázisba, valamint lekérdezések végrehajtását az adatbázis tartalmán. Többféle lekérdező nyelvet támogat. Jelen szakácskönyv az ún. Gizmo query nyelvre koncentrál. Az adatbázis lehet in-memory, vagy perzisztens.</p>
+<p>Az adatbázis, amiben a <a href="https://cayley.io/" target="_blank">Cayley</a>
+ a quad-okat tárolja, in-memory vagy perzisztens adatbázis lehet, amire leginkább a <em>store</em> elnevezést használjuk. Valójában a <a href="https://cayley.io/" target="_blank">Cayley</a>
+ többféle adatbázist képes alkalmazni abból a célból, hogy a quad-okat tároljuk. Az alapértelmezett adatbázis a <a href="https://github.com/boltdb/bolt">Bolt key-value store</a>, de kicserélhetjük a konfigurációs beállítások segítségével más típusúra. Többféle, különböző típusú (key-value, NoSQL és SQL) adatbázis közül választhatunk. Az ide vonatkozó részletek a <a href="https://cayley.gitbook.io/cayley/configuration">konfigurációs beállítások</a> oldalon találhatóak, a hivatalos dokumentációban.</p>
+<p>Az in-memory store-t mind az önálló alkalmazásként futó <code>cayley</code>, mind pedig a beágyazott könyvtár azonnal képes használni. Az in-memory store az alapbeállítás szerinti adatbázis. A perzisztens store-okat előzőleg inicializálnunk kell, hogy használhassuk.</p>
+<p>Amikor az önálló <a href="https://cayley.io/" target="_blank">Cayley</a>
+ bináris alkalmazást használjuk, inicializálhatunk egy új adatbázist az <code>--init</code> kapcsolóval, vagy megtehetjük ezt külön is, a <code>cayley init</code> parancs segítségével, mielőtt egy másik paranccsal használatba vennénk az új adatbázist.</p>
+<p>Amikor egy perzisztens store-t akarunk használni, meg kell mondanunk a <code>cayley</code> parancsnak, hogy milyen típusút szeretnénk. Ez egyaránt megtehetjük parancssori argumentumokkal, vagy egy konfigurációs file alkalmazásával</p>
+<p>A konfigurációs file-ok YAML vagy JSON formátumúak lehetnek. Az alábbi példa a Bolt key-value store használatát írja elő. A <code>cayley</code> a <code>/home/tombenke/cayley/</code> folder-be fogja tenni a file-okat:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;store&#34;</span>: {
+        <span style="color:#f92672">&#34;backend&#34;</span>: <span style="color:#e6db74">&#34;bolt&#34;</span>,
+        <span style="color:#f92672">&#34;address&#34;</span>: <span style="color:#e6db74">&#34;/home/tombenke/tmp/cayley&#34;</span>,
+        <span style="color:#f92672">&#34;read_only&#34;</span>: <span style="color:#66d9ef">false</span>,
+        <span style="color:#f92672">&#34;options:&#34;</span>: {
+            <span style="color:#f92672">&#34;nosync&#34;</span>: <span style="color:#66d9ef">false</span>
+        }
+    }
+}
+
+</code></pre></div><blockquote class="book-hint info">
+  <p><strong>Megjegyzés:</strong></p>
+<p>Amikor egy <code>cayley</code> parancsot futtatunk, az kizárólagosan fogja használni a perzisztens store-t, tehát nem lehetséges, hogy például adatokat töltsünk fel egy adatbázisba a <code>load</code> paranccsal, miközben azt egy másik parancs, pl. a <code>http</code> használja. Ezért két lehetőségünk van az adatbázisok manipulálására és használatára többféle paranccsal:</p>
+<ul>
+<li>Meghatározott sorrendben, egymás után, külön-külön használjuk a <code>cayley</code> parancsokat, pl.: <code>init</code>, <code>store</code>, <code>http</code>, <code>dump</code>,</li>
+<li>Használjuk a REST API-t, amit a <code>cayley http</code> biztosít, és ami lehetővé teszi, hogy manipuláljuk az adatbázisban lévő adatokat, miközben lekérdezéseket is végrehajtunk.</li>
+</ul>
+
+</blockquote>
+
 
     </article>
     <hr />
@@ -346,7 +905,18 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#a-cayley-használata">A Cayley használata</a>
+      <ul>
+        <li><a href="#a-cayley-beágyazása-go-könyvtárként">A cayley beágyazása Go könyvtárként</a></li>
+        <li><a href="#a-cayley-mint-önálló-alkalmazás-használata">A cayley mint önálló alkalmazás használata</a></li>
+        <li><a href="#in-memory-vs-perzisztens-store">In-memory vs. perzisztens store</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
  
     </aside>

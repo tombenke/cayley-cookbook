@@ -1,0 +1,10 @@
+{
+    "store": {
+        "backend": "bolt",
+        "address": "/home/tombenke/tmp/cayley",
+        "read_only": false,
+        "options:": {
+            "nosync": false
+        }
+    }
+}

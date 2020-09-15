@@ -5,11 +5,7 @@
     <link>https://tombenke.github.io/cayley-cookbook/usecases/</link>
     <description>Recent content in Usecases on Cayley-CookBook</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://tombenke.github.io/cayley-cookbook/usecases/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://tombenke.github.io/cayley-cookbook/usecases/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>graph-discovery</title>
       <link>https://tombenke.github.io/cayley-cookbook/usecases/graph-discovery/</link>

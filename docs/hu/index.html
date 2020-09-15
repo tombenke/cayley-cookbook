@@ -2,14 +2,13 @@
 <html lang="hu" dir=>
 
 <head>
-	<meta name="generator" content="Hugo 0.74.3" />
+	<meta name="generator" content="Hugo 0.75.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="A Cayley egy open-source Linked Data adatbáziskezelő. Létrehozását a Google Knowledge Graph gráf adatbázisa inspirálta.
 Ez a weboldal kódrészletek gyűjteménye, melyek azt mutatják be, működő példákon keresztül, hogyan lehet a Cayley Knowledge Graph Golang könyvtárként alkalmazni.
-A github.com/tombenke/cayley-cookbook-src repository tartalmazza a forráskódot. A repository-ban az egyes használati esetek directory-kba vannak szervezve. A gyűjtemény létrehozásának célja az, hogy megkönnyítse a Cayley tanulását, használatát.
-A példákat kétféle módon használhatjuk:
- Közvetlenül végrehajthatjuk őket a felhőben.">
+A könyv írásakor az aktuális Cayley verzió: 0.7.5. A példák ezzel a verzióval lettek kipróbálva.
+A github.com/tombenke/cayley-cookbook-src repository tartalmazza a forráskódot. A repository-ban az egyes használati esetek directory-kba vannak szervezve. A gyűjtemény létrehozásának célja az, hogy megkönnyítse a Cayley tanulását, használatát.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Cayley Szakácskönyv" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -20,8 +19,8 @@ A példákat kétféle módon használhatjuk:
 <link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/" title="Cayley CookBook">
 
-<link rel="stylesheet" href="/cayley-cookbook/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
-<script defer src="/cayley-cookbook/hu.search.min.4fc5e11f17e02f6b051d5eeed56d64b9975f4f8b70e3cbd4944ee3cf82e326ac.js" integrity="sha256-T8XhHxfgL2sFHV7u1W1kuZdfT4tw48vUlE7jz4LjJqw="></script>
+<link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
+<script defer src="/cayley-cookbook/hu.search.min.8d2e31ad18b7b532b7f9fc813662ca411b3410a86a39db4520598d0df13e3959.js" integrity="sha256-jS4xrRi3tTK3&#43;fyBNmLKQRs0EKhqOdtFIFmNDfE&#43;OVk="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -76,18 +75,16 @@ https://github.com/alex-shpak/hugo-book
 
 
   
-  
-  
-  
-
-  
   <ul>
     
       
         <li>
           
   
-    <a href="/cayley-cookbook/hu/docs/about/" class="">Bevezetés</a>
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/about/" class="">Bevezetés</a>
   
 
         </li>
@@ -97,14 +94,31 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/hu/docs/basic-concepts/" class="collapsed ">Alapfogalmak</a>
+  
+
+  
+    <input type="checkbox" id="section-9f8a7e34bb16b852cd12e02884abbe2c" class="toggle"  />
+    <label for="section-9f8a7e34bb16b852cd12e02884abbe2c" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/" class="">Alapfogalmak</a>
+      <span>▾</span>
+    </label>
   
 
           
-  
+  <ul>
+    
+      
+        <li>
+          
   
   
 
+  
+    <input type="checkbox" id="section-8476439ec07e5890629d17c6650eaf78" class="toggle"  />
+    <label for="section-8476439ec07e5890629d17c6650eaf78" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/graph-based-data-model/" class="">Gráf alapú adatmodellezés</a>
+      <span>▾</span>
+    </label>
   
 
         </li>
@@ -114,14 +128,14 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/hu/docs/cayley-overview/" class="collapsed ">A Cayley rendszer áttekintése</a>
   
 
-          
   
-  
-  
-
+    <input type="checkbox" id="section-089b6654780ec7a8ce20922dacfa8068" class="toggle"  />
+    <label for="section-089b6654780ec7a8ce20922dacfa8068" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/resources/" class="">Erőforrások</a>
+      <span>▾</span>
+    </label>
   
 
         </li>
@@ -131,21 +145,497 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/cayley-cookbook/hu/docs/working-with-cayley/" class="collapsed ">A Tudás-Gráf használata</a>
   
 
+  
+    <input type="checkbox" id="section-7dfb5eca6458abef2307adeefaaddfdb" class="toggle"  />
+    <label for="section-7dfb5eca6458abef2307adeefaaddfdb" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/statements/" class="">Állítások</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
           
   
   
+
+  
+    <input type="checkbox" id="section-d50cc6ddbbf9a7138450d4114fe2fba6" class="toggle"  />
+    <label for="section-d50cc6ddbbf9a7138450d4114fe2fba6" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/vocabularies/" class="">Szótárak</a>
+      <span>▾</span>
+    </label>
   
 
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c232a69b7fae588b1fb718a7def4c723" class="toggle"  />
+    <label for="section-c232a69b7fae588b1fb718a7def4c723" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/rdf-graphs/" class="">Tudás Gráf reprezentációk</a>
+      <span>▾</span>
+    </label>
   
 
         </li>
       
     
   </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
   
+  
+
+  
+    <input type="checkbox" id="section-7e64f39b334418521e8f0af1fc8791bb" class="toggle"  />
+    <label for="section-7e64f39b334418521e8f0af1fc8791bb" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/" class="">A Cayley rendszer áttekintése</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e17818fe16bf33b6ca86d2d0af497abe" class="toggle"  />
+    <label for="section-e17818fe16bf33b6ca86d2d0af497abe" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/" class="">A `cayley http` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-55182948002255292040e2457cbfb89b" class="toggle"  />
+    <label for="section-55182948002255292040e2457cbfb89b" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/" class="">A `cayley convert` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6fcbefd0c5ef68d0c04ac54cbea6b1f4" class="toggle"  />
+    <label for="section-6fcbefd0c5ef68d0c04ac54cbea6b1f4" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/" class="">A `cayley repl` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-192c0abe0b3802c7c197cdf9243477c7" class="toggle"  />
+    <label for="section-192c0abe0b3802c7c197cdf9243477c7" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/" class="">A `cayley query` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-309cdc2b46d95b2509c611910b40f29c" class="toggle"  />
+    <label for="section-309cdc2b46d95b2509c611910b40f29c" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/" class="">A Tudás-Gráf használata</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-15751440abcb4a690e1874b8d5a57ea3" class="toggle"  />
+    <label for="section-15751440abcb4a690e1874b8d5a57ea3" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/" class="">Namespace-ek és szótárak</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/list-namespaces/" class="">Regisztrált Namespace-ek listázása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/register-namespace/" class="">Új namespace regisztrálása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/vocabularies/" class="">Új szótár létrehozása</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0055eb580f8cd4b7980836466a5c33fd" class="toggle"  />
+    <label for="section-0055eb580f8cd4b7980836466a5c33fd" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/" class="">Store-ok</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/create-store/" class="">Store létrehozása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/make-quads/" class="">Quads-ok létrehozása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-nodes/" class="">A store összes node-jának kilistázása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-quads/" class="">A store összes quad-jának kilistázása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/internals/" class="">A node-ok és quad-ok belső reprezentációja</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-062fbdcb0d5237ca703532ede8716481" class="toggle"  />
+    <label for="section-062fbdcb0d5237ca703532ede8716481" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/" class="">Adat import / export</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-14fa452aebb42c44ef234af47bd9c4f4" class="toggle"  />
+    <label for="section-14fa452aebb42c44ef234af47bd9c4f4" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/quads/" class="">Quad-ok exportálása</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-968cea4be1a55104598910f578b25a1e" class="toggle"  />
+    <label for="section-968cea4be1a55104598910f578b25a1e" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/schema/" class="">Adat import / export struct annotációval</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a8fb241cb8ed56da76d51fcaf41845cd" class="toggle"  />
+    <label for="section-a8fb241cb8ed56da76d51fcaf41845cd" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/" class="">Lekérdezések</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/find_all_vertices/" class="">Összes node kiírása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/find_all_predicates/" class="">Összes predikátum kiírása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bidirectional/" class="">Kétirányú relációk</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4fcf7fededff39d60891373012a27f0e" class="toggle"  />
+    <label for="section-4fcf7fededff39d60891373012a27f0e" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bookmarks/" class="">Könyvjelzők keresése tag alapján</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e8aec92da5f23c882db6bdd4d2f66642" class="toggle"  />
+    <label for="section-e8aec92da5f23c882db6bdd4d2f66642" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/crud-operations/" class="">CRUD Műveletek</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0286dce401f1b4f8b31afbecd52d27b4" class="toggle"  />
+    <label for="section-0286dce401f1b4f8b31afbecd52d27b4" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/transactions/" class="">Tranzakciók</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
 
 
 
@@ -213,6 +703,8 @@ https://github.com/alex-shpak/hugo-book
 Létrehozását a Google <a href="https://en.wikipedia.org/wiki/Knowledge_Graph">Knowledge Graph</a> gráf adatbázisa inspirálta.</p>
 <p>Ez a weboldal kódrészletek gyűjteménye, melyek azt mutatják be, működő példákon keresztül, hogyan lehet a
 <a href="https://github.com/cayleygraph/cayley">Cayley Knowledge Graph</a> <a href="https://golang.org/">Golang</a> könyvtárként alkalmazni.</p>
+<p>A könyv írásakor az aktuális <a href="https://cayley.io/" target="_blank">Cayley</a>
+ verzió: <code>0.7.5</code>. A példák ezzel a verzióval lettek kipróbálva.</p>
 <p>A <a href="https://github.com/tombenke/cayley-cookbook-src/tree/master">github.com/tombenke/cayley-cookbook-src</a>
 repository tartalmazza a forráskódot. A repository-ban az egyes használati esetek directory-kba vannak szervezve.
 A gyűjtemény létrehozásának célja az, hogy megkönnyítse a <a href="https://cayley.io/" target="_blank">Cayley</a>
@@ -223,6 +715,8 @@ A gyűjtemény létrehozásának célja az, hogy megkönnyítse a <a href="https
 <a href="https://repl.it/github/tombenke/cayley-cookbook-src"><img src="https://repl.it/badge/github/tombenke/cayley-cookbook-src" alt="Run on Repl.it" /></a></li>
 <li>Klónozzuk a <a href="https://github.com/tombenke/cayley-cookbook-src/tree/master">repository</a>-t a saját gépünkre, és ott futtatjuk.</li>
 </ol>
+<p>Ha mélyebb betekintést szeretnénk abba, hogyan működik a <a href="https://cayley.io/" target="_blank">Cayley</a>
+ rendszer, akkor erősen ajánlott <a href="https://cayley.gitbook.io/cayley/installation">installálni</a> azt a saját gépünkre, továbbá klónozni a forráskódját tartalmazó repository-kat (<a href="https://github.com/cayleygraph/cayley/">cayleygraph/cayley</a> és <a href="https://github.com/cayleygraph/quad/">cayleygraph/quad</a>) is.</p>
 <!-- raw HTML omitted -->
 
     </article>

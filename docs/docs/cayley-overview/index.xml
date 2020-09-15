@@ -5,11 +5,7 @@
     <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/</link>
     <description>Recent content in Cayley Overview on Cayley-CookBook</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The `cayley http` command</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-http/</link>
