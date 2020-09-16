@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The cayley dump parancs #  A cayley dump parancs kiírja a resource leírókat az aktuális adatbázisból egy szbványos formátumú file-ba. A formátumot a kiterjesztés alapján határozza meg, de megadható neki a --dump_format &lt;format-name&gt; argumentummal is, ahol a &lt;format-name&gt; lehetséges értékei: &ldquo;gml&rdquo;, &ldquo;graphml&rdquo;, &ldquo;graphviz&rdquo;, &ldquo;json&rdquo;, &ldquo;json-stream&rdquo;, &ldquo;jsonld&rdquo;, &ldquo;nquads&rdquo;, &ldquo;pquads&rdquo;.
+<meta name="description" content="The cayley dump parancs #  A cayley dump parancs kiírja a resource leírókat az aktuális adatbázisból egy szabványos formátumú file-ba. A formátumot a kiterjesztés alapján határozza meg, de megadható neki a --dump_format &lt;format-name&gt; argumentummal is, ahol a &lt;format-name&gt; lehetséges értékei: &ldquo;gml&rdquo;, &ldquo;graphml&rdquo;, &ldquo;graphviz&rdquo;, &ldquo;json&rdquo;, &ldquo;json-stream&rdquo;, &ldquo;jsonld&rdquo;, &ldquo;nquads&rdquo;, &ldquo;pquads&rdquo;.
   1. ábra: cayley dump   Az alábbi parancs kiírja az adatokat a dump.nq file-ba:
 $ cayley dump --db bolt --dbpath /home/tombenke/tmp/cayley/ -o dump.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="The `cayley dump` parancs" />
-<meta property="og:description" content="The cayley dump parancs #  A cayley dump parancs kiírja a resource leírókat az aktuális adatbázisból egy szbványos formátumú file-ba. A formátumot a kiterjesztés alapján határozza meg, de megadható neki a --dump_format &lt;format-name&gt; argumentummal is, ahol a &lt;format-name&gt; lehetséges értékei: &ldquo;gml&rdquo;, &ldquo;graphml&rdquo;, &ldquo;graphviz&rdquo;, &ldquo;json&rdquo;, &ldquo;json-stream&rdquo;, &ldquo;jsonld&rdquo;, &ldquo;nquads&rdquo;, &ldquo;pquads&rdquo;.
+<meta property="og:description" content="The cayley dump parancs #  A cayley dump parancs kiírja a resource leírókat az aktuális adatbázisból egy szabványos formátumú file-ba. A formátumot a kiterjesztés alapján határozza meg, de megadható neki a --dump_format &lt;format-name&gt; argumentummal is, ahol a &lt;format-name&gt; lehetséges értékei: &ldquo;gml&rdquo;, &ldquo;graphml&rdquo;, &ldquo;graphviz&rdquo;, &ldquo;json&rdquo;, &ldquo;json-stream&rdquo;, &ldquo;jsonld&rdquo;, &ldquo;nquads&rdquo;, &ldquo;pquads&rdquo;.
   1. ábra: cayley dump   Az alábbi parancs kiírja az adatokat a dump.nq file-ba:
 $ cayley dump --db bolt --dbpath /home/tombenke/tmp/cayley/ -o dump." />
 <meta property="og:type" content="article" />
@@ -20,7 +20,7 @@ $ cayley dump --db bolt --dbpath /home/tombenke/tmp/cayley/ -o dump." />
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-dump/" title="The `cayley dump` command">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
-<script defer src="/cayley-cookbook/hu.search.min.72ac4f21cc5bbbf577bb4df7b53d5628c4c5c822aaa03d51a2571509aed26f43.js" integrity="sha256-cqxPIcxbu/V3u033tT1WKMTFyCKqoD1RolcVCa7Sb0M="></script>
+<script defer src="/cayley-cookbook/hu.search.min.3a70e696aa220a62f0308583ee366c3ae4d191baf68609e5ba093711c1da8d96.js" integrity="sha256-OnDmlqoiCmLwMIWD7jZsOuTRkbr2hgnlugk3EcHajZY="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -747,7 +747,7 @@ https://github.com/alex-shpak/hugo-book
   The <code>cayley dump</code> parancs
   <a class="anchor" href="#the-cayley-dump-parancs">#</a>
 </h1>
-<p>A <code>cayley dump</code> parancs kiírja a resource leírókat az aktuális adatbázisból egy szbványos formátumú file-ba. A formátumot a kiterjesztés alapján határozza meg, de megadható neki a <code>--dump_format &lt;format-name&gt;</code> argumentummal is, ahol a <code>&lt;format-name&gt;</code> lehetséges értékei: &ldquo;gml&rdquo;, &ldquo;graphml&rdquo;, &ldquo;graphviz&rdquo;, &ldquo;json&rdquo;, &ldquo;json-stream&rdquo;, &ldquo;jsonld&rdquo;, &ldquo;nquads&rdquo;, &ldquo;pquads&rdquo;.</p>
+<p>A <code>cayley dump</code> parancs kiírja a resource leírókat az aktuális adatbázisból egy szabványos formátumú file-ba. A formátumot a kiterjesztés alapján határozza meg, de megadható neki a <code>--dump_format &lt;format-name&gt;</code> argumentummal is, ahol a <code>&lt;format-name&gt;</code> lehetséges értékei: &ldquo;gml&rdquo;, &ldquo;graphml&rdquo;, &ldquo;graphviz&rdquo;, &ldquo;json&rdquo;, &ldquo;json-stream&rdquo;, &ldquo;jsonld&rdquo;, &ldquo;nquads&rdquo;, &ldquo;pquads&rdquo;.</p>
 <figure>
     <img src="/cayley-cookbook/cayley-dump.png"/> <figcaption>
             <h4>1. ábra: cayley dump</h4>

@@ -6,14 +6,14 @@ bookCollapseSection: true
 
 # The `cayley http` command
 
-Maybe the `cayley http` is the most well known, and most frequently used command.
+Maybe the `cayley http` is the most well known, and most frequently used cayley command.
 It is an application, which contains the quad-store, the query engines and a HTTP server, that provides all of the functionalities through a REST API for utilities and 3rd-party applications, as well as provides a web-based graphical UI for the end users.
 
 The Figure 1. shows all the components that can be used together with the {{< cayley >}} running in the  `cayley http` mode.
 
 {{< figure src="/cayley-cookbook/cayley-http.png" title="Figure 1.: cayley http" >}}
 
-The `cayley http` exposes REST API endpoints which are described in the [official documentation](https://cayley.gitbook.io/cayley/usage/http). See also the [documentation pages of the 3rd party APIs](https://cayley.gitbook.io/cayley/usage/3rd-party-apis) avaiable for accessing to the `cayley http` server.
+The `cayley http` exposes REST API endpoints which are described in the [official documentation](https://cayley.gitbook.io/cayley/usage/http). See also the [documentation pages of the 3rd party APIs](https://cayley.gitbook.io/cayley/usage/3rd-party-apis) available for accessing to the `cayley http` server.
 
 ## Starting the Cayley HTTP Server
 
@@ -107,12 +107,12 @@ Start the `cayley http` server either with an in-memory or persistent database, 
 
 {{< figure src="/cayley-cookbook/cayley-http-ui.png" title="Figure 2.: cayley http UI" >}}
 
-See the [official documentation on the UI](https://cayley.gitbook.io/cayley/usage/ui-overview) for further details:
+See the [official documentation on the UI](https://cayley.gitbook.io/cayley/usage/ui-overview) for further details.
 
 
 ## Data import and export
 
-If you want to upload data into the database, or want to dumt the database, meanwhile the `cayley http` server is working, you have to use the REST interface. There are two utilities, that you can find in the source code of {{< cayley >}}: [`cayleyimport`](https://github.com/cayleygraph/cayley/tree/master/cmd/cayleyimport) and [`cayleyexport`](https://github.com/cayleygraph/cayley/tree/master/cmd/cayleyexport).
+If you want to upload data into the database, or want to dump the database, meanwhile the `cayley http` server is working, you have to use the REST interface. There are two utilities, that you can find in the source code of {{< cayley >}}: [`cayleyimport`](https://github.com/cayleygraph/cayley/tree/master/cmd/cayleyimport) and [`cayleyexport`](https://github.com/cayleygraph/cayley/tree/master/cmd/cayleyexport).
 
 Clone the [cayleygraph/cayley](https://github.com/cayleygraph/cayley), and you can run these utilities with the `go run` command, as the examples show below.
 

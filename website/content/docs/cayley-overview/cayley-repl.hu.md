@@ -6,13 +6,13 @@ bookCollapseSection: true
 
 # A `cayley repl` parancs
 
-A REPL aRead-Eval-Print-Loop kifejezés rövidítése.
+A REPL a _Read-Eval-Print-Loop_ kifejezés rövidítése.
 
 A `cayley repl` paranccsal elindíthatunk egy konzolt ami egy már korábban létrehozott adatbázishoz kapcsolódik, és interaktívan végrehajthatunk az adatbázisban lekérdezéseket, és egyéb műveleket.
 
 A konzol a normál Linux konzolhoz hasonlóan működik.
 
-Beírhatjuk a kifejezéseket, amelyeket az Enter billenytű lenyomása után az interpreter értelmez, és végrehajt, az eredményt pedig kiírja a konzolra.
+Beírhatjuk a kifejezéseket, amelyeket az Enter billentyű lenyomása után az interpreter értelmez, és végrehajt, az eredményt pedig kiírja a konzolra.
 A fel/le nyilakat is használhatjuk, hogy navigáljunk a korábban végrehajtott parancsok között.
 A kifejezések, amiket végrehajtunk, bekerülnek egy `.cayley_history` nevű file-ba, amit később megnyithatunk egy text editorral, és átemelhetjük belőle azokat a kifejezéseket, amelyek hasznosnak bizonyultak.
 Ezen a módon a REPL-t hatékonyan alkalmazhatjuk a query-k kialakítására, és a kísérletek eredményét végül átemelhetjük a véglegesnek szánt query file-okba.

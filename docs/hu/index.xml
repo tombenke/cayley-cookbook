@@ -225,7 +225,7 @@ Amikor egy entitást megnevezünk, vagy állításokat teszünk, predikátumok a
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-dump/</guid>
-      <description>The cayley dump parancs #  A cayley dump parancs kiírja a resource leírókat az aktuális adatbázisból egy szbványos formátumú file-ba. A formátumot a kiterjesztés alapján határozza meg, de megadható neki a --dump_format &amp;lt;format-name&amp;gt; argumentummal is, ahol a &amp;lt;format-name&amp;gt; lehetséges értékei: &amp;ldquo;gml&amp;rdquo;, &amp;ldquo;graphml&amp;rdquo;, &amp;ldquo;graphviz&amp;rdquo;, &amp;ldquo;json&amp;rdquo;, &amp;ldquo;json-stream&amp;rdquo;, &amp;ldquo;jsonld&amp;rdquo;, &amp;ldquo;nquads&amp;rdquo;, &amp;ldquo;pquads&amp;rdquo;.
+      <description>The cayley dump parancs #  A cayley dump parancs kiírja a resource leírókat az aktuális adatbázisból egy szabványos formátumú file-ba. A formátumot a kiterjesztés alapján határozza meg, de megadható neki a --dump_format &amp;lt;format-name&amp;gt; argumentummal is, ahol a &amp;lt;format-name&amp;gt; lehetséges értékei: &amp;ldquo;gml&amp;rdquo;, &amp;ldquo;graphml&amp;rdquo;, &amp;ldquo;graphviz&amp;rdquo;, &amp;ldquo;json&amp;rdquo;, &amp;ldquo;json-stream&amp;rdquo;, &amp;ldquo;jsonld&amp;rdquo;, &amp;ldquo;nquads&amp;rdquo;, &amp;ldquo;pquads&amp;rdquo;.
   1. ábra: cayley dump   Az alábbi parancs kiírja az adatokat a dump.nq file-ba:
 $ cayley dump --db bolt --dbpath /home/tombenke/tmp/cayley/ -o dump.</description>
     </item>
@@ -236,10 +236,10 @@ $ cayley dump --db bolt --dbpath /home/tombenke/tmp/cayley/ -o dump.</descriptio
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/</guid>
-      <description>A cayley repl parancs #  A REPL aRead-Eval-Print-Loop kifejezés rövidítése.
+      <description>A cayley repl parancs #  A REPL a Read-Eval-Print-Loop kifejezés rövidítése.
 A cayley repl paranccsal elindíthatunk egy konzolt ami egy már korábban létrehozott adatbázishoz kapcsolódik, és interaktívan végrehajthatunk az adatbázisban lekérdezéseket, és egyéb műveleket.
 A konzol a normál Linux konzolhoz hasonlóan működik.
-Beírhatjuk a kifejezéseket, amelyeket az Enter billenytű lenyomása után az interpreter értelmez, és végrehajt, az eredményt pedig kiírja a konzolra. A fel/le nyilakat is használhatjuk, hogy navigáljunk a korábban végrehajtott parancsok között.</description>
+Beírhatjuk a kifejezéseket, amelyeket az Enter billentyű lenyomása után az interpreter értelmez, és végrehajt, az eredményt pedig kiírja a konzolra. A fel/le nyilakat is használhatjuk, hogy navigáljunk a korábban végrehajtott parancsok között.</description>
     </item>
     
     <item>
@@ -268,8 +268,8 @@ Bevezettük az IRI fogalmát, ami alkalmas arra, hogy a tényállításokat form
       
       <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/</guid>
       <description>A cayley query parancs #  A cayley query paranccsal végrehajthatunk egy query-t egy létező adatbázison.
-A query kifejezést, amit vigre kívánunk hajtani, a standard input-on keresztül továbbíthatjuk a parancshoz. Az egyszerűbb kifejezések esetében elegendő lehet, ha azokat az echo utility-vel továbbítjuk, és közvetlenül beírjuk a parancssorba. A hosszabb kifejezéseket célszerűbb lehet query file-okban elhelyezni, és a cat utility-vel továbbítani a parancs számára..
-A --lang &amp;lt;query-language-type&amp;gt; parameterrel kijelölhetjük, hogy a query kifejezést melyik nyelven írtuk.</description>
+A query kifejezést, amit végre kívánunk hajtani, a standard input-on keresztül továbbíthatjuk a parancshoz. Az egyszerűbb kifejezések esetében elegendő lehet, ha azokat az echo utility-vel továbbítjuk, és közvetlenül beírjuk a parancssorba. A hosszabb kifejezéseket célszerűbb lehet query file-okban elhelyezni, és a cat utility-vel továbbítani a parancs számára..
+A --lang &amp;lt;query-language-type&amp;gt; paraméterrel kijelölhetjük, hogy a query kifejezést melyik nyelven írtuk.</description>
     </item>
     
     <item>
@@ -289,7 +289,8 @@ Az eredmények megjelenítése Results of finding any of `nosql` or `gremlin` ta
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/</guid>
-      <description>A cayley http parancs #    1. ábra: cayley http   </description>
+      <description>A cayley http parancs #  Talán a cayley http a legismertebb, és leggyakrabban használt a cayley parancsok közül. Ez egy olyan alkalmazás, amely tartalmaz quad-store-t, query engine-t és egy HTTP server-t is, ami a Cayley lényegében összes funkcionalitását elérhetővé teszi a REST API interfészen keresztül külső alkalmazások számára, ezen felül egy web-es grafikus felületet is biztosít a felhasználóinak.
+Az 1. ábra szemlélteti az összes olyan komponenst, amit használni lehet a cayley http üzemmódban futó Cayley -vel.</description>
     </item>
     
   </channel>

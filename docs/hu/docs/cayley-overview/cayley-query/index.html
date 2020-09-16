@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="A cayley query parancs #  A cayley query paranccsal végrehajthatunk egy query-t egy létező adatbázison.
-A query kifejezést, amit vigre kívánunk hajtani, a standard input-on keresztül továbbíthatjuk a parancshoz. Az egyszerűbb kifejezések esetében elegendő lehet, ha azokat az echo utility-vel továbbítjuk, és közvetlenül beírjuk a parancssorba. A hosszabb kifejezéseket célszerűbb lehet query file-okban elhelyezni, és a cat utility-vel továbbítani a parancs számára..
-A --lang &lt;query-language-type&gt; parameterrel kijelölhetjük, hogy a query kifejezést melyik nyelven írtuk.">
+A query kifejezést, amit végre kívánunk hajtani, a standard input-on keresztül továbbíthatjuk a parancshoz. Az egyszerűbb kifejezések esetében elegendő lehet, ha azokat az echo utility-vel továbbítjuk, és közvetlenül beírjuk a parancssorba. A hosszabb kifejezéseket célszerűbb lehet query file-okban elhelyezni, és a cat utility-vel továbbítani a parancs számára..
+A --lang &lt;query-language-type&gt; paraméterrel kijelölhetjük, hogy a query kifejezést melyik nyelven írtuk.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="A `cayley query` parancs" />
 <meta property="og:description" content="A cayley query parancs #  A cayley query paranccsal végrehajthatunk egy query-t egy létező adatbázison.
-A query kifejezést, amit vigre kívánunk hajtani, a standard input-on keresztül továbbíthatjuk a parancshoz. Az egyszerűbb kifejezések esetében elegendő lehet, ha azokat az echo utility-vel továbbítjuk, és közvetlenül beírjuk a parancssorba. A hosszabb kifejezéseket célszerűbb lehet query file-okban elhelyezni, és a cat utility-vel továbbítani a parancs számára..
-A --lang &lt;query-language-type&gt; parameterrel kijelölhetjük, hogy a query kifejezést melyik nyelven írtuk." />
+A query kifejezést, amit végre kívánunk hajtani, a standard input-on keresztül továbbíthatjuk a parancshoz. Az egyszerűbb kifejezések esetében elegendő lehet, ha azokat az echo utility-vel továbbítjuk, és közvetlenül beírjuk a parancssorba. A hosszabb kifejezéseket célszerűbb lehet query file-okban elhelyezni, és a cat utility-vel továbbítani a parancs számára..
+A --lang &lt;query-language-type&gt; paraméterrel kijelölhetjük, hogy a query kifejezést melyik nyelven írtuk." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/" />
 
@@ -20,7 +20,7 @@ A --lang &lt;query-language-type&gt; parameterrel kijelölhetjük, hogy a query 
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/" title="The `cayley query` command">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
-<script defer src="/cayley-cookbook/hu.search.min.72ac4f21cc5bbbf577bb4df7b53d5628c4c5c822aaa03d51a2571509aed26f43.js" integrity="sha256-cqxPIcxbu/V3u033tT1WKMTFyCKqoD1RolcVCa7Sb0M="></script>
+<script defer src="/cayley-cookbook/hu.search.min.3a70e696aa220a62f0308583ee366c3ae4d191baf68609e5ba093711c1da8d96.js" integrity="sha256-OnDmlqoiCmLwMIWD7jZsOuTRkbr2hgnlugk3EcHajZY="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -748,15 +748,15 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#a-cayley-query-parancs">#</a>
 </h1>
 <p>A <code>cayley query</code> paranccsal végrehajthatunk egy query-t egy létező adatbázison.</p>
-<p>A query kifejezést, amit vigre kívánunk hajtani, a standard input-on keresztül továbbíthatjuk a parancshoz. Az egyszerűbb kifejezések esetében elegendő lehet, ha azokat az <code>echo</code> utility-vel továbbítjuk, és közvetlenül beírjuk a parancssorba. A hosszabb kifejezéseket célszerűbb lehet query file-okban elhelyezni, és a <code>cat</code> utility-vel továbbítani a parancs számára..</p>
-<p>A <code>--lang &lt;query-language-type&gt;</code> parameterrel kijelölhetjük, hogy a query kifejezést melyik nyelven írtuk. A lehetséges válastható nyelvek: &ldquo;gizmo&rdquo;, &ldquo;graphql&rdquo;, &ldquo;mql&rdquo;, &ldquo;sexp&rdquo;. Az elepértelmezett query nyelv a &ldquo;gizmo&rdquo;.</p>
+<p>A query kifejezést, amit végre kívánunk hajtani, a standard input-on keresztül továbbíthatjuk a parancshoz. Az egyszerűbb kifejezések esetében elegendő lehet, ha azokat az <code>echo</code> utility-vel továbbítjuk, és közvetlenül beírjuk a parancssorba. A hosszabb kifejezéseket célszerűbb lehet query file-okban elhelyezni, és a <code>cat</code> utility-vel továbbítani a parancs számára..</p>
+<p>A <code>--lang &lt;query-language-type&gt;</code> paraméterrel kijelölhetjük, hogy a query kifejezést melyik nyelven írtuk. A lehetséges választható nyelvek: &ldquo;gizmo&rdquo;, &ldquo;graphql&rdquo;, &ldquo;mql&rdquo;, &ldquo;sexp&rdquo;. Az alapértelmezett query nyelv a &ldquo;gizmo&rdquo;.</p>
 <figure>
     <img src="/cayley-cookbook/cayley-query.png"/> <figcaption>
             <h4>Figure 4.: cayley query</h4>
         </figcaption>
 </figure>
 
-<p>Futtasunk egy query-t egy korábban létrehozott store tartalmán:</p>
+<p>Futtassunk egy query-t egy korábban létrehozott store tartalmán:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
     echo <span style="color:#e6db74">&#34;g.V().All();&#34;</span> | cayley query --logtostderr false --db bolt --dbpath /home/tombenke/tmp/cayley --logs ~/tmp
     <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span><span style="color:#f92672">}</span>
@@ -785,7 +785,7 @@ A logok a <code>/home/tombenke/tmp</code> directory-ban lesznek elhelyezve:</p>
     Log line format: <span style="color:#f92672">[</span>IWEF<span style="color:#f92672">]</span>mmdd hh:mm:ss.uuuuuu threadid file:line<span style="color:#f92672">]</span> msg
 
 </code></pre></div><p>Ezt a trükköt, szükség esetén, a többi parancs esetében is alkalmazhatjuk.</p>
-<p>Gyakran előfordul, hogy a query-k fejlesztése, tesztelése során valójában nincs szükségünk perzisztens store-ra. Ilyenkor sokkal egyszerűbb lehet egy átmeneti, in-memory adatbázis használata, amibe a futás idejére betöltjük a tesztelésghez szükséges adatokat a <code>--load &lt;data-file&gt;</code> parancssori parameterel.
+<p>Gyakran előfordul, hogy a query-k fejlesztése, tesztelése során valójában nincs szükségünk perzisztens store-ra. Ilyenkor sokkal egyszerűbb lehet egy átmeneti, in-memory adatbázis használata, amibe a futás idejére betöltjük a teszteléshez szükséges adatokat a <code>--load &lt;data-file&gt;</code> parancssori paraméterrel
 Az alábbi parancs ugyanazt a műveletet hajtja végre, mint a fentebb bemutatott példa, de a query-t egy in-memory adatbázison hajtja végre:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
     $ echo <span style="color:#e6db74">&#34;g.V().All();&#34;</span> | cayley query --logtostderr false --load data/testdata.nq --logs ~/tmp

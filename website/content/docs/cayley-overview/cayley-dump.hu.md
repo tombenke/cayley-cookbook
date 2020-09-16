@@ -6,7 +6,7 @@ bookCollapseSection: true
 
 # The `cayley dump` parancs
 
-A `cayley dump` parancs kiírja a resource leírókat az aktuális adatbázisból egy szbványos formátumú file-ba. A formátumot a kiterjesztés alapján határozza meg, de megadható neki a `--dump_format <format-name>` argumentummal is, ahol a `<format-name>` lehetséges értékei: "gml", "graphml", "graphviz", "json", "json-stream", "jsonld", "nquads", "pquads".
+A `cayley dump` parancs kiírja a resource leírókat az aktuális adatbázisból egy szabványos formátumú file-ba. A formátumot a kiterjesztés alapján határozza meg, de megadható neki a `--dump_format <format-name>` argumentummal is, ahol a `<format-name>` lehetséges értékei: "gml", "graphml", "graphviz", "json", "json-stream", "jsonld", "nquads", "pquads".
 
 {{< figure src="/cayley-cookbook/cayley-dump.png" title="1. ábra: cayley dump" >}}
 

@@ -4,9 +4,11 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A cayley http parancs #    1. ábra: cayley http   ">
+<meta name="description" content="A cayley http parancs #  Talán a cayley http a legismertebb, és leggyakrabban használt a cayley parancsok közül. Ez egy olyan alkalmazás, amely tartalmaz quad-store-t, query engine-t és egy HTTP server-t is, ami a Cayley lényegében összes funkcionalitását elérhetővé teszi a REST API interfészen keresztül külső alkalmazások számára, ezen felül egy web-es grafikus felületet is biztosít a felhasználóinak.
+Az 1. ábra szemlélteti az összes olyan komponenst, amit használni lehet a cayley http üzemmódban futó Cayley -vel.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="A `cayley http` parancs" />
-<meta property="og:description" content="A cayley http parancs #    1. ábra: cayley http   " />
+<meta property="og:description" content="A cayley http parancs #  Talán a cayley http a legismertebb, és leggyakrabban használt a cayley parancsok közül. Ez egy olyan alkalmazás, amely tartalmaz quad-store-t, query engine-t és egy HTTP server-t is, ami a Cayley lényegében összes funkcionalitását elérhetővé teszi a REST API interfészen keresztül külső alkalmazások számára, ezen felül egy web-es grafikus felületet is biztosít a felhasználóinak.
+Az 1. ábra szemlélteti az összes olyan komponenst, amit használni lehet a cayley http üzemmódban futó Cayley -vel." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/" />
 
@@ -16,7 +18,7 @@
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-http/" title="The `cayley http` command">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
-<script defer src="/cayley-cookbook/hu.search.min.72ac4f21cc5bbbf577bb4df7b53d5628c4c5c822aaa03d51a2571509aed26f43.js" integrity="sha256-cqxPIcxbu/V3u033tT1WKMTFyCKqoD1RolcVCa7Sb0M="></script>
+<script defer src="/cayley-cookbook/hu.search.min.3a70e696aa220a62f0308583ee366c3ae4d191baf68609e5ba093711c1da8d96.js" integrity="sha256-OnDmlqoiCmLwMIWD7jZsOuTRkbr2hgnlugk3EcHajZY="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -729,7 +731,19 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#a-cayley-http-server-elindítása">A Cayley HTTP server elindítása</a>
+      <ul>
+        <li><a href="#indítás-alapértelmezett-beállításokkal">Indítás alapértelmezett beállításokkal</a></li>
+        <li><a href="#indítás-in-memory-store-ral-automatikus-adatbetöltéssel">Indítás in-memory store-ral, automatikus adatbetöltéssel</a></li>
+        <li><a href="#indítás-perzisztens-store-ral-és-adatfeltöltéssel">Indítás perzisztens store-ral, és adatfeltöltéssel</a></li>
+      </ul>
+    </li>
+    <li><a href="#a-web-es-felhasználói-felület">A Web-es felhasználói felület</a></li>
+    <li><a href="#adat-importálás-és-exportálás">Adat importálás és exportálás</a></li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -743,13 +757,131 @@ https://github.com/alex-shpak/hugo-book
   A <code>cayley http</code> parancs
   <a class="anchor" href="#a-cayley-http-parancs">#</a>
 </h1>
+<p>Talán a <code>cayley http</code> a legismertebb, és leggyakrabban használt a cayley parancsok közül.
+Ez egy olyan alkalmazás, amely tartalmaz quad-store-t, query engine-t és egy HTTP server-t is, ami a <a href="https://cayley.io/" target="_blank">Cayley</a>
+ lényegében összes funkcionalitását elérhetővé teszi a REST API interfészen keresztül külső alkalmazások számára, ezen felül egy web-es grafikus felületet is biztosít a felhasználóinak.</p>
+<p>Az 1. ábra szemlélteti az összes olyan komponenst, amit használni lehet a <code>cayley http</code> üzemmódban futó <a href="https://cayley.io/" target="_blank">Cayley</a>
+-vel.</p>
 <figure>
     <img src="/cayley-cookbook/cayley-http.png"/> <figcaption>
             <h4>1. ábra: cayley http</h4>
         </figcaption>
 </figure>
 
-</article>
+<p>A <code>cayley http</code> által biztosított REST API végpontok leírását a <a href="https://cayley.gitbook.io/cayley/usage/http">hivatalos dokumentációban</a> olvashatjuk. A <a href="https://cayley.gitbook.io/cayley/usage/3rd-party-apis">3rd party APIs</a> dokumentációs oldalak leírják, hogy milyen programozási nyelveken, és milyen könyvtárakkal férhetünk hozzá a <code>cayley http</code> server-hez</p>
+<h2 id="a-cayley-http-server-elindítása">
+  A Cayley HTTP server elindítása
+  <a class="anchor" href="#a-cayley-http-server-elind%c3%adt%c3%a1sa">#</a>
+</h2>
+<h3 id="indítás-alapértelmezett-beállításokkal">
+  Indítás alapértelmezett beállításokkal
+  <a class="anchor" href="#ind%c3%adt%c3%a1s-alap%c3%a9rtelmezett-be%c3%a1ll%c3%adt%c3%a1sokkal">#</a>
+</h3>
+<p>A <code>cayley http</code> parancs végrehajtása elindítja a server-t az alapértelmezett beállításokkal:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cayley http
+
+    I0916 08:00:12.107989    <span style="color:#ae81ff">6702</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0916 08:00:12.108196    <span style="color:#ae81ff">6702</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;memstore&#34;</span>
+    I0916 08:00:12.108322    <span style="color:#ae81ff">6702</span> http.go:197<span style="color:#f92672">]</span> using assets from <span style="color:#e6db74">&#34;/snap/cayley/2&#34;</span>
+    I0916 08:00:12.108805    <span style="color:#ae81ff">6702</span> http.go:42<span style="color:#f92672">]</span> listening on 127.0.0.1:64210, web interface at http://127.0.0.1:64210
+
+</code></pre></div><p>A server ekkor egy üres, in-memory adatbázist hoz létre. A server alapértelmezés szerint a <code>64210</code> porton figyel. Egy böngészővel megnyithatjuk a <code>http://127.0.0.1:64210</code> URL-t, és ekkor megjelenik a web UI, amelyen keresztül query-ket hajthatunk végre az adatbázison.</p>
+<h3 id="indítás-in-memory-store-ral-automatikus-adatbetöltéssel">
+  Indítás in-memory store-ral, automatikus adatbetöltéssel
+  <a class="anchor" href="#ind%c3%adt%c3%a1s-in-memory-store-ral-automatikus-adatbet%c3%b6lt%c3%a9ssel">#</a>
+</h3>
+<p>Jelezhetjük a <code>cayley http</code> parancs számára, hogy az indulást követően azonnal töltse fel egy adatfile tartalmát az adatbázisba. Erre a célra a <code>--load &lt;data-file-path&gt;</code> argumentumot alkalmazzuk.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cayley http --load data/testdata.nq 
+    I0916 08:10:40.473364    <span style="color:#ae81ff">7087</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0916 08:10:40.473602    <span style="color:#ae81ff">7087</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;memstore&#34;</span>
+    I0916 08:10:40.473935    <span style="color:#ae81ff">7087</span> database.go:250<span style="color:#f92672">]</span> loaded <span style="color:#e6db74">&#34;data/testdata.nq&#34;</span> in 266.525µs
+    I0916 08:10:40.474084    <span style="color:#ae81ff">7087</span> http.go:197<span style="color:#f92672">]</span> using assets from <span style="color:#e6db74">&#34;/snap/cayley/2&#34;</span>
+    I0916 08:10:40.474498    <span style="color:#ae81ff">7087</span> http.go:42<span style="color:#f92672">]</span> listening on 127.0.0.1:64210, web interface at http://127.0.0.1:64210
+
+</code></pre></div><p>A feltöltött adatok azonnal rendelkezésre fognak állni, és mind a web-es UI-on, mind a REST API-n keresztül lekérdezéseket és módosításokat hajthatunk végre azokon. Az adatok ebben az esetben is még csak in-memory tárolódnak.</p>
+<h3 id="indítás-perzisztens-store-ral-és-adatfeltöltéssel">
+  Indítás perzisztens store-ral, és adatfeltöltéssel
+  <a class="anchor" href="#ind%c3%adt%c3%a1s-perzisztens-store-ral-%c3%a9s-adatfelt%c3%b6lt%c3%a9ssel">#</a>
+</h3>
+<p>A <code>cayley http</code> parancsot úgy is indíthatjuk, hogy az perzisztens adatbázist használjon. Ebben az esetben két lehetőség közül választhatunk:</p>
+<ol>
+<li>Inicializálunk egy üres, perzisztens store-t, és esetleg adatokat is töltünk fel rögtön, az indulást követően.</li>
+<li>Egy már korábban létrehozott üres, vagy adatokkal feltöltött adatbázist nyitunk meg. Egy ilyen adatbázis létrehozásához a <code>cayley init</code> és <code>cayley load</code> parancsokat használhatjuk.</li>
+</ol>
+<p>Indításkor hozzunk létre egy perzisztens adatbázist, és rögtön töltsünk is bele adatokat:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cayley http --init --db bolt --dbpath /home/tombenke/tmp/cayley/ --load data/testdata.nq 
+    I0916 08:20:05.039047    <span style="color:#ae81ff">7367</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0916 08:20:05.039234    <span style="color:#ae81ff">7367</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;bolt&#34;</span> <span style="color:#f92672">(</span>/home/tombenke/tmp/cayley/<span style="color:#f92672">)</span>
+    I0916 08:20:05.070109    <span style="color:#ae81ff">7367</span> database.go:250<span style="color:#f92672">]</span> loaded <span style="color:#e6db74">&#34;data/testdata.nq&#34;</span> in 9.150519ms
+    I0916 08:20:05.070347    <span style="color:#ae81ff">7367</span> http.go:197<span style="color:#f92672">]</span> using assets from <span style="color:#e6db74">&#34;/snap/cayley/2&#34;</span>
+    I0916 08:20:05.071829    <span style="color:#ae81ff">7367</span> http.go:42<span style="color:#f92672">]</span> listening on 127.0.0.1:64210, web interface at http://127.0.0.1:64210
+    I0916 08:20:11.371920    <span style="color:#ae81ff">7367</span> http.go:100<span style="color:#f92672">]</span> started POST /api/v1/query/gizmo <span style="color:#66d9ef">for</span> 127.0.0.1:39426
+    I0916 08:20:11.372573    <span style="color:#ae81ff">7367</span> http.go:102<span style="color:#f92672">]</span> completed <span style="color:#ae81ff">200</span> OK /api/v1/query/gizmo in 666.087µs
+    I0916 08:20:17.928216    <span style="color:#ae81ff">7367</span> http.go:100<span style="color:#f92672">]</span> started POST /api/v1/query/gizmo <span style="color:#66d9ef">for</span> 127.0.0.1:39426
+    I0916 08:20:17.932551    <span style="color:#ae81ff">7367</span> http.go:102<span style="color:#f92672">]</span> completed <span style="color:#ae81ff">200</span> OK /api/v1/query/gizmo in 4.335239ms
+
+</code></pre></div><p>készítsünk elő egy perzisztens store-t az <code>init</code> és <code>load</code> parancsokkal, majd indítsuk el a <code>http</code> server-t:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cayley init --db bolt --dbpath /home/tombenke/tmp/cayley/
+    I0916 08:21:00.701903    <span style="color:#ae81ff">7460</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0916 08:21:00.702107    <span style="color:#ae81ff">7460</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;bolt&#34;</span> <span style="color:#f92672">(</span>/home/tombenke/tmp/cayley/<span style="color:#f92672">)</span>
+
+    $ cayley load --db bolt --dbpath /home/tombenke/tmp/cayley/ --load data/testdata.nq
+    I0916 08:21:42.843042    <span style="color:#ae81ff">7509</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0916 08:21:42.843269    <span style="color:#ae81ff">7509</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;bolt&#34;</span> <span style="color:#f92672">(</span>/home/tombenke/tmp/cayley/<span style="color:#f92672">)</span>
+
+    $ cayley http --db bolt --dbpath /home/tombenke/tmp/cayley/
+    I0916 08:22:08.376538    <span style="color:#ae81ff">7573</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0916 08:22:08.376726    <span style="color:#ae81ff">7573</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;bolt&#34;</span> <span style="color:#f92672">(</span>/home/tombenke/tmp/cayley/<span style="color:#f92672">)</span>
+    I0916 08:22:08.379455    <span style="color:#ae81ff">7573</span> http.go:197<span style="color:#f92672">]</span> using assets from <span style="color:#e6db74">&#34;/snap/cayley/2&#34;</span>
+    I0916 08:22:08.380016    <span style="color:#ae81ff">7573</span> http.go:42<span style="color:#f92672">]</span> listening on 127.0.0.1:64210, web interface at http://127.0.0.1:64210
+
+</code></pre></div><p>Mindkét esetben elérhetjük az adatokat a REST API-n keresztül, rögtön az indítást követően.</p>
+<blockquote class="book-hint info">
+  <p><strong>Note:</strong></p>
+<p>Mind a <code>cayley load</code> és a <code>cayley save</code> parancsok használhatóak adatfeltöltésre, ill. kiírásra olyan adat adatbázisból, amit a <code>cayley http</code> server is el tud érni, de csak akkor, ha a server le van állítva, mivel az adatbázist egyidejűleg csak egy alkalmazás használhatja közvetlenül. Emiatt az 1. ábrán ezt a két segédprogramot szaggatott vonallal kötöttük össze a store-ral.</p>
+
+</blockquote>
+
+<h2 id="a-web-es-felhasználói-felület">
+  A Web-es felhasználói felület
+  <a class="anchor" href="#a-web-es-felhaszn%c3%a1l%c3%b3i-fel%c3%bclet">#</a>
+</h2>
+<p>Indítsuk el a <code>cayley http</code> server-t akár in-memory, akár perzisztens store-ral, úgy, hogy az tartalmazza a feltöltött teszt adatokat, ahogyan ezt az imént leírtuk a megelőző alfejezetekben. Ezt követően nyissuk meg a <code>http://127.0.0.1:64210</code> URL-t egy böngészővel. A böngésző ablakban meg fog jelenni a <a href="https://cayley.io/" target="_blank">Cayley</a>
+ web-es felhasználói felülete. A jobb felső területen elhelyezkedő szövegbeviteli területen gépeljük be a <code>g.V().GetLimit(2)</code> query kifejezést, majd nyomjuk meg a jobb felső részel látható &ldquo;Run Query&rdquo; gombot Ekkor a query végrehajtódik, és az ablak jobb alsó területén megjelenik a keresés eredménye, ahogyan azt a 2. ábrán láthatjuk.</p>
+<figure>
+    <img src="/cayley-cookbook/cayley-http-ui.png"/> <figcaption>
+            <h4>Figure 2.: cayley http UI</h4>
+        </figcaption>
+</figure>
+
+<p>A web-es felület használatának leírása a megtalálható a <a href="https://cayley.gitbook.io/cayley/usage/ui-overview">hivatalos dokumentációban</a>.</p>
+<h2 id="adat-importálás-és-exportálás">
+  Adat importálás és exportálás
+  <a class="anchor" href="#adat-import%c3%a1l%c3%a1s-%c3%a9s-export%c3%a1l%c3%a1s">#</a>
+</h2>
+<p>Ha olyankor is szeretnénk adatokat fel és letölteni az adatbázisból, amikor a <code>cayley http</code> server éppen fut, akkor azt a REST interfészen keresztül tehetjük meg. létezik két segédprogram, amit a <a href="https://cayley.io/" target="_blank">Cayley</a>
+ forráskódjában találhatunk: a <a href="https://github.com/cayleygraph/cayley/tree/master/cmd/cayleyimport"><code>cayleyimport</code></a> és a <a href="https://github.com/cayleygraph/cayley/tree/master/cmd/cayleyexport"><code>cayleyexport</code></a>.</p>
+<p>Klónozzuk le a <a href="https://github.com/cayleygraph/cayley">cayleygraph/cayley</a> repository-t, és akkor tudjuk futtatni ezeket a programokat <code>go run</code> paranccsal, ahogyan azt a következő példában lentebb láthatjuk.</p>
+<p>Adatok importálása az adatbázisba a REST API-n keresztül:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ go run &lt;path-to-the-cayley-source&gt;/cmd/cayleyimport/cayleyimport.go data/testdata.nq 
+    Successfully wrote <span style="color:#ae81ff">15</span> quads.
+
+
+</code></pre></div><p>Adatok exportálása file-ba az adatbázisból a REST API-n keresztül:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    go run &lt;path-to-the-cayley-source&gt;/cmd/cayleyexport/cayleyexport.go -o out.nq
+
+</code></pre></div><p>Adatok exportálása az adatbázisból a standard output-ra, a REST API-n keresztül. Mivel ebben az esetben a kimeneti file neve nincs megadva, ezért a program nem tudja meghatározni a kimeneti reprezentációs formátumot. Emiatt azt külön meg kell határoznunk a <code>--format</code> argumentummal:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ go run ~/sandbox/cayley/cayley/cmd/cayleyexport/cayleyexport.go --format jsonld
+    <span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;alice&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;fred&#34;</span><span style="color:#f92672">}]</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;cool_person&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;charlie&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span><span style="color:#f92672">}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;dani&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;dani&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span><span style="color:#f92672">}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span><span style="color:#f92672">}]</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;cool_person&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;emily&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;fred&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;fred&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;cool_person&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;predicates&#34;</span>,<span style="color:#e6db74">&#34;are&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;follows&#34;</span><span style="color:#f92672">}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;status&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@graph&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;emily&#34;</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;smart_person&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;smart_person&#34;</span><span style="color:#f92672">}]}]</span>,<span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;smart_graph&#34;</span><span style="color:#f92672">}]</span>
+
+</code></pre></div></article>
  
       
 
@@ -820,7 +952,19 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#a-cayley-http-server-elindítása">A Cayley HTTP server elindítása</a>
+      <ul>
+        <li><a href="#indítás-alapértelmezett-beállításokkal">Indítás alapértelmezett beállításokkal</a></li>
+        <li><a href="#indítás-in-memory-store-ral-automatikus-adatbetöltéssel">Indítás in-memory store-ral, automatikus adatbetöltéssel</a></li>
+        <li><a href="#indítás-perzisztens-store-ral-és-adatfeltöltéssel">Indítás perzisztens store-ral, és adatfeltöltéssel</a></li>
+      </ul>
+    </li>
+    <li><a href="#a-web-es-felhasználói-felület">A Web-es felhasználói felület</a></li>
+    <li><a href="#adat-importálás-és-exportálás">Adat importálás és exportálás</a></li>
+  </ul>
+</nav>
 
  
     </aside>
