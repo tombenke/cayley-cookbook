@@ -1,6 +1,6 @@
 ---
 title: "A `cayley query` parancs"
-weight: 5
+weight: 6
 bookCollapseSection: true
 ---
 
@@ -8,6 +8,11 @@ bookCollapseSection: true
 
 
 A `cayley query` paranccsal végrehajthatunk egy query-t egy létező adatbázison.
+
+
+A query kifejezést, amit vigre kívánunk hajtani, a standard input-on keresztül továbbíthatjuk a parancshoz. Az egyszerűbb kifejezések esetében elegendő lehet, ha azokat az `echo` utility-vel továbbítjuk, és közvetlenül beírjuk a parancssorba. A hosszabb kifejezéseket célszerűbb lehet query file-okban elhelyezni, és a `cat` utility-vel továbbítani a parancs számára..
+
+A `--lang <query-language-type>` parameterrel kijelölhetjük, hogy a query kifejezést melyik nyelven írtuk. A lehetséges válastható nyelvek: "gizmo", "graphql", "mql", "sexp". Az elepértelmezett query nyelv a "gizmo".
 
 {{< figure src="/cayley-cookbook/cayley-query.png" title="Figure 4.: cayley query" >}}
 
@@ -47,4 +52,29 @@ A logok a `/home/tombenke/tmp` directory-ban lesznek elhelyezve:
 ```
 
 Ezt a trükköt, szükség esetén, a többi parancs esetében is alkalmazhatjuk.
+
+Gyakran előfordul, hogy a query-k fejlesztése, tesztelése során valójában nincs szükségünk perzisztens store-ra. Ilyenkor sokkal egyszerűbb lehet egy átmeneti, in-memory adatbázis használata, amibe a futás idejére betöltjük a tesztelésghez szükséges adatokat a `--load <data-file>` parancssori parameterel.
+Az alábbi parancs ugyanazt a műveletet hajtja végre, mint a fentebb bemutatott példa, de a query-t egy in-memory adatbázison hajtja végre:
+
+```bash
+
+    $ echo "g.V().All();" | cayley query --logtostderr false --load data/testdata.nq --logs ~/tmp
+
+    {"id":"alice"}
+    {"id":"follows"}
+    {"id":"bob"}
+    {"id":"fred"}
+    {"id":"status"}
+    {"id":"cool_person"}
+    {"id":"dani"}
+    {"id":"charlie"}
+    {"id":"greg"}
+    {"id":"emily"}
+    {"id":"predicates"}
+    {"id":"are"}
+    {"id":"smart_person"}
+    {"id":"smart_graph"}
+
+```
+
 

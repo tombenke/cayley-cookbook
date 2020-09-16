@@ -339,20 +339,6 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-repl/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/"
-                />
-  </url>
-  
-  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-quads/</loc>
     <xhtml:link
                 rel="alternate"
@@ -395,16 +381,30 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-dump/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/"
+                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-dump/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/"
+                href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-dump/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-repl/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/"
                 />
   </url>
   
@@ -447,6 +447,20 @@
                 rel="alternate"
                 hreflang="hu"
                 href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/rdf-graphs/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/"
                 />
   </url>
   

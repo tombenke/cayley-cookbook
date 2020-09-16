@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="The cayley query command #  With the cayley query we can run a query expression on an existing database.
-  Figure 4.: cayley query   Run a query on a previously created database that has data:
-echo &#34;g.V().All();&#34; | cayley query --logtostderr false --db bolt --dbpath /home/tombenke/tmp/cayley --logs ~/tmp {&#34;id&#34;:&#34;bob&#34;} {&#34;id&#34;:&#34;status&#34;} {&#34;id&#34;:&#34;cool_person&#34;} {&#34;id&#34;:&#34;alice&#34;} {&#34;id&#34;:&#34;greg&#34;} {&#34;id&#34;:&#34;emily&#34;} {&#34;id&#34;:&#34;smart_graph&#34;} {&#34;id&#34;:&#34;predicates&#34;} {&#34;id&#34;:&#34;dani&#34;} {&#34;id&#34;:&#34;fred&#34;} {&#34;id&#34;:&#34;smart_person&#34;} {&#34;id&#34;:&#34;charlie&#34;} {&#34;id&#34;:&#34;are&#34;} {&#34;id&#34;:&#34;follows&#34;} In case we want to feed the results into another program, then we may want to hide the logs pronted out by the command.">
+The query that we want to execute can be forwarded to the command through the standard input. The simpler expressions we can directly put into the command line via the echo utility, the longer ones we&rsquo;d better put into query files, then forward the via the cat utility.
+We can select the query language type by the --lang &lt;query-language-type&gt; parameter, where the possible values for the query language are: &ldquo;gizmo&rdquo;, &ldquo;graphql&rdquo;, &ldquo;mql&rdquo;, &ldquo;sexp&rdquo;.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="The `cayley query` command" />
 <meta property="og:description" content="The cayley query command #  With the cayley query we can run a query expression on an existing database.
-  Figure 4.: cayley query   Run a query on a previously created database that has data:
-echo &#34;g.V().All();&#34; | cayley query --logtostderr false --db bolt --dbpath /home/tombenke/tmp/cayley --logs ~/tmp {&#34;id&#34;:&#34;bob&#34;} {&#34;id&#34;:&#34;status&#34;} {&#34;id&#34;:&#34;cool_person&#34;} {&#34;id&#34;:&#34;alice&#34;} {&#34;id&#34;:&#34;greg&#34;} {&#34;id&#34;:&#34;emily&#34;} {&#34;id&#34;:&#34;smart_graph&#34;} {&#34;id&#34;:&#34;predicates&#34;} {&#34;id&#34;:&#34;dani&#34;} {&#34;id&#34;:&#34;fred&#34;} {&#34;id&#34;:&#34;smart_person&#34;} {&#34;id&#34;:&#34;charlie&#34;} {&#34;id&#34;:&#34;are&#34;} {&#34;id&#34;:&#34;follows&#34;} In case we want to feed the results into another program, then we may want to hide the logs pronted out by the command." />
+The query that we want to execute can be forwarded to the command through the standard input. The simpler expressions we can directly put into the command line via the echo utility, the longer ones we&rsquo;d better put into query files, then forward the via the cat utility.
+We can select the query language type by the --lang &lt;query-language-type&gt; parameter, where the possible values for the query language are: &ldquo;gizmo&rdquo;, &ldquo;graphql&rdquo;, &ldquo;mql&rdquo;, &ldquo;sexp&rdquo;." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/" />
 
@@ -20,7 +20,7 @@ echo &#34;g.V().All();&#34; | cayley query --logtostderr false --db bolt --dbpat
 <link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/" title="A `cayley query` parancs">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
-<script defer src="/cayley-cookbook/en.search.min.84d4080de0d4b27ff258af6e5ea7e9479976895bf7c013e891a50c4bd5e05444.js" integrity="sha256-hNQIDeDUsn/yWK9uXqfpR5l2iVv3wBPokaUMS9XgVEQ="></script>
+<script defer src="/cayley-cookbook/en.search.min.358c99080e4fed27eb2f548d1f9b425fa90063a181c65b47d4824a94f886b58d.js" integrity="sha256-NYyZCA5P7SfrL1SNH5tCX6kAY6GBxltH1IJKlPiGtY0="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -254,9 +254,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-40eaa83532b4f601a22562f349d2de4e" class="toggle"  />
-    <label for="section-40eaa83532b4f601a22562f349d2de4e" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-dump/" class="">The `cayley dump` command</a>
+    <input type="checkbox" id="section-91a5cf1c44b66e29df3dfb08aee97c1d" class="toggle"  />
+    <label for="section-91a5cf1c44b66e29df3dfb08aee97c1d" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-load/" class="">The `cayley load` command</a>
       <span>▾</span>
     </label>
   
@@ -271,9 +271,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-91a5cf1c44b66e29df3dfb08aee97c1d" class="toggle"  />
-    <label for="section-91a5cf1c44b66e29df3dfb08aee97c1d" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-load/" class="">The `cayley load` command</a>
+    <input type="checkbox" id="section-40eaa83532b4f601a22562f349d2de4e" class="toggle"  />
+    <label for="section-40eaa83532b4f601a22562f349d2de4e" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-dump/" class="">The `cayley dump` command</a>
       <span>▾</span>
     </label>
   
@@ -748,6 +748,8 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#the-cayley-query-command">#</a>
 </h1>
 <p>With the <code>cayley query</code> we can run a query expression on an existing database.</p>
+<p>The query that we want to execute can be forwarded to the command through the standard input. The simpler expressions we can directly put into the command line via the <code>echo</code> utility, the longer ones we&rsquo;d better put into query files, then forward the via the <code>cat</code> utility.</p>
+<p>We can select the query language type by the <code>--lang &lt;query-language-type&gt;</code> parameter, where the possible values for the query language are: &ldquo;gizmo&rdquo;, &ldquo;graphql&rdquo;, &ldquo;mql&rdquo;, &ldquo;sexp&rdquo;. The default is &ldquo;gizmo&rdquo;.</p>
 <figure>
     <img src="/cayley-cookbook/cayley-query.png"/> <figcaption>
             <h4>Figure 4.: cayley query</h4>
@@ -772,8 +774,7 @@ https://github.com/alex-shpak/hugo-book
     <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;are&#34;</span><span style="color:#f92672">}</span>
     <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;follows&#34;</span><span style="color:#f92672">}</span>
 
-</code></pre></div><p>In case we want to feed the results into another program, then we may want to hide the logs pronted out by the command.
-The next example shows how can we do this. The logs are written into the <code>/home/tombenke/tmp</code> directory:</p>
+</code></pre></div><p>In case we want to feed the results into another program, then we may want to hide the logs printed out by the command. The next example shows how can we do this. The logs are written into the <code>/home/tombenke/tmp</code> directory:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
     $ cat ~/tmp/cayley.tombenke-Latitude-E5470.tombenke.log.INFO.20200915-182850.27351 
     Log file created at: 2020/09/15 18:28:50
@@ -782,7 +783,26 @@ The next example shows how can we do this. The logs are written into the <code>/
     Log line format: <span style="color:#f92672">[</span>IWEF<span style="color:#f92672">]</span>mmdd hh:mm:ss.uuuuuu threadid file:line<span style="color:#f92672">]</span> msg
 
 </code></pre></div><p>This trick we can apply to the other commands as well.</p>
-</article>
+<p>Often, when we need to test our query expressions, we do not need a persistent database. It can be much easier and shorter to load the test data into an in-memory store by the <code>--load &lt;data-file&gt;</code> CLI parameter, and run the query on it. The following command executes the same query on the same data like in the previous example, but it uses a temporary, in-memory database.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ echo <span style="color:#e6db74">&#34;g.V().All();&#34;</span> | cayley query --logtostderr false --load data/testdata.nq --logs ~/tmp
+
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;alice&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;follows&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;fred&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;status&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;cool_person&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;dani&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;charlie&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;emily&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;predicates&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;are&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;smart_person&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;smart_graph&#34;</span><span style="color:#f92672">}</span>
+
+</code></pre></div></article>
  
       
 

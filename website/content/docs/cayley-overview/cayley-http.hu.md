@@ -1,6 +1,6 @@
 ---
 title: "A `cayley http` parancs"
-weight: 10
+weight: 7
 bookCollapseSection: true
 ---
 

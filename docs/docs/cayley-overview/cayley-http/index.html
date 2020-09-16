@@ -4,9 +4,11 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The cayley http command #    Figure 1.: cayley http   ">
+<meta name="description" content="The cayley http command #  Maybe the cayley http is the most well known, and most frequently used command. It is an application, which contains the quad-store, the query engines and a HTTP server, that provides all of the functionalities through a REST API for utilities and 3rd-party applications, as well as provides a web-based graphical UI for the end users.
+The Figure 1. shows all the components that can be used together with the Cayley running in the cayley http mode.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="The `cayley http` command" />
-<meta property="og:description" content="The cayley http command #    Figure 1.: cayley http   " />
+<meta property="og:description" content="The cayley http command #  Maybe the cayley http is the most well known, and most frequently used command. It is an application, which contains the quad-store, the query engines and a HTTP server, that provides all of the functionalities through a REST API for utilities and 3rd-party applications, as well as provides a web-based graphical UI for the end users.
+The Figure 1. shows all the components that can be used together with the Cayley running in the cayley http mode." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-http/" />
 
@@ -16,7 +18,7 @@
 <link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/" title="A `cayley http` parancs">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
-<script defer src="/cayley-cookbook/en.search.min.84d4080de0d4b27ff258af6e5ea7e9479976895bf7c013e891a50c4bd5e05444.js" integrity="sha256-hNQIDeDUsn/yWK9uXqfpR5l2iVv3wBPokaUMS9XgVEQ="></script>
+<script defer src="/cayley-cookbook/en.search.min.358c99080e4fed27eb2f548d1f9b425fa90063a181c65b47d4824a94f886b58d.js" integrity="sha256-NYyZCA5P7SfrL1SNH5tCX6kAY6GBxltH1IJKlPiGtY0="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -250,9 +252,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-40eaa83532b4f601a22562f349d2de4e" class="toggle"  />
-    <label for="section-40eaa83532b4f601a22562f349d2de4e" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-dump/" class="">The `cayley dump` command</a>
+    <input type="checkbox" id="section-91a5cf1c44b66e29df3dfb08aee97c1d" class="toggle"  />
+    <label for="section-91a5cf1c44b66e29df3dfb08aee97c1d" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-load/" class="">The `cayley load` command</a>
       <span>▾</span>
     </label>
   
@@ -267,9 +269,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-91a5cf1c44b66e29df3dfb08aee97c1d" class="toggle"  />
-    <label for="section-91a5cf1c44b66e29df3dfb08aee97c1d" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-load/" class="">The `cayley load` command</a>
+    <input type="checkbox" id="section-40eaa83532b4f601a22562f349d2de4e" class="toggle"  />
+    <label for="section-40eaa83532b4f601a22562f349d2de4e" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-dump/" class="">The `cayley dump` command</a>
       <span>▾</span>
     </label>
   
@@ -729,7 +731,19 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#starting-the-cayley-http-server">Starting the Cayley HTTP Server</a>
+      <ul>
+        <li><a href="#start-with-default-settings">Start with default settings</a></li>
+        <li><a href="#start-with-in-memory-store-with-automatic-data-loading">Start with in-memory store with automatic data loading</a></li>
+        <li><a href="#start-with-persistent-store-including-data">Start with persistent store, including data</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-web-ui">The web UI</a></li>
+    <li><a href="#data-import-and-export">Data import and export</a></li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -743,13 +757,129 @@ https://github.com/alex-shpak/hugo-book
   The <code>cayley http</code> command
   <a class="anchor" href="#the-cayley-http-command">#</a>
 </h1>
+<p>Maybe the <code>cayley http</code> is the most well known, and most frequently used command.
+It is an application, which contains the quad-store, the query engines and a HTTP server, that provides all of the functionalities through a REST API for utilities and 3rd-party applications, as well as provides a web-based graphical UI for the end users.</p>
+<p>The Figure 1. shows all the components that can be used together with the <a href="https://cayley.io/" target="_blank">Cayley</a>
+ running in the  <code>cayley http</code> mode.</p>
 <figure>
     <img src="/cayley-cookbook/cayley-http.png"/> <figcaption>
             <h4>Figure 1.: cayley http</h4>
         </figcaption>
 </figure>
 
-</article>
+<p>The <code>cayley http</code> exposes REST API endpoints which are described in the <a href="https://cayley.gitbook.io/cayley/usage/http">official documentation</a>. See also the <a href="https://cayley.gitbook.io/cayley/usage/3rd-party-apis">documentation pages of the 3rd party APIs</a> avaiable for accessing to the <code>cayley http</code> server.</p>
+<h2 id="starting-the-cayley-http-server">
+  Starting the Cayley HTTP Server
+  <a class="anchor" href="#starting-the-cayley-http-server">#</a>
+</h2>
+<h3 id="start-with-default-settings">
+  Start with default settings
+  <a class="anchor" href="#start-with-default-settings">#</a>
+</h3>
+<p>The execution of the <code>cayley http</code> command starts the server with the default settings:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cayley http
+
+    I0916 08:00:12.107989    <span style="color:#ae81ff">6702</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0916 08:00:12.108196    <span style="color:#ae81ff">6702</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;memstore&#34;</span>
+    I0916 08:00:12.108322    <span style="color:#ae81ff">6702</span> http.go:197<span style="color:#f92672">]</span> using assets from <span style="color:#e6db74">&#34;/snap/cayley/2&#34;</span>
+    I0916 08:00:12.108805    <span style="color:#ae81ff">6702</span> http.go:42<span style="color:#f92672">]</span> listening on 127.0.0.1:64210, web interface at http://127.0.0.1:64210
+
+</code></pre></div><p>The server uses an in-memory database, and the store will be empty. The server will listen on the <code>64210</code> port by default. We can open the <code>http://127.0.0.1:64210</code> URL with a browser, then the web UI will appear, where we can run queries on the database.</p>
+<h3 id="start-with-in-memory-store-with-automatic-data-loading">
+  Start with in-memory store with automatic data loading
+  <a class="anchor" href="#start-with-in-memory-store-with-automatic-data-loading">#</a>
+</h3>
+<p>We can tell to the <code>cayley http</code> to load data into the store immediately after starting it. We can use the <code>--load &lt;data-file-path&gt;</code> argument for this.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cayley http --load data/testdata.nq 
+    I0916 08:10:40.473364    <span style="color:#ae81ff">7087</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0916 08:10:40.473602    <span style="color:#ae81ff">7087</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;memstore&#34;</span>
+    I0916 08:10:40.473935    <span style="color:#ae81ff">7087</span> database.go:250<span style="color:#f92672">]</span> loaded <span style="color:#e6db74">&#34;data/testdata.nq&#34;</span> in 266.525µs
+    I0916 08:10:40.474084    <span style="color:#ae81ff">7087</span> http.go:197<span style="color:#f92672">]</span> using assets from <span style="color:#e6db74">&#34;/snap/cayley/2&#34;</span>
+    I0916 08:10:40.474498    <span style="color:#ae81ff">7087</span> http.go:42<span style="color:#f92672">]</span> listening on 127.0.0.1:64210, web interface at http://127.0.0.1:64210
+
+</code></pre></div><p>The data will be available immediately for querying through both the UI and through the REST API for the client applications. Yet the store is in-memory.</p>
+<h3 id="start-with-persistent-store-including-data">
+  Start with persistent store, including data
+  <a class="anchor" href="#start-with-persistent-store-including-data">#</a>
+</h3>
+<p>The <code>cayley http</code> can be started with a persistent database as well. Here we have two options:</p>
+<ol>
+<li>We initialize an empty persistent store, and may also load data into it immediately after the database has been created.</li>
+<li>Open a previously created persistent store, that may be empty or filled with some data. To prepare such a database we can use the <code>cayley init</code> and <code>cayley load</code> commands.</li>
+</ol>
+<p>Start an empty persistent store, and load data into it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cayley http --init --db bolt --dbpath /home/tombenke/tmp/cayley/ --load data/testdata.nq 
+    I0916 08:20:05.039047    <span style="color:#ae81ff">7367</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0916 08:20:05.039234    <span style="color:#ae81ff">7367</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;bolt&#34;</span> <span style="color:#f92672">(</span>/home/tombenke/tmp/cayley/<span style="color:#f92672">)</span>
+    I0916 08:20:05.070109    <span style="color:#ae81ff">7367</span> database.go:250<span style="color:#f92672">]</span> loaded <span style="color:#e6db74">&#34;data/testdata.nq&#34;</span> in 9.150519ms
+    I0916 08:20:05.070347    <span style="color:#ae81ff">7367</span> http.go:197<span style="color:#f92672">]</span> using assets from <span style="color:#e6db74">&#34;/snap/cayley/2&#34;</span>
+    I0916 08:20:05.071829    <span style="color:#ae81ff">7367</span> http.go:42<span style="color:#f92672">]</span> listening on 127.0.0.1:64210, web interface at http://127.0.0.1:64210
+    I0916 08:20:11.371920    <span style="color:#ae81ff">7367</span> http.go:100<span style="color:#f92672">]</span> started POST /api/v1/query/gizmo <span style="color:#66d9ef">for</span> 127.0.0.1:39426
+    I0916 08:20:11.372573    <span style="color:#ae81ff">7367</span> http.go:102<span style="color:#f92672">]</span> completed <span style="color:#ae81ff">200</span> OK /api/v1/query/gizmo in 666.087µs
+    I0916 08:20:17.928216    <span style="color:#ae81ff">7367</span> http.go:100<span style="color:#f92672">]</span> started POST /api/v1/query/gizmo <span style="color:#66d9ef">for</span> 127.0.0.1:39426
+    I0916 08:20:17.932551    <span style="color:#ae81ff">7367</span> http.go:102<span style="color:#f92672">]</span> completed <span style="color:#ae81ff">200</span> OK /api/v1/query/gizmo in 4.335239ms
+
+</code></pre></div><p>Prepare a persistent store with <code>init</code> and <code>load</code>, start the <code>http</code> server, using it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cayley init --db bolt --dbpath /home/tombenke/tmp/cayley/
+    I0916 08:21:00.701903    <span style="color:#ae81ff">7460</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0916 08:21:00.702107    <span style="color:#ae81ff">7460</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;bolt&#34;</span> <span style="color:#f92672">(</span>/home/tombenke/tmp/cayley/<span style="color:#f92672">)</span>
+
+    $ cayley load --db bolt --dbpath /home/tombenke/tmp/cayley/ --load data/testdata.nq
+    I0916 08:21:42.843042    <span style="color:#ae81ff">7509</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0916 08:21:42.843269    <span style="color:#ae81ff">7509</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;bolt&#34;</span> <span style="color:#f92672">(</span>/home/tombenke/tmp/cayley/<span style="color:#f92672">)</span>
+
+    $ cayley http --db bolt --dbpath /home/tombenke/tmp/cayley/
+    I0916 08:22:08.376538    <span style="color:#ae81ff">7573</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0916 08:22:08.376726    <span style="color:#ae81ff">7573</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;bolt&#34;</span> <span style="color:#f92672">(</span>/home/tombenke/tmp/cayley/<span style="color:#f92672">)</span>
+    I0916 08:22:08.379455    <span style="color:#ae81ff">7573</span> http.go:197<span style="color:#f92672">]</span> using assets from <span style="color:#e6db74">&#34;/snap/cayley/2&#34;</span>
+    I0916 08:22:08.380016    <span style="color:#ae81ff">7573</span> http.go:42<span style="color:#f92672">]</span> listening on 127.0.0.1:64210, web interface at http://127.0.0.1:64210
+
+</code></pre></div><p>In both cases, we will be able to reach the same database content through the HTTP server.</p>
+<blockquote class="book-hint info">
+  <p><strong>Note:</strong></p>
+<p>Both the <code>cayley load</code> and <code>cayley save</code> can be used to store data into, and dump from the database that the <code>cayley http</code> uses, however it can happen only in case the server is stopped. That is why these utilities are connected via dotted line on Figure 1.</p>
+
+</blockquote>
+
+<h2 id="the-web-ui">
+  The web UI
+  <a class="anchor" href="#the-web-ui">#</a>
+</h2>
+<p>Start the <code>cayley http</code> server either with an in-memory or persistent database, that has data loaded into it (according to examples of the previous subsections), then open the <code>http://127.0.0.1:64210</code> URL with a browser. In the text area on the right top, enter the <code>g.V().GetLimit(2)</code> query expression, then press the &ldquo;Run Query&rdquo; button on the left. The results will appear on the right bottom part of the window, as you can see on Figure 2.</p>
+<figure>
+    <img src="/cayley-cookbook/cayley-http-ui.png"/> <figcaption>
+            <h4>Figure 2.: cayley http UI</h4>
+        </figcaption>
+</figure>
+
+<p>See the <a href="https://cayley.gitbook.io/cayley/usage/ui-overview">official documentation on the UI</a> for further details:</p>
+<h2 id="data-import-and-export">
+  Data import and export
+  <a class="anchor" href="#data-import-and-export">#</a>
+</h2>
+<p>If you want to upload data into the database, or want to dumt the database, meanwhile the <code>cayley http</code> server is working, you have to use the REST interface. There are two utilities, that you can find in the source code of <a href="https://cayley.io/" target="_blank">Cayley</a>
+: <a href="https://github.com/cayleygraph/cayley/tree/master/cmd/cayleyimport"><code>cayleyimport</code></a> and <a href="https://github.com/cayleygraph/cayley/tree/master/cmd/cayleyexport"><code>cayleyexport</code></a>.</p>
+<p>Clone the <a href="https://github.com/cayleygraph/cayley">cayleygraph/cayley</a>, and you can run these utilities with the <code>go run</code> command, as the examples show below.</p>
+<p>Import data to the database, through the REST API:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ go run &lt;path-to-the-cayley-source&gt;/cmd/cayleyimport/cayleyimport.go data/testdata.nq 
+    Successfully wrote <span style="color:#ae81ff">15</span> quads.
+
+
+</code></pre></div><p>Export data from the database, into a file, through the REST API:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    go run &lt;path-to-the-cayley-source&gt;/cmd/cayleyexport/cayleyexport.go -o out.nq
+
+</code></pre></div><p>Export data from the database, to the standard output, through the REST API. Since there is no output file name is defined, the utility can not determine the format, so we need to set it by the <code>--format</code> argument:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ go run ~/sandbox/cayley/cayley/cmd/cayleyexport/cayleyexport.go --format jsonld
+    <span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;alice&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;fred&#34;</span><span style="color:#f92672">}]</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;cool_person&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;charlie&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span><span style="color:#f92672">}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;dani&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;dani&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span><span style="color:#f92672">}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span><span style="color:#f92672">}]</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;cool_person&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;emily&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;fred&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;fred&#34;</span>,<span style="color:#e6db74">&#34;follows&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;cool_person&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;predicates&#34;</span>,<span style="color:#e6db74">&#34;are&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;follows&#34;</span><span style="color:#f92672">}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;status&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@graph&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;emily&#34;</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;smart_person&#34;</span><span style="color:#f92672">}]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span>,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;@value&#34;</span>:<span style="color:#e6db74">&#34;smart_person&#34;</span><span style="color:#f92672">}]}]</span>,<span style="color:#e6db74">&#34;@id&#34;</span>:<span style="color:#e6db74">&#34;smart_graph&#34;</span><span style="color:#f92672">}]</span>
+
+</code></pre></div></article>
  
       
 
@@ -820,7 +950,19 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#starting-the-cayley-http-server">Starting the Cayley HTTP Server</a>
+      <ul>
+        <li><a href="#start-with-default-settings">Start with default settings</a></li>
+        <li><a href="#start-with-in-memory-store-with-automatic-data-loading">Start with in-memory store with automatic data loading</a></li>
+        <li><a href="#start-with-persistent-store-including-data">Start with persistent store, including data</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-web-ui">The web UI</a></li>
+    <li><a href="#data-import-and-export">Data import and export</a></li>
+  </ul>
+</nav>
 
  
     </aside>

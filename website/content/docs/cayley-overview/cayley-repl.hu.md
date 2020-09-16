@@ -1,6 +1,6 @@
 ---
 title: "A `cayley repl` parancs"
-weight: 4
+weight: 5
 bookCollapseSection: true
 ---
 

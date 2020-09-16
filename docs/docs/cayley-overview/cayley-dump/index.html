@@ -4,19 +4,21 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The cayley dump command #  Dump the actual content of a database to the stdout:
-$ cayley dump --db bolt --dbpath /home/tombenke/tmp/cayley/ I0915 18:03:30.188245 25985 cayley.go:63] Cayley version: 0.7.5 (cf576babb7db) I0915 18:03:30.188453 25985 database.go:187] using backend &#34;bolt&#34; (/home/tombenke/tmp/cayley/) I0915 18:03:30.191235 25985 dump.go:20] writing quads to stdout &lt;alice&gt; &lt;follows&gt; &lt;bob&gt; . &lt;bob&gt; &lt;follows&gt; &lt;fred&gt; . &lt;bob&gt; &lt;status&gt; &#34;cool_person&#34; . &lt;dani&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;dani&gt; .">
+<meta name="description" content="The cayley dump command #  The cayley dump command dumps out the resource descriptions from an existing database into a file or to the standard output. The format type is determined by the given file extension, but it is also can be selected by the --dump_format &lt;format-name&gt; argument, where the possible values of &lt;format-name&gt; are: &ldquo;gml&rdquo;, &ldquo;graphml&rdquo;, &ldquo;graphviz&rdquo;, &ldquo;json&rdquo;, &ldquo;json-stream&rdquo;, &ldquo;jsonld&rdquo;, &ldquo;nquads&rdquo;, &ldquo;pquads&rdquo;.
+  Figure 1.: cayley dump   The following command dumps the content to the dump.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="The `cayley dump` command" />
-<meta property="og:description" content="The cayley dump command #  Dump the actual content of a database to the stdout:
-$ cayley dump --db bolt --dbpath /home/tombenke/tmp/cayley/ I0915 18:03:30.188245 25985 cayley.go:63] Cayley version: 0.7.5 (cf576babb7db) I0915 18:03:30.188453 25985 database.go:187] using backend &#34;bolt&#34; (/home/tombenke/tmp/cayley/) I0915 18:03:30.191235 25985 dump.go:20] writing quads to stdout &lt;alice&gt; &lt;follows&gt; &lt;bob&gt; . &lt;bob&gt; &lt;follows&gt; &lt;fred&gt; . &lt;bob&gt; &lt;status&gt; &#34;cool_person&#34; . &lt;dani&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;bob&gt; . &lt;charlie&gt; &lt;follows&gt; &lt;dani&gt; ." />
+<meta property="og:description" content="The cayley dump command #  The cayley dump command dumps out the resource descriptions from an existing database into a file or to the standard output. The format type is determined by the given file extension, but it is also can be selected by the --dump_format &lt;format-name&gt; argument, where the possible values of &lt;format-name&gt; are: &ldquo;gml&rdquo;, &ldquo;graphml&rdquo;, &ldquo;graphviz&rdquo;, &ldquo;json&rdquo;, &ldquo;json-stream&rdquo;, &ldquo;jsonld&rdquo;, &ldquo;nquads&rdquo;, &ldquo;pquads&rdquo;.
+  Figure 1.: cayley dump   The following command dumps the content to the dump." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-dump/" />
 
 <title>The `cayley dump` command | Cayley-CookBook</title>
 <link rel="manifest" href="/cayley-cookbook/manifest.json">
 <link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-dump/" title="The `cayley dump` parancs">
+
 <link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
-<script defer src="/cayley-cookbook/en.search.min.84d4080de0d4b27ff258af6e5ea7e9479976895bf7c013e891a50c4bd5e05444.js" integrity="sha256-hNQIDeDUsn/yWK9uXqfpR5l2iVv3wBPokaUMS9XgVEQ="></script>
+<script defer src="/cayley-cookbook/en.search.min.358c99080e4fed27eb2f548d1f9b425fa90063a181c65b47d4824a94f886b58d.js" integrity="sha256-NYyZCA5P7SfrL1SNH5tCX6kAY6GBxltH1IJKlPiGtY0="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -250,9 +252,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-40eaa83532b4f601a22562f349d2de4e" class="toggle" checked />
-    <label for="section-40eaa83532b4f601a22562f349d2de4e" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-dump/" class="active">The `cayley dump` command</a>
+    <input type="checkbox" id="section-91a5cf1c44b66e29df3dfb08aee97c1d" class="toggle"  />
+    <label for="section-91a5cf1c44b66e29df3dfb08aee97c1d" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-load/" class="">The `cayley load` command</a>
       <span>▾</span>
     </label>
   
@@ -267,9 +269,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-91a5cf1c44b66e29df3dfb08aee97c1d" class="toggle"  />
-    <label for="section-91a5cf1c44b66e29df3dfb08aee97c1d" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-load/" class="">The `cayley load` command</a>
+    <input type="checkbox" id="section-40eaa83532b4f601a22562f349d2de4e" class="toggle" checked />
+    <label for="section-40eaa83532b4f601a22562f349d2de4e" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-dump/" class="active">The `cayley dump` command</a>
       <span>▾</span>
     </label>
   
@@ -743,7 +745,22 @@ https://github.com/alex-shpak/hugo-book
   The <code>cayley dump</code> command
   <a class="anchor" href="#the-cayley-dump-command">#</a>
 </h1>
-<p>Dump the actual content of a database to the <code>stdout</code>:</p>
+<p>The <code>cayley dump</code> command dumps out the resource descriptions from an existing database into a file or to the standard output. The format type is determined by the given file extension, but it is also can be selected by the <code>--dump_format &lt;format-name&gt;</code> argument, where the possible values of <code>&lt;format-name&gt;</code> are: &ldquo;gml&rdquo;, &ldquo;graphml&rdquo;, &ldquo;graphviz&rdquo;, &ldquo;json&rdquo;, &ldquo;json-stream&rdquo;, &ldquo;jsonld&rdquo;, &ldquo;nquads&rdquo;, &ldquo;pquads&rdquo;.</p>
+<figure>
+    <img src="/cayley-cookbook/cayley-dump.png"/> <figcaption>
+            <h4>Figure 1.: cayley dump</h4>
+        </figcaption>
+</figure>
+
+<p>The following command dumps the content to the <code>dump.nq</code> file:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cayley dump --db bolt --dbpath /home/tombenke/tmp/cayley/ -o dump.out
+    I0916 07:15:25.453665    <span style="color:#ae81ff">5286</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0916 07:15:25.453848    <span style="color:#ae81ff">5286</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;bolt&#34;</span> <span style="color:#f92672">(</span>/home/tombenke/tmp/cayley/<span style="color:#f92672">)</span>
+    writing quads to file <span style="color:#e6db74">&#34;dump.out&#34;</span>
+    <span style="color:#ae81ff">15</span> entries were written
+
+</code></pre></div><p>Dump the actual content of a database to the <code>stdout</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
     $ cayley dump --db bolt --dbpath /home/tombenke/tmp/cayley/ 
     I0915 18:03:30.188245   <span style="color:#ae81ff">25985</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
@@ -781,6 +798,8 @@ https://github.com/alex-shpak/hugo-book
   
 
 
+  
+
 
 <div class="book-languages" tabindex="0" aria-haspopup="true">
   <ul>
@@ -800,7 +819,7 @@ https://github.com/alex-shpak/hugo-book
     </li>
     
     <li class="">
-      <a href="https://tombenke.github.io/cayley-cookbook/hu/" class="flex align-center">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-dump/" class="flex align-center">
         <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
         Magyar
       </a>

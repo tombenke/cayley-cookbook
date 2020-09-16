@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="A cayley query parancs #  A cayley query paranccsal végrehajthatunk egy query-t egy létező adatbázison.
-  Figure 4.: cayley query   Futtasunk egy query-t egy korábban létrehozott store tartalmán:
-echo &#34;g.V().All();&#34; | cayley query --logtostderr false --db bolt --dbpath /home/tombenke/tmp/cayley --logs ~/tmp {&#34;id&#34;:&#34;bob&#34;} {&#34;id&#34;:&#34;status&#34;} {&#34;id&#34;:&#34;cool_person&#34;} {&#34;id&#34;:&#34;alice&#34;} {&#34;id&#34;:&#34;greg&#34;} {&#34;id&#34;:&#34;emily&#34;} {&#34;id&#34;:&#34;smart_graph&#34;} {&#34;id&#34;:&#34;predicates&#34;} {&#34;id&#34;:&#34;dani&#34;} {&#34;id&#34;:&#34;fred&#34;} {&#34;id&#34;:&#34;smart_person&#34;} {&#34;id&#34;:&#34;charlie&#34;} {&#34;id&#34;:&#34;are&#34;} {&#34;id&#34;:&#34;follows&#34;} Amennyiben a query eredményét közvetlenül egy másik programba szeretnénk betáplálni, akkor szükségünk lehet arra, hogy a logokat eltüntessük.">
+A query kifejezést, amit vigre kívánunk hajtani, a standard input-on keresztül továbbíthatjuk a parancshoz. Az egyszerűbb kifejezések esetében elegendő lehet, ha azokat az echo utility-vel továbbítjuk, és közvetlenül beírjuk a parancssorba. A hosszabb kifejezéseket célszerűbb lehet query file-okban elhelyezni, és a cat utility-vel továbbítani a parancs számára..
+A --lang &lt;query-language-type&gt; parameterrel kijelölhetjük, hogy a query kifejezést melyik nyelven írtuk.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="A `cayley query` parancs" />
 <meta property="og:description" content="A cayley query parancs #  A cayley query paranccsal végrehajthatunk egy query-t egy létező adatbázison.
-  Figure 4.: cayley query   Futtasunk egy query-t egy korábban létrehozott store tartalmán:
-echo &#34;g.V().All();&#34; | cayley query --logtostderr false --db bolt --dbpath /home/tombenke/tmp/cayley --logs ~/tmp {&#34;id&#34;:&#34;bob&#34;} {&#34;id&#34;:&#34;status&#34;} {&#34;id&#34;:&#34;cool_person&#34;} {&#34;id&#34;:&#34;alice&#34;} {&#34;id&#34;:&#34;greg&#34;} {&#34;id&#34;:&#34;emily&#34;} {&#34;id&#34;:&#34;smart_graph&#34;} {&#34;id&#34;:&#34;predicates&#34;} {&#34;id&#34;:&#34;dani&#34;} {&#34;id&#34;:&#34;fred&#34;} {&#34;id&#34;:&#34;smart_person&#34;} {&#34;id&#34;:&#34;charlie&#34;} {&#34;id&#34;:&#34;are&#34;} {&#34;id&#34;:&#34;follows&#34;} Amennyiben a query eredményét közvetlenül egy másik programba szeretnénk betáplálni, akkor szükségünk lehet arra, hogy a logokat eltüntessük." />
+A query kifejezést, amit vigre kívánunk hajtani, a standard input-on keresztül továbbíthatjuk a parancshoz. Az egyszerűbb kifejezések esetében elegendő lehet, ha azokat az echo utility-vel továbbítjuk, és közvetlenül beírjuk a parancssorba. A hosszabb kifejezéseket célszerűbb lehet query file-okban elhelyezni, és a cat utility-vel továbbítani a parancs számára..
+A --lang &lt;query-language-type&gt; parameterrel kijelölhetjük, hogy a query kifejezést melyik nyelven írtuk." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/" />
 
@@ -20,7 +20,7 @@ echo &#34;g.V().All();&#34; | cayley query --logtostderr false --db bolt --dbpat
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/" title="The `cayley query` command">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
-<script defer src="/cayley-cookbook/hu.search.min.327c1eec7b039fa02fee39d3b69b8e11d2235abffdd22c8353934b8b553fcce0.js" integrity="sha256-Mnwe7HsDn6Av7jnTtpuOEdIjWr/90iyDU5NLi1U/zOA="></script>
+<script defer src="/cayley-cookbook/hu.search.min.72ac4f21cc5bbbf577bb4df7b53d5628c4c5c822aaa03d51a2571509aed26f43.js" integrity="sha256-cqxPIcxbu/V3u033tT1WKMTFyCKqoD1RolcVCa7Sb0M="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -257,6 +257,23 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" id="section-1977bdf61e68e287c42ffa90652a0b9b" class="toggle"  />
     <label for="section-1977bdf61e68e287c42ffa90652a0b9b" class="flex justify-between">
       <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-load/" class="">The `cayley load` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6461e230cd10f803950ebf1ee282c6b3" class="toggle"  />
+    <label for="section-6461e230cd10f803950ebf1ee282c6b3" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-dump/" class="">The `cayley dump` parancs</a>
       <span>▾</span>
     </label>
   
@@ -731,6 +748,8 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#a-cayley-query-parancs">#</a>
 </h1>
 <p>A <code>cayley query</code> paranccsal végrehajthatunk egy query-t egy létező adatbázison.</p>
+<p>A query kifejezést, amit vigre kívánunk hajtani, a standard input-on keresztül továbbíthatjuk a parancshoz. Az egyszerűbb kifejezések esetében elegendő lehet, ha azokat az <code>echo</code> utility-vel továbbítjuk, és közvetlenül beírjuk a parancssorba. A hosszabb kifejezéseket célszerűbb lehet query file-okban elhelyezni, és a <code>cat</code> utility-vel továbbítani a parancs számára..</p>
+<p>A <code>--lang &lt;query-language-type&gt;</code> parameterrel kijelölhetjük, hogy a query kifejezést melyik nyelven írtuk. A lehetséges válastható nyelvek: &ldquo;gizmo&rdquo;, &ldquo;graphql&rdquo;, &ldquo;mql&rdquo;, &ldquo;sexp&rdquo;. Az elepértelmezett query nyelv a &ldquo;gizmo&rdquo;.</p>
 <figure>
     <img src="/cayley-cookbook/cayley-query.png"/> <figcaption>
             <h4>Figure 4.: cayley query</h4>
@@ -766,7 +785,27 @@ A logok a <code>/home/tombenke/tmp</code> directory-ban lesznek elhelyezve:</p>
     Log line format: <span style="color:#f92672">[</span>IWEF<span style="color:#f92672">]</span>mmdd hh:mm:ss.uuuuuu threadid file:line<span style="color:#f92672">]</span> msg
 
 </code></pre></div><p>Ezt a trükköt, szükség esetén, a többi parancs esetében is alkalmazhatjuk.</p>
-</article>
+<p>Gyakran előfordul, hogy a query-k fejlesztése, tesztelése során valójában nincs szükségünk perzisztens store-ra. Ilyenkor sokkal egyszerűbb lehet egy átmeneti, in-memory adatbázis használata, amibe a futás idejére betöltjük a tesztelésghez szükséges adatokat a <code>--load &lt;data-file&gt;</code> parancssori parameterel.
+Az alábbi parancs ugyanazt a műveletet hajtja végre, mint a fentebb bemutatott példa, de a query-t egy in-memory adatbázison hajtja végre:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ echo <span style="color:#e6db74">&#34;g.V().All();&#34;</span> | cayley query --logtostderr false --load data/testdata.nq --logs ~/tmp
+
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;alice&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;follows&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;bob&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;fred&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;status&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;cool_person&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;dani&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;charlie&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;greg&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;emily&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;predicates&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;are&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;smart_person&#34;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;smart_graph&#34;</span><span style="color:#f92672">}</span>
+
+</code></pre></div></article>
  
       
 

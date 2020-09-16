@@ -200,18 +200,6 @@ A foaf.go package FOAF Vocabulary Specification leggyakrabban használt kifejez�
     </item>
     
     <item>
-      <title>A `cayley repl` parancs</title>
-      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/</guid>
-      <description>A cayley repl parancs #  A REPL aRead-Eval-Print-Loop kifejezés rövidítése.
-A cayley repl paranccsal elindíthatunk egy konzolt ami egy már korábban létrehozott adatbázishoz kapcsolódik, és interaktívan végrehajthatunk az adatbázisban lekérdezéseket, és egyéb műveleket.
-A konzol a normál Linux konzolhoz hasonlóan működik.
-Beírhatjuk a kifejezéseket, amelyeket az Enter billenytű lenyomása után az interpreter értelmez, és végrehajt, az eredményt pedig kiírja a konzolra. A fel/le nyilakat is használhatjuk, hogy navigáljunk a korábban végrehajtott parancsok között.</description>
-    </item>
-    
-    <item>
       <title>A store összes quad-jának kilistázása</title>
       <link>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-quads/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -232,14 +220,26 @@ Amikor egy entitást megnevezünk, vagy állításokat teszünk, predikátumok a
     </item>
     
     <item>
-      <title>A `cayley query` parancs</title>
-      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/</link>
+      <title>The `cayley dump` parancs</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-dump/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/</guid>
-      <description>A cayley query parancs #  A cayley query paranccsal végrehajthatunk egy query-t egy létező adatbázison.
-  Figure 4.: cayley query   Futtasunk egy query-t egy korábban létrehozott store tartalmán:
-echo &amp;#34;g.V().All();&amp;#34; | cayley query --logtostderr false --db bolt --dbpath /home/tombenke/tmp/cayley --logs ~/tmp {&amp;#34;id&amp;#34;:&amp;#34;bob&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;status&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;cool_person&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;alice&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;greg&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;emily&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;smart_graph&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;predicates&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;dani&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;fred&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;smart_person&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;charlie&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;are&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;follows&amp;#34;} Amennyiben a query eredményét közvetlenül egy másik programba szeretnénk betáplálni, akkor szükségünk lehet arra, hogy a logokat eltüntessük.</description>
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-dump/</guid>
+      <description>The cayley dump parancs #  A cayley dump parancs kiírja a resource leírókat az aktuális adatbázisból egy szbványos formátumú file-ba. A formátumot a kiterjesztés alapján határozza meg, de megadható neki a --dump_format &amp;lt;format-name&amp;gt; argumentummal is, ahol a &amp;lt;format-name&amp;gt; lehetséges értékei: &amp;ldquo;gml&amp;rdquo;, &amp;ldquo;graphml&amp;rdquo;, &amp;ldquo;graphviz&amp;rdquo;, &amp;ldquo;json&amp;rdquo;, &amp;ldquo;json-stream&amp;rdquo;, &amp;ldquo;jsonld&amp;rdquo;, &amp;ldquo;nquads&amp;rdquo;, &amp;ldquo;pquads&amp;rdquo;.
+  1. ábra: cayley dump   Az alábbi parancs kiírja az adatokat a dump.nq file-ba:
+$ cayley dump --db bolt --dbpath /home/tombenke/tmp/cayley/ -o dump.</description>
+    </item>
+    
+    <item>
+      <title>A `cayley repl` parancs</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/</guid>
+      <description>A cayley repl parancs #  A REPL aRead-Eval-Print-Loop kifejezés rövidítése.
+A cayley repl paranccsal elindíthatunk egy konzolt ami egy már korábban létrehozott adatbázishoz kapcsolódik, és interaktívan végrehajthatunk az adatbázisban lekérdezéseket, és egyéb műveleket.
+A konzol a normál Linux konzolhoz hasonlóan működik.
+Beírhatjuk a kifejezéseket, amelyeket az Enter billenytű lenyomása után az interpreter értelmez, és végrehajt, az eredményt pedig kiírja a konzolra. A fel/le nyilakat is használhatjuk, hogy navigáljunk a korábban végrehajtott parancsok között.</description>
     </item>
     
     <item>
@@ -259,6 +259,17 @@ echo &amp;#34;g.V().All();&amp;#34; | cayley query --logtostderr false --db bolt
       <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/rdf-graphs/</guid>
       <description>Tudás Gráf reprezentációk #  Az előző fejezetekben bemutattuk, hogyan lehet tényállításokat kifejezni resource-ok, predikátumok, és literál értékek alkalmazásával. Ezeket a tényállítás hármasokat tripleteknek is nevezzük.
 Bevezettük az IRI fogalmát, ami alkalmas arra, hogy a tényállításokat formalizáltan, általános érvénnyel írjuk le. Rendelkezésünkre áll tehát egy egyszerű módszer arra, hogy a tudásgráf csomópontjait és éleit, valamint azok címkéit szövegszerkesztővel szerkeszthető, egyszerű text formátumba alakítsuk, file-okban tároljuk, és ezen file-ok tartalmát betöltsük a tudásgráfot megvalósító adatbázisba, a számítógép memóriájába, továbbá, hogy onnan kinyerjük, és visszatároljuk file-ba.</description>
+    </item>
+    
+    <item>
+      <title>A `cayley query` parancs</title>
+      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/</guid>
+      <description>A cayley query parancs #  A cayley query paranccsal végrehajthatunk egy query-t egy létező adatbázison.
+A query kifejezést, amit vigre kívánunk hajtani, a standard input-on keresztül továbbíthatjuk a parancshoz. Az egyszerűbb kifejezések esetében elegendő lehet, ha azokat az echo utility-vel továbbítjuk, és közvetlenül beírjuk a parancssorba. A hosszabb kifejezéseket célszerűbb lehet query file-okban elhelyezni, és a cat utility-vel továbbítani a parancs számára..
+A --lang &amp;lt;query-language-type&amp;gt; parameterrel kijelölhetjük, hogy a query kifejezést melyik nyelven írtuk.</description>
     </item>
     
     <item>

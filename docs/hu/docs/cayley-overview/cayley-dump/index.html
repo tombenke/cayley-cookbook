@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="hu" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The cayley dump parancs #  A cayley dump parancs kiírja a resource leírókat az aktuális adatbázisból egy szbványos formátumú file-ba. A formátumot a kiterjesztés alapján határozza meg, de megadható neki a --dump_format &lt;format-name&gt; argumentummal is, ahol a &lt;format-name&gt; lehetséges értékei: &ldquo;gml&rdquo;, &ldquo;graphml&rdquo;, &ldquo;graphviz&rdquo;, &ldquo;json&rdquo;, &ldquo;json-stream&rdquo;, &ldquo;jsonld&rdquo;, &ldquo;nquads&rdquo;, &ldquo;pquads&rdquo;.
+  1. ábra: cayley dump   Az alábbi parancs kiírja az adatokat a dump.nq file-ba:
+$ cayley dump --db bolt --dbpath /home/tombenke/tmp/cayley/ -o dump.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="The `cayley dump` parancs" />
+<meta property="og:description" content="The cayley dump parancs #  A cayley dump parancs kiírja a resource leírókat az aktuális adatbázisból egy szbványos formátumú file-ba. A formátumot a kiterjesztés alapján határozza meg, de megadható neki a --dump_format &lt;format-name&gt; argumentummal is, ahol a &lt;format-name&gt; lehetséges értékei: &ldquo;gml&rdquo;, &ldquo;graphml&rdquo;, &ldquo;graphviz&rdquo;, &ldquo;json&rdquo;, &ldquo;json-stream&rdquo;, &ldquo;jsonld&rdquo;, &ldquo;nquads&rdquo;, &ldquo;pquads&rdquo;.
+  1. ábra: cayley dump   Az alábbi parancs kiírja az adatokat a dump.nq file-ba:
+$ cayley dump --db bolt --dbpath /home/tombenke/tmp/cayley/ -o dump." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-dump/" />
+
+<title>The `cayley dump` parancs | Cayley-CookBook</title>
+<link rel="manifest" href="/cayley-cookbook/manifest.json">
+<link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-dump/" title="The `cayley dump` command">
+
+<link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
+<script defer src="/cayley-cookbook/hu.search.min.72ac4f21cc5bbbf577bb4df7b53d5628c4c5c822aaa03d51a2571509aed26f43.js" integrity="sha256-cqxPIcxbu/V3u033tT1WKMTFyCKqoD1RolcVCa7Sb0M="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-177858708-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cayley-cookbook/hu"><span>Cayley-CookBook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/about/" class="">Bevezetés</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9f8a7e34bb16b852cd12e02884abbe2c" class="toggle"  />
+    <label for="section-9f8a7e34bb16b852cd12e02884abbe2c" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/" class="">Alapfogalmak</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8476439ec07e5890629d17c6650eaf78" class="toggle"  />
+    <label for="section-8476439ec07e5890629d17c6650eaf78" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/graph-based-data-model/" class="">Gráf alapú adatmodellezés</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-089b6654780ec7a8ce20922dacfa8068" class="toggle"  />
+    <label for="section-089b6654780ec7a8ce20922dacfa8068" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/resources/" class="">Erőforrások</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7dfb5eca6458abef2307adeefaaddfdb" class="toggle"  />
+    <label for="section-7dfb5eca6458abef2307adeefaaddfdb" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/statements/" class="">Állítások</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d50cc6ddbbf9a7138450d4114fe2fba6" class="toggle"  />
+    <label for="section-d50cc6ddbbf9a7138450d4114fe2fba6" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/vocabularies/" class="">Szótárak</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c232a69b7fae588b1fb718a7def4c723" class="toggle"  />
+    <label for="section-c232a69b7fae588b1fb718a7def4c723" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/rdf-graphs/" class="">Tudás Gráf reprezentációk</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7e64f39b334418521e8f0af1fc8791bb" class="toggle" checked />
+    <label for="section-7e64f39b334418521e8f0af1fc8791bb" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/" class="">A Cayley rendszer áttekintése</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-55182948002255292040e2457cbfb89b" class="toggle"  />
+    <label for="section-55182948002255292040e2457cbfb89b" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/" class="">A `cayley convert` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2baee5b05d4e80f1462a11796d44b0ff" class="toggle"  />
+    <label for="section-2baee5b05d4e80f1462a11796d44b0ff" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-init/" class="">A `cayley init` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1977bdf61e68e287c42ffa90652a0b9b" class="toggle"  />
+    <label for="section-1977bdf61e68e287c42ffa90652a0b9b" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-load/" class="">The `cayley load` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6461e230cd10f803950ebf1ee282c6b3" class="toggle" checked />
+    <label for="section-6461e230cd10f803950ebf1ee282c6b3" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-dump/" class="active">The `cayley dump` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6fcbefd0c5ef68d0c04ac54cbea6b1f4" class="toggle"  />
+    <label for="section-6fcbefd0c5ef68d0c04ac54cbea6b1f4" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/" class="">A `cayley repl` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-192c0abe0b3802c7c197cdf9243477c7" class="toggle"  />
+    <label for="section-192c0abe0b3802c7c197cdf9243477c7" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/" class="">A `cayley query` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e17818fe16bf33b6ca86d2d0af497abe" class="toggle"  />
+    <label for="section-e17818fe16bf33b6ca86d2d0af497abe" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/" class="">A `cayley http` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-309cdc2b46d95b2509c611910b40f29c" class="toggle"  />
+    <label for="section-309cdc2b46d95b2509c611910b40f29c" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/" class="">A Tudás-Gráf használata</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-15751440abcb4a690e1874b8d5a57ea3" class="toggle"  />
+    <label for="section-15751440abcb4a690e1874b8d5a57ea3" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/" class="">Namespace-ek és szótárak</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/list-namespaces/" class="">Regisztrált Namespace-ek listázása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/register-namespace/" class="">Új namespace regisztrálása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/vocabularies/" class="">Új szótár létrehozása</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0055eb580f8cd4b7980836466a5c33fd" class="toggle"  />
+    <label for="section-0055eb580f8cd4b7980836466a5c33fd" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/" class="">Store-ok</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/create-store/" class="">Store létrehozása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/make-quads/" class="">Quads-ok létrehozása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-nodes/" class="">A store összes node-jának kilistázása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-quads/" class="">A store összes quad-jának kilistázása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/internals/" class="">A node-ok és quad-ok belső reprezentációja</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-062fbdcb0d5237ca703532ede8716481" class="toggle"  />
+    <label for="section-062fbdcb0d5237ca703532ede8716481" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/" class="">Adat import / export</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-14fa452aebb42c44ef234af47bd9c4f4" class="toggle"  />
+    <label for="section-14fa452aebb42c44ef234af47bd9c4f4" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/quads/" class="">Quad-ok exportálása</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-968cea4be1a55104598910f578b25a1e" class="toggle"  />
+    <label for="section-968cea4be1a55104598910f578b25a1e" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/schema/" class="">Adat import / export struct annotációval</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a8fb241cb8ed56da76d51fcaf41845cd" class="toggle"  />
+    <label for="section-a8fb241cb8ed56da76d51fcaf41845cd" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/" class="">Lekérdezések</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/find_all_vertices/" class="">Összes node kiírása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/find_all_predicates/" class="">Összes predikátum kiírása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bidirectional/" class="">Kétirányú relációk</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4fcf7fededff39d60891373012a27f0e" class="toggle"  />
+    <label for="section-4fcf7fededff39d60891373012a27f0e" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bookmarks/" class="">Könyvjelzők keresése tag alapján</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e8aec92da5f23c882db6bdd4d2f66642" class="toggle"  />
+    <label for="section-e8aec92da5f23c882db6bdd4d2f66642" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/crud-operations/" class="">CRUD Műveletek</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0286dce401f1b4f8b31afbecd52d27b4" class="toggle"  />
+    <label for="section-0286dce401f1b4f8b31afbecd52d27b4" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/transactions/" class="">Tranzakciók</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>The `cayley dump` parancs</strong>
+
+  <label for="toc-control">
+    
+    <img src="/cayley-cookbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents"></nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="the-cayley-dump-parancs">
+  The <code>cayley dump</code> parancs
+  <a class="anchor" href="#the-cayley-dump-parancs">#</a>
+</h1>
+<p>A <code>cayley dump</code> parancs kiírja a resource leírókat az aktuális adatbázisból egy szbványos formátumú file-ba. A formátumot a kiterjesztés alapján határozza meg, de megadható neki a <code>--dump_format &lt;format-name&gt;</code> argumentummal is, ahol a <code>&lt;format-name&gt;</code> lehetséges értékei: &ldquo;gml&rdquo;, &ldquo;graphml&rdquo;, &ldquo;graphviz&rdquo;, &ldquo;json&rdquo;, &ldquo;json-stream&rdquo;, &ldquo;jsonld&rdquo;, &ldquo;nquads&rdquo;, &ldquo;pquads&rdquo;.</p>
+<figure>
+    <img src="/cayley-cookbook/cayley-dump.png"/> <figcaption>
+            <h4>1. ábra: cayley dump</h4>
+        </figcaption>
+</figure>
+
+<p>Az alábbi parancs kiírja az adatokat a <code>dump.nq</code> file-ba:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cayley dump --db bolt --dbpath /home/tombenke/tmp/cayley/ -o dump.out
+    I0916 07:15:25.453665    <span style="color:#ae81ff">5286</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0916 07:15:25.453848    <span style="color:#ae81ff">5286</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;bolt&#34;</span> <span style="color:#f92672">(</span>/home/tombenke/tmp/cayley/<span style="color:#f92672">)</span>
+    writing quads to file <span style="color:#e6db74">&#34;dump.out&#34;</span>
+    <span style="color:#ae81ff">15</span> entries were written
+
+</code></pre></div><p>Az aktuális adatok kiíratása az <code>stdout</code>-ra:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cayley dump --db bolt --dbpath /home/tombenke/tmp/cayley/ 
+    I0915 18:03:30.188245   <span style="color:#ae81ff">25985</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0915 18:03:30.188453   <span style="color:#ae81ff">25985</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;bolt&#34;</span> <span style="color:#f92672">(</span>/home/tombenke/tmp/cayley/<span style="color:#f92672">)</span>
+    I0915 18:03:30.191235   <span style="color:#ae81ff">25985</span> dump.go:20<span style="color:#f92672">]</span> writing quads to stdout
+    &lt;alice&gt; &lt;follows&gt; &lt;bob&gt; .
+    &lt;bob&gt; &lt;follows&gt; &lt;fred&gt; .
+    &lt;bob&gt; &lt;status&gt; <span style="color:#e6db74">&#34;cool_person&#34;</span> .
+    &lt;dani&gt; &lt;follows&gt; &lt;bob&gt; .
+    &lt;charlie&gt; &lt;follows&gt; &lt;bob&gt; .
+    &lt;charlie&gt; &lt;follows&gt; &lt;dani&gt; .
+    &lt;dani&gt; &lt;follows&gt; &lt;greg&gt; .
+    &lt;dani&gt; &lt;status&gt; <span style="color:#e6db74">&#34;cool_person&#34;</span> .
+    &lt;emily&gt; &lt;follows&gt; &lt;fred&gt; .
+    &lt;fred&gt; &lt;follows&gt; &lt;greg&gt; .
+    &lt;greg&gt; &lt;status&gt; <span style="color:#e6db74">&#34;cool_person&#34;</span> .
+    &lt;predicates&gt; &lt;are&gt; &lt;follows&gt; .
+    &lt;predicates&gt; &lt;are&gt; &lt;status&gt; .
+    &lt;emily&gt; &lt;status&gt; <span style="color:#e6db74">&#34;smart_person&#34;</span> &lt;smart_graph&gt; .
+    &lt;greg&gt; &lt;status&gt; <span style="color:#e6db74">&#34;smart_person&#34;</span> &lt;smart_graph&gt; .
+
+</code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+  
+
+
+  
+
+  
+
+
+  
+
+
+<div class="book-languages" tabindex="0" aria-haspopup="true">
+  <ul>
+    <li class="flex align-center">
+      <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+      Magyar
+    </li> 
+  </ul>
+
+  <ul class="book-languages-list">
+    
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-dump/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </li>
+    
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        Magyar
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents"></nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
