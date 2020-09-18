@@ -4,12 +4,21 @@ type: docs
 keywords:
   - cayley
   - cayley-graph
+  - cayleygraph
+  - n-quads
+  - nquads
+  - rdf
+  - turtle
   - knowledge-graph
+  - knowledgegraph
+  - knowledge graph
   - graph-database
   - gremlin
   - tutorial
   - cookbook
   - cook-book
+  - cookbook
+  - cook book
   - go
   - golang
   - gizmo
