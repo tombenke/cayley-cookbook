@@ -1,6 +1,18 @@
 ---
 title: Cayley CookBook
 type: docs
+keywords:
+  - cayley
+  - cayley-graph
+  - knowledge-graph
+  - graph-database
+  - gremlin
+  - tutorial
+  - cookbook
+  - cook-book
+  - go
+  - golang
+  - gizmo
 ---
 
 [Cayley](https://github.com/cayleygraph/cayley) is an open-source database for Linked Data. It is inspired by the graph database behind Google's [Knowledge Graph](https://en.wikipedia.org/wiki/Knowledge_Graph).

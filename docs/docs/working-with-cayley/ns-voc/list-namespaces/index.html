@@ -8,7 +8,8 @@
 package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad/voc&#34; // Add some predefined vocabularies 	_ &#34;github.com/cayleygraph/quad/voc/schema&#34; _ &#34;github.com/cayleygraph/quad/voc/xsd&#34; _ &#34;github.com/cayleygraph/quad/voc/rdf&#34; _ &#34;github.com/cayleygraph/quad/voc/rdfs&#34; ) func main() { fmt.Println(&#34;Registered namespaces:&#34;); for _, v := range voc.List() { fmt.Printf(&#34; %s =&gt; %s\n&#34;, v.Prefix, v.Full); } } 
 cd namespaces go run list_namespaces.go` The results:
 Registered namespaces: schema: =&gt; http://schema.org/  xsd: =&gt; http://www.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="List Registered Namespaces" />
+<meta name="theme-color" content="#FFFFFF">
+<meta content="prefix, namespace" name="keywords"><meta property="og:title" content="List Registered Namespaces" />
 <meta property="og:description" content="List Registered Namespaces #  The following code fragment lists all the namespaces currently registered:
 package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad/voc&#34; // Add some predefined vocabularies 	_ &#34;github.com/cayleygraph/quad/voc/schema&#34; _ &#34;github.com/cayleygraph/quad/voc/xsd&#34; _ &#34;github.com/cayleygraph/quad/voc/rdf&#34; _ &#34;github.com/cayleygraph/quad/voc/rdfs&#34; ) func main() { fmt.Println(&#34;Registered namespaces:&#34;); for _, v := range voc.List() { fmt.Printf(&#34; %s =&gt; %s\n&#34;, v.Prefix, v.Full); } } 
 cd namespaces go run list_namespaces.go` The results:

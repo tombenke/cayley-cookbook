@@ -7,7 +7,8 @@
 <meta name="description" content="Új namespace regisztrálása #  Az alábbi kód regisztrál egy új namespace-t:
 package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad/voc&#34; // Add built-in vocabulary 	_ &#34;github.com/cayleygraph/quad/voc/rdfs&#34; // Add own vocabulary 	_ &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func init() { // Register a new namespace with prefix 	voc.RegisterPrefix(`acc:`, `http://mycompany.com/voc/accounting#`) } func main() { fmt.Println(&#34;Registered namespaces:&#34;) for _, v := range voc.List() { fmt.Printf(&#34; %s =&gt; %s\n&#34;, v.Prefix, v.Full) } } 
 cd namespaces go run register_namespace.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Új namespace regisztrálása" />
+<meta name="theme-color" content="#FFFFFF">
+<meta content="prefix, namespace" name="keywords"><meta property="og:title" content="Új namespace regisztrálása" />
 <meta property="og:description" content="Új namespace regisztrálása #  Az alábbi kód regisztrál egy új namespace-t:
 package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad/voc&#34; // Add built-in vocabulary 	_ &#34;github.com/cayleygraph/quad/voc/rdfs&#34; // Add own vocabulary 	_ &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func init() { // Register a new namespace with prefix 	voc.RegisterPrefix(`acc:`, `http://mycompany.com/voc/accounting#`) } func main() { fmt.Println(&#34;Registered namespaces:&#34;) for _, v := range voc.List() { fmt.Printf(&#34; %s =&gt; %s\n&#34;, v.Prefix, v.Full) } } 
 cd namespaces go run register_namespace." />

@@ -1,6 +1,18 @@
 ---
 title: Cayley Szakácskönyv
 type: docs
+keywords:
+  - cayley
+  - cayley-graph
+  - knowledge-graph
+  - graph-database
+  - gremlin
+  - tutorial
+  - cookbook
+  - cook-book
+  - go
+  - golang
+  - gizmo
 ---
 
 A [Cayley](https://github.com/cayleygraph/cayley) egy open-source Linked Data adatbáziskezelő.
