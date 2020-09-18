@@ -1,6 +1,6 @@
 p.TypeOf: *path.Path
 p.Iterate(nil).TypeOf: *graph.IterateChain
-_:n5636850348517767274 quad.BNode
+_:n9060696187648867855 quad.BNode
 <rdf:type> quad.IRI
 <foaf:Person> quad.IRI
 "people" quad.String

@@ -1,10 +1,10 @@
 [
-	{"subject":"_:n7622152000726829193","predicate":"\u003crdf:type\u003e","object":"\u003cfoaf:Person\u003e","label":"people"},
-	{"subject":"_:n7622152000726829193","predicate":"\u003cfoaf:givenName\u003e","object":"Luke","label":"people"},
-	{"subject":"_:n7622152000726829193","predicate":"\u003cfoaf:familyName\u003e","object":"Skywalker","label":"people"},
-	{"subject":"_:n7622152000726829193","predicate":"\u003cfoaf:age\u003e","object":"\"23\"^^\u003cxsd:integer\u003e","label":"people"},
-	{"subject":"_:n4109882062135350156","predicate":"\u003crdf:type\u003e","object":"\u003cfoaf:Person\u003e","label":"people"},
-	{"subject":"_:n4109882062135350156","predicate":"\u003cfoaf:knows\u003e","object":"_:n7622152000726829193","label":"people"},
-	{"subject":"_:n4109882062135350156","predicate":"\u003cfoaf:givenName\u003e","object":"Leia","label":"people"},
-	{"subject":"_:n4109882062135350156","predicate":"\u003cfoaf:familyName\u003e","object":"Organa","label":"people"}
+	{"subject":"_:n4894974106898606681","predicate":"\u003crdf:type\u003e","object":"\u003cfoaf:Person\u003e","label":"people"},
+	{"subject":"_:n4894974106898606681","predicate":"\u003cfoaf:givenName\u003e","object":"Luke","label":"people"},
+	{"subject":"_:n4894974106898606681","predicate":"\u003cfoaf:familyName\u003e","object":"Skywalker","label":"people"},
+	{"subject":"_:n4894974106898606681","predicate":"\u003cfoaf:age\u003e","object":"\"23\"^^\u003cxsd:integer\u003e","label":"people"},
+	{"subject":"_:n2322047325094835887","predicate":"\u003crdf:type\u003e","object":"\u003cfoaf:Person\u003e","label":"people"},
+	{"subject":"_:n2322047325094835887","predicate":"\u003cfoaf:knows\u003e","object":"_:n4894974106898606681","label":"people"},
+	{"subject":"_:n2322047325094835887","predicate":"\u003cfoaf:givenName\u003e","object":"Leia","label":"people"},
+	{"subject":"_:n2322047325094835887","predicate":"\u003cfoaf:familyName\u003e","object":"Organa","label":"people"}
 ]

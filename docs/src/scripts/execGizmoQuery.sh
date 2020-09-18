@@ -7,7 +7,7 @@ if [ "$#" -lt 2 ]; then
 fi
 
 if [ "$#" -eq 3 ]; then
-    cat $2 | cayley query  --logtostderr false --load $1 | cat > $3
+    cat $2 | cayley query  --logtostderr true --load $1 | cat > $3
 else
-    cat $2 | cayley query  --logtostderr false --load $1
+    cat $2 | cayley query  --logtostderr true --load $1
 fi

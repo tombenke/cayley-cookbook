@@ -34,6 +34,7 @@ tasks:
       - cd quad && go run make_quads.go > make_quads.out
       - cd quad && go run nq2graphml.go ../data/testdata_multigraph.nq ../data/testdata_multigraph.graphml
       - cd quad && go run ttl2graphml.go ../data/starwars.ttl ../data/starwars.graphml
+      - cd quad && go run ttl2graphml.go ../data/starwars.ttl ../data/starwars.nq
       - cd quad/reader && go run import_nquads.go
       - cd quad/reader && go run import_turtle.go
       - cd quad/writer && go run export_nquads_to_stdout.go data.go > export_nquads_to_stdout.out

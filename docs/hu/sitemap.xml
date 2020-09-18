@@ -45,6 +45,20 @@
   </url>
   
   <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/graph_discovery/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/graph_discovery/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/graph_discovery/"
+                />
+  </url>
+  
+  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/</loc>
     <xhtml:link
                 rel="alternate"

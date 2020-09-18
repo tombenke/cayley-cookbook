@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="hu" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Probléma: #  Hogyan tudok egy ismeretlen gráfban (pl. film adatbázis) lekérdezéseket végrehajtani, ha nem ismerem a szerkezetét?
+Megoldás #  Az alábbiakban végrehajtunk egy lehetséges lépéssorozatot, aminek a végén rendelkezni fogunk az ahhoz szükséges ismeretekkel, hogy az ismeretlen gráf tartalmát lekérdezzük, vagy módosítsuk. Mindehhez nincs szükségünk arra, hogy ismerjük a gráfban tárol modell sémáját. Ugyanakkor feltételezzük, hogy a gráf nem véletlenszerűen létrehozott csomópontokból, és kapcsolatokból áll, hanem van benne &ldquo;rendszer&rdquo;, létezik hozzá legalább egy képzeletbeli séma, és a benne található predikátum elnevezése is követ bizonyos konvenciókat, azokat valamilyen logika mentén hozták létre, és amelyek utalnak azok szerepére.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Ismeretlen gráf felderítése" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/graph_discovery/" />
+
+<title>Ismeretlen gráf felderítése | Cayley-CookBook</title>
+<link rel="manifest" href="/cayley-cookbook/manifest.json">
+<link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/graph_discovery/" title="Discover and unknown graph">
+
+<link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
+<script defer src="/cayley-cookbook/hu.search.min.8e462cc2e4c32e77512b2607dbab77721a3b048f72e45aa59522ac5e8e68d034.js" integrity="sha256-jkYswuTDLndRKyYH26t3cho7BI9y5FqllSKsXo5o0DQ="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-177858708-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<link rel="alternate" type="application/rss+xml" href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/graph_discovery/index.xml" title="Cayley-CookBook" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cayley-cookbook/hu"><span>Cayley-CookBook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/about/" class="">Bevezetés</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9f8a7e34bb16b852cd12e02884abbe2c" class="toggle"  />
+    <label for="section-9f8a7e34bb16b852cd12e02884abbe2c" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/" class="">Alapfogalmak</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8476439ec07e5890629d17c6650eaf78" class="toggle"  />
+    <label for="section-8476439ec07e5890629d17c6650eaf78" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/graph-based-data-model/" class="">Gráf alapú adatmodellezés</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-089b6654780ec7a8ce20922dacfa8068" class="toggle"  />
+    <label for="section-089b6654780ec7a8ce20922dacfa8068" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/resources/" class="">Erőforrások</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7dfb5eca6458abef2307adeefaaddfdb" class="toggle"  />
+    <label for="section-7dfb5eca6458abef2307adeefaaddfdb" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/statements/" class="">Állítások</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d50cc6ddbbf9a7138450d4114fe2fba6" class="toggle"  />
+    <label for="section-d50cc6ddbbf9a7138450d4114fe2fba6" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/vocabularies/" class="">Szótárak</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c232a69b7fae588b1fb718a7def4c723" class="toggle"  />
+    <label for="section-c232a69b7fae588b1fb718a7def4c723" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/rdf-graphs/" class="">Tudás Gráf reprezentációk</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7e64f39b334418521e8f0af1fc8791bb" class="toggle"  />
+    <label for="section-7e64f39b334418521e8f0af1fc8791bb" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/" class="">A Cayley rendszer áttekintése</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-55182948002255292040e2457cbfb89b" class="toggle"  />
+    <label for="section-55182948002255292040e2457cbfb89b" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/" class="">A `cayley convert` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2baee5b05d4e80f1462a11796d44b0ff" class="toggle"  />
+    <label for="section-2baee5b05d4e80f1462a11796d44b0ff" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-init/" class="">A `cayley init` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1977bdf61e68e287c42ffa90652a0b9b" class="toggle"  />
+    <label for="section-1977bdf61e68e287c42ffa90652a0b9b" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-load/" class="">The `cayley load` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6461e230cd10f803950ebf1ee282c6b3" class="toggle"  />
+    <label for="section-6461e230cd10f803950ebf1ee282c6b3" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-dump/" class="">The `cayley dump` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6fcbefd0c5ef68d0c04ac54cbea6b1f4" class="toggle"  />
+    <label for="section-6fcbefd0c5ef68d0c04ac54cbea6b1f4" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/" class="">A `cayley repl` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-192c0abe0b3802c7c197cdf9243477c7" class="toggle"  />
+    <label for="section-192c0abe0b3802c7c197cdf9243477c7" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/" class="">A `cayley query` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e17818fe16bf33b6ca86d2d0af497abe" class="toggle"  />
+    <label for="section-e17818fe16bf33b6ca86d2d0af497abe" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/" class="">A `cayley http` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-309cdc2b46d95b2509c611910b40f29c" class="toggle" checked />
+    <label for="section-309cdc2b46d95b2509c611910b40f29c" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/" class="">A Tudás-Gráf használata</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fb1c3038e7d7a71da0551a3080872531" class="toggle" checked />
+    <label for="section-fb1c3038e7d7a71da0551a3080872531" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/graph_discovery/" class="active">Ismeretlen gráf felderítése</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-15751440abcb4a690e1874b8d5a57ea3" class="toggle"  />
+    <label for="section-15751440abcb4a690e1874b8d5a57ea3" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/" class="">Namespace-ek és szótárak</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/list-namespaces/" class="">Regisztrált Namespace-ek listázása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/register-namespace/" class="">Új namespace regisztrálása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/vocabularies/" class="">Új szótár létrehozása</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0055eb580f8cd4b7980836466a5c33fd" class="toggle"  />
+    <label for="section-0055eb580f8cd4b7980836466a5c33fd" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/" class="">Store-ok</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/create-store/" class="">Store létrehozása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/make-quads/" class="">Quads-ok létrehozása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-nodes/" class="">A store összes node-jának kilistázása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-quads/" class="">A store összes quad-jának kilistázása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/internals/" class="">A node-ok és quad-ok belső reprezentációja</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-062fbdcb0d5237ca703532ede8716481" class="toggle"  />
+    <label for="section-062fbdcb0d5237ca703532ede8716481" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/" class="">Adat import / export</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-14fa452aebb42c44ef234af47bd9c4f4" class="toggle"  />
+    <label for="section-14fa452aebb42c44ef234af47bd9c4f4" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/quads/" class="">Quad-ok exportálása</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-968cea4be1a55104598910f578b25a1e" class="toggle"  />
+    <label for="section-968cea4be1a55104598910f578b25a1e" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/schema/" class="">Adat import / export struct annotációval</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a8fb241cb8ed56da76d51fcaf41845cd" class="toggle"  />
+    <label for="section-a8fb241cb8ed56da76d51fcaf41845cd" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/" class="">Lekérdezések</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/find_all_vertices/" class="">Összes node kiírása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/find_all_predicates/" class="">Összes predikátum kiírása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bidirectional/" class="">Kétirányú relációk</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4fcf7fededff39d60891373012a27f0e" class="toggle"  />
+    <label for="section-4fcf7fededff39d60891373012a27f0e" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bookmarks/" class="">Könyvjelzők keresése tag alapján</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e8aec92da5f23c882db6bdd4d2f66642" class="toggle"  />
+    <label for="section-e8aec92da5f23c882db6bdd4d2f66642" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/crud-operations/" class="">CRUD Műveletek</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0286dce401f1b4f8b31afbecd52d27b4" class="toggle"  />
+    <label for="section-0286dce401f1b4f8b31afbecd52d27b4" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/transactions/" class="">Tranzakciók</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Ismeretlen gráf felderítése</strong>
+
+  <label for="toc-control">
+    
+    <img src="/cayley-cookbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#probléma">Probléma:</a></li>
+    <li><a href="#megoldás">Megoldás</a>
+      <ul>
+        <li><a href="#0-lépés-indítsuk-el-a-repl-t-az-adatbázissal">0. lépés: Indítsuk el a REPL-t az adatbázissal</a></li>
+        <li><a href="#2-lépés-csoportosítsuk-a-predikátumokat-együttes-előfordulás-szerint">2. lépés: Csoportosítsuk a predikátumokat együttes előfordulás szerint</a></li>
+        <li><a href="#3-lépés-keressük-meg-a-terminális-csomópontokat">3. lépés: Keressük meg a terminális csomópontokat</a></li>
+        <li><a href="#4-válasszuk-szét-a-különálló-csomópont-típusokat">4. válasszuk szét a különálló csomópont típusokat</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<main>
+    <article>
+        <header>
+            <h1>Ismeretlen gráf felderítése</h1>
+        </header>
+        
+        <h2 id="probléma">
+  Probléma:
+  <a class="anchor" href="#probl%c3%a9ma">#</a>
+</h2>
+<p>Hogyan tudok egy ismeretlen gráfban (pl. film adatbázis) lekérdezéseket végrehajtani, ha nem ismerem a szerkezetét?</p>
+<h2 id="megoldás">
+  Megoldás
+  <a class="anchor" href="#megold%c3%a1s">#</a>
+</h2>
+<p>Az alábbiakban végrehajtunk egy lehetséges lépéssorozatot, aminek a végén rendelkezni fogunk az ahhoz szükséges ismeretekkel, hogy az ismeretlen gráf tartalmát lekérdezzük, vagy módosítsuk. Mindehhez nincs szükségünk arra, hogy ismerjük a gráfban tárol modell sémáját. Ugyanakkor feltételezzük, hogy a gráf nem véletlenszerűen létrehozott csomópontokból, és kapcsolatokból áll, hanem van benne &ldquo;rendszer&rdquo;, létezik hozzá legalább egy képzeletbeli séma, és a benne található predikátum elnevezése is követ bizonyos konvenciókat, azokat valamilyen logika mentén hozták létre, és amelyek utalnak azok szerepére.</p>
+<p>A felderített sémát egy diagramon fogjuk ábrázolni. Azokat az IRI típusú csomópontokat amiknek ismerjük a konkrét azonosítóját, a diagramon sárgával fogjuk jelölni. A literál típusú csomópontokat zöld színnel, és a típus megnevezésével. Az ismeretlen csomópontokat pedig kék színnel, és egy változó névvel jelöljük.</p>
+<h3 id="0-lépés-indítsuk-el-a-repl-t-az-adatbázissal">
+  0. lépés: Indítsuk el a REPL-t az adatbázissal
+  <a class="anchor" href="#0-l%c3%a9p%c3%a9s-ind%c3%adtsuk-el-a-repl-t-az-adatb%c3%a1zissal">#</a>
+</h3>
+<p>Indítsunk el a REPL paranccsal a <a href="https://cayley.io/" target="_blank">Cayley</a>
+-t egy in-memory adatbázissal, amibe rögtön betöltjük az adatokat:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cayley repl --load data/30kmoviedata.nq.gz 
+    I0917 19:12:42.483992   <span style="color:#ae81ff">18114</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0917 19:12:42.484240   <span style="color:#ae81ff">18114</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;memstore&#34;</span>
+    I0917 19:12:46.897340   <span style="color:#ae81ff">18114</span> database.go:250<span style="color:#f92672">]</span> loaded <span style="color:#e6db74">&#34;data/30kmoviedata.nq.gz&#34;</span> in 4.413006871s
+    cayley&gt;
+
+</code></pre></div><p>A továbbiakban ezzel a segédprogrammal fogjuk a feltérképezést végezni.</p>
+<h3 id="2-lépés-csoportosítsuk-a-predikátumokat-együttes-előfordulás-szerint">
+  2. lépés: Csoportosítsuk a predikátumokat együttes előfordulás szerint
+  <a class="anchor" href="#2-l%c3%a9p%c3%a9s-csoportos%c3%adtsuk-a-predik%c3%a1tumokat-egy%c3%bcttes-el%c5%91fordul%c3%a1s-szerint">#</a>
+</h3>
+<p>Azonosítsuk azokat a predikátum csoportokat, amelyek együttesen fordulnak elő.</p>
+<h4 id="21-lépés-kimenő-élek-csoportosítása">
+  2.1. lépés: Kimenő élek csoportosítása
+  <a class="anchor" href="#21-l%c3%a9p%c3%a9s-kimen%c5%91-%c3%a9lek-csoportos%c3%adt%c3%a1sa">#</a>
+</h4>
+<p>Először gyűjtsük össze, csoportonként a kimenő élként együtt előforduló predikátumokat.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.In<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/actor&gt;&#34;</span><span style="color:#f92672">)</span>.OutPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/film/performance/actor&gt;
+    ****
+    id : &lt;/film/performance/character&gt;
+    -----------
+    <span style="color:#ae81ff">2</span> Results
+    Elapsed time: 174.893162 ms
+
+</code></pre></div><p>Az eredmény alapján a <code>&lt;/film/performance/actor&gt;</code> és a <code>&lt;/film/performance/character&gt;</code> predikátumok azonos csoportban vannak, tehát többnyire mindannyian ugyanabból a csomópontból indulnak ki.</p>
+<p>Ugyanazt az eredményt kell kapnunk az együtt szereplő predikátumok esetében, akármelyikkel is indítjuk a lekérdezést:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.In<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/character&gt;&#34;</span><span style="color:#f92672">)</span>.OutPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/film/performance/actor&gt;
+    ****
+    id : &lt;/film/performance/character&gt;
+    -----------
+    <span style="color:#ae81ff">2</span> Results
+    Elapsed time: 45.116628 ms
+
+</code></pre></div><p>Nézzük a következő predikátumot, ami nem szerepel az imént beazonosított csoportban:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.In<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;name&gt;&#34;</span><span style="color:#f92672">)</span>.OutPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;name&gt;
+    ****
+    id : &lt;type&gt;
+    ****
+    id : &lt;/film/film/directed_by&gt;
+    ****
+    id : &lt;/film/film/starring&gt;
+    -----------
+    <span style="color:#ae81ff">4</span> Results
+    Elapsed time: 178.340908 ms
+
+</code></pre></div><p>Sikerült egy másik csoportot azonosítanunk, ami tartalmazza az összes eddig nem besorolt predikátumot.
+Ezzel lefedtük az összes predikátumot, tehát két csoportba lehet őket rendezni első közelítésben.</p>
+<p>Az együttesen előforduló kimenő éleket rendeljük csomópontokhoz, a csomópontoknak adjunk változó nevet, majd, és rajzoljuk fel az eddig kapott eredményt, ahogy az a 2. ábrán látható:</p>
+<figure>
+    <img src="/cayley-cookbook/discover_movie_graph_2_1.png"/> <figcaption>
+            <h4>2. ábra: A kimenő élként együtt előforduló predikátumok</h4>
+        </figcaption>
+</figure>
+
+<h4 id="22-lépés-bemenő-élek-csoportosítása">
+  2.2. lépés: Bemenő élek csoportosítása
+  <a class="anchor" href="#22-l%c3%a9p%c3%a9s-bemen%c5%91-%c3%a9lek-csoportos%c3%adt%c3%a1sa">#</a>
+</h4>
+<p>Térképezzük fel a bemenő élként előforduló predikátumokat, és rendeljük hozzá őket azokhoz a csoportokhoz (csomóponti változókhoz) amiket a kimenő élek esetében létrehoztunk. Ehhez nézzük végig minden egyes kimenő predikátumra vonatkozóan, hogy az milyen bejövő predikátumokkal társul. Ehhez hajtsuk végre a következő lekérdezés sorozatot:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.In<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/actor&gt;&#34;</span><span style="color:#f92672">)</span>.InPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/film/film/starring&gt;
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 190.712052 ms
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.In<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/character&gt;&#34;</span><span style="color:#f92672">)</span>.InPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/film/film/starring&gt;
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 42.079836 ms
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.In<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span><span style="color:#f92672">)</span>.InPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/film/performance/actor&gt;
+    ****
+    id : &lt;/film/film/directed_by&gt;
+    -----------
+    <span style="color:#ae81ff">2</span> Results
+    Elapsed time: 149.433856 ms
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.In<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;film/film/directed_by&gt;&#34;</span><span style="color:#f92672">)</span>.InPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+</code></pre></div><p>ebben az esetben nincs találat.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.In<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.InPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+</code></pre></div><p>és ebben az esetben sincs.</p>
+<p>Helyezzük fel fel a lekérdezések eredményeképpen kapott, bemenő éleket is a gráfra, hozzákapcsolva a csomóponti változókhoz. Az eredményt a 3. ábrán láthatjuk.</p>
+<figure>
+    <img src="/cayley-cookbook/discover_movie_graph_2_2.png"/> <figcaption>
+            <h4>3. ábra: A bemenő és kimenő élekként együtt előforduló predikátumok</h4>
+        </figcaption>
+</figure>
+
+<h4 id="bemenő-és-kimenő-predikátum-csoportok-egyesítése">
+  Bemenő és kimenő predikátum csoportok egyesítése
+  <a class="anchor" href="#bemen%c5%91-%c3%a9s-kimen%c5%91-predik%c3%a1tum-csoportok-egyes%c3%adt%c3%a9se">#</a>
+</h4>
+<p>Fésüljük össze az eredményhalmazokat, és a gráfot. Az eredményt a 4. ábrán láthatjuk.</p>
+<figure>
+    <img src="/cayley-cookbook/discover_movie_graph_2_3.png"/> <figcaption>
+            <h4>4. ábra: Az együtt előforduló predikátumok egyesített ábrája.</h4>
+        </figcaption>
+</figure>
+
+<blockquote class="book-hint info">
+  <p><strong>Fontos megjegyzés:</strong></p>
+<p>Az eredményül kapott <code>x</code> és <code>y</code> node változók nem feltétlenül egyetlen node-típust reprezentálnak, mert a keresés során a bejövő és kimenő predikátumokat közösítettük.</p>
+
+</blockquote>
+
+<h3 id="3-lépés-keressük-meg-a-terminális-csomópontokat">
+  3. lépés: Keressük meg a terminális csomópontokat
+  <a class="anchor" href="#3-l%c3%a9p%c3%a9s-keress%c3%bck-meg-a-termin%c3%a1lis-csom%c3%b3pontokat">#</a>
+</h3>
+<p>Ezek azok a csomópontok, akikből már nem indul ki további predikátum.</p>
+<p>Egyenként vizsgáljuk meg a kimenő predikátumokat, hogy azok milyen csomópontokhoz érkeznek.</p>
+<p>Kezdjük a <code>&lt;/film/performance/character&gt;</code> predikátummal:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/character&gt;&#34;</span><span style="color:#f92672">)</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : Luther Krank
+    ****
+    id : Roland
+    ****
+    id : Tomás de Torquemada
+    ****
+    id : Ferdinand VII of Spain
+    ****
+    id : Christopher Columbus
+    ...
+
+</code></pre></div><p>Az eredménylista kiírása az első 100 elem után befejeződik, alapértelmezés szerint.
+Látható, hogy az eredmények string literál értékek, a filmben szereplő karakterek nevei.</p>
+<p>Nézzük meg, hogy hányan vannak:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/character&gt;&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">15058</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 15.394561 ms
+
+</code></pre></div><p>Most ellenőrizzük, hogy indul-e belőlük további predikátum:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/character&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">()</span>.Count<span style="color:#f92672">()</span>
+
+     <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">0</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 65.014376 ms
+
+</code></pre></div><p>Az eredmény 0, tehát ezek terminális csomópontok, mivel további kimenő kapcsolatok már nincsenek.</p>
+<p>Most vizsgáljuk meg a <code>&lt;name&gt;</code> predikátumot:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;name&gt;&#34;</span><span style="color:#f92672">)</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : David Fisher
+    ****
+    id : <span style="color:#ae81ff">002</span> Operazione Luna
+    ****
+    id : 008: Operation Exterminate
+    ****
+    id : 02:37:00 AM
+    ****
+    id : 06/05
+    ****
+    id : 10,000 BC
+    ****
+    ...
+
+</code></pre></div><p>Ezek string literálok.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;name&gt;&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">74950</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 44.480211 ms
+
+</code></pre></div><p>A számuk 74950.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;name&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">()</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">0</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 52.163808 ms
+
+</code></pre></div><p>Ezek szintén terminális csomópontok.</p>
+<p>Folytassuk a sort a <code>&lt;type&gt;</code> predikátummal:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span><span style="color:#f92672">)</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/people/person&gt;
+    ****
+    id : &lt;/film/film&gt;
+    ****
+    id : &lt;/film/film&gt;
+    ...
+
+</code></pre></div><p>Ebből több is van, és nem literálok, hanem IRI-k.</p>
+<p>Állapítsuk meg egyedileg, hogy pontosan melyek ezek az IRI-k:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span><span style="color:#f92672">)</span>.Unique<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+     
+    ****
+    id : &lt;/people/person&gt;
+    ****
+    id : &lt;/film/film&gt;
+    -----------
+    <span style="color:#ae81ff">2</span> Results
+    Elapsed time: 43.759725 ms
+
+</code></pre></div><p>Összesen két ilyen IRI létezik, a <code>&lt;/people/person&gt;</code> és a <code>&lt;/film/film&gt;</code>.
+Ellenőrizzük ezek esetében is, hogy terminális csomópontok-e, vagy sem:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">()</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">0</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 48.857924 ms
+
+</code></pre></div><p>Terminálisok.</p>
+<p>Vezessük fel az újonnan felfedezett literál és IRI csomópontokat a gráfra, a hozzájuk vezető predikátumokkal együtt, ahogyan az 5. ábrán látható.</p>
+<figure>
+    <img src="/cayley-cookbook/discover_movie_graph_3_1.png"/> <figcaption>
+            <h4>5. ábra: Terminális csomópontokkal kiegészített séma.</h4>
+        </figcaption>
+</figure>
+
+<h3 id="4-válasszuk-szét-a-különálló-csomópont-típusokat">
+  4. válasszuk szét a különálló csomópont típusokat
+  <a class="anchor" href="#4-v%c3%a1lasszuk-sz%c3%a9t-a-k%c3%bcl%c3%b6n%c3%a1ll%c3%b3-csom%c3%b3pont-t%c3%adpusokat">#</a>
+</h3>
+<p>Lehetőség szerint válasszuk szét azokat a csomópont változókat, amelyek hasonló beérkező és kimenő predikátumokat fogadnak, de eltérő típusú entitásokat azonosítanak.</p>
+<h4 id="az-y-csomóponti-változó-elemzése">
+  Az <code>y</code> csomóponti változó elemzése
+  <a class="anchor" href="#az-y-csom%c3%b3ponti-v%c3%a1ltoz%c3%b3-elemz%c3%a9se">#</a>
+</h4>
+<p>Az 5. ábrán megfigyelhetjük, hogy az <code>y</code> csomópont <code>&lt;type&gt;</code> kimenő irányú predikátuma, a következő értékeket veheti fel: <code>&lt;/people/person&gt;</code> és <code>&lt;/film/film&gt;</code>. Ebből következően feltételezhetjük, hogy <code>y</code> csomópont több különböző entitás típust fedhet. Válasszuk szét a feltételezésnek megfelelően az <code>y</code> csomópontot kétfelé, a 6. ábra szerint:</p>
+<figure>
+    <img src="/cayley-cookbook/discover_movie_graph_4_1.png"/> <figcaption>
+            <h4>6. ábra: A person és a film csomópont változók szétválasztása.</h4>
+        </figcaption>
+</figure>
+
+<p>Alkalmazzunk több (2, 3, &hellip;n) lépésből álló kapcsolati láncokat, a további elemzéshez.</p>
+<p>Vizsgáljuk meg, hogy milyen predikátumok indul és érkeznek <code>y</code>-ból származtatott, szétválasztott csomópontokhoz, ha azok értelmezését úgy korlátozzuk, hogy a <code>&lt;type&gt;</code> egyszer az egyik, másszor a másik értéket veszi fel:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_film <span style="color:#f92672">=</span> g.V<span style="color:#f92672">()</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/film/film&gt;&#34;</span><span style="color:#f92672">)</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">[</span>internal Iterator<span style="color:#f92672">]</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 0.469018 ms
+
+    cayley&gt; y_film.OutPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/film/film/directed_by&gt;
+    ****
+    id : &lt;/film/film/starring&gt;
+    ****
+    id : &lt;name&gt;
+    ****
+    id : &lt;type&gt;
+    -----------
+    <span style="color:#ae81ff">4</span> Results
+    Elapsed time: 113.54646 ms
+
+</code></pre></div><p>A nevükből ítélve ezek a predikátumok egy film esetében, normálisnak tűnnek.</p>
+<p>Most vizsgáljuk meg a person típusú csomópont jelöltek esetében, hogy mi a helyzet:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_person <span style="color:#f92672">=</span> g.V<span style="color:#f92672">()</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&gt;&#34;</span><span style="color:#f92672">)</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">[</span>internal Iterator<span style="color:#f92672">]</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 0.552285 ms
+
+    cayley&gt; y_person.OutPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;name&gt;
+    ****
+    id : &lt;type&gt;
+    ****
+    id : &lt;/film/film/directed_by&gt;
+    ****
+    id : &lt;/film/film/starring&gt;
+    -----------
+    <span style="color:#ae81ff">4</span> Results
+    Elapsed time: 95.020065 ms
+
+</code></pre></div><p>Ugyanazt az eredményt kaptuk, ami meglepő, mert egy személy esetében nehéz értelmezni mind a <code>&lt;/film/film/directed_by&gt;</code>, mind pedig a <code>&lt;/film/film/starring&gt;</code> kimenő predikátumokat.</p>
+<p>Az eredmény gyanús, ezért vizsgáljuk meg kicsit tüzetesebben azt.</p>
+<p>A filmeknek feltehetően van rendezője, tehát értelmes lehet erre vonatkozó kapcsolatokat vizsgálni:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_film.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/directed_by&gt;&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">33310</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 108.365305 ms
+
+</code></pre></div><p>Ilyenből találunk 33310-et, és ez logikusnak látszik.</p>
+<p>Ellenőrizzük, hogy ezek a predikátumok valóban személyekre mutatnak-e!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_film.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/directed_by&gt;&#34;</span><span style="color:#f92672">)</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&gt;&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">33310</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 168.508677 ms
+
+</code></pre></div><p>A számosság alapján ítélve igen. Nézzünk meg néhányat név szerint is:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_film.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/directed_by&gt;&#34;</span><span style="color:#f92672">)</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;name&gt;&#34;</span><span style="color:#f92672">)</span>.GetLimit<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span>
+
+    ****
+    id : Lucio Fulci
+    ****
+    id : Umberto Lenzi
+    ****
+    id : Murali K. Thalluri
+    ****
+    id : Theo van Gogh
+    ****
+    id : Roland Emmerich
+    -----------
+    <span style="color:#ae81ff">5</span> Results
+    Elapsed time: 1.071004 ms
+
+</code></pre></div><p>Úgy tűnik, hogy ez a kapcsolat és csomópont típus rendben van.</p>
+<p>Most nézzük meg, hogy a <code>&lt;/people/person&gt;</code> típusú csomópontoknak van-e &ldquo;rendezte&rdquo; kapcsolata:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_person.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/directed_by&gt;&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">6</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 96.554532 ms
+
+</code></pre></div><p>Meglepő, de van 6 ilyen.
+Nézzük meg ezt a 6 személyt részletesebben, tag-ekkel kiegészítve, hogy pontosan lássuk mi is a helyzet:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_person.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;person&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/directed_by&gt;&#34;</span><span style="color:#f92672">)</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;directed_by&#34;</span><span style="color:#f92672">)</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    directed_by : &lt;/en/quentin_tarantino&gt;
+    id : &lt;/en/quentin_tarantino&gt;
+    person : &lt;/en/death_proof&gt;
+    ****
+    directed_by : &lt;/en/mysterio&gt;
+    id : &lt;/en/mysterio&gt;
+    person : &lt;/en/jazmin&gt;
+    ****
+    directed_by : &lt;/en/robert_rodriguez&gt;
+    id : &lt;/en/robert_rodriguez&gt;
+    person : &lt;/en/planet_terror&gt;
+    ****
+    directed_by : &lt;/en/keenen_ivory_wayans&gt;
+    id : &lt;/en/keenen_ivory_wayans&gt;
+    person : &lt;/en/scary_movie_2&gt;
+    ****
+    directed_by : &lt;/en/david_zucker&gt;
+    id : &lt;/en/david_zucker&gt;
+    person : &lt;/en/scary_movie_3&gt;
+    ****
+    directed_by : &lt;/en/ralph_bakshi&gt;
+    id : &lt;/en/ralph_bakshi&gt;
+    person : &lt;/en/the_lord_of_the_rings_1978&gt;
+    -----------
+    <span style="color:#ae81ff">6</span> Results
+    Elapsed time: 95.293387 ms
+
+</code></pre></div><p>Az eredmény listából látható, hogy ennél a 6 csomópontnál a <code>&lt;directed_by&gt;</code> predikátum valóban személyekre mutat, de a kiinduló csomópontok IRI-jéből látszik, hogy azok valójában nem személyek, hanem filmek. Tehát igen nagy valószínűséggel állíthatjuk, hogy ebben a hat esetben a filmre vonatkozó IRI kimenő <code>&lt;type&gt;</code> predikátumai hibásan a <code>&lt;/people/person&gt;</code> csomópontra mutat, a <code>&lt;/film/film&gt;</code> csomópont helyett. Ezért ezt a kapcsolatot nem tekintjük érvényesnek, bár az adatbázis kétség kívül tartalmaz ilyen éleket.</p>
+<p>A 7. ábra a korrigált séma rajzát szemlélteti, amire felvezettük a legutóbbi megállapításainkat, azaz a <code>y_film</code> típusú csomópont <code>&lt;/film/film/directed_by&gt;</code> predikátuma <code>y_person</code> típusú csomópontra mutat, a <code>y_person</code>-nak pedig nincs ilyen kimenő predikátuma.</p>
+<figure>
+    <img src="/cayley-cookbook/discover_movie_graph_4_2.png"/> <figcaption>
+            <h4>7. ábra: A `y_film` csomópont kimenő predikátumai.</h4>
+        </figcaption>
+</figure>
+
+<p>Most nézzük meg mi a helyzet a <code>&lt;/film/film/starring&gt;</code> predikátummal.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_film.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">136737</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 140.230179 ms
+
+    cayley&gt; y_film.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.GetLimit<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span>
+
+    ****
+    id : _:117646
+    ****
+    id : _:117647
+    ****
+    id : _:117648
+    ****
+    id : _:117649
+    ****
+    id : _:117240
+    -----------
+    <span style="color:#ae81ff">5</span> Results
+    Elapsed time: 1.052197 ms
+
+</code></pre></div><p>A <code>y_film</code> típusú csomópontnak van 136737 ilyen kapcsolata, amelyek Blank Node-ok.</p>
+<p>Nézzük meg, hogy ezek a &ldquo;starring&rdquo; node-ok milyen bemenő és kimenő predikátumokkal rendelkeznek:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_film.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.OutPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/film/performance/actor&gt;
+    ****
+    id : &lt;/film/performance/character&gt;
+    -----------
+    <span style="color:#ae81ff">2</span> Results
+    Elapsed time: 255.873653 ms
+
+    cayley&gt; y_film.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.InPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/film/film/starring&gt;
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 242.836008 ms
+
+</code></pre></div><p>A &ldquo;starring&rdquo;-ra utaló Blank node-ok bejövő és kimenő predikátumai megegyeznek azzal a csomópont változóval, amit a séma diagramon <code>x</code>-szel jelöltünk.</p>
+<p>Ellenőrzésképpen nézzük meg, hogy tudunk-e filmekhez szerepeket és konkrét színészeket találni, a predikátumok segítségével:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_film <span style="color:#f92672">=</span> g.V<span style="color:#f92672">()</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/film/film&gt;&#34;</span><span style="color:#f92672">)</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">[</span>internal Iterator<span style="color:#f92672">]</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 0.897193 ms
+
+    cayley&gt; filmWithTitle <span style="color:#f92672">=</span> y_film.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;film&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;name&gt;&#34;</span><span style="color:#f92672">)</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;filmTitle&#34;</span><span style="color:#f92672">)</span>.Back<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;film&#34;</span><span style="color:#f92672">)</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">[</span>internal Iterator<span style="color:#f92672">]</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 0.680148 ms
+
+    cayley&gt; filmStar <span style="color:#f92672">=</span> filmWithTitle.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;star&#34;</span><span style="color:#f92672">)</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">[</span>internal Iterator<span style="color:#f92672">]</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 0.340275 ms
+
+    cayley&gt; <span style="color:#f92672">{</span>t<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/character&gt;&#34;</span><span style="color:#f92672">)</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;character&#34;</span><span style="color:#f92672">)</span>.Back<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;star&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/actor&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;name&gt;&#34;</span><span style="color:#f92672">)</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;actorName&#34;</span><span style="color:#f92672">)</span>.GetLimit<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;10&#34;</span><span style="color:#f92672">)</span>
+
+    ****
+    actorName : Katherine Heigl
+    character : Arlene
+    film : &lt;/en/100_girls&gt;
+    filmTitle : <span style="color:#ae81ff">100</span> Girls
+    id : Katherine Heigl
+    star : _:239
+    ****
+    actorName : Joely Richardson
+    character : Anita
+    film : &lt;/en/101_dalmatians&gt;
+    filmTitle : <span style="color:#ae81ff">101</span> Dalmatians
+    id : Joely Richardson
+    star : _:457
+    ****
+    actorName : Susanne Blakeslee
+    character : Cruella de Vil
+    film : &lt;/en/101_dalmatians_ii_patchs_london_adventure&gt;
+    filmTitle : <span style="color:#ae81ff">101</span> Dalmatians II: Patch<span style="color:#960050;background-color:#1e0010">&#39;</span>s London Adventure
+    id : Susanne Blakeslee
+    star : _:71373
+    ****
+    actorName : Brian Markinson
+    character : Daniel
+    film : &lt;/en/10_5_apocalypse&gt;
+    filmTitle : 10.5: Apocalypse
+    id : Brian Markinson
+    star : _:218
+    ****
+    actorName : Heath Ledger
+    character : Patrick Verona
+    film : &lt;/en/10_things_i_hate_about_you&gt;
+    filmTitle : <span style="color:#ae81ff">10</span> Things I Hate about You
+    id : Heath Ledger
+    star : _:503
+    ****
+    actorName : James Marsden
+    character : Tommy
+    film : &lt;/en/10th_wolf&gt;
+    filmTitle : 10th &amp; Wolf
+    id : James Marsden
+    star : _:284
+    ****
+    actorName : Jeana Tomasino
+    character : Karen
+    film : &lt;/en/10_to_midnight&gt;
+    filmTitle : <span style="color:#ae81ff">10</span> to Midnight
+    id : Jeana Tomasino
+    star : _:100658
+    ****
+    actorName : Jason Segel
+    character : Leon <span style="color:#f92672">(</span>paramedic 1<span style="color:#f92672">)</span>
+    film : &lt;/en/11_14&gt;
+    filmTitle : 11:14
+    id : Jason Segel
+    star : _:108561
+    ****
+    actorName : Henry Fonda
+    character : Juror <span style="color:#75715e">#8</span>
+    film : &lt;/en/12_angry_men&gt;
+    filmTitle : <span style="color:#ae81ff">12</span> Angry Men
+    id : Henry Fonda
+    star : _:462
+    ****
+    actorName : Lee J. Cobb
+    character : Juror <span style="color:#75715e">#3</span>
+    film : &lt;/en/12_angry_men&gt;
+    filmTitle : <span style="color:#ae81ff">12</span> Angry Men
+    id : Lee J. Cobb
+    star : _:463
+    -----------
+    <span style="color:#ae81ff">10</span> Results
+    Elapsed time: 7.233902 ms
+
+</code></pre></div><p>Ez határozottan működőképesnek tűnik.</p>
+<p>Tehát kimondhatjuk, hogy az <code>x</code> csomópont változó képviseli a film-sztárokat.</p>
+<p>Azt is kijelenthetjük, hogy az <code>x</code> kimenő predikátumai közül mind a <code>y_person</code>-ra mutató <code>&lt;/film/performance/actor&gt;</code> predikátum, és a <code>&lt;/film/performance/character&gt;</code> literál értékre mutató predikátum is valós kapcsolatokat jelölnek.</p>
+<p>Felmerül a kérdés, hogy az <code>x</code>-ből mutat-e <code>&lt;/film/performance/actor&gt;</code> predikátum a <code>y_film</code> csomópont típus irányába?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    filmStar.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/actor&gt;&#34;</span><span style="color:#f92672">)</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/film/film&gt;&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">1</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 1315.917655 ms
+
+</code></pre></div><p>Fura módon ebből is találunk egyet.</p>
+<p>Ki is ez a film-sztár, és kire mutat, mint színész a kapcsolat?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; filmStar.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/actor&gt;&#34;</span><span style="color:#f92672">)</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/film/film&gt;&#34;</span><span style="color:#f92672">)</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    film : &lt;/en/jazmin&gt;
+    filmTitle : Jazmin
+    id : &lt;/en/jazmin&gt;
+    star : _:23742
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 1340.16577 ms
+
+</code></pre></div><p>Jól látható, hogy ennek a filmsztárnak az azonosítója a <code>_:23742</code> Blank Node, ami színészként személy helyett egy filmre mutat. Nézzük meg, hogy személyre vonatkozóan is létezik-e ilyen kapcsolata:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;_:23742&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/actor&gt;&#34;</span><span style="color:#f92672">)</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">0</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 0.68618 ms
+
+</code></pre></div><p>Nincs ilyen kapcsolata. Kijelenthetjük, hogy egy újabb hibát fedeztünk fel az adatbázisban, és átvezethetjük a tapasztalatainkat a séma rajzra, a 8. ábrának megfelelően.</p>
+<figure>
+    <img src="/cayley-cookbook/discover_movie_graph_4_3.png"/> <figcaption>
+            <h4>8. ábra: Az `y_person` és `x_character` csomópont típusok kapcsolatai.</h4>
+        </figcaption>
+</figure>
+
+<p>Végül elemezzük az utolsó kapcsolatot, amit még nem vizsgáltunk meg eddig. Az <code>y_person</code>-ból kiinduló <code>&lt;/film/film/starring&gt;</code> predikátumot.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_person <span style="color:#f92672">=</span> g.V<span style="color:#f92672">()</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">96</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 85.149164 ms
+
+</code></pre></div><p>Meglepő, de ebből is találunk 96 darabot. Járjunk végére, hogy hová mutatnak ezek a kapcsolatok!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+cayley&gt; y_person <span style="color:#f92672">=</span> g.V<span style="color:#f92672">()</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.GetLimit<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span>
+
+****
+id : _:95530
+****
+id : _:95531
+****
+id : _:95532
+****
+id : _:95533
+****
+id : _:95534
+-----------
+<span style="color:#ae81ff">5</span> Results
+Elapsed time: 12.859301 ms
+
+</code></pre></div><p>Jól látható, hogy Blank node-ok, tehát valószínűleg <code>x_character</code> típusú csomópontokra mutatnak.</p>
+<p>Hajtsunk végre egy olyan lekérdezést, ahol személy típusú csomópontból (&ldquo;originPerson&rdquo;) kiindulva, a <code>&lt;/film/film/starring&gt;</code> kapcsolaton keresztül továbbmegy a színész (&ldquo;actor&rdquo;) irányába, és nézzük meg a lánc végén álló csomópont nevét és típusát. Minden kiinduló csomópontot csak egyszer jelenítsen meg.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;originPerson&#34;</span><span style="color:#f92672">)</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span><span style="color:#f92672">)</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;originType&#34;</span><span style="color:#f92672">)</span>.Back<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;originPerson&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/actor&gt;&#34;</span><span style="color:#f92672">)</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;actor&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span><span style="color:#f92672">)</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;actorType&#34;</span><span style="color:#f92672">)</span>.Back<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;person&#34;</span><span style="color:#f92672">)</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    actor : &lt;/en/jazmin&gt;
+    actorType : &lt;/film/film&gt;
+    id : &lt;/en/jazmin&gt;
+    originPerson : &lt;/en/jazmin&gt;
+    originType : &lt;/film/film&gt;
+    ****
+    actor : &lt;/en/jazmin&gt;
+    actorType : &lt;/people/person&gt;
+    id : &lt;/en/jazmin&gt;
+    originPerson : &lt;/en/jazmin&gt;
+    originType : &lt;/film/film&gt;
+    ****
+    actor : &lt;/en/jazmin&gt;
+    actorType : &lt;/people/person&gt;
+    id : &lt;/en/jazmin&gt;
+    originPerson : &lt;/en/jazmin&gt;
+    originType : &lt;/people/person&gt;
+    ****
+
+    ...
+
+
+    ****
+    actor : &lt;/en/anthony_daniels&gt;
+    actorType : &lt;/people/person&gt;
+    id : &lt;/en/the_lord_of_the_rings_1978&gt;
+    originPerson : &lt;/en/the_lord_of_the_rings_1978&gt;
+    originType : &lt;/people/person&gt;
+    ****
+    actor : &lt;/guid/9202a8c04000641f800000000112e07f&gt;
+    actorType : &lt;/people/person&gt;
+    id : &lt;/en/the_lord_of_the_rings_1978&gt;
+    originPerson : &lt;/en/the_lord_of_the_rings_1978&gt;
+    originType : &lt;/film/film&gt;
+    -----------
+    <span style="color:#ae81ff">100</span> Results
+    Elapsed time: 965.035817 ms
+</code></pre></div><p>Ha végignézzük az eredménylistát, láthatjuk, hogy ismét sikerült felfedeznünk ellentmondásos kapcsolatokat az adatbázisban. Többféle hibát is felfedezhetünk. Gyanítható, hogy bizonyos <code>y</code> egyszerre rendelkeznek <code>&lt;/film/film&gt;</code> és <code>&lt;/people/person&gt;</code> csomópontokra mutató <code>&lt;type&gt;</code> predikátumokkal.</p>
+<p>Ellenőrizzük, hogy feltevésünk megfelel-e a valóságnak:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&gt;&#34;</span><span style="color:#f92672">)</span>.And<span style="color:#f92672">(</span>g.V<span style="color:#f92672">()</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/film/film&gt;&#34;</span><span style="color:#f92672">))</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/en/death_proof&gt;
+    ****
+    id : &lt;/en/jazmin&gt;
+    ****
+    id : &lt;/en/planet_terror&gt;
+    ****
+    id : &lt;/en/scary_movie_2&gt;
+    ****
+    id : &lt;/en/scary_movie_3&gt;
+    ****
+    id : &lt;/en/the_lord_of_the_rings_1978&gt;
+    -----------
+    <span style="color:#ae81ff">6</span> Results
+    Elapsed time: 72.999153 ms
+
+</code></pre></div><p>Sajnos feltevésünk helyesnek bizonyult. Ezek azonban egyértelműen hibák. Kijelenthetjük tehát, hogy a <code>person</code> típusú csomópontból, normális esetben nem indul ki <code>&lt;/film/film/starring&gt;</code> predikátum sem a <code>character</code>, sem más csomópont irányába.</p>
+<p>A végleges séma tehát, ami csak az értelmes kapcsolatokat szemlélteti, a 9. ábrán látható.</p>
+<figure>
+    <img src="/cayley-cookbook/discover_movie_graph_4_4.png"/> <figcaption>
+            <h4>9. ábra: A film adatbázis sémája.</h4>
+        </figcaption>
+</figure>
+
+
+    </article>
+    <hr />
+    <ul>
+    
+    
+    </ul>
+</main>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+  
+
+
+  
+
+  
+
+
+  
+
+
+<div class="book-languages" tabindex="0" aria-haspopup="true">
+  <ul>
+    <li class="flex align-center">
+      <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+      Magyar
+    </li> 
+  </ul>
+
+  <ul class="book-languages-list">
+    
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/graph_discovery/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </li>
+    
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        Magyar
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#probléma">Probléma:</a></li>
+    <li><a href="#megoldás">Megoldás</a>
+      <ul>
+        <li><a href="#0-lépés-indítsuk-el-a-repl-t-az-adatbázissal">0. lépés: Indítsuk el a REPL-t az adatbázissal</a></li>
+        <li><a href="#2-lépés-csoportosítsuk-a-predikátumokat-együttes-előfordulás-szerint">2. lépés: Csoportosítsuk a predikátumokat együttes előfordulás szerint</a></li>
+        <li><a href="#3-lépés-keressük-meg-a-terminális-csomópontokat">3. lépés: Keressük meg a terminális csomópontokat</a></li>
+        <li><a href="#4-válasszuk-szét-a-különálló-csomópont-típusokat">4. válasszuk szét a különálló csomópont típusokat</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
