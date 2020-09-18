@@ -1408,21 +1408,21 @@ Nézzük meg ezt a 6 személyt részletesebben, tag-ekkel kiegészítve, hogy po
 
 </code></pre></div><p>Meglepő, de ebből is találunk 96 darabot. Járjunk végére, hogy hová mutatnak ezek a kapcsolatok!</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
-cayley&gt; y_person <span style="color:#f92672">=</span> g.V<span style="color:#f92672">()</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.GetLimit<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span>
+    cayley&gt; y_person <span style="color:#f92672">=</span> g.V<span style="color:#f92672">()</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.GetLimit<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span>
 
-****
-id : _:95530
-****
-id : _:95531
-****
-id : _:95532
-****
-id : _:95533
-****
-id : _:95534
------------
-<span style="color:#ae81ff">5</span> Results
-Elapsed time: 12.859301 ms
+    ****
+    id : _:95530
+    ****
+    id : _:95531
+    ****
+    id : _:95532
+    ****
+    id : _:95533
+    ****
+    id : _:95534
+    -----------
+    <span style="color:#ae81ff">5</span> Results
+    Elapsed time: 12.859301 ms
 
 </code></pre></div><p>Jól látható, hogy Blank node-ok, tehát valószínűleg <code>x_character</code> típusú csomópontokra mutatnak.</p>
 <p>Hajtsunk végre egy olyan lekérdezést, ahol személy típusú csomópontból (&ldquo;originPerson&rdquo;) kiindulva, a <code>&lt;/film/film/starring&gt;</code> kapcsolaton keresztül továbbmegy a színész (&ldquo;actor&rdquo;) irányába, és nézzük meg a lánc végén álló csomópont nevét és típusát. Minden kiinduló csomópontot csak egyszer jelenítsen meg.</p>

@@ -753,21 +753,21 @@ Meglepő, de ebből is találunk 96 darabot. Járjunk végére, hogy hová mutat
 
 ```bash
 
-cayley> y_person = g.V().Has("<type>", "</people/person>").Out("</film/film/starring>").GetLimit(5)
+    cayley> y_person = g.V().Has("<type>", "</people/person>").Out("</film/film/starring>").GetLimit(5)
 
-****
-id : _:95530
-****
-id : _:95531
-****
-id : _:95532
-****
-id : _:95533
-****
-id : _:95534
------------
-5 Results
-Elapsed time: 12.859301 ms
+    ****
+    id : _:95530
+    ****
+    id : _:95531
+    ****
+    id : _:95532
+    ****
+    id : _:95533
+    ****
+    id : _:95534
+    -----------
+    5 Results
+    Elapsed time: 12.859301 ms
 
 ```
 
