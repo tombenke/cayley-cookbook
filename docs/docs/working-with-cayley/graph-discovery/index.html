@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Problem: #  How can I execute queries in an unknown graph (e.g. the sample film database), if I do not know its internal structure?
+Solution #  In the following we will go through a possible sequence of steps of analysis. At the end of the process, we will be able to query or modify the unknown graph. We do not need to know anything about this graph. At the same time, we suppose that this unknown graph is not made of randomly created and connected nodes, but it has it own &ldquo;system&rdquo;.">
+<meta name="theme-color" content="#FFFFFF">
+<meta content="" name="keywords"><meta property="og:title" content="Discover and unknown graph" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/graph-discovery/" />
+
+<title>Discover and unknown graph | Cayley-CookBook</title>
+<link rel="manifest" href="/cayley-cookbook/manifest.json">
+<link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/graph-discovery/" title="Ismeretlen gráf felderítése">
+
+<link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
+<script defer src="/cayley-cookbook/en.search.min.4c9b26d9f511865c7da0222e0236ba8544223a4d00cd2e9e122023955d0a20bd.js" integrity="sha256-TJsm2fURhlx9oCIuAja6hUQiOk0AzS6eEiAjlV0KIL0="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-177858708-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<link rel="alternate" type="application/rss+xml" href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/graph-discovery/index.xml" title="Cayley-CookBook" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cayley-cookbook"><span>Cayley-CookBook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/docs/about/" class="">About</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0b4b91c3e895b5b421f3a9ca328085e2" class="toggle"  />
+    <label for="section-0b4b91c3e895b5b421f3a9ca328085e2" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/" class="">Basic Concepts</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9e5b7d94586a2a74330ea93134dc430d" class="toggle"  />
+    <label for="section-9e5b7d94586a2a74330ea93134dc430d" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/graph-based-data-model/" class="">Graph Based Data Model</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-86ea22ee388a68f5f8258db6deedc9cf" class="toggle"  />
+    <label for="section-86ea22ee388a68f5f8258db6deedc9cf" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/resources/" class="">Resources</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6b04320f1df6b5bc1c81a51e4d013cc1" class="toggle"  />
+    <label for="section-6b04320f1df6b5bc1c81a51e4d013cc1" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/statements/" class="">Statements</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-535a835799ee5396945be16dc8aca8ca" class="toggle"  />
+    <label for="section-535a835799ee5396945be16dc8aca8ca" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/vocabularies/" class="">Vocabularies</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-621dac7ed1f558b46cb004b04e59790c" class="toggle"  />
+    <label for="section-621dac7ed1f558b46cb004b04e59790c" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/rdf-graphs/" class="">Knowledge-Graph Representations</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c884cc905859feaeeba34abb45b69022" class="toggle"  />
+    <label for="section-c884cc905859feaeeba34abb45b69022" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/" class="">Cayley Overview</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8d961dabcc784e5f545055da7d36d04e" class="toggle"  />
+    <label for="section-8d961dabcc784e5f545055da7d36d04e" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-convert/" class="">The `cayley convert` command</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-97f12c3cdfd7240aa4c86056b0003f88" class="toggle"  />
+    <label for="section-97f12c3cdfd7240aa4c86056b0003f88" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-init/" class="">The `cayley init` command</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-91a5cf1c44b66e29df3dfb08aee97c1d" class="toggle"  />
+    <label for="section-91a5cf1c44b66e29df3dfb08aee97c1d" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-load/" class="">The `cayley load` command</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-40eaa83532b4f601a22562f349d2de4e" class="toggle"  />
+    <label for="section-40eaa83532b4f601a22562f349d2de4e" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-dump/" class="">The `cayley dump` command</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d86babfe8513d744f11e1bf56539f885" class="toggle"  />
+    <label for="section-d86babfe8513d744f11e1bf56539f885" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-repl/" class="">The `cayley repl` command</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4d4f6be28690d5894cb2b564dd4cf3a8" class="toggle"  />
+    <label for="section-4d4f6be28690d5894cb2b564dd4cf3a8" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/" class="">The `cayley query` command</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-74ec165895f19ac3241763c948bc108d" class="toggle"  />
+    <label for="section-74ec165895f19ac3241763c948bc108d" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-http/" class="">The `cayley http` command</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-aad6527c2cf64cdfc3adbe8910fa4a67" class="toggle" checked />
+    <label for="section-aad6527c2cf64cdfc3adbe8910fa4a67" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/" class="">Working with Knowledge Graph</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-24f6eb6f2deb1ac54d6e13f528fb9730" class="toggle" checked />
+    <label for="section-24f6eb6f2deb1ac54d6e13f528fb9730" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/graph-discovery/" class="active">Discover and unknown graph</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2028abdf26cc5b139add5143f4cc6b64" class="toggle"  />
+    <label for="section-2028abdf26cc5b139add5143f4cc6b64" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/" class="">Namespaces and Vocabularies</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/list-namespaces/" class="">List Registered Namespaces</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/register-namespace/" class="">Register a New Namespace</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/vocabularies/" class="">Create a New Vocabulary</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-18a767c6ada8c94d02aae63a7c5b98db" class="toggle"  />
+    <label for="section-18a767c6ada8c94d02aae63a7c5b98db" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/" class="">Stores</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/create-store/" class="">Create Store</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/make-quads/" class="">Make Quads</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-nodes/" class="">List all nodes from store</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-quads/" class="">List all quads from store</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6fb278fba30cb42d5051d7bb126bed5a" class="toggle"  />
+    <label for="section-6fb278fba30cb42d5051d7bb126bed5a" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/" class="">Data import / export</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-22d669f3dc7ec740774b069c51439188" class="toggle"  />
+    <label for="section-22d669f3dc7ec740774b069c51439188" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/" class="">Export Quads</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-355d6ceebb84ea9f80e9744bb3108788" class="toggle"  />
+    <label for="section-355d6ceebb84ea9f80e9744bb3108788" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/schema/" class="">Data import / export via struct annotation</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ce0866132ec415c74e2fabd79f09c553" class="toggle"  />
+    <label for="section-ce0866132ec415c74e2fabd79f09c553" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/" class="">Queries</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/find_all_vertices/" class="">Find All Vertices</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/find_all_predicates/" class="">Find All Predicates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/bidirectional/" class="">Bi-directional Relations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-94011c4e55e5dcfb025b2accbe0fb8fc" class="toggle"  />
+    <label for="section-94011c4e55e5dcfb025b2accbe0fb8fc" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/bookmarks/" class="">Find bookmarks by tags</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Discover and unknown graph</strong>
+
+  <label for="toc-control">
+    
+    <img src="/cayley-cookbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#problem">Problem:</a></li>
+    <li><a href="#solution">Solution</a>
+      <ul>
+        <li><a href="#step-0-start-the-repl-with-the-database">Step 0.: Start the REPL with the database</a></li>
+        <li><a href="#step-1-find-all-the-predicates-used-in-the-graph">Step 1.: Find all the predicates used in the graph</a></li>
+        <li><a href="#step-2-form-predicate-groups-according-to-their-co-occurrence">Step 2.: Form predicate groups according to their co-occurrence</a></li>
+        <li><a href="#step-3-find-the-terminal-nodes">Step 3.: Find the terminal nodes</a></li>
+        <li><a href="#4-separate-the-different-node-types-from-each-other">4. Separate the different node types from each other</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<main>
+    <article>
+        <header>
+            <h1>Discover and unknown graph</h1>
+        </header>
+        
+        <h2 id="problem">
+  Problem:
+  <a class="anchor" href="#problem">#</a>
+</h2>
+<p>How can I execute queries in an unknown graph (e.g. the sample film database), if I do not know its internal structure?</p>
+<h2 id="solution">
+  Solution
+  <a class="anchor" href="#solution">#</a>
+</h2>
+<p>In the following we will go through a possible sequence of steps of analysis. At the end of the process, we will be able to query or modify the unknown graph. We do not need to know anything about this graph. At the same time, we suppose that this unknown graph is not made of randomly created and connected nodes, but it has it own &ldquo;system&rdquo;. At least at the theoretical level, there is a virtual schema of it, and the predicates used in the graph follow some naming conventions, and they were created among some logic, that may refer to their meaning and roles.</p>
+<p>We will visualize the schema on a diagram, step-by-step as we move forward on the process of analysis. We will draw with yellow color those IRIs that we know their actual IDs. The literal nodes will be drawn with green color including the name of the type. The unknown nodes will be drawn with blue color, and we will assign a variable name to them.</p>
+<h3 id="step-0-start-the-repl-with-the-database">
+  Step 0.: Start the REPL with the database
+  <a class="anchor" href="#step-0-start-the-repl-with-the-database">#</a>
+</h3>
+<p>Let&rsquo;s start the REPL console of <a href="https://cayley.io/" target="_blank">Cayley</a>
+-t using an in-memory database, immediately loading the data to be investigated:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    $ cayley repl --load data/30kmoviedata.nq.gz 
+    I0917 19:12:42.483992   <span style="color:#ae81ff">18114</span> cayley.go:63<span style="color:#f92672">]</span> Cayley version: 0.7.5 <span style="color:#f92672">(</span>cf576babb7db<span style="color:#f92672">)</span>
+    I0917 19:12:42.484240   <span style="color:#ae81ff">18114</span> database.go:187<span style="color:#f92672">]</span> using backend <span style="color:#e6db74">&#34;memstore&#34;</span>
+    I0917 19:12:46.897340   <span style="color:#ae81ff">18114</span> database.go:250<span style="color:#f92672">]</span> loaded <span style="color:#e6db74">&#34;data/30kmoviedata.nq.gz&#34;</span> in 4.413006871s
+    cayley&gt;
+
+</code></pre></div><p>In the followings we will use this utility to execute the steps of the analysis.</p>
+<h3 id="step-1-find-all-the-predicates-used-in-the-graph">
+  Step 1.: Find all the predicates used in the graph
+  <a class="anchor" href="#step-1-find-all-the-predicates-used-in-the-graph">#</a>
+</h3>
+<p>The following query finds all outgoing predicates, starting from the set of all nodes in the graph. Then it also collects all incoming predicates as well, finally creates the union of the two result sets. In order to have each predicate, only once, it also executes the <code>Unique()</code> operation on the union set:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.OutPredicates<span style="color:#f92672">()</span>.Union<span style="color:#f92672">(</span>g.V<span style="color:#f92672">()</span>.InPredicates<span style="color:#f92672">())</span>.Unique<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>;
+
+    ****
+    id : &lt;/film/performance/actor&gt;
+    ****
+    id : &lt;name&gt;
+    ****
+    id : &lt;type&gt;
+    ****
+    id : &lt;/film/performance/character&gt;
+    ****
+    id : &lt;/film/film/directed_by&gt;
+    ****
+    id : &lt;/film/film/starring&gt;
+    -----------
+    <span style="color:#ae81ff">6</span> Results
+    Elapsed time: 720.486208 ms
+
+</code></pre></div><p>In the results we can see that these are the predicates that used in the graph:</p>
+<ul>
+<li><code>&lt;/film/performance/actor&gt;</code></li>
+<li><code>&lt;name&gt;</code></li>
+<li><code>&lt;type&gt;</code></li>
+<li><code>&lt;/film/performance/character&gt;</code></li>
+<li><code>&lt;/film/film/directed_by&gt;</code></li>
+<li><code>&lt;/film/film/starring&gt;</code></li>
+</ul>
+<p>Try to visualize an initial schema that holds the collected info, that we will gradually extend as we discover the graph step-by-step. The Figure 1. shows the diagram.</p>
+<figure>
+    <img src="/cayley-cookbook/discover_movie_graph_1.png"/> <figcaption>
+            <h4>Figure 1.: The predicates of the database</h4>
+        </figcaption>
+</figure>
+
+<h3 id="step-2-form-predicate-groups-according-to-their-co-occurrence">
+  Step 2.: Form predicate groups according to their co-occurrence
+  <a class="anchor" href="#step-2-form-predicate-groups-according-to-their-co-occurrence">#</a>
+</h3>
+<p>Let&rsquo;s identify those predicates based on their co-occurrence on nodes, and form groups out of these predicates.</p>
+<h4 id="step-21-aggregate-the-outgoing-predicates">
+  Step 2.1.: Aggregate the outgoing predicates
+  <a class="anchor" href="#step-21-aggregate-the-outgoing-predicates">#</a>
+</h4>
+<p>First collect those outgoing predicates, that have their inbound leg on the same node.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.In<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/actor&gt;&#34;</span><span style="color:#f92672">)</span>.OutPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/film/performance/actor&gt;
+    ****
+    id : &lt;/film/performance/character&gt;
+    -----------
+    <span style="color:#ae81ff">2</span> Results
+    Elapsed time: 174.893162 ms
+
+</code></pre></div><p>The result list shows that the <code>&lt;/film/performance/actor&gt;</code> and the <code>&lt;/film/performance/character&gt;</code> predicates belong to the same group, so it is very probable that usually the connect to the same node types as outbound predicates.</p>
+<p>We have to gain the same result, whichever predicate from this group we use for the same type of query:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.In<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/character&gt;&#34;</span><span style="color:#f92672">)</span>.OutPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/film/performance/actor&gt;
+    ****
+    id : &lt;/film/performance/character&gt;
+    -----------
+    <span style="color:#ae81ff">2</span> Results
+    Elapsed time: 45.116628 ms
+
+</code></pre></div><p>Continue with the next predicate, that does not belong to this group, that we have just identified:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.In<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;name&gt;&#34;</span><span style="color:#f92672">)</span>.OutPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;name&gt;
+    ****
+    id : &lt;type&gt;
+    ****
+    id : &lt;/film/film/directed_by&gt;
+    ****
+    id : &lt;/film/film/starring&gt;
+    -----------
+    <span style="color:#ae81ff">4</span> Results
+    Elapsed time: 178.340908 ms
+
+</code></pre></div><p>We could identify another group that contains all the remaining predicates. This way we have grouped all outgoing the predicates contained by the graph.</p>
+<p>Now assign these predicates to node variables, according to their grouping, and put them to the graph diagram, as we can see on Figure 2.</p>
+<figure>
+    <img src="/cayley-cookbook/discover_movie_graph_2_1.png"/> <figcaption>
+            <h4>figure 2.: Outgoing predicates grouped by their co-occurrence</h4>
+        </figcaption>
+</figure>
+
+<h4 id="step-22-aggregate-the-incoming-predicates">
+  Step 2.2: Aggregate the incoming predicates
+  <a class="anchor" href="#step-22-aggregate-the-incoming-predicates">#</a>
+</h4>
+<p>Let&rsquo;s crawl on the predicates that arrive as incoming edge to the previously discovered nodes, and assign them to these node variables.</p>
+<p>In order to identify these incoming predicates, let&rsquo;s iterate through each items of the grouped outgoing predicates, and check their co-occurrences. We can do this by executing the following series of queries:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.In<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/actor&gt;&#34;</span><span style="color:#f92672">)</span>.InPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/film/film/starring&gt;
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 190.712052 ms
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.In<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/character&gt;&#34;</span><span style="color:#f92672">)</span>.InPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/film/film/starring&gt;
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 42.079836 ms
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.In<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span><span style="color:#f92672">)</span>.InPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/film/performance/actor&gt;
+    ****
+    id : &lt;/film/film/directed_by&gt;
+    -----------
+    <span style="color:#ae81ff">2</span> Results
+    Elapsed time: 149.433856 ms
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.In<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;film/film/directed_by&gt;&#34;</span><span style="color:#f92672">)</span>.InPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+</code></pre></div><p>In this latter case, there is no co-occurrence found.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.In<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.InPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+</code></pre></div><p>and neither in this case.</p>
+<p>Put the results of these queries onto the schema diagram as inbound edges, connecting to the corresponding node variables, as we can see on Figure 3.</p>
+<figure>
+    <img src="/cayley-cookbook/discover_movie_graph_2_2.png"/> <figcaption>
+            <h4>Figure 3.: Incoming and outgoing predicates grouped by their co-occurrence</h4>
+        </figcaption>
+</figure>
+
+<h4 id="merge-the-incoming-and-outgoing-predicate-groups">
+  Merge the incoming and outgoing predicate groups
+  <a class="anchor" href="#merge-the-incoming-and-outgoing-predicate-groups">#</a>
+</h4>
+<p>Merge the results sets as well as the schema diagram, according to the Figure 4.</p>
+<figure>
+    <img src="/cayley-cookbook/discover_movie_graph_2_3.png"/> <figcaption>
+            <h4>Figure 4.: The co-occurring predicates.</h4>
+        </figcaption>
+</figure>
+
+<blockquote class="book-hint info">
+  <p><strong>Important note:</strong></p>
+<p>The <code>x</code> and <code>y</code> node variables are not necessarily represent only one individual node type, because we put every inbound and outbound predicates into single groups.</p>
+
+</blockquote>
+
+<h3 id="step-3-find-the-terminal-nodes">
+  Step 3.: Find the terminal nodes
+  <a class="anchor" href="#step-3-find-the-terminal-nodes">#</a>
+</h3>
+<p>The terminal nodes are the ones that has no more outgoing predicate to other nodes.</p>
+<p>Let&rsquo;s study for each predicate that what kind of node it goes to.</p>
+<p>Start with the <code>&lt;/film/performance/character&gt;</code> predicate:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/character&gt;&#34;</span><span style="color:#f92672">)</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : Luther Krank
+    ****
+    id : Roland
+    ****
+    id : Tomás de Torquemada
+    ****
+    id : Ferdinand VII of Spain
+    ****
+    id : Christopher Columbus
+    ...
+
+</code></pre></div><p>Only the first 100 items of the result list will be printed by default.
+We can see that the results are string literals, the character names of the films.</p>
+<p>Count their number:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/character&gt;&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">15058</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 15.394561 ms
+
+</code></pre></div><p>Now let&rsquo;s check, if there is any predicate that goes further from any of these nodes:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/character&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">()</span>.Count<span style="color:#f92672">()</span>
+
+     <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">0</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 65.014376 ms
+
+</code></pre></div><p>The number of such nodes are 0, so these are terminal nodes, since they have no outgoing connections.</p>
+<p>Now do the same operation with the <code>&lt;name&gt;</code> predicate:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;name&gt;&#34;</span><span style="color:#f92672">)</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : David Fisher
+    ****
+    id : <span style="color:#ae81ff">002</span> Operazione Luna
+    ****
+    id : 008: Operation Exterminate
+    ****
+    id : 02:37:00 AM
+    ****
+    id : 06/05
+    ****
+    id : 10,000 BC
+    ****
+    ...
+
+</code></pre></div><p>These are also string literals.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;name&gt;&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">74950</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 44.480211 ms
+
+</code></pre></div><p>There are 74950.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;name&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">()</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">0</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 52.163808 ms
+
+</code></pre></div><p>And these are also terminal nodes.</p>
+<p>Let&rsquo;s continue with the <code>&lt;type&gt;</code> predicate:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span><span style="color:#f92672">)</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/people/person&gt;
+    ****
+    id : &lt;/film/film&gt;
+    ****
+    id : &lt;/film/film&gt;
+    ...
+
+</code></pre></div><p>These are IRIs, and we have many different ones.</p>
+<p>Let&rsquo;s collect these IRIs individually:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span><span style="color:#f92672">)</span>.Unique<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+     
+    ****
+    id : &lt;/people/person&gt;
+    ****
+    id : &lt;/film/film&gt;
+    -----------
+    <span style="color:#ae81ff">2</span> Results
+    Elapsed time: 43.759725 ms
+
+</code></pre></div><p>In total, there are only two such IRIs, the <code>&lt;/people/person&gt;</code> and the <code>&lt;/film/film&gt;</code>.</p>
+<p>Let&rsquo;s check if there were terminal nodes:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">()</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">0</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 48.857924 ms
+
+</code></pre></div><p>Yes, they are terminal nodes.</p>
+<p>Put these newly discovered IRI and literal nodes to the schema diagram, accompanied with the predicates that lead to them, as we can see on the Figure 5.</p>
+<figure>
+    <img src="/cayley-cookbook/discover_movie_graph_3_1.png"/> <figcaption>
+            <h4>5. ábra: The schema diagram extended with the terminal node types.</h4>
+        </figcaption>
+</figure>
+
+<h3 id="4-separate-the-different-node-types-from-each-other">
+  4. Separate the different node types from each other
+  <a class="anchor" href="#4-separate-the-different-node-types-from-each-other">#</a>
+</h3>
+<p>As much as possible, try to differentiate among the node types, and separate the different types from each other in case they may receive or send the same predicates, but refer to different kind of entities.</p>
+<h4 id="analysis-of-the-y-node-variable">
+  Analysis of the <code>y</code> node variable
+  <a class="anchor" href="#analysis-of-the-y-node-variable">#</a>
+</h4>
+<p>We can observe on the diagram that the <code>y</code> node has the <code>&lt;type&gt;</code> outgoing predicate with two different values, so this <code>y</code> node might be split to two different node types, that identify different entities. Let&rsquo;s separate the <code>y</code> node variable to two types, according to our hypotheses, as we can see on the Figure 6.</p>
+<figure>
+    <img src="/cayley-cookbook/discover_movie_graph_4_1.png"/> <figcaption>
+            <h4>6. ábra: Separation of `person` and `film` node-types.</h4>
+        </figcaption>
+</figure>
+
+<p>Use multi-step (2, 3, &hellip;n) predicate chains for the further analysis.</p>
+<p>Let&rsquo;s see which predicates points out from, and arrives to the node types derived from <code>y</code>, when we restrict the starting nodes to have their <code>&lt;type&gt;</code> relation with either the one type then the other type:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_film <span style="color:#f92672">=</span> g.V<span style="color:#f92672">()</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/film/film&gt;&#34;</span><span style="color:#f92672">)</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">[</span>internal Iterator<span style="color:#f92672">]</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 0.469018 ms
+
+    cayley&gt; y_film.OutPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/film/film/directed_by&gt;
+    ****
+    id : &lt;/film/film/starring&gt;
+    ****
+    id : &lt;name&gt;
+    ****
+    id : &lt;type&gt;
+    -----------
+    <span style="color:#ae81ff">4</span> Results
+    Elapsed time: 113.54646 ms
+
+</code></pre></div><p>Looking at the results, in case of films these seems to be normal.</p>
+<p>Now do the same check with the case of <code>person</code> node-type candidates:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_person <span style="color:#f92672">=</span> g.V<span style="color:#f92672">()</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&gt;&#34;</span><span style="color:#f92672">)</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">[</span>internal Iterator<span style="color:#f92672">]</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 0.552285 ms
+
+    cayley&gt; y_person.OutPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;name&gt;
+    ****
+    id : &lt;type&gt;
+    ****
+    id : &lt;/film/film/directed_by&gt;
+    ****
+    id : &lt;/film/film/starring&gt;
+    -----------
+    <span style="color:#ae81ff">4</span> Results
+    Elapsed time: 95.020065 ms
+
+</code></pre></div><p>We got the same results, that is a bit surprising, because it is hard to imagine that it makes sense to use the <code>&lt;/film/film/directed_by&gt;</code> nor the <code>&lt;/film/film/starring&gt;</code> predicates as outgoing connections.</p>
+<p>We caught suspicion, so take a look at this a bit deeper:</p>
+<p>A film probably has a director, so it worth to check this kind of connection:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_film.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/directed_by&gt;&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">33310</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 108.365305 ms
+
+</code></pre></div><p>We found 33310 hits of such kind of relation, and it seems to be obvious.</p>
+<p>Let&rsquo;s check, if the target nodes this predicate points to, are really persons!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_film.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/directed_by&gt;&#34;</span><span style="color:#f92672">)</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&gt;&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">33310</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 168.508677 ms
+
+</code></pre></div><p>Taking into consideration the numbers, it looks true. Let&rsquo;s see some of them by name:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_film.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/directed_by&gt;&#34;</span><span style="color:#f92672">)</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;name&gt;&#34;</span><span style="color:#f92672">)</span>.GetLimit<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span>
+
+    ****
+    id : Lucio Fulci
+    ****
+    id : Umberto Lenzi
+    ****
+    id : Murali K. Thalluri
+    ****
+    id : Theo van Gogh
+    ****
+    id : Roland Emmerich
+    -----------
+    <span style="color:#ae81ff">5</span> Results
+    Elapsed time: 1.071004 ms
+
+</code></pre></div><p>it seems that this type of connection, and node type are absolutely O.K.</p>
+<p>Now let&rsquo;s see what about the same relation with the person node types.
+Has any node with <code>&lt;/people/person&gt;</code> type any &ldquo;directed_by&rdquo; relation?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_person.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/directed_by&gt;&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">6</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 96.554532 ms
+
+</code></pre></div><p>Surprisingly we found 6 of them.</p>
+<p>Let&rsquo;s see these 6 persons closer. We use tags to visualize the details, that makes easier to understand what is the situation.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_person.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;person&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/directed_by&gt;&#34;</span><span style="color:#f92672">)</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;directed_by&#34;</span><span style="color:#f92672">)</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    directed_by : &lt;/en/quentin_tarantino&gt;
+    id : &lt;/en/quentin_tarantino&gt;
+    person : &lt;/en/death_proof&gt;
+    ****
+    directed_by : &lt;/en/mysterio&gt;
+    id : &lt;/en/mysterio&gt;
+    person : &lt;/en/jazmin&gt;
+    ****
+    directed_by : &lt;/en/robert_rodriguez&gt;
+    id : &lt;/en/robert_rodriguez&gt;
+    person : &lt;/en/planet_terror&gt;
+    ****
+    directed_by : &lt;/en/keenen_ivory_wayans&gt;
+    id : &lt;/en/keenen_ivory_wayans&gt;
+    person : &lt;/en/scary_movie_2&gt;
+    ****
+    directed_by : &lt;/en/david_zucker&gt;
+    id : &lt;/en/david_zucker&gt;
+    person : &lt;/en/scary_movie_3&gt;
+    ****
+    directed_by : &lt;/en/ralph_bakshi&gt;
+    id : &lt;/en/ralph_bakshi&gt;
+    person : &lt;/en/the_lord_of_the_rings_1978&gt;
+    -----------
+    <span style="color:#ae81ff">6</span> Results
+    Elapsed time: 95.293387 ms
+
+</code></pre></div><p>As we can see on the results list, in case of these 6 nodes, the <code>&lt;directed_by&gt;</code> predicate is really point to persons, however we also can realize that the IRI of the origin node shows that in fact these origins are not persons, but films. We can say, it is very likely that the <code>&lt;type&gt;</code> predicate were defined badly in these six cases. These <code>&lt;type&gt;</code> predicates point to the <code>&lt;/people/person&gt;</code> IRI, instead of the correct <code>&lt;/film/film&gt;</code> IRI. So we consider this connection invalid, in spite the database contains such wrong links.</p>
+<p>The figure 7. shows the schema drawing that contains our latest findings too, that are: the <code>y_film</code> node-types have outgoing <code>&lt;/film/film/directed_by&gt;</code> predicate that points to <code>y_person</code> node types, an the <code>y_person</code> node types has no such predicates.</p>
+<figure>
+    <img src="/cayley-cookbook/discover_movie_graph_4_2.png"/> <figcaption>
+            <h4>Figure 7.: The outgoing predicates of `y_film` node types.</h4>
+        </figcaption>
+</figure>
+
+<p>Now let&rsquo;s continue with the analysis of the <code>&lt;/film/film/starring&gt;</code> predicate.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_film.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">136737</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 140.230179 ms
+
+    cayley&gt; y_film.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.GetLimit<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span>
+
+    ****
+    id : _:117646
+    ****
+    id : _:117647
+    ****
+    id : _:117648
+    ****
+    id : _:117649
+    ****
+    id : _:117240
+    -----------
+    <span style="color:#ae81ff">5</span> Results
+    Elapsed time: 1.052197 ms
+
+</code></pre></div><p>The <code>y_film</code> node type has 136737 connections with this predicate, that point to Blank Nodes.</p>
+<p>Let&rsquo;s see what kind of incoming and outgoing predicates these &ldquo;character&rdquo; nodes have:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_film.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.OutPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/film/performance/actor&gt;
+    ****
+    id : &lt;/film/performance/character&gt;
+    -----------
+    <span style="color:#ae81ff">2</span> Results
+    Elapsed time: 255.873653 ms
+
+    cayley&gt; y_film.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.InPredicates<span style="color:#f92672">()</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/film/film/starring&gt;
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 242.836008 ms
+
+</code></pre></div><p>The &ldquo;character&rdquo; Blank Nodes can be considered as the node type that we named to <code>x</code> on the schema diagram.</p>
+<p>As a check, let&rsquo;s see if we can find actors and roles connected to films, using the predicates:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_film <span style="color:#f92672">=</span> g.V<span style="color:#f92672">()</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/film/film&gt;&#34;</span><span style="color:#f92672">)</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">[</span>internal Iterator<span style="color:#f92672">]</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 0.897193 ms
+
+    cayley&gt; filmWithTitle <span style="color:#f92672">=</span> y_film.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;film&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;name&gt;&#34;</span><span style="color:#f92672">)</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;filmTitle&#34;</span><span style="color:#f92672">)</span>.Back<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;film&#34;</span><span style="color:#f92672">)</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">[</span>internal Iterator<span style="color:#f92672">]</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 0.680148 ms
+
+    cayley&gt; filmStar <span style="color:#f92672">=</span> filmWithTitle.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;star&#34;</span><span style="color:#f92672">)</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">[</span>internal Iterator<span style="color:#f92672">]</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 0.340275 ms
+
+    cayley&gt; <span style="color:#f92672">{</span>t<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/character&gt;&#34;</span><span style="color:#f92672">)</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;character&#34;</span><span style="color:#f92672">)</span>.Back<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;star&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/actor&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;name&gt;&#34;</span><span style="color:#f92672">)</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;actorName&#34;</span><span style="color:#f92672">)</span>.GetLimit<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;10&#34;</span><span style="color:#f92672">)</span>
+
+    ****
+    actorName : Katherine Heigl
+    character : Arlene
+    film : &lt;/en/100_girls&gt;
+    filmTitle : <span style="color:#ae81ff">100</span> Girls
+    id : Katherine Heigl
+    star : _:239
+    ****
+    actorName : Joely Richardson
+    character : Anita
+    film : &lt;/en/101_dalmatians&gt;
+    filmTitle : <span style="color:#ae81ff">101</span> Dalmatians
+    id : Joely Richardson
+    star : _:457
+    ****
+    actorName : Susanne Blakeslee
+    character : Cruella de Vil
+    film : &lt;/en/101_dalmatians_ii_patchs_london_adventure&gt;
+    filmTitle : <span style="color:#ae81ff">101</span> Dalmatians II: Patch<span style="color:#960050;background-color:#1e0010">&#39;</span>s London Adventure
+    id : Susanne Blakeslee
+    star : _:71373
+    ****
+    actorName : Brian Markinson
+    character : Daniel
+    film : &lt;/en/10_5_apocalypse&gt;
+    filmTitle : 10.5: Apocalypse
+    id : Brian Markinson
+    star : _:218
+    ****
+    actorName : Heath Ledger
+    character : Patrick Verona
+    film : &lt;/en/10_things_i_hate_about_you&gt;
+    filmTitle : <span style="color:#ae81ff">10</span> Things I Hate about You
+    id : Heath Ledger
+    star : _:503
+    ****
+    actorName : James Marsden
+    character : Tommy
+    film : &lt;/en/10th_wolf&gt;
+    filmTitle : 10th &amp; Wolf
+    id : James Marsden
+    star : _:284
+    ****
+    actorName : Jeana Tomasino
+    character : Karen
+    film : &lt;/en/10_to_midnight&gt;
+    filmTitle : <span style="color:#ae81ff">10</span> to Midnight
+    id : Jeana Tomasino
+    star : _:100658
+    ****
+    actorName : Jason Segel
+    character : Leon <span style="color:#f92672">(</span>paramedic 1<span style="color:#f92672">)</span>
+    film : &lt;/en/11_14&gt;
+    filmTitle : 11:14
+    id : Jason Segel
+    star : _:108561
+    ****
+    actorName : Henry Fonda
+    character : Juror <span style="color:#75715e">#8</span>
+    film : &lt;/en/12_angry_men&gt;
+    filmTitle : <span style="color:#ae81ff">12</span> Angry Men
+    id : Henry Fonda
+    star : _:462
+    ****
+    actorName : Lee J. Cobb
+    character : Juror <span style="color:#75715e">#3</span>
+    film : &lt;/en/12_angry_men&gt;
+    filmTitle : <span style="color:#ae81ff">12</span> Angry Men
+    id : Lee J. Cobb
+    star : _:463
+    -----------
+    <span style="color:#ae81ff">10</span> Results
+    Elapsed time: 7.233902 ms
+
+</code></pre></div><p>It definitely works. So we can say that the <code>x</code> node variable represents the film stars.</p>
+<p>We also can say that both the <code>&lt;/film/performance/actor&gt;</code> predicate, and the <code>&lt;/film/performance/character&gt;</code> predicate that origins from <code>x</code> and targets <code>y_person</code> are valid predicates, and represent real connections.</p>
+<p>Now emerges a new question, whether there is an outgoing <code>&lt;/film/performance/actor&gt;</code> predicate from <code>x</code> that targets a <code>y_film</code> node?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    filmStar.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/actor&gt;&#34;</span><span style="color:#f92672">)</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/film/film&gt;&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">1</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 1315.917655 ms
+
+</code></pre></div><p>It is strange, but we have found one.</p>
+<p>Which is this starring character, and which actor does it point to?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; filmStar.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/actor&gt;&#34;</span><span style="color:#f92672">)</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/film/film&gt;&#34;</span><span style="color:#f92672">)</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    film : &lt;/en/jazmin&gt;
+    filmTitle : Jazmin
+    id : &lt;/en/jazmin&gt;
+    star : _:23742
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 1340.16577 ms
+
+</code></pre></div><p>We can see that the ID of this starring character is the <code>_:23742</code> Blank Node, which points to a film instead of a person as the actor. Let&rsquo;s check if this Blank Node also has a similar connection to a real person too:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;_:23742&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/actor&gt;&#34;</span><span style="color:#f92672">)</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">0</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 0.68618 ms
+
+</code></pre></div><p>It has no such connection, so we have identified another bug in the database. We also make changes on the schema chart according to the new learnings, as it is shown on the Figure 8.</p>
+<figure>
+    <img src="/cayley-cookbook/discover_movie_graph_4_3.png"/> <figcaption>
+            <h4>figure 8.: The connections between the `y_person` and `x_character` node types.</h4>
+        </figcaption>
+</figure>
+
+<p>Finally there is only one predicate left, that we haven&rsquo;t analyzed so far. It the the <code>&lt;/film/film/starring&gt;</code> that origins from the <code>y_person</code> node types.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_person <span style="color:#f92672">=</span> g.V<span style="color:#f92672">()</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.Count<span style="color:#f92672">()</span>
+
+    <span style="color:#f92672">=</span>&gt; <span style="color:#ae81ff">96</span>
+    -----------
+    <span style="color:#ae81ff">1</span> Result
+    Elapsed time: 85.149164 ms
+
+</code></pre></div><p>It is again very surprising, but we have found 96 connections. Let&rsquo;s find out how is this possible, and where do these connections point to.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; y_person <span style="color:#f92672">=</span> g.V<span style="color:#f92672">()</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.GetLimit<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span>
+
+    ****
+    id : _:95530
+    ****
+    id : _:95531
+    ****
+    id : _:95532
+    ****
+    id : _:95533
+    ****
+    id : _:95534
+    -----------
+    <span style="color:#ae81ff">5</span> Results
+    Elapsed time: 12.859301 ms
+
+</code></pre></div><p>it is clearly visible that the Blank Nodes very likely points to <code>x_character</code> type nodes.</p>
+<p>Execute a query, where we start from person type nodes (&ldquo;originPeson&rdquo;) through a <code>&lt;/film/film/starring&gt;</code> predicate, towards an actor (&ldquo;actor&rdquo;), and retrieve the name and type of the node that is at the end of the chain.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;originPerson&#34;</span><span style="color:#f92672">)</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span><span style="color:#f92672">)</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;originType&#34;</span><span style="color:#f92672">)</span>.Back<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;originPerson&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/film/starring&gt;&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/film/performance/actor&gt;&#34;</span><span style="color:#f92672">)</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;actor&#34;</span><span style="color:#f92672">)</span>.Out<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span><span style="color:#f92672">)</span>.Tag<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;actorType&#34;</span><span style="color:#f92672">)</span>.Back<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;person&#34;</span><span style="color:#f92672">)</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    actor : &lt;/en/jazmin&gt;
+    actorType : &lt;/film/film&gt;
+    id : &lt;/en/jazmin&gt;
+    originPerson : &lt;/en/jazmin&gt;
+    originType : &lt;/film/film&gt;
+    ****
+    actor : &lt;/en/jazmin&gt;
+    actorType : &lt;/people/person&gt;
+    id : &lt;/en/jazmin&gt;
+    originPerson : &lt;/en/jazmin&gt;
+    originType : &lt;/film/film&gt;
+    ****
+    actor : &lt;/en/jazmin&gt;
+    actorType : &lt;/people/person&gt;
+    id : &lt;/en/jazmin&gt;
+    originPerson : &lt;/en/jazmin&gt;
+    originType : &lt;/people/person&gt;
+    ****
+
+    ...
+
+
+    ****
+    actor : &lt;/en/anthony_daniels&gt;
+    actorType : &lt;/people/person&gt;
+    id : &lt;/en/the_lord_of_the_rings_1978&gt;
+    originPerson : &lt;/en/the_lord_of_the_rings_1978&gt;
+    originType : &lt;/people/person&gt;
+    ****
+    actor : &lt;/guid/9202a8c04000641f800000000112e07f&gt;
+    actorType : &lt;/people/person&gt;
+    id : &lt;/en/the_lord_of_the_rings_1978&gt;
+    originPerson : &lt;/en/the_lord_of_the_rings_1978&gt;
+    originType : &lt;/film/film&gt;
+    -----------
+    <span style="color:#ae81ff">100</span> Results
+    Elapsed time: 965.035817 ms
+</code></pre></div><p>If we look through the result list, again we can observe contradictions among the relations in the database. We can detect several errors. Based on the results list, we can assume that some of the <code>y</code> nodes may have <code>&lt;type&gt;</code> predicates that points both to the <code>&lt;/film/film&gt;</code> and the <code>&lt;/people/person&gt;</code> IRI nodes.</p>
+<p>Prove that this assumption is true:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+    cayley&gt; g.V<span style="color:#f92672">()</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/people/person&gt;&#34;</span><span style="color:#f92672">)</span>.And<span style="color:#f92672">(</span>g.V<span style="color:#f92672">()</span>.Has<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;type&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;/film/film&gt;&#34;</span><span style="color:#f92672">))</span>.All<span style="color:#f92672">()</span>
+
+    ****
+    id : &lt;/en/death_proof&gt;
+    ****
+    id : &lt;/en/jazmin&gt;
+    ****
+    id : &lt;/en/planet_terror&gt;
+    ****
+    id : &lt;/en/scary_movie_2&gt;
+    ****
+    id : &lt;/en/scary_movie_3&gt;
+    ****
+    id : &lt;/en/the_lord_of_the_rings_1978&gt;
+    -----------
+    <span style="color:#ae81ff">6</span> Results
+    Elapsed time: 72.999153 ms
+
+</code></pre></div><p>Unfortunately, our assumptions were correct, and these are real inconsistencies in the database.
+We can state that from the <code>person</code> node type, there is no <code>&lt;/film/film/starring&gt;</code> outgoing predicate towards the <code>character</code> nodes in normal cases.</p>
+<p>Now we can finish the schema diagram, that you can see on the figure 9.</p>
+<figure>
+    <img src="/cayley-cookbook/discover_movie_graph_4_4.png"/> <figcaption>
+            <h4>Figure 9.: The schema diagram of the film database.</h4>
+        </figcaption>
+</figure>
+
+
+    </article>
+    <hr />
+    <ul>
+    
+    
+    </ul>
+</main>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+  
+
+
+  
+
+  
+
+
+  
+
+
+<div class="book-languages" tabindex="0" aria-haspopup="true">
+  <ul>
+    <li class="flex align-center">
+      <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+      English
+    </li> 
+  </ul>
+
+  <ul class="book-languages-list">
+    
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </li>
+    
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/graph-discovery/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        Magyar
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#problem">Problem:</a></li>
+    <li><a href="#solution">Solution</a>
+      <ul>
+        <li><a href="#step-0-start-the-repl-with-the-database">Step 0.: Start the REPL with the database</a></li>
+        <li><a href="#step-1-find-all-the-predicates-used-in-the-graph">Step 1.: Find all the predicates used in the graph</a></li>
+        <li><a href="#step-2-form-predicate-groups-according-to-their-co-occurrence">Step 2.: Form predicate groups according to their co-occurrence</a></li>
+        <li><a href="#step-3-find-the-terminal-nodes">Step 3.: Find the terminal nodes</a></li>
+        <li><a href="#4-separate-the-different-node-types-from-each-other">4. Separate the different node types from each other</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

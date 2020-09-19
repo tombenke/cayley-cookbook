@@ -22,7 +22,7 @@ Az alábbi táblázat összefoglalja a leggyakrabban használatos formátumokat.
 {{< hint info >}}
 __Megjegyzés:__
 
-A táblázat csak a teljesség kedvéért sorolja fel a formátumokat. Számunkra első közelítésben, szinte kizárólag az `n-quads`, `n-triples` és a `Turtle` formátumok fontosak. A többit nem szükséges mélyebben tanulmányozni, ahhoz, hogy a szakácskönyv példáit megértsük, és hogy a {{< cayley >}}-t használhassuk.
+A táblázat csak a teljesség kedvéért sorolja fel a formátumokat. Számunkra első közelítésben, szinte kizárólag az `n-quads`, `n-triples` formátumok funtosa. A `Turtle` formátum szintén nagyon hasznos, ezt alkalmazni is fogjuk néhány példában. A többit nem szükséges mélyebben tanulmányozni, ahhoz, hogy a szakácskönyv példáit megértsük, és hogy a {{< cayley >}}-t használhassuk.
 {{< /hint >}}
 
 | formátum | kiterjesztés | mime-type | mikor használjuk? |

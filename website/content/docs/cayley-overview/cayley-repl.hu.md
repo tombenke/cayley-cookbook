@@ -72,3 +72,6 @@ Lássuk, hogy a session-t követően mit találunk a `.cayley_history` file-ban:
     g.V().All()
 
 ```
+
+Az ["Ismeretlen gráf felderítése"]({{< relref "/docs/working-with-cayley/graph-discovery" >}}) c. fejezet szemlélteti, hogyan lehet a `cayley repl` parancsot alkalmazni, olyan gráf felderítésére, amiről nem tudunk semmit.
+

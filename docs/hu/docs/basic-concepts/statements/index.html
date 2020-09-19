@@ -25,7 +25,7 @@ Luke-Skywalker has-age 23. A mondat elemei:
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/statements/" title="Statements">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
-<script defer src="/cayley-cookbook/hu.search.min.8e462cc2e4c32e77512b2607dbab77721a3b048f72e45aa59522ac5e8e68d034.js" integrity="sha256-jkYswuTDLndRKyYH26t3cho7BI9y5FqllSKsXo5o0DQ="></script>
+<script defer src="/cayley-cookbook/hu.search.min.2f7b95a11e4ad6ce8ea2fe4a5ac80392b3867fe645cd055902c74a637199cdc2.js" integrity="sha256-L3uVoR5K1s6Oov5KWsgDkrOGf&#43;ZFzQVZAsdKY3GZzcI="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -366,9 +366,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-fb1c3038e7d7a71da0551a3080872531" class="toggle"  />
-    <label for="section-fb1c3038e7d7a71da0551a3080872531" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/graph_discovery/" class="">Ismeretlen gráf felderítése</a>
+    <input type="checkbox" id="section-3a34ddde015d7e2ca602a77a0ae0d821" class="toggle"  />
+    <label for="section-3a34ddde015d7e2ca602a77a0ae0d821" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/graph-discovery/" class="">Ismeretlen gráf felderítése</a>
       <span>▾</span>
     </label>
   
@@ -506,19 +506,6 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-quads/" class="">A store összes quad-jának kilistázása</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/internals/" class="">A node-ok és quad-ok belső reprezentációja</a>
   
 
         </li>
@@ -663,50 +650,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-e8aec92da5f23c882db6bdd4d2f66642" class="toggle"  />
-    <label for="section-e8aec92da5f23c882db6bdd4d2f66642" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/crud-operations/" class="">CRUD Műveletek</a>
-      <span>▾</span>
-    </label>
-  
-
-          
-  <ul>
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-0286dce401f1b4f8b31afbecd52d27b4" class="toggle"  />
-    <label for="section-0286dce401f1b4f8b31afbecd52d27b4" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/transactions/" class="">Tranzakciók</a>
-      <span>▾</span>
-    </label>
-  
-
-          
-  <ul>
-    
-  </ul>
-
-        </li>
-      
-    
   </ul>
 
         </li>
@@ -764,6 +707,7 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#alany-állítmány-tárgy">Alany, Állítmány, Tárgy</a></li>
     <li><a href="#üres-node-ok">Üres node-ok</a></li>
+    <li><a href="#a-node-ok-és-quad-ok-belső-reprezentációja">A node-ok és quad-ok belső reprezentációja</a></li>
   </ul>
 </nav>
 
@@ -806,12 +750,6 @@ Ezen felül szükségünk vagy egy literálra, aminek az értéke <code>23</code
 Végleges formában tehát a kijelentés az alábbi lesz:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">    &lt;Luke-Skywalker-from-StarWars&gt; &lt;has-age&gt; 23^^integer .
 </code></pre></div><p>Láthatjuk az 1. ábrán, hogy a <code>subject-predicate-object</code> hármas felrajzolható gráfként, ahol a subject és az object node-okként jelenik meg, és a predicate lesz a két node-ot összekötő, irányított él.</p>
-<blockquote class="book-hint info">
-  <p><strong>Fontos Megjegyzés:</strong></p>
-<p>Valójában, a predikátumok belső reprezentációja szintén gráf csomópont, ami jellemzően IRI, vagy esetenként literál érték lehet. Ezek a predikátumok megjelenhetnek a keresési eredménylistákban is. Az 1. ábra a tripletek klasszikus gráf ábrázolási formáját mutatja, ami tulajdonképpen egy cimkével azonosított bináris relációt jelképez.</p>
-
-</blockquote>
-
 <figure>
     <img src="/cayley-cookbook/subject-predicate-object-graph.png"/> <figcaption>
             <h4>1. ábra: Subject-Predicate-Object Gráf</h4>
@@ -907,6 +845,28 @@ Kapcsolódó oldalak:
 
 </p>
 
+<h2 id="a-node-ok-és-quad-ok-belső-reprezentációja">
+  A node-ok és quad-ok belső reprezentációja
+  <a class="anchor" href="#a-node-ok-%c3%a9s-quad-ok-bels%c5%91-reprezent%c3%a1ci%c3%b3ja">#</a>
+</h2>
+<p>Fontos Megjegyeznünk, hogy valójában, a predikátumok belső reprezentációja szintén gráf csomópont, ami jellemzően IRI, vagy esetenként literál érték lehet. Ezek a predikátumok megjelenhetnek a keresési eredménylistákban is.</p>
+<p>A 4. ábra szemlélteti, hogyan néz ki a belső reprezentáció (bal oldal), ahhoz a jelölésmódhoz viszonyítva, amit eddig alkalmaztunk a quad-ok ábrázolására (jobb oldal).</p>
+<p>A diagram a következő két quad-ot jeleníti meg:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> &lt;starwars:leia_organa&gt; &lt;foaf:familyName&gt; <span style="color:#e6db74">&#34;Organa&#34;</span> <span style="color:#e6db74">&#34;people&#34;</span> .
+ &lt;starwars:leia_organa&gt; &lt;foaf:knows&gt; _:n353930893927990388 <span style="color:#e6db74">&#34;people&#34;</span> .
+</code></pre></div><figure>
+    <img src="/cayley-cookbook/internal-representation.png"/> <figcaption>
+            <h4>4. ábra: A quad-ok belső reprezentációja.</h4>
+        </figcaption>
+</figure>
+
+<p>A belső reprezentációval kapcsolatban az alábbi megállapításokat tehetjük, az ábra alapján:</p>
+<ul>
+<li>A subject-ek, object-ek ((IRI-k és Blank Node-ok), továbbá a literál értékek mindannyian gáf csomópontokként vannak reprezentálva,</li>
+<li>A predikátumok szintén gráf csomópontokkal vannak reprezentálva,</li>
+<li>A gráf címkék úgyszintén gráf csomópontokkal vannak reprezentálva,</li>
+<li>Minden egyes komplett n-quad kijelentés egy további, kiegészítő gráf csomóponttal van reprezentálva.</li>
+</ul>
 </article>
  
       
@@ -982,6 +942,7 @@ Kapcsolódó oldalak:
   <ul>
     <li><a href="#alany-állítmány-tárgy">Alany, Állítmány, Tárgy</a></li>
     <li><a href="#üres-node-ok">Üres node-ok</a></li>
+    <li><a href="#a-node-ok-és-quad-ok-belső-reprezentációja">A node-ok és quad-ok belső reprezentációja</a></li>
   </ul>
 </nav>
 

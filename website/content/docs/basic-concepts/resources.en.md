@@ -54,13 +54,13 @@ Typically the resources are the nodes of the knowledge-graphs, but often, the ed
 
 ## IRIs
 
-The resources (entities with other words) have to be identified.
+The resources (or entities) have to be identified.
 For this purpose we use the so called IRIs.
 IRI is the acronym of Internationalized Resource Identifier.
 
-An IRI is a Unicode character string. Its standard format is defined by [RFC 3987](https://www.ietf.org/rfc/rfc3987.txt), and it uniquely identify an entity.
+An IRI is a Unicode character string. Its standard format is defined by [RFC 3987](https://www.ietf.org/rfc/rfc3987.txt), and it uniquely identifies an entity.
 
-The IRI strings can contain alpha-numeric characters, escape sequences, and these are enclosed between the `<` and `>` characters. An IRI is very similar to the URIs, that stand for Uniform Resource Identifier, which are well known from the World-Wide-Web.
+The IRI strings can contain alpha-numeric characters, escape sequences, and these are enclosed between the `<` and `>` characters. An IRI is very similar to the URIs, that stands for Uniform Resource Identifier, which are well known from the World-Wide-Web.
 
 The IRIs can be taken to the generalized version of URIs. The exist only in absolute form. every absolute URI can be used as an IRI, but not every IRI can be used as URL.
 
@@ -93,7 +93,7 @@ The resources we want to represent, usually have internal details, that we also 
 
 For example, in case of a specific person, such properties can be the name of the person, the date of birth, etc. The values of these properties then the actual name and date, that the properties can hold.
 
-These property values are named _literal values_, or simple _literals_.
+These property values are named _literal values_, or simply _literals_.
 
 We can define the type of a literal value, e.g.: string, integer number, date, etc.
 

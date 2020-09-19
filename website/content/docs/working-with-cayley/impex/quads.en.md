@@ -1,10 +1,16 @@
 ---
-title: "Quads export"
+title: "Export Quads"
 weight: 1
 bookCollapseSection: true
 ---
 
-# Quads
+# Export Quads
+
+## Problems
+
+How can I export my database to files, using standard representational format?
+
+## Solution
 
 This code creates a set of quads, then exports them into several formats:
 

@@ -19,7 +19,7 @@ In order to make the IRIs more specific, and unambiguous, it is typical to creat
 
 The [FOAF](http://xmlns.com/foaf/spec/) is a very good example to a generic vocabulary, that holds IRIs to describe personal and/or organizational properties and profiles.
 
-When we use the IRIs, we usually indicate which vocabulary the IRI belongs to so that ensure unambiguity of its meaning. We can do this via an identifier string, that we put to the front of the IRI. This string uniquely and globally identifies the vocabulary, the given IRI belongs to.
+When we use the IRIs, we usually indicate which vocabulary the IRI belongs to, so that ensure unambiguity of its meaning. We can do this via an identifier string, that we put to the front of the IRI. This string uniquely and globally identifies the vocabulary, the given IRI belongs to.
 
 Let's extend the previously defined predicates with an identifier, which indicates that these predicates belong to the FOAF vocabulary:
 ```txt
@@ -31,7 +31,7 @@ Let's extend the previously defined predicates with an identifier, which indicat
 
 ## Namespaces
 
-In the previous section we introduced the vocabulary identifier string (e.g. `http://xmlns.com/foaf/0.1/#`), which makes unambiguous the meaning of the IRIs that we use as subjects, objects or predicates. This identifier string defines a so called __namespace__, in which the words are interpreted. These IRIs are unambiguous, but not too readable for humans. In order to make it more convenient to read and write the predicates, we apply a so called __prefix__, which is a short version of the ID, and that we append to the front of the IRI, separated by an `:` from the word.
+In the previous section we introduced the vocabulary identifier string (e.g. `http://xmlns.com/foaf/0.1/#`), which makes unambiguous the meaning of the IRIs that we use as subjects, objects or predicates. This identifier string defines a so called __namespace__, in which the words are interpreted. These IRIs are unambiguous, but not too readable for humans. In order to make more convenient to read and write the predicates, we apply a so called __prefix__, which is a short version of the ID, and that we append to the front of the IRI, separated by an `:` from the word.
 
 In case of the FOAF vocabulary we use the `foaf:` prefix:
 

@@ -6,6 +6,12 @@ keywords: ["prefix", "namespace"]
 
 # Register a New Namespace
 
+## Problem
+
+I need a new namespace, how can I create one?
+
+## Solution
+
 The next code registers a new namespace:
 
 {{% code file="/static/src/namespaces/register_namespace.go" language="go" %}}

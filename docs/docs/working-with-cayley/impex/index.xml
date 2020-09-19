@@ -7,12 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Quads export</title>
+      <title>Export Quads</title>
       <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/</guid>
-      <description>Quads #  This code creates a set of quads, then exports them into several formats:
+      <description>Export Quads #  Problems #  How can I export my database to files, using standard representational format?
+Solution #  This code creates a set of quads, then exports them into several formats:
 See the full list of source code package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad&amp;#34; &amp;#34;reflect&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func main() { // Create Quads about some people using Blank Nodes as references 	quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads 	printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references 	quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads 	printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad.</description>
     </item>
     

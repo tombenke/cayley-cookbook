@@ -6,7 +6,7 @@ title: "Graph Based Data Model"
 
 # Graph Based Data Model
 
-When we build a knowledge-graph, then we build a conceptual model of a part of the real World.
+When we build a knowledge-graph, then we create a conceptual model of a part of the real World.
 
 A conceptual model is a model of a subject area or area of knowledge, sometimes called a domain.
 

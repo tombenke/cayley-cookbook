@@ -6,6 +6,7 @@ bookCollapseSection: true
 
 # The `cayley repl` command
 
+
 The REPL is the acronym of Read-Eval-Print-Loop.
 We can use the `cayley repl` command to open a console to an existing database, and interactively execute queries and other operations on the database.
 
@@ -63,6 +64,7 @@ The following session starts REPL on an existing database, then queries and prin
 ```
 
 Let's see the content of the `.cayley_history` file after the session:
+
 ```bash
 
     $ cat .cayley_history 
@@ -70,3 +72,6 @@ Let's see the content of the `.cayley_history` file after the session:
     g.V().All()
 
 ```
+
+The [Discover and unknown graph]({{< relref "/docs/working-with-cayley/graph-discovery" >}}) section demonstrates how can we use the `cayley repl` command to discover a graph we know nothing about.
+

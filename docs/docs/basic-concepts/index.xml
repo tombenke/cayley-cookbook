@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/graph-based-data-model/</guid>
-      <description>Graph Based Data Model #  When we build a knowledge-graph, then we build a conceptual model of a part of the real World.
+      <description>Graph Based Data Model #  When we build a knowledge-graph, then we create a conceptual model of a part of the real World.
 A conceptual model is a model of a subject area or area of knowledge, sometimes called a domain.
 A domain model typically represents:
  the primary entities (the things of the domain), the relationships among entities, the attributes and attribute values (sometimes called properties and property values) of the entities and the relationships, and sometimes rules that associate entities, relationships, and attributes (or all three) in more complicated ways.</description>
@@ -35,7 +35,7 @@ A resource has two important properties:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/statements/</guid>
-      <description>Statements #  Subject, Predicate Object #  We use statements of facts to define knowledge. In general, we usually use declarative sentences to make statements of facts
+      <description>Statements #  Subject, Predicate Object #  We use statements of facts to define knowledge. In general, we usually use declarative sentences to make statements of facts.
 For example:
 Luke Skywalker is 23 years old. or, in other words:
 Luke Skywalker has age 23. It is possible to convert these declarative sentences into a subject-predicate-object structure.

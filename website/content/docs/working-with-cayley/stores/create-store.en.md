@@ -10,7 +10,9 @@ keywords: ["store"]
 
 How can I create a store?
 
-## In-memory store creation
+## Solution
+
+Create an in-memory store:
 
 {{% code file="/static/src/kbase/store.go" language="go" %}}
 

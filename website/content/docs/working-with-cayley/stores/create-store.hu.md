@@ -10,7 +10,9 @@ keywords: ["store"]
 
 Hogyan tudok létrehozni egy store-t?
 
-## In-memory store létrehozása
+## Megoldás
+
+In-memory store létrehozása:
 
 {{% code file="/static/src/kbase/store.go" language="go" %}}
 

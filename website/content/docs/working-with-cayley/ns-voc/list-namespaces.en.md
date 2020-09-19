@@ -6,6 +6,13 @@ keywords: ["prefix", "namespace"]
 
 # List Registered Namespaces
 
+## Problem
+
+I do not know which namespaces are registered currently in the database.
+How can I investigate what are these namespaces that I can/have to use?
+
+## Solution
+
 The following code fragment lists all the namespaces currently registered:
 
 {{% code file="/static/src/namespaces/list_namespaces.go" language="go" %}}

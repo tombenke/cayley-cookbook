@@ -4,7 +4,13 @@ weight: 1
 bookCollapseSection: true
 ---
 
-# Quad-ok
+# Quad-ok exportálása
+
+## Probléma
+
+Hogyan tudom az adatbázis tartalmát kiexportálni szabványos formátumú file-okba?
+
+## Megoldás
 
 Az alábbi példa létrehoz egy quad halmazt, majd kiexportálja többféle formátumban:
 

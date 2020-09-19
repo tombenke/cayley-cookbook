@@ -13,7 +13,8 @@
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/create-store/</guid>
       <description>Create Store #  Problem #  How can I create a store?
-In-memory store creation #  package kbase import ( &amp;#34;github.com/cayleygraph/cayley&amp;#34; &amp;#34;log&amp;#34; ) // Create a mem-store for testing func InitStore() *cayley.Handle { store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } return store } </description>
+Solution #  Create an in-memory store:
+package kbase import ( &amp;#34;github.com/cayleygraph/cayley&amp;#34; &amp;#34;log&amp;#34; ) // Create a mem-store for testing func InitStore() *cayley.Handle { store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } return store } </description>
     </item>
     
     <item>
@@ -22,8 +23,9 @@ In-memory store creation #  package kbase import ( &amp;#34;github.com/cayleygra
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/make-quads/</guid>
-      <description>Make Quads #  Problem #  How can I crate new quads?
-Create Quads #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.Quad{} quads = append(quads, quad.Make(luke, quad.</description>
+      <description>Make Quads #  Problem #  How can I create new quads in Go?
+Solution #  Create Quads:
+package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.Quad{} quads = append(quads, quad.</description>
     </item>
     
     <item>
@@ -33,7 +35,7 @@ Create Quads #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-nodes/</guid>
       <description>List all nodes from store #  Problem #  How can I retrieve and print all nodes from the store?
-Test Data #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.</description>
+Solution #  Create Test Data: #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.</description>
     </item>
     
     <item>
@@ -43,16 +45,7 @@ Test Data #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34;
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-quads/</guid>
       <description>List all quads from store #  Problem #  How can I retrieve and print all quads from the store?
-Retrieve and list all quads from the store: #  package main import ( &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;reflect&amp;#34; &amp;#34;context&amp;#34; &amp;#34;github.com/cayleygraph/cayley&amp;#34; ) func main() { // Create a brand new graph  store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } // Create Quads about some people using Blank Nodes as references  quads := makeQuads() // Add quads to the store  for _, q := range(quads) { store.</description>
-    </item>
-    
-    <item>
-      <title>The internal representation of nodes and quads</title>
-      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/internals/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/internals/</guid>
-      <description>The internal representation of nodes and quads #    Figure 1.: Internal Representation   </description>
+Solution #  Retrieve and list all quads from the store: #  package main import ( &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;reflect&amp;#34; &amp;#34;context&amp;#34; &amp;#34;github.com/cayleygraph/cayley&amp;#34; ) func main() { // Create a brand new graph  store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } // Create Quads about some people using Blank Nodes as references  quads := makeQuads() // Add quads to the store  for _, q := range(quads) { store.</description>
     </item>
     
   </channel>

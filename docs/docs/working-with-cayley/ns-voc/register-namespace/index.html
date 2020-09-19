@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Register a New Namespace #  The next code registers a new namespace:
-package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad/voc&#34; // Add built-in vocabulary 	_ &#34;github.com/cayleygraph/quad/voc/rdfs&#34; // Add own vocabulary 	_ &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func init() { // Register a new namespace with prefix 	voc.RegisterPrefix(`acc:`, `http://mycompany.com/voc/accounting#`) } func main() { fmt.Println(&#34;Registered namespaces:&#34;) for _, v := range voc.List() { fmt.Printf(&#34; %s =&gt; %s\n&#34;, v.Prefix, v.Full) } } 
-cd namespaces go run register_namespace.">
+<meta name="description" content="Register a New Namespace #  Problem #  I need a new namespace, how can I create one?
+Solution #  The next code registers a new namespace:
+package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad/voc&#34; // Add built-in vocabulary 	_ &#34;github.com/cayleygraph/quad/voc/rdfs&#34; // Add own vocabulary 	_ &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func init() { // Register a new namespace with prefix 	voc.RegisterPrefix(`acc:`, `http://mycompany.com/voc/accounting#`) } func main() { fmt.Println(&#34;Registered namespaces:&#34;) for _, v := range voc.">
 <meta name="theme-color" content="#FFFFFF">
 <meta content="prefix, namespace" name="keywords"><meta property="og:title" content="Register a New Namespace" />
-<meta property="og:description" content="Register a New Namespace #  The next code registers a new namespace:
-package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad/voc&#34; // Add built-in vocabulary 	_ &#34;github.com/cayleygraph/quad/voc/rdfs&#34; // Add own vocabulary 	_ &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func init() { // Register a new namespace with prefix 	voc.RegisterPrefix(`acc:`, `http://mycompany.com/voc/accounting#`) } func main() { fmt.Println(&#34;Registered namespaces:&#34;) for _, v := range voc.List() { fmt.Printf(&#34; %s =&gt; %s\n&#34;, v.Prefix, v.Full) } } 
-cd namespaces go run register_namespace." />
+<meta property="og:description" content="Register a New Namespace #  Problem #  I need a new namespace, how can I create one?
+Solution #  The next code registers a new namespace:
+package main import ( &#34;fmt&#34; &#34;github.com/cayleygraph/quad/voc&#34; // Add built-in vocabulary 	_ &#34;github.com/cayleygraph/quad/voc/rdfs&#34; // Add own vocabulary 	_ &#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&#34; ) func init() { // Register a new namespace with prefix 	voc.RegisterPrefix(`acc:`, `http://mycompany.com/voc/accounting#`) } func main() { fmt.Println(&#34;Registered namespaces:&#34;) for _, v := range voc." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/register-namespace/" />
 
@@ -21,7 +21,7 @@ cd namespaces go run register_namespace." />
 <link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/register-namespace/" title="Új namespace regisztrálása">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
-<script defer src="/cayley-cookbook/en.search.min.ec9eeff56cefbb4e1682d18cc51a362b2c75c6fa76305732e452892e7cc27507.js" integrity="sha256-7J7v9Wzvu04WgtGMxRo2Kyx1xvp2MFcy5FKJLnzCdQc="></script>
+<script defer src="/cayley-cookbook/en.search.min.4c9b26d9f511865c7da0222e0236ba8544223a4d00cd2e9e122023955d0a20bd.js" integrity="sha256-TJsm2fURhlx9oCIuAja6hUQiOk0AzS6eEiAjlV0KIL0="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -362,9 +362,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-f37e3708a287e9a8fdc264ab8747067e" class="toggle"  />
-    <label for="section-f37e3708a287e9a8fdc264ab8747067e" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/graph_discovery/" class="">Discover and unknown graph</a>
+    <input type="checkbox" id="section-24f6eb6f2deb1ac54d6e13f528fb9730" class="toggle"  />
+    <label for="section-24f6eb6f2deb1ac54d6e13f528fb9730" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/graph-discovery/" class="">Discover and unknown graph</a>
       <span>▾</span>
     </label>
   
@@ -507,19 +507,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/internals/" class="">The internal representation of nodes and quads</a>
-  
-
-        </li>
-      
-    
   </ul>
 
         </li>
@@ -551,7 +538,7 @@ https://github.com/alex-shpak/hugo-book
   
     <input type="checkbox" id="section-22d669f3dc7ec740774b069c51439188" class="toggle"  />
     <label for="section-22d669f3dc7ec740774b069c51439188" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/" class="">Quads export</a>
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/" class="">Export Quads</a>
       <span>▾</span>
     </label>
   
@@ -659,50 +646,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-8dfa2f16ea7363ff2e8c8591723568c1" class="toggle"  />
-    <label for="section-8dfa2f16ea7363ff2e8c8591723568c1" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/crud-operations/" class="">CRUD Operations</a>
-      <span>▾</span>
-    </label>
-  
-
-          
-  <ul>
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-86c4d36bccd05af5655cecc8eaf31df9" class="toggle"  />
-    <label for="section-86c4d36bccd05af5655cecc8eaf31df9" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/transactions/" class="">Transactions</a>
-      <span>▾</span>
-    </label>
-  
-
-          
-  <ul>
-    
-  </ul>
-
-        </li>
-      
-    
   </ul>
 
         </li>
@@ -756,7 +699,12 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#solution">Solution</a></li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -770,6 +718,15 @@ https://github.com/alex-shpak/hugo-book
   Register a New Namespace
   <a class="anchor" href="#register-a-new-namespace">#</a>
 </h1>
+<h2 id="problem">
+  Problem
+  <a class="anchor" href="#problem">#</a>
+</h2>
+<p>I need a new namespace, how can I create one?</p>
+<h2 id="solution">
+  Solution
+  <a class="anchor" href="#solution">#</a>
+</h2>
 <p>The next code registers a new namespace:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
@@ -876,7 +833,12 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#solution">Solution</a></li>
+  </ul>
+</nav>
 
  
     </aside>

@@ -10,10 +10,12 @@ keywords: ["store", "node"]
 
 Hogyan tudom az store-ban lévő összes node-ot lekérdezni, és kilistázni?
 
-## Teszt adatok előállítása
+## Megoldás
+
+### Teszt adatok előállítása:
 {{% code file="/static/src/store/data.go" language="go" %}}
 
-## A store-ban lévő összes node lekérdezése is listázása:
+### A store-ban lévő összes node lekérdezése is listázása:
 {{% code file="/static/src/store/print_all_nodes.go" language="go" %}}
 
 A program kimenete:

@@ -12,10 +12,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/list-namespaces/</guid>
-      <description>List Registered Namespaces #  The following code fragment lists all the namespaces currently registered:
-package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add some predefined vocabularies 	_ &amp;#34;github.com/cayleygraph/quad/voc/schema&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/xsd&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; ) func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;); for _, v := range voc.List() { fmt.Printf(&amp;#34; %s =&amp;gt; %s\n&amp;#34;, v.Prefix, v.Full); } } 
-cd namespaces go run list_namespaces.go` The results:
-Registered namespaces: schema: =&amp;gt; http://schema.org/  xsd: =&amp;gt; http://www.</description>
+      <description>List Registered Namespaces #  Problem #  I do not know which namespaces are registered currently in the database. How can I investigate what are these namespaces that I can/have to use?
+Solution #  The following code fragment lists all the namespaces currently registered:
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add some predefined vocabularies 	_ &amp;#34;github.com/cayleygraph/quad/voc/schema&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/xsd&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; ) func main() { fmt.</description>
     </item>
     
     <item>
@@ -24,9 +23,9 @@ Registered namespaces: schema: =&amp;gt; http://schema.org/  xsd: =&amp;gt; http
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/register-namespace/</guid>
-      <description>Register a New Namespace #  The next code registers a new namespace:
-package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add built-in vocabulary 	_ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; // Add own vocabulary 	_ &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func init() { // Register a new namespace with prefix 	voc.RegisterPrefix(`acc:`, `http://mycompany.com/voc/accounting#`) } func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;) for _, v := range voc.List() { fmt.Printf(&amp;#34; %s =&amp;gt; %s\n&amp;#34;, v.Prefix, v.Full) } } 
-cd namespaces go run register_namespace.</description>
+      <description>Register a New Namespace #  Problem #  I need a new namespace, how can I create one?
+Solution #  The next code registers a new namespace:
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add built-in vocabulary 	_ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; // Add own vocabulary 	_ &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func init() { // Register a new namespace with prefix 	voc.RegisterPrefix(`acc:`, `http://mycompany.com/voc/accounting#`) } func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;) for _, v := range voc.</description>
     </item>
     
     <item>
@@ -35,8 +34,8 @@ cd namespaces go run register_namespace.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/vocabularies/</guid>
-      <description>Create a New Vocabulary #  The following code demonstrates how can a new vocabulary be defined. The foaf.go package defines the most frequently used terms of the FOAF Vocabulary Specification. This package is used by several other examples of the cookbook as a vocabulary to use some terms as predicates.
-// Package foaf contains constants of the FOAF Concepts Vocabulary (RDF) package foaf import &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; func init() { voc.RegisterPrefix(Prefix, NS) } const ( NS = `http://xmlns.</description>
+      <description>Create a New Vocabulary #  Problem #  I want to create my own vocabulary to the domain I am working with. I want to use the terms defined by this vocabulary in my Go code, to make it simpler, and more readable. How can I create and register such a new vocabulary?
+Solution #  The following code demonstrates how can a new vocabulary be defined. The foaf.go package defines the most frequently used terms of the FOAF Vocabulary Specification.</description>
     </item>
     
   </channel>

@@ -5,11 +5,13 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Create Store #  Problem #  How can I create a store?
-In-memory store creation #  package kbase import ( &#34;github.com/cayleygraph/cayley&#34; &#34;log&#34; ) // Create a mem-store for testing func InitStore() *cayley.Handle { store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } return store } ">
+Solution #  Create an in-memory store:
+package kbase import ( &#34;github.com/cayleygraph/cayley&#34; &#34;log&#34; ) // Create a mem-store for testing func InitStore() *cayley.Handle { store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } return store } ">
 <meta name="theme-color" content="#FFFFFF">
 <meta content="store" name="keywords"><meta property="og:title" content="Create Store" />
 <meta property="og:description" content="Create Store #  Problem #  How can I create a store?
-In-memory store creation #  package kbase import ( &#34;github.com/cayleygraph/cayley&#34; &#34;log&#34; ) // Create a mem-store for testing func InitStore() *cayley.Handle { store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } return store } " />
+Solution #  Create an in-memory store:
+package kbase import ( &#34;github.com/cayleygraph/cayley&#34; &#34;log&#34; ) // Create a mem-store for testing func InitStore() *cayley.Handle { store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } return store } " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/create-store/" />
 
@@ -19,7 +21,7 @@ In-memory store creation #  package kbase import ( &#34;github.com/cayleygraph/c
 <link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/create-store/" title="Store létrehozása">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
-<script defer src="/cayley-cookbook/en.search.min.ec9eeff56cefbb4e1682d18cc51a362b2c75c6fa76305732e452892e7cc27507.js" integrity="sha256-7J7v9Wzvu04WgtGMxRo2Kyx1xvp2MFcy5FKJLnzCdQc="></script>
+<script defer src="/cayley-cookbook/en.search.min.4c9b26d9f511865c7da0222e0236ba8544223a4d00cd2e9e122023955d0a20bd.js" integrity="sha256-TJsm2fURhlx9oCIuAja6hUQiOk0AzS6eEiAjlV0KIL0="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -360,9 +362,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-f37e3708a287e9a8fdc264ab8747067e" class="toggle"  />
-    <label for="section-f37e3708a287e9a8fdc264ab8747067e" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/graph_discovery/" class="">Discover and unknown graph</a>
+    <input type="checkbox" id="section-24f6eb6f2deb1ac54d6e13f528fb9730" class="toggle"  />
+    <label for="section-24f6eb6f2deb1ac54d6e13f528fb9730" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/graph-discovery/" class="">Discover and unknown graph</a>
       <span>▾</span>
     </label>
   
@@ -505,19 +507,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/internals/" class="">The internal representation of nodes and quads</a>
-  
-
-        </li>
-      
-    
   </ul>
 
         </li>
@@ -549,7 +538,7 @@ https://github.com/alex-shpak/hugo-book
   
     <input type="checkbox" id="section-22d669f3dc7ec740774b069c51439188" class="toggle"  />
     <label for="section-22d669f3dc7ec740774b069c51439188" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/" class="">Quads export</a>
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/" class="">Export Quads</a>
       <span>▾</span>
     </label>
   
@@ -657,50 +646,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-8dfa2f16ea7363ff2e8c8591723568c1" class="toggle"  />
-    <label for="section-8dfa2f16ea7363ff2e8c8591723568c1" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/crud-operations/" class="">CRUD Operations</a>
-      <span>▾</span>
-    </label>
-  
-
-          
-  <ul>
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-86c4d36bccd05af5655cecc8eaf31df9" class="toggle"  />
-    <label for="section-86c4d36bccd05af5655cecc8eaf31df9" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/transactions/" class="">Transactions</a>
-      <span>▾</span>
-    </label>
-  
-
-          
-  <ul>
-    
-  </ul>
-
-        </li>
-      
-    
   </ul>
 
         </li>
@@ -757,7 +702,7 @@ https://github.com/alex-shpak/hugo-book
   <nav id="TableOfContents">
   <ul>
     <li><a href="#problem">Problem</a></li>
-    <li><a href="#in-memory-store-creation">In-memory store creation</a></li>
+    <li><a href="#solution">Solution</a></li>
   </ul>
 </nav>
 
@@ -778,10 +723,11 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#problem">#</a>
 </h2>
 <p>How can I create a store?</p>
-<h2 id="in-memory-store-creation">
-  In-memory store creation
-  <a class="anchor" href="#in-memory-store-creation">#</a>
+<h2 id="solution">
+  Solution
+  <a class="anchor" href="#solution">#</a>
 </h2>
+<p>Create an in-memory store:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">kbase</span>
 
 <span style="color:#f92672">import</span> (
@@ -873,7 +819,7 @@ https://github.com/alex-shpak/hugo-book
   <nav id="TableOfContents">
   <ul>
     <li><a href="#problem">Problem</a></li>
-    <li><a href="#in-memory-store-creation">In-memory store creation</a></li>
+    <li><a href="#solution">Solution</a></li>
   </ul>
 </nav>
 

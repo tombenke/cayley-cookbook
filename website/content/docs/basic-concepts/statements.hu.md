@@ -49,14 +49,6 @@ Végleges formában tehát a kijelentés az alábbi lesz:
 
 Láthatjuk az 1. ábrán, hogy a `subject-predicate-object` hármas felrajzolható gráfként, ahol a subject és az object node-okként jelenik meg, és a predicate lesz a két node-ot összekötő, irányított él.
 
-{{< hint info >}}
-__Fontos Megjegyzés:__
-
-Valójában, a predikátumok belső reprezentációja szintén gráf csomópont, ami jellemzően IRI, vagy esetenként literál érték lehet. Ezek a predikátumok megjelenhetnek a keresési eredménylistákban is. Az 1. ábra a tripletek klasszikus gráf ábrázolási formáját mutatja, ami tulajdonképpen egy cimkével azonosított bináris relációt jelképez.
-
-{{< /hint >}}
-
-
 {{< figure src="/cayley-cookbook/subject-predicate-object-graph.png" title="1. ábra: Subject-Predicate-Object Gráf" >}}
 
 Az ilyen formában felírt kijelentést __triplet__-nek is nevezik.
@@ -131,3 +123,23 @@ A Blank Node-okat szürke színnel jelöljük.
 
 {{< seealso >}}
 
+## A node-ok és quad-ok belső reprezentációja
+
+Fontos Megjegyeznünk, hogy valójában, a predikátumok belső reprezentációja szintén gráf csomópont, ami jellemzően IRI, vagy esetenként literál érték lehet. Ezek a predikátumok megjelenhetnek a keresési eredménylistákban is.
+
+A 4. ábra szemlélteti, hogyan néz ki a belső reprezentáció (bal oldal), ahhoz a jelölésmódhoz viszonyítva, amit eddig alkalmaztunk a quad-ok ábrázolására (jobb oldal).
+
+A diagram a következő két quad-ot jeleníti meg:
+
+```bash
+ <starwars:leia_organa> <foaf:familyName> "Organa" "people" .
+ <starwars:leia_organa> <foaf:knows> _:n353930893927990388 "people" .
+```
+
+{{< figure src="/cayley-cookbook/internal-representation.png" title="4. ábra: A quad-ok belső reprezentációja." >}}
+
+A belső reprezentációval kapcsolatban az alábbi megállapításokat tehetjük, az ábra alapján:
+- A subject-ek, object-ek ((IRI-k és Blank Node-ok), továbbá a literál értékek mindannyian gáf csomópontokként vannak reprezentálva,
+- A predikátumok szintén gráf csomópontokkal vannak reprezentálva,
+- A gráf címkék úgyszintén gráf csomópontokkal vannak reprezentálva,
+- Minden egyes komplett n-quad kijelentés egy további, kiegészítő gráf csomóponttal van reprezentálva.

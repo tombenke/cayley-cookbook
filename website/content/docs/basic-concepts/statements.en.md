@@ -10,7 +10,7 @@ title: "Statements"
 ## Subject, Predicate Object
 
 We use statements of facts to define knowledge.
-In general, we usually use declarative sentences to make statements of facts
+In general, we usually use declarative sentences to make statements of facts.
 
 For example:
 
@@ -49,16 +49,9 @@ The final statement looks like this:
 
 We can observe on the Figure 1. that the `subject-predicate-object` triple can be visualized as a simple graph, where the subject and object show up as nodes, and the predicate appears as a labeled edge between these two nodes.
 
-{{< hint info >}}
-__Important Note:__
-
-Internally, the predicates are also represented in the form of graph nodes, such as IRIs or even as Literal values too. They can appear in the results of queries too. The Figure 1. shows the classical graph visualization of triples in the form of binary relations.
-
-{{< /hint >}}
-
 {{< figure src="/cayley-cookbook/subject-predicate-object-graph.png" title="Figure 1.: Subject-Predicate-Object Graph" >}}
 
-The statements written in this form mentioned above are also called __triple__.
+The statements written in this form mentioned above are also called __triples__.
 
 Let's see how could we define for the computer the following facts:
 
@@ -127,3 +120,21 @@ The Blank Nodes appear in gray color.
 
 {{< seealso >}}
 
+## The internal representation of nodes and quads
+
+It is important to note that internally, the predicates are also represented in the form of graph nodes, such as IRIs or even as Literal values too. They can appear in the results of queries too. The Figure 4. shows how the internal representation looks like (left side), compared to the diagram notation we've been using so far (right side).
+
+The diagram visualizes the following two quads:
+
+```bash
+ <starwars:leia_organa> <foaf:familyName> "Organa" "people" .
+ <starwars:leia_organa> <foaf:knows> _:n353930893927990388 "people" .
+```
+
+{{< figure src="/cayley-cookbook/internal-representation.png" title="Figure 4.: The internal representation of quads." >}}
+
+We can do the following observations on the internal representation:
+- The subjects and objects (IRIs and Blank nodes) and the literal values are all represented as graph nodes,
+- The predicates are also represented as graph nodes,
+- The graph labels are also represented as graph nodes,
+- The elements of a complete n-quad statement are represented by an additional graph node.

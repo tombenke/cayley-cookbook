@@ -4,14 +4,16 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Új szótár létrehozása #  A következő kódrészlet bemutatja, hogyan lehet egy új szótárat definiálni.
-A foaf.go package FOAF Vocabulary Specification leggyakrabban használt kifejezéseit definiálja. Ezt a package-et több példában is használjuk. A szótárban definiált szavakat predikátumként alkalmazzuk.
-// Package foaf contains constants of the FOAF Concepts Vocabulary (RDF) package foaf import &#34;github.com/cayleygraph/quad/voc&#34; func init() { voc.RegisterPrefix(Prefix, NS) } const ( NS = `http://xmlns.com/foaf/0.1/#` Prefix = `foaf:` ) const ( // Core  // An agent (eg.">
+<meta name="description" content="Új szótár létrehozása #  Probléma #  Létre akarom hozni a saját szótáramat az adott szakterülethez, amin éppen dolgozom. Az új szótárban definiált elemeket szeretném használni a Go forráskódban, hogy az tömörebb, és olvashatóbb legyen.
+Hogyan tudok saját szótárat létrehozni, és betölteni?
+Megoldás #  A következő kódrészlet bemutatja, hogyan lehet egy új szótárat definiálni.
+A foaf.go package FOAF Vocabulary Specification leggyakrabban használt kifejezéseit definiálja. Ezt a package-et több példában is használjuk.">
 <meta name="theme-color" content="#FFFFFF">
 <meta content="foaf, vocabulary" name="keywords"><meta property="og:title" content="Új szótár létrehozása" />
-<meta property="og:description" content="Új szótár létrehozása #  A következő kódrészlet bemutatja, hogyan lehet egy új szótárat definiálni.
-A foaf.go package FOAF Vocabulary Specification leggyakrabban használt kifejezéseit definiálja. Ezt a package-et több példában is használjuk. A szótárban definiált szavakat predikátumként alkalmazzuk.
-// Package foaf contains constants of the FOAF Concepts Vocabulary (RDF) package foaf import &#34;github.com/cayleygraph/quad/voc&#34; func init() { voc.RegisterPrefix(Prefix, NS) } const ( NS = `http://xmlns.com/foaf/0.1/#` Prefix = `foaf:` ) const ( // Core  // An agent (eg." />
+<meta property="og:description" content="Új szótár létrehozása #  Probléma #  Létre akarom hozni a saját szótáramat az adott szakterülethez, amin éppen dolgozom. Az új szótárban definiált elemeket szeretném használni a Go forráskódban, hogy az tömörebb, és olvashatóbb legyen.
+Hogyan tudok saját szótárat létrehozni, és betölteni?
+Megoldás #  A következő kódrészlet bemutatja, hogyan lehet egy új szótárat definiálni.
+A foaf.go package FOAF Vocabulary Specification leggyakrabban használt kifejezéseit definiálja. Ezt a package-et több példában is használjuk." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/vocabularies/" />
 
@@ -21,7 +23,7 @@ A foaf.go package FOAF Vocabulary Specification leggyakrabban használt kifejez�
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/vocabularies/" title="Create a New Vocabulary">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
-<script defer src="/cayley-cookbook/hu.search.min.8e462cc2e4c32e77512b2607dbab77721a3b048f72e45aa59522ac5e8e68d034.js" integrity="sha256-jkYswuTDLndRKyYH26t3cho7BI9y5FqllSKsXo5o0DQ="></script>
+<script defer src="/cayley-cookbook/hu.search.min.2f7b95a11e4ad6ce8ea2fe4a5ac80392b3867fe645cd055902c74a637199cdc2.js" integrity="sha256-L3uVoR5K1s6Oov5KWsgDkrOGf&#43;ZFzQVZAsdKY3GZzcI="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -362,9 +364,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-fb1c3038e7d7a71da0551a3080872531" class="toggle"  />
-    <label for="section-fb1c3038e7d7a71da0551a3080872531" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/graph_discovery/" class="">Ismeretlen gráf felderítése</a>
+    <input type="checkbox" id="section-3a34ddde015d7e2ca602a77a0ae0d821" class="toggle"  />
+    <label for="section-3a34ddde015d7e2ca602a77a0ae0d821" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/graph-discovery/" class="">Ismeretlen gráf felderítése</a>
       <span>▾</span>
     </label>
   
@@ -502,19 +504,6 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-quads/" class="">A store összes quad-jának kilistázása</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/internals/" class="">A node-ok és quad-ok belső reprezentációja</a>
   
 
         </li>
@@ -659,50 +648,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-e8aec92da5f23c882db6bdd4d2f66642" class="toggle"  />
-    <label for="section-e8aec92da5f23c882db6bdd4d2f66642" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/crud-operations/" class="">CRUD Műveletek</a>
-      <span>▾</span>
-    </label>
-  
-
-          
-  <ul>
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-0286dce401f1b4f8b31afbecd52d27b4" class="toggle"  />
-    <label for="section-0286dce401f1b4f8b31afbecd52d27b4" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/transactions/" class="">Tranzakciók</a>
-      <span>▾</span>
-    </label>
-  
-
-          
-  <ul>
-    
-  </ul>
-
-        </li>
-      
-    
   </ul>
 
         </li>
@@ -756,7 +701,12 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#probléma">Probléma</a></li>
+    <li><a href="#megoldás">Megoldás</a></li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -770,6 +720,17 @@ https://github.com/alex-shpak/hugo-book
   Új szótár létrehozása
   <a class="anchor" href="#%c3%baj-sz%c3%b3t%c3%a1r-l%c3%a9trehoz%c3%a1sa">#</a>
 </h1>
+<h2 id="probléma">
+  Probléma
+  <a class="anchor" href="#probl%c3%a9ma">#</a>
+</h2>
+<p>Létre akarom hozni a saját szótáramat az adott szakterülethez, amin éppen dolgozom.
+Az új szótárban definiált elemeket szeretném használni a Go forráskódban, hogy az tömörebb, és olvashatóbb legyen.</p>
+<p>Hogyan tudok saját szótárat létrehozni, és betölteni?</p>
+<h2 id="megoldás">
+  Megoldás
+  <a class="anchor" href="#megold%c3%a1s">#</a>
+</h2>
 <p>A következő kódrészlet bemutatja, hogyan lehet egy új szótárat definiálni.</p>
 <p>A <code>foaf.go</code> package <a href="http://xmlns.com/foaf/spec/">FOAF Vocabulary Specification</a> leggyakrabban használt kifejezéseit definiálja.
 Ezt a package-et több példában is használjuk. A szótárban definiált szavakat predikátumként alkalmazzuk.</p>
@@ -1021,7 +982,12 @@ Kapcsolódó oldalak:
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#probléma">Probléma</a></li>
+    <li><a href="#megoldás">Megoldás</a></li>
+  </ul>
+</nav>
 
  
     </aside>

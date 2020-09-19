@@ -6,6 +6,12 @@ keywords: ["prefix", "namespace"]
 
 # Új namespace regisztrálása
 
+## Probléma
+
+Szükségem van egy új namespace-re, hogyan tudok létrehozni egyet?
+
+## Megoldás
+
 Az alábbi kód regisztrál egy új namespace-t:
 
 {{% code file="/static/src/namespaces/register_namespace.go" language="go" %}}

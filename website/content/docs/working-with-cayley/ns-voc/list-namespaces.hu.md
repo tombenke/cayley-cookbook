@@ -6,6 +6,13 @@ keywords: ["prefix", "namespace"]
 
 # Regisztrált Namespace-ek listázása
 
+## Probléma
+
+Nem tudom, hogy jelenleg milyen nammespace-ek vannak érvényben az adatbázisban.
+Hogyan tudom kideríteni, hogy melyek azok amiket használhatok, vagy szükséges használnom?
+
+## Megoldás
+
 Az alábbi kód kilistázza az összes, jelenleg regisztrált namespace-t:
 
 {{% code file="/static/src/namespaces/list_namespaces.go" language="go" %}}

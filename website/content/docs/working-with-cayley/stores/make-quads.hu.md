@@ -8,9 +8,11 @@ keywords: ["quad"]
 
 ## Probléma
 
-Hogyan tudok quad-okat létrehozni?
+Hogyan tudok quad-okat létrehozni Go-ban?
 
-## Quad-ok létrehozása
+## Megoldás
+
+Quad-ok létrehozása:
 
 {{% code file="/static/src/store/data.go" language="go" %}}
 

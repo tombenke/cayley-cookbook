@@ -31,16 +31,30 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/graph_discovery/</loc>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/graph-discovery/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/graph_discovery/"
+                href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/graph-discovery/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/graph_discovery/"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/graph-discovery/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/quads/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/"
                 />
   </url>
   
@@ -97,20 +111,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/ns-voc/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/quads/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/impex/quads/"
                 />
   </url>
   
@@ -409,20 +409,6 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/crud-operations/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/crud-operations/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/crud-operations/"
-                />
-  </url>
-  
-  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/docs/basic-concepts/rdf-graphs/</loc>
     <xhtml:link
                 rel="alternate"
@@ -451,20 +437,6 @@
   </url>
   
   <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/internals/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/internals/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/internals/"
-                />
-  </url>
-  
-  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/bookmarks/</loc>
     <xhtml:link
                 rel="alternate"
@@ -489,20 +461,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://tombenke.github.io/cayley-cookbook/docs/cayley-overview/cayley-query/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/transactions/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/transactions/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/transactions/"
                 />
   </url>
   

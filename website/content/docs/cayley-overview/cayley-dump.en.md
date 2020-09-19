@@ -6,7 +6,7 @@ bookCollapseSection: true
 
 # The `cayley dump` command
 
-The `cayley dump` command dumps out the resource descriptions from an existing database into a file or to the standard output. The format type is determined by the given file extension, but it is also can be selected by the `--dump_format <format-name>` argument, where the possible values of `<format-name>` are: "gml", "graphml", "graphviz", "json", "json-stream", "jsonld", "nquads", "pquads".
+The `cayley dump` command reads out the resource descriptions from an existing database and write that into a file or to the standard output. The format type is determined by the given file extension, but it is also can be selected by the `--dump_format <format-name>` argument, where the possible values of `<format-name>` are: "gml", "graphml", "graphviz", "json", "json-stream", "jsonld", "nquads", "pquads".
 
 {{< figure src="/cayley-cookbook/cayley-dump.png" title="Figure 1.: cayley dump" >}}
 

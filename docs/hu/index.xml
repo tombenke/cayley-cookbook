@@ -46,7 +46,8 @@ Egy domain a következőket képviseli:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/quads/</guid>
-      <description>Quad-ok #  Az alábbi példa létrehoz egy quad halmazt, majd kiexportálja többféle formátumban:
+      <description>Quad-ok exportálása #  Probléma #  Hogyan tudom az adatbázis tartalmát kiexportálni szabványos formátumú file-okba?
+Megoldás #  Az alábbi példa létrehoz egy quad halmazt, majd kiexportálja többféle formátumban:
 A teljes kódlista megtekintése package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad&amp;#34; &amp;#34;reflect&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func main() { // Create Quads about some people using Blank Nodes as references 	quadsWithBNodes := makeQuadsWithBNodes() // Take a look at the resulted quads 	printQuads(quadsWithBNodes) // Create Quads about some people using IRIs as references 	quadsWithIRIs := makeQuadsWithIRIs() // Take a look at the resulted quads 	printQuads(quadsWithIRIs) } func makeQuadsWithBNodes() []quad.</description>
     </item>
     
@@ -56,10 +57,9 @@ A teljes kódlista megtekintése package main import ( &amp;#34;fmt&amp;#34; &am
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/list-namespaces/</guid>
-      <description>Regisztrált Namespace-ek listázása #  Az alábbi kód kilistázza az összes, jelenleg regisztrált namespace-t:
-package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add some predefined vocabularies 	_ &amp;#34;github.com/cayleygraph/quad/voc/schema&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/xsd&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; ) func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;); for _, v := range voc.List() { fmt.Printf(&amp;#34; %s =&amp;gt; %s\n&amp;#34;, v.Prefix, v.Full); } } 
-cd namespaces go run list_namespaces.go` A program kimenete:
-Registered namespaces: schema: =&amp;gt; http://schema.org/  xsd: =&amp;gt; http://www.</description>
+      <description>Regisztrált Namespace-ek listázása #  Probléma #  Nem tudom, hogy jelenleg milyen nammespace-ek vannak érvényben az adatbázisban. Hogyan tudom kideríteni, hogy melyek azok amiket használhatok, vagy szükséges használnom?
+Megoldás #  Az alábbi kód kilistázza az összes, jelenleg regisztrált namespace-t:
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add some predefined vocabularies 	_ &amp;#34;github.com/cayleygraph/quad/voc/schema&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/xsd&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; _ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; ) func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;); for _, v := range voc.</description>
     </item>
     
     <item>
@@ -69,7 +69,8 @@ Registered namespaces: schema: =&amp;gt; http://schema.org/  xsd: =&amp;gt; http
       
       <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/create-store/</guid>
       <description>Store létrehozása #  Probléma #  Hogyan tudok létrehozni egy store-t?
-In-memory store létrehozása #  package kbase import ( &amp;#34;github.com/cayleygraph/cayley&amp;#34; &amp;#34;log&amp;#34; ) // Create a mem-store for testing func InitStore() *cayley.Handle { store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } return store } </description>
+Megoldás #  In-memory store létrehozása:
+package kbase import ( &amp;#34;github.com/cayleygraph/cayley&amp;#34; &amp;#34;log&amp;#34; ) // Create a mem-store for testing func InitStore() *cayley.Handle { store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } return store } </description>
     </item>
     
     <item>
@@ -88,9 +89,9 @@ Teszt adatok #    1. ábra: Teszt adatok Gráf diagramja   Kiinduló adatok megt
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/register-namespace/</guid>
-      <description>Új namespace regisztrálása #  Az alábbi kód regisztrál egy új namespace-t:
-package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add built-in vocabulary 	_ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; // Add own vocabulary 	_ &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func init() { // Register a new namespace with prefix 	voc.RegisterPrefix(`acc:`, `http://mycompany.com/voc/accounting#`) } func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;) for _, v := range voc.List() { fmt.Printf(&amp;#34; %s =&amp;gt; %s\n&amp;#34;, v.Prefix, v.Full) } } 
-cd namespaces go run register_namespace.</description>
+      <description>Új namespace regisztrálása #  Probléma #  Szükségem van egy új namespace-re, hogyan tudok létrehozni egyet?
+Megoldás #  Az alábbi kód regisztrál egy új namespace-t:
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; // Add built-in vocabulary 	_ &amp;#34;github.com/cayleygraph/quad/voc/rdfs&amp;#34; // Add own vocabulary 	_ &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func init() { // Register a new namespace with prefix 	voc.RegisterPrefix(`acc:`, `http://mycompany.com/voc/accounting#`) } func main() { fmt.Println(&amp;#34;Registered namespaces:&amp;#34;) for _, v := range voc.</description>
     </item>
     
     <item>
@@ -130,8 +131,9 @@ Ezzel a módszerrel jelentősen egyszerűbb az összetett adat-szerkezetek store
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/make-quads/</guid>
-      <description>Quads-ok létrehozása #  Probléma #  Hogyan tudok quad-okat létrehozni?
-Quad-ok létrehozása #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.Quad{} quads = append(quads, quad.Make(luke, quad.IRI(rdf.Type), quad.IRI(foaf.Person), label)) quads = append(quads, quad.</description>
+      <description>Quads-ok létrehozása #  Probléma #  Hogyan tudok quad-okat létrehozni Go-ban?
+Megoldás #  Quad-ok létrehozása:
+package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.Quad{} quads = append(quads, quad.Make(luke, quad.</description>
     </item>
     
     <item>
@@ -151,7 +153,7 @@ Teszt adatok #    1. ábra: Teszt adatok Gráf diagramja   Kiinduló adatok megt
       
       <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-nodes/</guid>
       <description>A store összes node-jának kilistázása #  Probléma #  Hogyan tudom az store-ban lévő összes node-ot lekérdezni, és kilistázni?
-Teszt adatok előállítása #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.</description>
+Megoldás #  Teszt adatok előállítása: #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.</description>
     </item>
     
     <item>
@@ -194,9 +196,10 @@ Luke-Skywalker has-age 23. A mondat elemei:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/vocabularies/</guid>
-      <description>Új szótár létrehozása #  A következő kódrészlet bemutatja, hogyan lehet egy új szótárat definiálni.
-A foaf.go package FOAF Vocabulary Specification leggyakrabban használt kifejezéseit definiálja. Ezt a package-et több példában is használjuk. A szótárban definiált szavakat predikátumként alkalmazzuk.
-// Package foaf contains constants of the FOAF Concepts Vocabulary (RDF) package foaf import &amp;#34;github.com/cayleygraph/quad/voc&amp;#34; func init() { voc.RegisterPrefix(Prefix, NS) } const ( NS = `http://xmlns.com/foaf/0.1/#` Prefix = `foaf:` ) const ( // Core  // An agent (eg.</description>
+      <description>Új szótár létrehozása #  Probléma #  Létre akarom hozni a saját szótáramat az adott szakterülethez, amin éppen dolgozom. Az új szótárban definiált elemeket szeretném használni a Go forráskódban, hogy az tömörebb, és olvashatóbb legyen.
+Hogyan tudok saját szótárat létrehozni, és betölteni?
+Megoldás #  A következő kódrészlet bemutatja, hogyan lehet egy új szótárat definiálni.
+A foaf.go package FOAF Vocabulary Specification leggyakrabban használt kifejezéseit definiálja. Ezt a package-et több példában is használjuk.</description>
     </item>
     
     <item>
@@ -206,7 +209,7 @@ A foaf.go package FOAF Vocabulary Specification leggyakrabban használt kifejez�
       
       <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-quads/</guid>
       <description>A store összes quad-jának kilistázása #  Probléma #  Hogyan tudom az store-ban lévő összes quad-ot lekérdezni, és kilistázni?
-Teszt adatok előállítása #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.</description>
+Megoldás #  Teszt adatok előállítása: #  package main import ( &amp;#34;github.com/cayleygraph/quad&amp;#34; // Add some predefined vocabularies 	&amp;#34;github.com/cayleygraph/quad/voc/rdf&amp;#34; &amp;#34;github.com/tombenke/cayley-cookbook-src/kbase/voc/foaf&amp;#34; ) func makeQuads() []quad.Quad { // Generate Blank Nodes to represent the people internally 	luke := quad.RandomBlankNode() leia := quad.IRI(&amp;#34;starwars:leia_organa&amp;#34;) //quad.RandomBlankNode()  // Create Quads about to export 	label := &amp;#34;people&amp;#34; quads := []quad.</description>
     </item>
     
     <item>
@@ -240,15 +243,6 @@ $ cayley dump --db bolt --dbpath /home/tombenke/tmp/cayley/ -o dump.</descriptio
 A cayley repl paranccsal elindíthatunk egy konzolt ami egy már korábban létrehozott adatbázishoz kapcsolódik, és interaktívan végrehajthatunk az adatbázisban lekérdezéseket, és egyéb műveleket.
 A konzol a normál Linux konzolhoz hasonlóan működik.
 Beírhatjuk a kifejezéseket, amelyeket az Enter billentyű lenyomása után az interpreter értelmez, és végrehajt, az eredményt pedig kiírja a konzolra. A fel/le nyilakat is használhatjuk, hogy navigáljunk a korábban végrehajtott parancsok között.</description>
-    </item>
-    
-    <item>
-      <title>A node-ok és quad-ok belső reprezentációja</title>
-      <link>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/internals/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/internals/</guid>
-      <description>A node-ok és quad-ok belső reprezentációja #    1. ábra: Belső reprezentáció   </description>
     </item>
     
     <item>

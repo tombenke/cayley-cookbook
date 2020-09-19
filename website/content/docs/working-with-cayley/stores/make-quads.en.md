@@ -8,8 +8,10 @@ keywords: ["quad"]
 
 ## Problem
 
-How can I crate new quads?
+How can I create new quads in Go?
 
-## Create Quads
+## Solution
+
+Create Quads:
 
 {{% code file="/static/src/store/data.go" language="go" %}}

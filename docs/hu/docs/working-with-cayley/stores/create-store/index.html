@@ -5,11 +5,13 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Store létrehozása #  Probléma #  Hogyan tudok létrehozni egy store-t?
-In-memory store létrehozása #  package kbase import ( &#34;github.com/cayleygraph/cayley&#34; &#34;log&#34; ) // Create a mem-store for testing func InitStore() *cayley.Handle { store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } return store } ">
+Megoldás #  In-memory store létrehozása:
+package kbase import ( &#34;github.com/cayleygraph/cayley&#34; &#34;log&#34; ) // Create a mem-store for testing func InitStore() *cayley.Handle { store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } return store } ">
 <meta name="theme-color" content="#FFFFFF">
 <meta content="store" name="keywords"><meta property="og:title" content="Store létrehozása" />
 <meta property="og:description" content="Store létrehozása #  Probléma #  Hogyan tudok létrehozni egy store-t?
-In-memory store létrehozása #  package kbase import ( &#34;github.com/cayleygraph/cayley&#34; &#34;log&#34; ) // Create a mem-store for testing func InitStore() *cayley.Handle { store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } return store } " />
+Megoldás #  In-memory store létrehozása:
+package kbase import ( &#34;github.com/cayleygraph/cayley&#34; &#34;log&#34; ) // Create a mem-store for testing func InitStore() *cayley.Handle { store, err := cayley.NewMemoryGraph() if err != nil { log.Fatalln(err) } return store } " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/create-store/" />
 
@@ -19,7 +21,7 @@ In-memory store létrehozása #  package kbase import ( &#34;github.com/cayleygr
 <link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/create-store/" title="Create Store">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
-<script defer src="/cayley-cookbook/hu.search.min.8e462cc2e4c32e77512b2607dbab77721a3b048f72e45aa59522ac5e8e68d034.js" integrity="sha256-jkYswuTDLndRKyYH26t3cho7BI9y5FqllSKsXo5o0DQ="></script>
+<script defer src="/cayley-cookbook/hu.search.min.2f7b95a11e4ad6ce8ea2fe4a5ac80392b3867fe645cd055902c74a637199cdc2.js" integrity="sha256-L3uVoR5K1s6Oov5KWsgDkrOGf&#43;ZFzQVZAsdKY3GZzcI="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -360,9 +362,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-fb1c3038e7d7a71da0551a3080872531" class="toggle"  />
-    <label for="section-fb1c3038e7d7a71da0551a3080872531" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/graph_discovery/" class="">Ismeretlen gráf felderítése</a>
+    <input type="checkbox" id="section-3a34ddde015d7e2ca602a77a0ae0d821" class="toggle"  />
+    <label for="section-3a34ddde015d7e2ca602a77a0ae0d821" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/graph-discovery/" class="">Ismeretlen gráf felderítése</a>
       <span>▾</span>
     </label>
   
@@ -500,19 +502,6 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-quads/" class="">A store összes quad-jának kilistázása</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/internals/" class="">A node-ok és quad-ok belső reprezentációja</a>
   
 
         </li>
@@ -657,50 +646,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-e8aec92da5f23c882db6bdd4d2f66642" class="toggle"  />
-    <label for="section-e8aec92da5f23c882db6bdd4d2f66642" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/crud-operations/" class="">CRUD Műveletek</a>
-      <span>▾</span>
-    </label>
-  
-
-          
-  <ul>
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-0286dce401f1b4f8b31afbecd52d27b4" class="toggle"  />
-    <label for="section-0286dce401f1b4f8b31afbecd52d27b4" class="flex justify-between">
-      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/transactions/" class="">Tranzakciók</a>
-      <span>▾</span>
-    </label>
-  
-
-          
-  <ul>
-    
-  </ul>
-
-        </li>
-      
-    
   </ul>
 
         </li>
@@ -757,7 +702,7 @@ https://github.com/alex-shpak/hugo-book
   <nav id="TableOfContents">
   <ul>
     <li><a href="#probléma">Probléma</a></li>
-    <li><a href="#in-memory-store-létrehozása">In-memory store létrehozása</a></li>
+    <li><a href="#megoldás">Megoldás</a></li>
   </ul>
 </nav>
 
@@ -778,10 +723,11 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#probl%c3%a9ma">#</a>
 </h2>
 <p>Hogyan tudok létrehozni egy store-t?</p>
-<h2 id="in-memory-store-létrehozása">
-  In-memory store létrehozása
-  <a class="anchor" href="#in-memory-store-l%c3%a9trehoz%c3%a1sa">#</a>
+<h2 id="megoldás">
+  Megoldás
+  <a class="anchor" href="#megold%c3%a1s">#</a>
 </h2>
+<p>In-memory store létrehozása:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">kbase</span>
 
 <span style="color:#f92672">import</span> (
@@ -873,7 +819,7 @@ https://github.com/alex-shpak/hugo-book
   <nav id="TableOfContents">
   <ul>
     <li><a href="#probléma">Probléma</a></li>
-    <li><a href="#in-memory-store-létrehozása">In-memory store létrehozása</a></li>
+    <li><a href="#megoldás">Megoldás</a></li>
   </ul>
 </nav>
 

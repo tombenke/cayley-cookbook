@@ -22,9 +22,9 @@ The next table briefly summarizes the nuts-and-bolts of these formats:
 {{< hint info >}}
 __Note:__
 
-This table lists these format only for the sake of completeness. In the first approximation to this topic, it is not needed to dive into the details of these formats and the semantic technology stack. We focus on the practical aspects.
+This table lists these format only for the sake of completeness. In the first approximation to this topic, it is not needed to dive into the details of all these formats and the complete semantic technology stack. We focus on the practical aspects.
 
-In order to use {{< cayley >}} we only need to know `n-quads`, `n-triples` and the `Turtle` formats.
+In order to use {{< cayley >}} we only need to know `n-quads`, `n-triples` formats. The `Turtle` format is also very useful and we will use it in some of our examples.
 {{< /hint >}}
 
 | format | file extension | mime-type | when to use? |
@@ -47,7 +47,7 @@ These two formats are nearly identical. In fact, the `n-triples` are the stateme
 <Luke-Skywalker-from-StarWars> <has-age> 23 .
 ```
 
-The `n-quads` format differs only slightly from the `n-triples` format. The `n-quads` statements may contain a fourth element, that is a string that called (graph-) label. this label can identify the graph the statement belongs, to. this way it is possible to store more than one graphs in the database, that are not fully connected with each other, that makes the performance optimization easier in case of indexing and querying.
+The `n-quads` format differs only slightly from the `n-triples` format. The `n-quads` statements may contain a fourth element, that is a string that called (graph-) label. this label can identify the graph the statement belongs to. This way it is possible to store more than one graphs in the database, that are not fully connected with each other, that makes the performance optimization easier in case of indexing and querying.
 
 The following code fragment contains `n-quads` statements, that are extended with the `"a-new-hope"` label:
 
@@ -78,7 +78,7 @@ The next code fragment describes the Dantooine planet in `n-triples` format. Thi
 
 ## Turtle
 
-The Turtle is a very popular format. It looks very similar to the `n-quads` format, but it is much less verbose. Moreover we can define the prefixes and namespaces in the head part of the file, then we can use the prefixed version of IRIs in the main part of the file, which makes much more dense, and eye-friendly the knowledge description.
+The Turtle is a very popular format. It looks very similar to the `n-quads` format, but it is much less verbose. Moreover we can define the prefixes and namespaces in the head part of the file, then we can use the prefixed version of IRIs in the main part of the file, which makes the knowledge description much more dense, and eye-friendly.
 
 When we define the statements to a specific subject, we need to refer to the subject only once, then we only have to list the predicate/object pairs, that we close with a `;` character, then we need to close the whole statement-set with the final `.` character.
 

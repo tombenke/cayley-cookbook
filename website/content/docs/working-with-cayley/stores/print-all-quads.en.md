@@ -10,7 +10,9 @@ keywords: ["store", "quad"]
 
 How can I retrieve and print all quads from the store?
 
-## Retrieve and list all quads from the store:
+## Solution
+
+### Retrieve and list all quads from the store:
 {{% code file="/static/src/store/print_all_quads.go" language="go" %}}
 
 Results:

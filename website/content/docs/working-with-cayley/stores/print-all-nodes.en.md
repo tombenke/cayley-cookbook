@@ -10,10 +10,12 @@ keywords: ["store", "node"]
 
 How can I retrieve and print all nodes from the store?
 
-## Test Data
+## Solution
+
+### Create Test Data:
 {{% code file="/static/src/store/data.go" language="go" %}}
 
-## Retrieve and list all nodes from the store:
+### Retrieve and list all nodes from the store
 {{% code file="/static/src/store/print_all_nodes.go" language="go" %}}
 
 Results:
