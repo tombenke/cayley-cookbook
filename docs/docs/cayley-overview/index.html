@@ -20,7 +20,7 @@ snap install --edge --devmode cayley The Usage of Cayley #  The Cayley can be us
 <link rel="alternate" hreflang="hu" href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/" title="A Cayley rendszer áttekintése">
 
 <link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
-<script defer src="/cayley-cookbook/en.search.min.4c9b26d9f511865c7da0222e0236ba8544223a4d00cd2e9e122023955d0a20bd.js" integrity="sha256-TJsm2fURhlx9oCIuAja6hUQiOk0AzS6eEiAjlV0KIL0="></script>
+<script defer src="/cayley-cookbook/en.search.min.84206be046e33b2c1680f8952a14212fa44d7d2e3dba706ba6b38dfb2295348b.js" integrity="sha256-hCBr4EbjOywWgPiVKhQhL6RNfS49unBrprON&#43;yKVNIs="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -631,6 +631,23 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <input type="checkbox" id="section-dfc52161f5f0f2cf83ddce72ed9b9dbd" class="toggle"  />
+    <label for="section-dfc52161f5f0f2cf83ddce72ed9b9dbd" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/filter/" class="">Find nodes by pattern matching</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <input type="checkbox" id="section-94011c4e55e5dcfb025b2accbe0fb8fc" class="toggle"  />
     <label for="section-94011c4e55e5dcfb025b2accbe0fb8fc" class="flex justify-between">
       <a href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/bookmarks/" class="">Find bookmarks by tags</a>
@@ -704,8 +721,8 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#installation">Installation</a></li>
     <li><a href="#the-usage-of-cayley">The Usage of Cayley</a>
       <ul>
-        <li><a href="#using-cayley-as-a-go-library">Using cayley as a Go library</a></li>
-        <li><a href="#using-cayley-as-stand-alone-binary">Using cayley as stand-alone binary</a></li>
+        <li><a href="#using-cayley-as-an-embedded-database">Using cayley as an embedded database</a></li>
+        <li><a href="#using-cayley-as-stand-alone-server">Using cayley as stand-alone server</a></li>
         <li><a href="#in-memory-vs-persistent-stores">In-memory vs. persistent stores</a></li>
       </ul>
     </li>
@@ -745,20 +762,20 @@ It shortly summarizes how can we use the individual commands and elements.</p>
 <p>The <a href="https://cayley.io/" target="_blank">Cayley</a>
  can be used mainly in two ways:</p>
 <ul>
-<li>as a stand-alone binary,</li>
-<li>as a library, built-into another application, written in Go.</li>
+<li>as a stand-alone server,</li>
+<li>as an embedded database, built-into another application, written in Go.</li>
 </ul>
-<h3 id="using-cayley-as-a-go-library">
-  Using cayley as a Go library
-  <a class="anchor" href="#using-cayley-as-a-go-library">#</a>
+<h3 id="using-cayley-as-an-embedded-database">
+  Using cayley as an embedded database
+  <a class="anchor" href="#using-cayley-as-an-embedded-database">#</a>
 </h3>
 <p>The <a href="/cayley-cookbook/docs/working-with-cayley/">Working with Knowledge Graph</a> chapter brings several examples about how to use <a href="https://cayley.io/" target="_blank">Cayley</a>
- as a library.</p>
-<h3 id="using-cayley-as-stand-alone-binary">
-  Using cayley as stand-alone binary
-  <a class="anchor" href="#using-cayley-as-stand-alone-binary">#</a>
+ as an embedded database.</p>
+<h3 id="using-cayley-as-stand-alone-server">
+  Using cayley as stand-alone server
+  <a class="anchor" href="#using-cayley-as-stand-alone-server">#</a>
 </h3>
-<p>The binary application, provides several commands.</p>
+<p>The <code>cayley</code> binary application, provides several commands.</p>
 <p>You can list all the available commands, by requesting the help:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
     $ cayley -h
@@ -802,7 +819,7 @@ It shortly summarizes how can we use the individual commands and elements.</p>
  is a triple-store, which can load n-quads and/or n-triples into its database, and allows to run queries on the loaded data. There are several query languages supported. This cookbook is focusing only on the so called Gizmo language.</p>
 <p>The database can be either in-memory or persistent, and we mostly use the <em>store</em> terminology instead of the <em>database</em> term. Actually <a href="https://cayley.io/" target="_blank">Cayley</a>
  offers several backing databases to store the quads persistently. The default persistent database is the <a href="https://github.com/boltdb/bolt">Bolt key-value database</a>, but we can change this via configuration. We can choose from several types of key-value, NoSQL and SQL databases. Read the <a href="https://cayley.gitbook.io/cayley/configuration">documentation pages on configuration settings</a> for more details.</p>
-<p>The in-memory store can be immediately used by both the stand-alone application and by the built-in library. The in-memory store is the default one. The persistent store is different. It needs to be initialized before we can use it.</p>
+<p>The in-memory store can be immediately used by both the stand-alone server application and by the embedded database. The in-memory store is the default one. The persistent store is different. It needs to be initialized before we can use it.</p>
 <p>When we use the stand-alone <a href="https://cayley.io/" target="_blank">Cayley</a>
  binary, we can initialize a new database by either using the <code>--init</code> switch or explicitly initialize the database with the <code>cayley init</code> command, before we start using this with the other commands.</p>
 <p>If we want to use a persistent store we have to tell the <code>cayley</code> command which type of database we aim to use, that we can do either via the command line arguments or via a configuration file.</p>
@@ -939,8 +956,8 @@ It shortly summarizes how can we use the individual commands and elements.</p>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#the-usage-of-cayley">The Usage of Cayley</a>
       <ul>
-        <li><a href="#using-cayley-as-a-go-library">Using cayley as a Go library</a></li>
-        <li><a href="#using-cayley-as-stand-alone-binary">Using cayley as stand-alone binary</a></li>
+        <li><a href="#using-cayley-as-an-embedded-database">Using cayley as an embedded database</a></li>
+        <li><a href="#using-cayley-as-stand-alone-server">Using cayley as stand-alone server</a></li>
         <li><a href="#in-memory-vs-persistent-stores">In-memory vs. persistent stores</a></li>
       </ul>
     </li>

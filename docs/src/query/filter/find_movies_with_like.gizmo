@@ -1,0 +1,1 @@
+g.V().Has("<type>","</film/film>").Out("<name>").Filter(like("%Lord of the Rings%")).All()

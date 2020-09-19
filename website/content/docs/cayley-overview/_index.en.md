@@ -22,16 +22,16 @@ This cookbook has been written on a Linux machine. The simplest way to install {
 ## The Usage of Cayley
 
 The {{< cayley >}} can be used mainly in two ways:
-- as a stand-alone binary,
-- as a library, built-into another application, written in Go.
+- as a stand-alone server,
+- as an embedded database, built-into another application, written in Go.
 
-### Using cayley as a Go library
+### Using cayley as an embedded database
 
-The [Working with Knowledge Graph]({{< relref "/docs/working-with-cayley" >}}) chapter brings several examples about how to use {{< cayley >}} as a library.
+The [Working with Knowledge Graph]({{< relref "/docs/working-with-cayley" >}}) chapter brings several examples about how to use {{< cayley >}} as an embedded database.
 
-### Using cayley as stand-alone binary
+### Using cayley as stand-alone server
 
-The binary application, provides several commands.
+The `cayley` binary application, provides several commands.
 
 You can list all the available commands, by requesting the help:
 
@@ -77,7 +77,7 @@ The {{< cayley >}} is a triple-store, which can load n-quads and/or n-triples in
 
 The database can be either in-memory or persistent, and we mostly use the _store_ terminology instead of the _database_ term. Actually {{< cayley >}} offers several backing databases to store the quads persistently. The default persistent database is the [Bolt key-value database](https://github.com/boltdb/bolt), but we can change this via configuration. We can choose from several types of key-value, NoSQL and SQL databases. Read the [documentation pages on configuration settings](https://cayley.gitbook.io/cayley/configuration) for more details. 
 
-The in-memory store can be immediately used by both the stand-alone application and by the built-in library. The in-memory store is the default one. The persistent store is different. It needs to be initialized before we can use it.
+The in-memory store can be immediately used by both the stand-alone server application and by the embedded database. The in-memory store is the default one. The persistent store is different. It needs to be initialized before we can use it.
 
 When we use the stand-alone {{< cayley >}} binary, we can initialize a new database by either using the `--init` switch or explicitly initialize the database with the `cayley init` command, before we start using this with the other commands.
 

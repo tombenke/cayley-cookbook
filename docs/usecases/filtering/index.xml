@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>filtering on Cayley-CookBook</title>
+    <link>https://tombenke.github.io/cayley-cookbook/usecases/filtering/</link>
+    <description>Recent content in filtering on Cayley-CookBook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://tombenke.github.io/cayley-cookbook/usecases/filtering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Find nodes by pattern matching</title>
+      <link>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/filter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/filter/</guid>
+      <description>Find nodes by pattern matching #  Problem #  How can I find nodes by pattern matching? For example, how can I find all movies with title that has the &amp;quot;.*Lord of.*&amp;quot; pattern?
+Solution #  Gizmo Query with regex() #  g.V().Has(&amp;#34;&amp;lt;type&amp;gt;&amp;#34;,&amp;#34;&amp;lt;/film/film&amp;gt;&amp;#34;).Out(&amp;#34;&amp;lt;name&amp;gt;&amp;#34;).Filter(like(&amp;#34;%Lord of %&amp;#34;)).All() Results:
+{&amp;#34;id&amp;#34;:&amp;#34;Greystoke - The Legend of Tarzan, Lord of the Apes&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;Lord of Illusions&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;Lord of the Beans&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;Lord of the Flies&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;Lord of War&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;Phantasm III: Lord of the Dead&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;The Lord of the Rings&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;The Lord of the Rings: The Fellowship of the Ring&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;The Lord of the Rings: The Return of the King&amp;#34;} {&amp;#34;id&amp;#34;:&amp;#34;The Lord of the Rings: The Two Towers&amp;#34;} Gizmo Query with like() #  g.</description>
+    </item>
+    
+  </channel>
+</rss>

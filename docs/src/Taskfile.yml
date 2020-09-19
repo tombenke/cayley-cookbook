@@ -58,3 +58,5 @@ tasks:
       - cd query/bidirectional && go run main.go > main.out
       - cd query/find_all_predicates && ../../scripts/execGizmoQuery.sh ../../data/testdata.nq query.gizmo query.out
       - cd query/find_all_vertices && ../../scripts/execGizmoQuery.sh ../../data/testdata.nq query.gizmo query.out
+      - cd query/filter && ../../scripts/execGizmoQuery.sh ../../data/30kmoviedata.nq.gz find_movies_with_regex.gizmo find_movies_with_regex.out
+      - cd query/filter && ../../scripts/execGizmoQuery.sh ../../data/30kmoviedata.nq.gz find_movies_with_like.gizmo find_movies_with_like.out

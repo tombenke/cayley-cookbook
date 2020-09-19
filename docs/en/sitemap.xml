@@ -353,6 +353,20 @@
   </url>
   
   <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/filter/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/filter/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/queries/filter/"
+                />
+  </url>
+  
+  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/docs/working-with-cayley/stores/print-all-quads/</loc>
     <xhtml:link
                 rel="alternate"
@@ -535,6 +549,20 @@
   </url>
   
   <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/usecases/filtering/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/hu/usecases/filtering/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/usecases/filtering/"
+                />
+  </url>
+  
+  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/usecases/graph-discovery/</loc>
     <xhtml:link
                 rel="alternate"
@@ -577,6 +605,20 @@
   </url>
   
   <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/apifuncs/like/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/hu/apifuncs/like/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/apifuncs/like/"
+                />
+  </url>
+  
+  <url>
     <loc>https://tombenke.github.io/cayley-cookbook/apifuncs/path.all/</loc>
     <xhtml:link
                 rel="alternate"
@@ -587,6 +629,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://tombenke.github.io/cayley-cookbook/apifuncs/path.all/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/apifuncs/path.filter/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/hu/apifuncs/path.filter/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/apifuncs/path.filter/"
                 />
   </url>
   
@@ -657,6 +713,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://tombenke.github.io/cayley-cookbook/apifuncs/path.union/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tombenke.github.io/cayley-cookbook/apifuncs/regex/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="https://tombenke.github.io/cayley-cookbook/hu/apifuncs/regex/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tombenke.github.io/cayley-cookbook/apifuncs/regex/"
                 />
   </url>
   

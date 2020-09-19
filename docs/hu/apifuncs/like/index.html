@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="hu" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="theme-color" content="#FFFFFF">
+<meta content="" name="keywords"><meta property="og:title" content="like()" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://tombenke.github.io/cayley-cookbook/hu/apifuncs/like/" />
+
+<title>like() | Cayley-CookBook</title>
+<link rel="manifest" href="/cayley-cookbook/manifest.json">
+<link rel="icon" href="/cayley-cookbook/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="en" href="https://tombenke.github.io/cayley-cookbook/apifuncs/like/" title="like()">
+
+<link rel="stylesheet" href="/cayley-cookbook/book.min.30101658b7fd2af4165ac337cc856f95777f11e1a2290c5a499f2f71d62e619e.css" integrity="sha256-MBAWWLf9KvQWWsM3zIVvlXd/EeGiKQxaSZ8vcdYuYZ4=">
+<script defer src="/cayley-cookbook/hu.search.min.e6325b217cd73acb1c3483017219a8aa2c37f02e7e9a7569536d1aa197c34fc0.js" integrity="sha256-5jJbIXzXOsscNIMBchmoqiw38C5&#43;mnVpU20aoZfDT8A="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-177858708-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<link rel="alternate" type="application/rss+xml" href="https://tombenke.github.io/cayley-cookbook/hu/apifuncs/like/index.xml" title="Cayley-CookBook" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cayley-cookbook/hu"><span>Cayley-CookBook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Keresés" aria-label="Keresés" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/about/" class="">Bevezetés</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9f8a7e34bb16b852cd12e02884abbe2c" class="toggle"  />
+    <label for="section-9f8a7e34bb16b852cd12e02884abbe2c" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/" class="">Alapfogalmak</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8476439ec07e5890629d17c6650eaf78" class="toggle"  />
+    <label for="section-8476439ec07e5890629d17c6650eaf78" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/graph-based-data-model/" class="">Gráf alapú adatmodellezés</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-089b6654780ec7a8ce20922dacfa8068" class="toggle"  />
+    <label for="section-089b6654780ec7a8ce20922dacfa8068" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/resources/" class="">Erőforrások</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7dfb5eca6458abef2307adeefaaddfdb" class="toggle"  />
+    <label for="section-7dfb5eca6458abef2307adeefaaddfdb" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/statements/" class="">Állítások</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d50cc6ddbbf9a7138450d4114fe2fba6" class="toggle"  />
+    <label for="section-d50cc6ddbbf9a7138450d4114fe2fba6" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/vocabularies/" class="">Szótárak</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c232a69b7fae588b1fb718a7def4c723" class="toggle"  />
+    <label for="section-c232a69b7fae588b1fb718a7def4c723" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/basic-concepts/rdf-graphs/" class="">Tudás Gráf reprezentációk</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7e64f39b334418521e8f0af1fc8791bb" class="toggle"  />
+    <label for="section-7e64f39b334418521e8f0af1fc8791bb" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/" class="">A Cayley rendszer áttekintése</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-55182948002255292040e2457cbfb89b" class="toggle"  />
+    <label for="section-55182948002255292040e2457cbfb89b" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-convert/" class="">A `cayley convert` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2baee5b05d4e80f1462a11796d44b0ff" class="toggle"  />
+    <label for="section-2baee5b05d4e80f1462a11796d44b0ff" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-init/" class="">A `cayley init` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1977bdf61e68e287c42ffa90652a0b9b" class="toggle"  />
+    <label for="section-1977bdf61e68e287c42ffa90652a0b9b" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-load/" class="">The `cayley load` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6461e230cd10f803950ebf1ee282c6b3" class="toggle"  />
+    <label for="section-6461e230cd10f803950ebf1ee282c6b3" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-dump/" class="">The `cayley dump` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6fcbefd0c5ef68d0c04ac54cbea6b1f4" class="toggle"  />
+    <label for="section-6fcbefd0c5ef68d0c04ac54cbea6b1f4" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-repl/" class="">A `cayley repl` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-192c0abe0b3802c7c197cdf9243477c7" class="toggle"  />
+    <label for="section-192c0abe0b3802c7c197cdf9243477c7" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-query/" class="">A `cayley query` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e17818fe16bf33b6ca86d2d0af497abe" class="toggle"  />
+    <label for="section-e17818fe16bf33b6ca86d2d0af497abe" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/cayley-overview/cayley-http/" class="">A `cayley http` parancs</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-309cdc2b46d95b2509c611910b40f29c" class="toggle"  />
+    <label for="section-309cdc2b46d95b2509c611910b40f29c" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/" class="">A Tudás-Gráf használata</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3a34ddde015d7e2ca602a77a0ae0d821" class="toggle"  />
+    <label for="section-3a34ddde015d7e2ca602a77a0ae0d821" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/graph-discovery/" class="">Ismeretlen gráf felderítése</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-15751440abcb4a690e1874b8d5a57ea3" class="toggle"  />
+    <label for="section-15751440abcb4a690e1874b8d5a57ea3" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/" class="">Namespace-ek és szótárak</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/list-namespaces/" class="">Regisztrált Namespace-ek listázása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/register-namespace/" class="">Új namespace regisztrálása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/ns-voc/vocabularies/" class="">Új szótár létrehozása</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0055eb580f8cd4b7980836466a5c33fd" class="toggle"  />
+    <label for="section-0055eb580f8cd4b7980836466a5c33fd" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/" class="">Store-ok</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/create-store/" class="">Store létrehozása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/make-quads/" class="">Quads-ok létrehozása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-nodes/" class="">A store összes node-jának kilistázása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/stores/print-all-quads/" class="">A store összes quad-jának kilistázása</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-062fbdcb0d5237ca703532ede8716481" class="toggle"  />
+    <label for="section-062fbdcb0d5237ca703532ede8716481" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/" class="">Adat import / export</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-14fa452aebb42c44ef234af47bd9c4f4" class="toggle"  />
+    <label for="section-14fa452aebb42c44ef234af47bd9c4f4" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/quads/" class="">Quad-ok exportálása</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-968cea4be1a55104598910f578b25a1e" class="toggle"  />
+    <label for="section-968cea4be1a55104598910f578b25a1e" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/impex/schema/" class="">Adat import / export struct annotációval</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a8fb241cb8ed56da76d51fcaf41845cd" class="toggle"  />
+    <label for="section-a8fb241cb8ed56da76d51fcaf41845cd" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/" class="">Lekérdezések</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/find_all_vertices/" class="">Összes node kiírása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/find_all_predicates/" class="">Összes predikátum kiírása</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bidirectional/" class="">Kétirányú relációk</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5e69caa49919f0830e2e32e139c88285" class="toggle"  />
+    <label for="section-5e69caa49919f0830e2e32e139c88285" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/filter/" class="">Csomópontok keresése minta-illesztéssel</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4fcf7fededff39d60891373012a27f0e" class="toggle"  />
+    <label for="section-4fcf7fededff39d60891373012a27f0e" class="flex justify-between">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/docs/working-with-cayley/queries/bookmarks/" class="">Könyvjelzők keresése tag alapján</a>
+      <span>▾</span>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cayley-cookbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>like()</strong>
+
+  <label for="toc-control">
+    
+    <img src="/cayley-cookbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav>
+  <ul>
+  
+    
+    <li class="book-section-flat">
+      <strong>Apifuncs</strong>
+      <ul>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/graph.v/">graph.V()</a>
+          <span>4</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/graph.vertex/">graph.Vertex()</a>
+          <span>4</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/like/">like()</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/path.all/">path.All()</a>
+          <span>4</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/path.filter/">path.Filter()</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/path.in/">path.In()</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/path.inpredicates/">path.InPredicates()</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/path.out/">path.Out()</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/path.outpredicates/">path.OutPredicates()</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/path.union/">path.Union</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/regex/">regex()</a>
+          <span>1</span>
+        </li>
+      
+      </ul>
+    </li>
+    
+  
+    
+    <li class="book-section-flat">
+      <strong>Categories</strong>
+      <ul>
+      
+      </ul>
+    </li>
+    
+  
+    
+    <li class="book-section-flat">
+      <strong>Tags</strong>
+      <ul>
+      
+      </ul>
+    </li>
+    
+  
+    
+    <li class="book-section-flat">
+      <strong>Usecases</strong>
+      <ul>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/usecases/filtering/">filtering</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/usecases/graph-discovery/">graph-discovery</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/usecases/subgraph-matching/">subgraph-matching</a>
+          <span>1</span>
+        </li>
+      
+      </ul>
+    </li>
+    
+  
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  
+  <article class="markdown book-post">
+    <h2>
+      <a href="/cayley-cookbook/hu/docs/working-with-cayley/queries/filter/">Csomópontok keresése minta-illesztéssel</a>
+    </h2>
+    
+
+
+  
+  <div>
+    
+      <a href="/cayley-cookbook/hu/apifuncs/graph.v/">graph.V()</a>, 
+      <a href="/cayley-cookbook/hu/apifuncs/graph.vertex/">graph.Vertex()</a>, 
+      <a href="/cayley-cookbook/hu/apifuncs/path.filter/">path.Filter()</a>, 
+      <a href="/cayley-cookbook/hu/apifuncs/regex/">regex()</a>, 
+      <a href="/cayley-cookbook/hu/apifuncs/like/">like()</a>, 
+      <a href="/cayley-cookbook/hu/apifuncs/path.all/">path.All()</a>
+  </div>
+  
+
+  
+
+  
+
+  
+  <div>
+    
+      <a href="/cayley-cookbook/hu/usecases/filtering/">filtering</a>
+  </div>
+  
+
+
+    <p>Csomópontok keresése minta-illesztéssel #  Probléma #  Hogyan tudok keresni, vagy szűrni szövegminta-illesztéssel? Például, hogyan tudom megtalálni azokat a filmeket, amelyek címében megtalálható a &quot;.*Lord of.*&quot; szövegtöredék?
+Megoldás #  Gizmo Query regex()-el #  g.V().Has(&#34;&lt;type&gt;&#34;,&#34;&lt;/film/film&gt;&#34;).Out(&#34;&lt;name&gt;&#34;).Filter(like(&#34;%Lord of %&#34;)).All() Eredmények:
+{&#34;id&#34;:&#34;Greystoke - The Legend of Tarzan, Lord of the Apes&#34;} {&#34;id&#34;:&#34;Lord of Illusions&#34;} {&#34;id&#34;:&#34;Lord of the Beans&#34;} {&#34;id&#34;:&#34;Lord of the Flies&#34;} {&#34;id&#34;:&#34;Lord of War&#34;} {&#34;id&#34;:&#34;Phantasm III: Lord of the Dead&#34;} {&#34;id&#34;:&#34;The Lord of the Rings&#34;} {&#34;id&#34;:&#34;The Lord of the Rings: The Fellowship of the Ring&#34;} {&#34;id&#34;:&#34;The Lord of the Rings: The Return of the King&#34;} {&#34;id&#34;:&#34;The Lord of the Rings: The Two Towers&#34;} Gizmo Query with like()-kal #  g.
+        <a href="/cayley-cookbook/hu/docs/working-with-cayley/queries/filter/">...</a>
+      
+    </p>
+  </article>
+  
+
+  
+
+
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+  
+
+
+  
+
+  
+
+
+  
+
+
+<div class="book-languages" tabindex="0" aria-haspopup="true">
+  <ul>
+    <li class="flex align-center">
+      <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+      Magyar
+    </li> 
+  </ul>
+
+  <ul class="book-languages-list">
+    
+    <li class="">
+      <a href="https://tombenke.github.io/cayley-cookbook/apifuncs/like/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </li>
+    
+    <li class="active">
+      <a href="https://tombenke.github.io/cayley-cookbook/hu/" class="flex align-center">
+        <img src="/cayley-cookbook/svg/translate.svg" class="book-icon" alt="Languages" />
+        Magyar
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav>
+  <ul>
+  
+    
+    <li class="book-section-flat">
+      <strong>Apifuncs</strong>
+      <ul>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/graph.v/">graph.V()</a>
+          <span>4</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/graph.vertex/">graph.Vertex()</a>
+          <span>4</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/like/">like()</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/path.all/">path.All()</a>
+          <span>4</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/path.filter/">path.Filter()</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/path.in/">path.In()</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/path.inpredicates/">path.InPredicates()</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/path.out/">path.Out()</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/path.outpredicates/">path.OutPredicates()</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/path.union/">path.Union</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/apifuncs/regex/">regex()</a>
+          <span>1</span>
+        </li>
+      
+      </ul>
+    </li>
+    
+  
+    
+    <li class="book-section-flat">
+      <strong>Categories</strong>
+      <ul>
+      
+      </ul>
+    </li>
+    
+  
+    
+    <li class="book-section-flat">
+      <strong>Tags</strong>
+      <ul>
+      
+      </ul>
+    </li>
+    
+  
+    
+    <li class="book-section-flat">
+      <strong>Usecases</strong>
+      <ul>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/usecases/filtering/">filtering</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/usecases/graph-discovery/">graph-discovery</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/cayley-cookbook/hu/usecases/subgraph-matching/">subgraph-matching</a>
+          <span>1</span>
+        </li>
+      
+      </ul>
+    </li>
+    
+  
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
